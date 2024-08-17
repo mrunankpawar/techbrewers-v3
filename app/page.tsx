@@ -1,6 +1,10 @@
 
 import Hero from "@/components/Hero";
 import Numbers from "@/components/Numbers";
+import Sponsors from "@/components/Sponsors";
+import Team from "@/components/Team";
+import TestimonialCards from "@/components/TestimonialCards";
+import { InfiniteMovingCards } from "@/components/ui/InfiniteMovingCards";
 import Image from "next/image";
 
 export default function Home() {
@@ -9,6 +13,9 @@ export default function Home() {
       <div className="max-w-8xl w-full">
         <Hero />
         <Numbers />
+        <TestimonialCards />
+        <Team />
+        <Sponsors />
       </div>
     </main>
   );

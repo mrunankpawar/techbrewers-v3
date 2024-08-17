@@ -5,7 +5,7 @@ import { BsGlobe } from "react-icons/bs";
 
 function GlareCardStats() {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center items-center">
     <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-24 gap-10 mt-20 w-full max-w-screen-lg">
       <GlareCard className="flex flex-col items-center justify-center py-8 px-6">
       <BsFillPeopleFill className="text-5xl pb"/>
