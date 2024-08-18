@@ -87,10 +87,10 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="w-[350px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-black-100 px-8 py-6 md:w-[450px]"
+            className="w-[350px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-violet-100 px-8 py-6 md:w-[450px]"
             style={{
               background:
-                "linear-gradient(180deg, #D9D9D9, #8D8DDA)",
+                "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
                 // "linear-gradient(180deg, #f5f3ff, #a78bfa)",
             }}
             key={item.name}
@@ -100,15 +100,15 @@ export const InfiniteMovingCards = ({
                 aria-hidden="true"
                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
               ></div>
-              <span className=" relative z-20 text-md leading-[1.6] text-black-100 font-normal">
+              <span className=" relative z-20 text-md leading-[1.6] text-violet-100 font-normal">
                 {item.quote}
               </span>
               <div className="relative z-20 mt-6 flex flex-row items-center">
                 <span className="flex flex-col">
-                  <span className=" text-md leading-[1.6] text-black-100 font-bold">
+                  <span className=" text-md leading-[1.6] text-violet-200 font-bold">
                     {item.name}
                   </span>
-                  <span className=" text-sm leading-[1.6] text-black-100 font-semibold">
+                  <span className=" text-sm leading-[1.6] text-violet-200 font-semibold">
                     {item.title}
                   </span>
                 </span>

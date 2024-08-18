@@ -6,6 +6,7 @@ import Image from "next/image";
 function Hero() {
   return (
     // md:h-[40rem]
+    <div>
     <div className="hero h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-10 md:py-0">
       <div className="hero--content max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center text-center">
         <h2 className="mt-20 md:mb-3 uppercase tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
@@ -34,12 +35,13 @@ function Hero() {
           src="/images/bg.png"
           alt="Background Image"
           className="bg-img"
-          //   width={700}
-          //   height={700}
+            // width={2800}
+            // height={700}
           fill={true}
         />
       </div>
     </div>
+        </div>
   );
 }
 
