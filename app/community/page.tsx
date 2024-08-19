@@ -1,9 +1,11 @@
-
+import Community from "@/components/Community";
 
 function page() {
   return (
-    <div>community page</div>
+    <div>
+      <Community />
+    </div>
   )
 }
 
-export default page
+export default page 

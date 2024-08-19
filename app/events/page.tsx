@@ -1,8 +1,13 @@
+import Events from "@/components/Events";
+import ExpandableCards from "@/components/ExpandableCards";
 
 function page() {
   return (
-    <div>events page</div>
+    <div>
+      <Events />
+      <ExpandableCards />
+    </div>
   )
 }
 
-export default page
+export default page 
