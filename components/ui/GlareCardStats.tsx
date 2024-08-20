@@ -14,7 +14,7 @@ function GlareCardStats() {
       </GlareCard>
       <GlareCard className="flex flex-col items-center justify-center py-8 px-6">
       <BsGlobe className="text-5xl pb"/>
-        <p className="font-bold text-violet-300 text-5xl pt-5">8+</p>
+        <p className="font-bold text-violet-300 text-5xl pt-5">10+</p>
         <p className="font-normal text-xl text-violet-100 mt-4">Countries</p>
       </GlareCard>
       <GlareCard className="flex flex-col items-center justify-center py-8 px-6">

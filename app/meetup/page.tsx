@@ -1,8 +1,13 @@
+import Meetup from "@/components/Meetup";
+import ExpandableCards from "@/components/ExpandableCards";
+import CardCarousel from "@/components/Cards";
 
 function page() {
   return (
-    <div>meetup page</div>
+    <div>
+      <Meetup />
+    </div>
   )
 }
 
-export default page
+export default page 

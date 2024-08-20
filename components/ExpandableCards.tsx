@@ -68,7 +68,7 @@ function ExpandableCards() {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="w-full max-w-[500px] border border-white/[0.3] h-full md:h-fit md:max-h-[90%]  flex flex-col bg-white dark:bg-black-100 sm:rounded-3xl overflow-hidden"
             >
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
@@ -102,7 +102,7 @@ function ExpandableCards() {
                     layoutId={`button-${active.title}-${id}`}
                     href={active.ctaLink}
                     target="_blank"
-                    className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
+                    className="px-4 py-3 text-sm rounded-full font-bold border border-violet-300 hover:bg-black-100 text-white"
                   >
                     {active.ctaText}
                   </motion.a>
@@ -131,7 +131,7 @@ function ExpandableCards() {
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
             onClick={() => setActive(card)}
-            className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+            className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-violet-950 rounded-xl cursor-pointer"
           >
             <div className="flex gap-4 flex-col md:flex-row ">
               <motion.div layoutId={`image-${card.title}-${id}`}>
@@ -160,7 +160,7 @@ function ExpandableCards() {
             </div>
             <motion.button
               layoutId={`button-${card.title}-${id}`}
-              className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-4 md:mt-0"
+              className="px-4 py-2 text-sm rounded-full font-bold border border-violet-300 hover:bg-black-100 hover:text-white text-white mt-4 md:mt-0"
             >
               {card.ctaText}
             </motion.button>
@@ -220,21 +220,21 @@ const cards = [
   {
     description: "Vik Agarwal (Product Leader at Meta)",
     title: "Navigating a Career in Product Management",
-    src: "/images/events/pm.jpeg",
+    src: "/images/events/rect13418.png",
     ctaText: "Watch now",
     ctaLink: "https://www.youtube.com/live/1J9Y3ERrP9A?si=yYikT6qdTVaCIkZz",
     content: () => {
       return (
         <p>
           Entering the world of Product Management can feel like exploring new
-          territory, especially when you're bombarded with so many questions.
-          Maybe you're not sure about the differences between Product and
-          Program Management, or you're wondering how to get ready for a PM job,
+          territory, especially when you`&apos;`re bombarded with so many questions.
+          Maybe you`&apos;`re not sure about the differences between Product and
+          Program Management, or you`&apos;`re wondering how to get ready for a PM job,
           or any other doubts regarding Product Management in general. 💻
           <br></br>
           <br></br>
-          It can all be overwhelming, but don't worry! Think of this session as
-          your guide through the world of Product Management. We'll break things
+          It can all be overwhelming, but don`&apos;`t worry! Think of this session as
+          your guide through the world of Product Management. We`&apos;`ll break things
           down for you in simple terms, helping you understand the ins and outs
           of Product Management. 🎉
         </p>
