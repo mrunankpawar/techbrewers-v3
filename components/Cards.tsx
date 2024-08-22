@@ -44,56 +44,87 @@ const data = [
   {
     category: "",
     title: "TechBrewers Connect",
-    src: "/images/meetup/connect/IMG_9295.png",
+    src: "/images/meetup/connect/coffee.png",
     content: (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
             <Image
-              src="/images/meetup/connect/IMG_9304.png"
+              src="/images/meetup/connect/coffee.png"
               alt="Macbook mockup from Aceternity UI"
               height="500"
               width="500"
               className="rounded-lg w-full h-auto object-contain"
             />
             <Image
-              src="/images/meetup/connect/IMG_9304.png"
+              src="/images/meetup/connect/stickers.jpg"
               alt="Macbook mockup from Aceternity UI"
               height="500"
               width="500"
               className="rounded-lg w-full h-auto object-contain"
             />
             <Image
-              src="/images/meetup/connect/IMG_9304.png"
+              src="/images/meetup/connect/group2.png"
               alt="Macbook mockup from Aceternity UI"
               height="500"
               width="500"
               className="rounded-lg w-full h-auto object-contain"
             />
+            
          </div> 
     ),
   },
   {
     category: "",
     title: "TechBrewers Community Meetup 1.0",
-    src: "/images/meetup/connect/IMG_9295.png",
+    src: "/images/meetup/meetup1/cover.jpg",
     content: (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Image
-              src="/images/meetup/connect/IMG_9304.png"
+              src="/images/meetup/meetup1/activity.jpg"
               alt="Macbook mockup from Aceternity UI"
               height="500"
               width="500"
               className="rounded-lg w-full h-auto object-contain"
             />
             <Image
-              src="/images/meetup/connect/IMG_9304.png"
+              src="/images/meetup/meetup1/almas.jpg"
               alt="Macbook mockup from Aceternity UI"
               height="500"
               width="500"
               className="rounded-lg w-full h-auto object-contain"
             />
             <Image
-              src="/images/meetup/connect/IMG_9304.png"
+              src="/images/meetup/meetup1/mrunank.jpg"
               alt="Macbook mockup from Aceternity UI"
+              height="500"
+              width="500"
+              className="rounded-lg w-full h-auto object-contain"
+            />
+            <Image
+              src="/images/meetup/meetup1/rohan.jpg"
+              alt="Macbook mockup from Aceternity UI"
+              height="500"
+              width="500"
+              className="rounded-lg w-full h-auto object-contain"
+            />
+            
+            <Image
+              src="/images/meetup/meetup1/tj.jpg"
+              alt="Macbook mockup from Aceternity UI"
+              height="500"
+              width="500"
+              className="rounded-lg w-full h-auto object-contain"
+            />
+            <Image
+              src="/images/meetup/meetup1/cake.jpg"
+              alt="Macbook mockup from Aceternity UI"
+              height="500"
+              width="500"
+              className="rounded-lg w-full h-auto object-contain"
+            />
+            <Image
+              src="/images/meetup/meetup1/group1.jpg"
+              alt="Group"
               height="500"
               width="500"
               className="rounded-lg w-full h-auto object-contain"
