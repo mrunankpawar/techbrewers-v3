@@ -1,0 +1,137 @@
+{
+    description: "Aditya Shende",
+    title: "Getting Started in Cyber Stream Security",
+    src: "/images/events/cybersec2.png",
+    ctaText: "Watch now",
+    ctaLink: "",
+    content: () => {
+      return <p></p>;
+    },
+  },
+  {
+    description: "Vik Agarwal (Product Leader at Meta)",
+    title: "Navigating a Career in Product Management",
+    src: "/images/events/rect13418.png",
+    ctaText: "Watch now",
+    ctaLink: "https://www.youtube.com/live/1J9Y3ERrP9A?si=yYikT6qdTVaCIkZz",
+    content: () => {
+      return (
+        <p>
+          Entering the world of Product Management can feel like exploring new
+          territory, especially when you`&apos;`re bombarded with so many questions.
+          Maybe you`&apos;`re not sure about the differences between Product and
+          Program Management, or you`&apos;`re wondering how to get ready for a PM job,
+          or any other doubts regarding Product Management in general. 💻
+          <br></br>
+          <br></br>
+          It can all be overwhelming, but don`&apos;`t worry! Think of this session as
+          your guide through the world of Product Management. We`&apos;`ll break things
+          down for you in simple terms, helping you understand the ins and outs
+          of Product Management. 🎉
+        </p>
+      );
+    },
+  },
+
+  {
+    description: "Santosh Yadav (GDE Angular)",
+    title: "Getting Started with Angular",
+    src: "/images/events/angular.jpeg",
+    ctaText: "Watch now",
+    ctaLink: "https://www.youtube.com/live/QL6Zbnf_mi4?si=CdnSVv9pSspQRrW0",
+    content: () => {
+      return <p></p>;
+    },
+  },
+
+  {
+    description: "Sankalp Paranjpe",
+    title: "Building Efficient CI/ CD Pipelines on AWS",
+    src: "",
+    ctaText: "Watch now",
+    ctaLink: "https://www.youtube.com/live/yW87L0FzqXk?si=SBbm7qyUDzIjK4a6",
+    content: () => {
+      return <p></p>;
+    },
+  },
+
+  {
+    description: "Jatin Pandya, Chhavi Garg and Mrunank Pawar",
+    title: "Hackathon Chats: Exploring Ideas",
+    src: "",
+    ctaText: "Watch now",
+    ctaLink: "https://www.youtube.com/live/LazVwF18uZU?si=bQBbjwapdYVkcNlM",
+    content: () => {
+      return <p></p>;
+    },
+  },
+  {
+    description: "Praveen Kumar Purushothaman",
+    title: "TechBrewers x Hacktoberfest'23",
+    src: "/images/events/hacktoberfest.png",
+    ctaText: "Watch now",
+    ctaLink: "https://www.youtube.com/live/ortVf_XxsoM?si=M9dFL5B5-muGZngx",
+    content: () => {
+      return <p></p>;
+    },
+  },
+  {
+    description: "Jatin Pandya (Organiser of Hack The League)",
+    title: "Elevate YOU: Personal Branding Workshop",
+    src: "",
+    ctaText: "Watch now",
+    ctaLink: "https://www.youtube.com/live/-r7uUwmCZzk?si=86NT48UOKGZ0ovku",
+    content: () => {
+      return <p></p>;
+    },
+  },
+  {
+    description: "Divyansh Singh",
+    title: "Getting started with Android Development",
+    src: "/images/events/appdev.png",
+    ctaText: "Watch now",
+    ctaLink: "https://www.youtube.com/live/b6U4T6hIlJc?si=KCMnumuNGRP8zcAv",
+    content: () => {
+      return <p></p>;
+    },
+  },
+  {
+    description: "Sowmiya V",
+    title: "Introduction to UI/ UX Design",
+    src: "",
+    ctaText: "Watch now",
+    ctaLink: "https://www.youtube.com/live/hqvOYh6h0v8?si=4lDhbuHzzp9hUlYY",
+    content: () => {
+      return <p></p>;
+    },
+  },
+  {
+    description: "Vaibhav Kadam",
+    title: "Build Custom Search Engine",
+    src: "",
+    ctaText: "Watch now",
+    ctaLink: "https://www.youtube.com/live/DiBaMg3H_CM?si=qnCQffjrQyNuSEir",
+    content: () => {
+      return <p></p>;
+    },
+  },
+  {
+    description: "Mrunank Pawar",
+    title: "Getting Started with Git and GitHub",
+    src: "",
+    ctaText: "Watch now",
+    ctaLink: "https://www.youtube.com/live/t9X_PDOJyCI?si=NC2HWRAiQH_K6tHR",
+    content: () => {
+      return <p></p>;
+    },
+  },
+  {
+    description: "Vaibhav Kadam",
+    title: "Introduction and Fundamentals of Cyber Security",
+    src: "",
+    ctaText: "Watch now",
+    ctaLink: "https://youtu.be/3YVLJs0g7mU?si=uRSTUicQtsv-GXZP",
+    content: () => {
+      return <p></p>;
+    },
+  },

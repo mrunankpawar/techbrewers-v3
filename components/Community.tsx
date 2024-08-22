@@ -5,7 +5,7 @@ import SparklesCore from "./ui/Sparkles";
 // import { calsans } from "@/fonts/calsans";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
-import TracingBeam  from "./ui/TracingBeam";
+import TracingBeam from "./ui/TracingBeam";
 
 const dummyContent = [
   {
@@ -13,15 +13,14 @@ const dummyContent = [
     description: (
       <>
         <p>
-          Sit duis est minim proident non nisi velit non consectetur. Esse
-          adipisicing laboris consectetur enim ipsum reprehenderit eu deserunt
-          Lorem ut aliqua anim do. Duis cupidatat qui irure cupidatat incididunt
-          incididunt enim magna id est qui sunt fugiat. Laboris do duis pariatur
-          fugiat Lorem aute sit ullamco. Qui deserunt non reprehenderit dolore
-          nisi velit exercitation Lorem qui do enim culpa. Aliqua eiusmod in
-          occaecat reprehenderit laborum nostrud fugiat voluptate do Lorem culpa
-          officia sint labore. Tempor consectetur excepteur ut fugiat veniam
-          commodo et labore dolore commodo pariatur.
+          It all started with a deep passion for spreading awareness about
+          hackathons and communities, these experiences had profoundly impacted
+          the founding team. Driven by this enthusiasm, they began sharing their
+          knowledge and insights within a few WhatsApp groups, where like-minded
+          students gathered. What started as simple message exchange quickly
+          gained momentum, and the potential for something bigger became clear.
+          This idea emerged and this evolved into a thriving community, united
+          by the shared goals of Learn, Connect and Build.
         </p>
       </>
     ),
@@ -34,18 +33,7 @@ const dummyContent = [
     description: (
       <>
         <p>
-          Ex irure dolore veniam ex velit non aute nisi labore ipsum occaecat
-          deserunt cupidatat aute. Enim cillum dolor et nulla sunt exercitation
-          non voluptate qui aliquip esse tempor. Ullamco ut sunt consectetur
-          sint qui qui do do qui do. Labore laborum culpa magna reprehenderit ea
-          velit id esse adipisicing deserunt amet dolore. Ipsum occaecat veniam
-          commodo proident aliqua id ad deserunt dolor aliquip duis veniam sunt.
-        </p>
-        <p>
-          In dolore veniam excepteur eu est et sunt velit. Ipsum sint esse
-          veniam fugiat esse qui sint ad sunt reprehenderit do qui proident
-          reprehenderit. Laborum exercitation aliqua reprehenderit ea sint
-          cillum ut mollit.
+        Inspiration struck, and with it, a realization: this group had the potential to evolve into a thriving community where students from around the world could learn, collaborate, and build together. The dream of TechBrewers was born—a space not just for conversation, but for creation, innovation, and growth. We started running experiments, organizing small meetups, hosting virtual events, and testing the waters of what this community could become. Each step forward brought us closer to realizing our vision.
         </p>
       </>
     ),
@@ -58,12 +46,7 @@ const dummyContent = [
     description: (
       <>
         <p>
-          Ex irure dolore veniam ex velit non aute nisi labore ipsum occaecat
-          deserunt cupidatat aute. Enim cillum dolor et nulla sunt exercitation
-          non voluptate qui aliquip esse tempor. Ullamco ut sunt consectetur
-          sint qui qui do do qui do. Labore laborum culpa magna reprehenderit ea
-          velit id esse adipisicing deserunt amet dolore. Ipsum occaecat veniam
-          commodo proident aliqua id ad deserunt dolor aliquip duis veniam sunt.
+        Fueled by our vision, the founding team dove in with full-fledged motivation. We reached out to other communities and partnered with hackathons, striving to amplify our impact and spread the word. Our goal was simple: to serve the students, spread awareness about the opportunities available to them, and create a space where they could thrive. We knew we were onto something special when we crossed the milestone of 1,000 members—a sign that we were on the right path.
         </p>
       </>
     ),
@@ -76,7 +59,7 @@ const dummyContent = [
     description: (
       <>
         <p>
-          
+        As our community continued to grow, so did our determination. When we hit 1,000 members, it was a moment of reflection and pride—proof that we had come a long way from those early days on WhatsApp. This achievement only fueled our desire to do more, to give back to the community that had given us so much. Today, with over 2,000 members strong, TechBrewers stands as a testament to what can be accomplished when passion meets purpose. We've built something incredible together, and the journey is just beginning.
         </p>
       </>
     ),
@@ -90,7 +73,7 @@ function Community() {
   return (
     <div className="mt-0 md:mt-10 h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-5 md:py-10">
       <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center text-center">
-      <h3 className="text-xl mb-3 md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
+        <h3 className="text-xl mb-3 md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
           Unveiling the TechBrewers Journey
         </h3>
         <div className="w-[40rem] h-40 relative">
@@ -113,34 +96,34 @@ function Community() {
           {/* Radial Gradient to prevent sharp edges */}
           <div className="absolute inset-0 w-full h-full bg-black-100 [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
         </div>
-      <TracingBeam className="px-6">
-      <div className="max-w-2xl mx-auto antialiased pt-4 relative">
-        {dummyContent.map((item, index) => (
-          <div key={`content-${index}`} className="mb-10">
-            <h2 className="bg-black-100 border border-vi text-violet-300 rounded-full text-sm font-semibold w-fit px-4 py-1 mb-4">
-              {item.badge}
-            </h2>
- 
-            <p className={twMerge("text-xl text-left mb-4")}>
-              {item.title}
-            </p>
- 
-            <div className="text-sm prose text-left prose-sm dark:prose-invert">
-              {item?.image && (
-                <Image
-                  src={item.image}
-                  alt="blog thumbnail"
-                  height="350"
-                  width="350"
-                  className="rounded-lg mb-10 object-cover"
-                />
-              )}
-              {item.description}
-            </div>
+        <TracingBeam className="px-6">
+          <div className="max-w-2xl mx-auto antialiased pt-4 relative">
+            {dummyContent.map((item, index) => (
+              <div key={`content-${index}`} className="mb-10">
+                <h2 className="bg-black-100 border border-vi text-violet-300 rounded-full text-sm font-semibold w-fit px-4 py-1 mb-4">
+                  {item.badge}
+                </h2>
+
+                <p className={twMerge("text-xl text-left mb-4")}>
+                  {item.title}
+                </p>
+
+                <div className="text-sm prose text-left prose-sm dark:prose-invert">
+                  {item?.image && (
+                    <Image
+                      src={item.image}
+                      alt="blog thumbnail"
+                      height="350"
+                      width="350"
+                      className="rounded-lg mb-10 object-cover"
+                    />
+                  )}
+                  {item.description}
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </TracingBeam>
+        </TracingBeam>
 
         <h3 className="text-xl mb-3 md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
           All you need, All in one place
@@ -168,7 +151,7 @@ function Community() {
         {/* <h1 className="mt-5 md:mt-0 text-4xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
           Club TechBrewers
         </h1> */}
-        
+
         <div className="container mx-auto px-4 mt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {/* Web dev */}

@@ -11,8 +11,7 @@ function Numbers() {
           Some numbers that matter
         </h3>
         <p className="mt-4 font-normal text-base md:text-lg text-violet-200 max-w-xl mx-auto z-10">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam,
-          sequi. Adipisci consequatur aut optio quas, rerum ipsam
+        Connecting a global community of tech enthusiasts, we’re a diverse group driven by shared passion and collaboration.
         </p>
         <GlareCardStats />
         <NumberGlobe />
