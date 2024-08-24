@@ -6,66 +6,150 @@ import SparklesCore from "./ui/Sparkles";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import TracingBeam from "./ui/TracingBeam";
+import { Timeline } from "./ui/Timeline";
 
-const dummyContent = [
+const data = [
   {
-    title: "The Beginning",
-    description: (
-      <>
-        <p>
-          It all started with a deep passion for spreading awareness about
-          hackathons and communities, these experiences had profoundly impacted
-          the founding team. Driven by this enthusiasm, they began sharing their
-          knowledge and insights within a few WhatsApp groups, where like-minded
-          students gathered. What started as simple message exchange quickly
-          gained momentum, and the potential for something bigger became clear.
-          This idea emerged and this evolved into a thriving community, united
-          by the shared goals of Learn, Connect and Build.
+    title: "Late 2021",
+    content: (
+      <div>
+        <p className="text-neutral-800 dark:text-neutral-200 text-md text-left md:text-lg font-bold mb-4">
+          Start of Club TechBrewers
         </p>
-      </>
+        <div className="mb-8">
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            🌱 Birth of Club TechBrewers
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            1️⃣ First Virtual Event
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            👥 First Few Friends
+          </div>
+        </div>
+      </div>
     ),
-    badge: "2021",
-    image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=3540&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    title: "Overcoming the Challenges",
-    description: (
-      <>
-        <p>
-        Inspiration struck, and with it, a realization: this group had the potential to evolve into a thriving community where students from around the world could learn, collaborate, and build together. The dream of TechBrewers was born—a space not just for conversation, but for creation, innovation, and growth. We started running experiments, organizing small meetups, hosting virtual events, and testing the waters of what this community could become. Each step forward brought us closer to realizing our vision.
+    title: "Early 2022",
+    content: (
+      <div>
+        <p className="text-neutral-800 dark:text-neutral-200 text-md text-left md:text-lg font-bold mb-4">
+          Initial Growth
         </p>
-      </>
+        <div className="mb-8">
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            💯 First 100 Members
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            💻 Website Launch
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            💡 Logo Design Competition
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            🚀 New Logo Announcement
+          </div>
+        </div>
+      </div>
     ),
-    badge: "2022",
-    image:
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=3540&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    title: "Growing Together",
-    description: (
-      <>
-        <p>
-        Fueled by our vision, the founding team dove in with full-fledged motivation. We reached out to other communities and partnered with hackathons, striving to amplify our impact and spread the word. Our goal was simple: to serve the students, spread awareness about the opportunities available to them, and create a space where they could thrive. We knew we were onto something special when we crossed the milestone of 1,000 members—a sign that we were on the right path.
+    title: "Late 2022",
+    content: (
+      <div>
+        <p className="text-neutral-800 dark:text-neutral-200 text-md text-left md:text-lg font-bold mb-4">
+          New Initiatives
         </p>
-      </>
+        <div className="mb-8">
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            📱 Social Media Strategies
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            🎁 Giveaway
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            👥 New Team Members
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            🎉 TechBrewers Community Meetup 1.0
+          </div>
+        </div>
+      </div>
     ),
-    badge: "2023",
-    image:
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=3506&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    title: "Building and Growing",
-    description: (
-      <>
-        <p>
-        As our community continued to grow, so did our determination. When we hit 1,000 members, it was a moment of reflection and pride—proof that we had come a long way from those early days on WhatsApp. This achievement only fueled our desire to do more, to give back to the community that had given us so much. Today, with over 2,000 members strong, TechBrewers stands as a testament to what can be accomplished when passion meets purpose. We've built something incredible together, and the journey is just beginning.
+    title: "Early 2023",
+    content: (
+      <div>
+        <p className="text-neutral-800 dark:text-neutral-200 text-md text-left md:text-lg font-bold mb-4">
+          Collaborations and Partnerships
         </p>
-      </>
+        <div className="mb-8">
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            🤝 Collaborated with hackathons
+          </div>
+
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            📈 Crossed 1000+ Members
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            🎉 TechBrewers CelCon
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            💻 Website Theme Change
+          </div>
+        </div>
+      </div>
     ),
-    badge: "2024",
-    image:
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=3506&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "Late 2023",
+    content: (
+      <div>
+        <p className="text-neutral-800 dark:text-neutral-200 text-md text-left md:text-lg font-bold mb-4">
+          Events and Meetup
+        </p>
+        <div className="mb-8">
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            💻 Hacktoberfest event
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            🎉 TechBrewers Community Meetup 2.0
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            🎨 Website Theme Change
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            🤝 Community Partner with GDG Silicon Valley
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "Early 2024",
+    content: (
+      <div>
+        <p className="text-neutral-800 dark:text-neutral-200 text-md text-left font-bold md:text-lg mb-4">
+          Partnerships and Initiatives
+        </p>
+        <div className="mb-8">
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            🤝 Partnered with Developer Week SF
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            📰 Announcing monthly newsletter
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            🎉 TechBrewers GenAI Meetup
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            👾 Launch community on Discord
+          </div>
+        </div>
+      </div>
+    ),
   },
 ];
 
@@ -76,54 +160,10 @@ function Community() {
         <h3 className="text-xl mb-3 md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
           Unveiling the TechBrewers Journey
         </h3>
-        <div className="w-[40rem] h-40 relative">
-          {/* Gradients */}
-          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
-          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
-          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
 
-          {/* Core component */}
-          <SparklesCore
-            background="transparent"
-            minSize={0.4}
-            maxSize={1}
-            particleDensity={1200}
-            className="w-full h-full"
-            particleColor="#FFFFFF"
-          />
-
-          {/* Radial Gradient to prevent sharp edges */}
-          <div className="absolute inset-0 w-full h-full bg-black-100 [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+        <div className="w-full">
+          <Timeline data={data} />
         </div>
-        <TracingBeam className="px-6">
-          <div className="max-w-2xl mx-auto antialiased pt-4 relative">
-            {dummyContent.map((item, index) => (
-              <div key={`content-${index}`} className="mb-10">
-                <h2 className="bg-black-100 border border-vi text-violet-300 rounded-full text-sm font-semibold w-fit px-4 py-1 mb-4">
-                  {item.badge}
-                </h2>
-
-                <p className={twMerge("text-xl text-left mb-4")}>
-                  {item.title}
-                </p>
-
-                <div className="text-sm prose text-left prose-sm dark:prose-invert">
-                  {item?.image && (
-                    <Image
-                      src={item.image}
-                      alt="blog thumbnail"
-                      height="350"
-                      width="350"
-                      className="rounded-lg mb-10 object-cover"
-                    />
-                  )}
-                  {item.description}
-                </div>
-              </div>
-            ))}
-          </div>
-        </TracingBeam>
 
         <h3 className="text-xl mb-3 md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
           All you need, All in one place

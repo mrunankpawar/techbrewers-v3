@@ -16,6 +16,12 @@ function Hero() {
 
       {/* Hero Content */}
       <div className="relative flex flex-col items-center justify-center mx-auto h-full w-full max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] text-center">
+        <Image 
+        src="/images/techbrewers.png"
+        alt="TechBrewers logo"
+        width={150}
+        height={150}
+        className="pb-5"/>
         <h2 className="mb-3 text-md text-blue-100 uppercase tracking-widest z-10">
           <FlipWords words={words} />
            with

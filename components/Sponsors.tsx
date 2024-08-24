@@ -1,78 +1,102 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const sponsors = [
   {
-    name: 'Sponsor 1',
+    name: 'Azure Developer Community',
     logo: '/images/sponsors/adc.jpg',
+    url: 'https://azdev.reskilll.com/',
   },
   {
-    name: 'Sponsor 2',
-    logo: '/images/sponsors/aeka.png',
-  },
-  {
-    name: 'Sponsor 3',
-    logo: '/images/sponsors/bsidespune.png',
-  },
-  {
-    name: 'Sponsor 3',
-    logo: '/images/sponsors/daftar.png',
-  },
-  {
-    name: 'Sponsor 3',
-    logo: '/images/sponsors/gfg.png',
-  },
-  {
-    name: 'Sponsor 3',
-    logo: '/images/sponsors/gmc.png',
-  },
-  {
-    name: 'Sponsor 3',
-    logo: '/images/sponsors/h2s.png',
-  },
-  {
-    name: 'Sponsor 3',
-    logo: '/images/sponsors/htf.png',
-  },
-  {
-    name: 'Sponsor 3',
-    logo: '/images/sponsors/htl.png',
-  },
-  {
-    name: 'Sponsor 3',
-    logo: '/images/sponsors/htm.png',
-  },
-  {
-    name: 'Sponsor 3',
-    logo: '/images/sponsors/keploy.png',
-  },
-  {
-    name: 'Sponsor 3',
-    logo: '/images/sponsors/zeeve.png',
-  },
-  {
-    name: 'Sponsor 3',
-    logo: '/images/sponsors/sknisb.png',
-  },
-  {
-    name: 'Sponsor 3',
+    name: 'Securityium',
     logo: '/images/sponsors/securityium.png',
+    url: 'https://www.securityium.com/',
+  },
+  
+  {
+    name: 'Daftar',
+    logo: '/images/sponsors/daftar.png',
+    url: 'https://www.instagram.com/thedaftar/',
   },
   {
-    name: 'Sponsor 3',
-    logo: '/images/sponsors/devweek.png',
+    name: 'Peerlist',
+    logo: '/images/sponsors/peerlist.png',
+    url: 'https://peerlist.io/',
   },
   {
-    name: 'Sponsor 3',
-    logo: '/images/sponsors/devweek.png',
+    name: 'Bsides Pune',
+    logo: '/images/sponsors/bsidespune.png',
+    url: 'https://www.linkedin.com/company/bsides-pune/',
   },
   {
-    name: 'Sponsor 3',
-    logo: '/images/sponsors/devweek.png',
+    name: 'Geeks For Geeks',
+    logo: '/images/sponsors/gfg.png',
+    url: 'https://www.geeksforgeeks.org/',
   },
   {
-    name: 'Sponsor 3',
-    logo: '/images/sponsors/devweek.png',
+    name: 'Give My Certificate',
+    logo: '/images/sponsors/gmc.png',
+    url: 'https://givemycertificate.com/',
   },
+  
+  {
+    name: 'Hack This Fall',
+    logo: '/images/sponsors/htf.png',
+    url: 'https://hackthisfall.tech/',
+  },
+  {
+    name: 'Hack The League',
+    logo: '/images/sponsors/htl.png',
+    url: 'https://hacktheleague.com/',
+  },
+  {
+    name: 'Hack The Mountains',
+    logo: '/images/sponsors/htm.png',
+    url: 'https://hackthemountain.tech/',
+  },
+  {
+    name: 'Hack 2 Skill',
+    logo: '/images/sponsors/h2s.png',
+    url: 'https://hack2skill.com/',
+  },
+  {
+    name: 'Developer Week',
+    logo: '/images/sponsors/devweek.png',
+    url: 'https://www.developerweek.com/',
+  },
+  
+  {
+    name: 'Aeka Coffee',
+    logo: '/images/sponsors/aeka.png',
+    url: 'https://www.instagram.com/aekascoffee/',
+  },
+  {
+    name: 'Keploy',
+    logo: '/images/sponsors/keploy.png',
+    url: 'https://keploy.io/',
+  },
+  {
+    name: 'SKNISB',
+    logo: '/images/sponsors/sknisb.png',
+    url: 'https://sknisb.in/',
+  },
+  {
+    name: 'Cloud Native Day Pune',
+    logo: '/images/sponsors/cnd.jpg',
+    url: 'https://www.cloudnativepune.com/',
+  },
+  {
+    name: 'Zeeve',
+    logo: '/images/sponsors/zeeve.png',
+    url: 'https://www.zeeve.io/',
+  },
+  {
+    name: 'GDG Silicon Valley',
+    logo: '/images/sponsors/gdg.jpg',
+    url: 'https://gdg.community.dev/gdg-silicon-valley/',
+  },
+  
+
 ];
 
 
@@ -88,14 +112,16 @@ function Sponsors() {
           {sponsors.map((sponsor, index) => (
             <div key={index} 
             className="flex items-center justify-center p-4 border border-violet-200 rounded-lg shadow-md hover:shadow-lg filter transition duration-300">
-              <Image
-                src={sponsor.logo}
-                alt={sponsor.name}
-                width={150}
-                height={150}
-                className="object-contain"
-              />
-              
+              <Link href={sponsor.url} passHref target="__blank">
+                  
+                    <Image
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      width={150}
+                      height={150}
+                      className="object-contain"
+                    />
+                </Link>
             </div>
           ))}
         </div>

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 import { FloatingNav } from "@/components/ui/FloatingNav";
+import Image from "next/image";
 
 
 const inter = Inter({ subsets: ["latin"] });
