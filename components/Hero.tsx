@@ -54,6 +54,7 @@ function Hero() {
           fill={true}
         />
       </div>
+      
     </div>
   );
 }

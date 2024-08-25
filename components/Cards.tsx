@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
 import { Carousel, Card } from "@/components/ui/CardCarousel";
-import { CardStack } from "./ui/CardStack";
 import { div } from "three/webgpu";
 
 function CardCarousel() {

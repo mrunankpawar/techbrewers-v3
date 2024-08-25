@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "./provider";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import Image from "next/image";
+import Footer from "@/components/Footer";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -31,6 +32,7 @@ export default function RootLayout({
           ]}/>
         </div>
         {children}
+        <Footer />
       </ ThemeProvider>
       </body>
     </html>

@@ -4,13 +4,13 @@ import { InfiniteMovingCards } from "./ui/InfiniteMovingCards";
 const testimonials = [
   {
     quote:
-      "I have been part of the TechBrewers community which is organising multiple latest technology initiatives including webinars which I am extremely happy to be part of it. Not only it has helped me learn new tech but also allowing to present relevant technologies including the cloud. I highly recommend this TechBrewers community to everyone who is eager to learn and develop the knowledge about the latest tech.",
+      "I have been part of the TechBrewers community which is organising multiple latest technology initiatives including webinars which I am extremely happy to be part of it. Not only it has helped me learn new tech but also allowing to present relevant technologies including the cloud. ",
     name: "Rahul Ambhore",
     title: "Assistant Vice President @State Street",
   },
   {
     quote:
-      "Club TechBrewers is no doubt one of the best tech-based communities, I have seen that has grown by such a huge margin in India with such potential the impact they are doing through their programs and events have been really been impactful and the growth rate of the community is really commendable. I hope the best for the organization and continue to work for the community more.",
+      "Club TechBrewers is no doubt one of the best tech-based communities, I have seen that has grown by such a huge margin in India with such potential the impact they are doing through their programs and events have been really been impactful and the growth rate of the community is really commendable.",
     name: "Anmol Reshi",
     title: "Co-founder @Sudans Tech",
   },
@@ -20,32 +20,50 @@ const testimonials = [
     name: "Jatin Pandya",
     title: "Product Growth and DevRel @Zeeve.io",
   },
+  {
+        quote:
+          "One of the community which I have seen growing from zero. I know the team personally and everyone is working hard without expecting anything in return. That's what community means. I will always be there with TechBrewers community.",
+        name: "Rohan Kulkarni",
+        title: "Developer @Upsurge Labs",
+      },
+      {
+        quote:
+          "I came to Pune from a different city and as my college was a tier 3 college, I didn't get much active clubs and college communities there. So I started looking for active communities in Pune. TechBrewers helped me grow on a personal and professional scale. ",
+        name: "Krushna Nalawade",
+        title: "Chief Executive @hypebuddy",
+      },
+      {
+        quote:
+          "I have been part of the TechBrewers community since its initial days. TechBrewers has helped me grow socially as well as technologically. During our meetups, I had an opportunity to exchange project ideas with fellow club members. I have been referred for an internship through the TechBrewers community.",
+        name: "Astitva Nikose",
+        title: "Assistant Manager @Jio",
+      },
 ];
 
-const testimonials2 = [
-  {
-    quote:
-      "One of the community which I have seen growing from zero. I know the team personally and everyone is working hard without expecting anything in return. That's what community means. I will always be there with TechBrewers community.",
-    name: "Rohan Kulkarni",
-    title: "Developer @Upsurge Labs",
-  },
-  {
-    quote:
-      "I came to Pune from a different city and as my college was a tier 3 college, I didn't get much active clubs and college communities there. So I started looking for active communities in Pune. TechBrewers helped me grow on a personal and professional scale. The team leads Mrunank and Vaibhav later even turned out to be my mentors and helped me through many things. Most supportive community. ❤️",
-    name: "Krushna Nalawade",
-    title: "Chief Executive @hypebuddy",
-  },
-  {
-    quote:
-      "I have been part of the TechBrewers community since its initial days. TechBrewers has helped me grow socially as well as technologically. During our meetups, I had an opportunity to exchange project ideas with fellow club members. I have been referred for an internship through the TechBrewers community. TechBrewers has a diverse set of individuals who will guide you in whichever domain you want expertise in.",
-    name: "Astitva Nikose",
-    title: "Assistant Manager @Jio",
-  },
-];
+// const testimonials2 = [
+//   {
+//     quote:
+//       "One of the community which I have seen growing from zero. I know the team personally and everyone is working hard without expecting anything in return. That's what community means. I will always be there with TechBrewers community.",
+//     name: "Rohan Kulkarni",
+//     title: "Developer @Upsurge Labs",
+//   },
+//   {
+//     quote:
+//       "I came to Pune from a different city and as my college was a tier 3 college, I didn't get much active clubs and college communities there. So I started looking for active communities in Pune. TechBrewers helped me grow on a personal and professional scale. ",
+//     name: "Krushna Nalawade",
+//     title: "Chief Executive @hypebuddy",
+//   },
+//   {
+//     quote:
+//       "I have been part of the TechBrewers community since its initial days. TechBrewers has helped me grow socially as well as technologically. During our meetups, I had an opportunity to exchange project ideas with fellow club members. I have been referred for an internship through the TechBrewers community.",
+//     name: "Astitva Nikose",
+//     title: "Assistant Manager @Jio",
+//   },
+// ];
 
 function TestimonialCards() {
   return (
-    <div className="h-[60rem] w-full dark:bg-black-100 dark:bg-dot-white/[0.1] relative flex flex-col items-center justify-center overflow-hidden">
+    <div className="h-[40rem] w-full dark:bg-black-100 dark:bg-dot-white/[0.1] relative flex flex-col items-center justify-center overflow-hidden">
       <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center text-center">
         <h3 className="text-xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
           What people say about us
@@ -61,11 +79,11 @@ function TestimonialCards() {
             direction="right"
             speed="slow"
           />
-          <InfiniteMovingCards
+          {/* <InfiniteMovingCards
             items={testimonials2}
             direction="right"
             speed="slow"
-          />
+          /> */}
         </div>
       </div>
     </div>

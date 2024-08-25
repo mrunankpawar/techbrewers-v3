@@ -212,7 +212,7 @@ const cards = [
     title: "Getting Started in Cyber Stream Security",
     src: "/images/events/wcan.png",
     ctaText: "Watch now",
-    ctaLink: "https://ui.aceternity.com/templates",
+    ctaLink: "https://www.youtube.com/live/Ol9F-mSUh9A?si=1GWg-9d34w1U7Xqd",
     content: () => {
       return <p>
         WCAN is an introductory guide designed for aspiring cybersecurity professionals. WCAN, which stands for Web, Cloud, API, and Network security, offers a comprehensive overview of key areas in the cybersecurity landscape. This talk organized by Club TechBrewers covers fundamental concepts, practical techniques, and essential tools needed to exploit as well as secure digital assets in these critical domains. 
@@ -232,14 +232,14 @@ const cards = [
       return (
         <p>
           Entering the world of Product Management can feel like exploring new
-          territory, especially when you`&apos;`re bombarded with so many questions.
-          Maybe you`&apos;`re not sure about the differences between Product and
-          Program Management, or you`&apos;`re wondering how to get ready for a PM job,
+          territory, especially when you&apos;re bombarded with so many questions.
+          Maybe you&apos;re not sure about the differences between Product and
+          Program Management, or you&apos;re wondering how to get ready for a PM job,
           or any other doubts regarding Product Management in general. 💻
           <br></br>
           <br></br>
-          It can all be overwhelming, but don`&apos;`t worry! Think of this session as
-          your guide through the world of Product Management. We`&apos;`ll break things
+          It can all be overwhelming, but don&apos;t worry! Think of this session as
+          your guide through the world of Product Management. We&apos;ll break things
           down for you in simple terms, helping you understand the ins and outs
           of Product Management. 🎉
         </p>
@@ -362,7 +362,7 @@ The session covers essential best practices for creating intuitive and engaging 
     ctaLink: "https://www.youtube.com/live/t9X_PDOJyCI?si=NC2HWRAiQH_K6tHR",
     content: () => {
       return <p>
-        In this engaging session, join us as Mrunank takes you through a hands-on introduction to Git and GitHub. Whether you`&apos;`re a complete beginner or looking to sharpen your skills, this workshop will guide you through the essentials of version control and collaboration. 
+        In this engaging session, join us as Mrunank takes you through a hands-on introduction to Git and GitHub. Whether you&apos;re a complete beginner or looking to sharpen your skills, this workshop will guide you through the essentials of version control and collaboration. 
         <br></br>
 <br></br>
 Learn the fundamentals of Git, explore the powerful features of GitHub, and get practical experience with real-world projects. Perfect for anyone eager to start their journey in software development or enhance their workflow!
