@@ -12,6 +12,9 @@ import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
+import { BackgroundBeams } from "./BackgroundBeams";
+import { Boxes } from "./BackgroundBoxes";
+
 
 export const BentoGrid = ({
   className,
@@ -53,9 +56,6 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const leftLists = ["Learn", "Connect", "Build"];
-  const rightLists = ["🧠", "🤝", "💻"];
-  const midLists = ["Build", "Connect", "Learn"];
 
   const [subscribed, setSubscribed] = useState(false);
 
@@ -98,20 +98,7 @@ export const BentoGridItem = ({
             />
           )}
         </div>
-        <div
-          className={`absolute right-0 -bottom-5 ${
-            id === 5 && "w-full opacity-80"
-          } `}
-        >
-          {spareImg && (
-            <img
-              src={spareImg}
-              alt={spareImg}
-              //   width={220}
-              className="object-cover object-center w-full h-full"
-            />
-          )}
-        </div>
+        
         {id === 2 && (
           // add background animation , remove the p tag
           <BackgroundGradientAnimation>
@@ -134,41 +121,14 @@ export const BentoGridItem = ({
           <div className="font-sans font-extralight pt-5 md:max-w-64 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-50">
             {description}
           </div>
-          {/* add text-3xl max-w-96 , remove text-neutral-600 dark:text-neutral-300*/}
-          {/* remove mb-2 mt-2 */}
-
-          {/* for the github 3d globe */}
-          {id === 1 && <GridGlobe />}
-          
-
-
-          {/* Tech stack list div */}
-          {id === 3 && (
-            <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
-              {/* tech stack lists */}
-              
-              
-             
+         
+          {id === 1 && (
+            <div>
+            <GridGlobe />
+            <BackgroundBeams />
             </div>
-
-            // <div className="mt-5 relative">
-            //   <div
-            //     className={`absolute -bottom-5 right-0 ${
-            //       copied ? "block" : "block"
-            //     }`}
-            //   >
-            //     <Lottie options={defaultOptions} height={200} width={400} />
-            //   </div>
-
-            //   <MagicButton
-            //     title={copied ? "Email is Copied!" : "Copy my email address"}
-            //     icon={<IoCopyOutline />}
-            //     position="left"
-            //     handleClick={handleCopy}
-            //     otherClasses="!bg-[#161A31]"
-            //   />
-            // </div>
           )}
+          
           {id === 2 && (
             <div className="mt-2 relative">
               <div
@@ -188,6 +148,10 @@ export const BentoGridItem = ({
               />
             </div>
           )}
+
+{id === 3 && (
+          <Boxes />
+        )}
         </div>
       </div>
     </div>

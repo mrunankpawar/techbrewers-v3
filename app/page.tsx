@@ -1,7 +1,6 @@
 
 import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
-import Numbers from "@/components/Numbers";
 import Sponsors from "@/components/Sponsors";
 import Team from "@/components/Team";
 import TestimonialCards from "@/components/TestimonialCards";
@@ -14,7 +13,6 @@ export default function Home() {
       <div className="max-w-8xl w-full">
         <Hero />
         <Grid />
-        <Numbers />
         <TestimonialCards />
         <Team />
         <Sponsors />
