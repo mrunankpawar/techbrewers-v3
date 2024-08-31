@@ -126,50 +126,50 @@ function ExpandableCards() {
         ) : null}
       </AnimatePresence>
       <ul className="max-w-2xl mx-auto w-full gap-4">
-  {cards.map((card, index) => (
-    <motion.div
-      layoutId={`card-${card.title}-${id}`}
-      key={`card-${card.title}-${id}`}
-      onClick={() => setActive(card)}
-      className="p-4 flex flex-col md:flex-row justify-between items-center md:items-start hover:bg-neutral-50 dark:hover:bg-violet-950 rounded-xl cursor-pointer"
-    >
-      <div className="flex flex-col items-center md:items-start gap-4 md:flex-row w-full">
-        <motion.div
-          layoutId={`image-${card.title}-${id}`}
-          className="flex justify-center md:justify-start w-full md:w-auto"
-        >
-          <Image
-            width={100}
-            height={100}
-            src={card.src}
-            alt={card.title}
-            className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
-          />
-        </motion.div>
-        <div className="text-center md:text-left w-full md:w-auto">
-          <motion.h3
-            layoutId={`title-${card.title}-${id}`}
-            className="font-medium text-neutral-800 dark:text-neutral-200"
+        {cards.map((card, index) => (
+          <motion.div
+            layoutId={`card-${card.title}-${id}`}
+            key={`card-${card.title}-${id}`}
+            onClick={() => setActive(card)}
+            className="p-4 flex flex-col md:flex-row justify-between items-center md:items-start hover:bg-neutral-50 dark:hover:bg-violet-950 rounded-xl cursor-pointer"
           >
-            {card.title}
-          </motion.h3>
-          <motion.p
-            layoutId={`description-${card.description}-${id}`}
-            className="text-neutral-600 dark:text-neutral-400"
-          >
-            {card.description}
-          </motion.p>
-        </div>
-      </div>
-      <motion.button
-        layoutId={`button-${card.title}-${id}`}
-        className="px-4 py-2 text-sm rounded-full font-bold border border-violet-300 hover:bg-black-100 hover:text-white text-white mt-4 md:mt-0"
-      >
-        {card.ctaText}
-      </motion.button>
-    </motion.div>
-  ))}
-</ul>
+            <div className="flex flex-col items-center md:items-start gap-4 md:flex-row w-full">
+              <motion.div
+                layoutId={`image-${card.title}-${id}`}
+                className="flex justify-center md:justify-start w-full md:w-auto"
+              >
+                <Image
+                  width={100}
+                  height={100}
+                  src={card.src}
+                  alt={card.title}
+                  className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
+                />
+              </motion.div>
+              <div className="text-center md:text-left w-full md:w-auto">
+                <motion.h3
+                  layoutId={`title-${card.title}-${id}`}
+                  className="font-medium text-neutral-800 dark:text-neutral-200"
+                >
+                  {card.title}
+                </motion.h3>
+                <motion.p
+                  layoutId={`description-${card.description}-${id}`}
+                  className="text-neutral-600 dark:text-neutral-400"
+                >
+                  {card.description}
+                </motion.p>
+              </div>
+            </div>
+            <motion.button
+              layoutId={`button-${card.title}-${id}`}
+              className="px-4 w-32 py-2 text-sm rounded-full font-bold border border-violet-300 hover:bg-black-100 hover:text-white text-white mt-4 md:mt-0"
+            >
+              {card.ctaText}
+            </motion.button>
+          </motion.div>
+        ))}
+      </ul>
 
     </>
   );
@@ -219,10 +219,10 @@ const cards = [
     ctaLink: "https://www.youtube.com/live/Ol9F-mSUh9A?si=1GWg-9d34w1U7Xqd",
     content: () => {
       return <p>
-        WCAN is an introductory guide designed for aspiring cybersecurity professionals. WCAN, which stands for Web, Cloud, API, and Network security, offers a comprehensive overview of key areas in the cybersecurity landscape. This talk organized by Club TechBrewers covers fundamental concepts, practical techniques, and essential tools needed to exploit as well as secure digital assets in these critical domains. 
+        WCAN is an introductory guide designed for aspiring cybersecurity professionals. WCAN, which stands for Web, Cloud, API, and Network security, offers a comprehensive overview of key areas in the cybersecurity landscape. This talk organized by Club TechBrewers covers fundamental concepts, practical techniques, and essential tools needed to exploit as well as secure digital assets in these critical domains.
         <br></br>
-<br></br>
-        Ideal for cybersecurity enthusiasts, it provides a solid foundation for anyone looking to embark on a career in cybersecurity and develop the skills required to attack and protect against modern cyber threats.	
+        <br></br>
+        Ideal for cybersecurity enthusiasts, it provides a solid foundation for anyone looking to embark on a career in cybersecurity and develop the skills required to attack and protect against modern cyber threats.
       </p>;
     },
   },
@@ -260,9 +260,9 @@ const cards = [
     content: () => {
       return <p>
         Embark on a captivating journey into the realm of Angular development with Club TechBrewers at our   event "Getting Started with Angular." This session unites tech enthusiasts and professionals alike to delve into the intricacies of Angular, exploring its latest features, best practices, and real-world applications. Whether you're a seasoned developer or just beginning your journey with Angular.
-<br></br>
-<br></br>
-Santosh Yadav brings over 15 years of experience in programming and application development, known for his solution-oriented approach. With expertise in managing projects from concept to completion, he's recognized as an Angular GDE and GitHub Star.
+        <br></br>
+        <br></br>
+        Santosh Yadav brings over 15 years of experience in programming and application development, known for his solution-oriented approach. With expertise in managing projects from concept to completion, he's recognized as an Angular GDE and GitHub Star.
       </p>;
     },
   },
@@ -276,9 +276,9 @@ Santosh Yadav brings over 15 years of experience in programming and application 
     content: () => {
       return <p>
         Amazon Web Services is one of the world's largest and widely used cloud services platform. With the deployment, cloud storage and automation tools it provides, learning AWS tools and technologies has always driven people towards cloud-based development. This event as the title suggests is a hands-on workshop on building a CI/CD pipeline on AWS for smooth production flow and automating the whole process.
-<br></br>
-<br></br>
-You'll gain insights about AWS cloud computing principles, DevOps, DevSecOps, auto-scaling strategies and prioritize what all constraints while deploying your application on AWS. The session is beginner-friendly too, so simply follow the workshop and implement the same.
+        <br></br>
+        <br></br>
+        You'll gain insights about AWS cloud computing principles, DevOps, DevSecOps, auto-scaling strategies and prioritize what all constraints while deploying your application on AWS. The session is beginner-friendly too, so simply follow the workshop and implement the same.
       </p>;
     },
   },
@@ -291,10 +291,10 @@ You'll gain insights about AWS cloud computing principles, DevOps, DevSecOps, au
     ctaLink: "https://www.youtube.com/live/LazVwF18uZU?si=bQBbjwapdYVkcNlM",
     content: () => {
       return <p>
-        Hackathons have always been the perfect kind of kickstart for upskilling self in technology, networking with other tech-enthusiasts and collaborative building in a community. Jatin, Chhavi and Mrunank here shed light on hackathons from an organizer, a mentor and participant and judge's perspective. The insights provided encourgae you to participate in various hackathons that are happening globally. Jatin here is himself one of the founding organizers of "Hack The League". 
-<br></br>
-<br></br>
-We bring to you this session consisting of  Do's and Dont's to follow while being a part of a hackathon from any perspective! 
+        Hackathons have always been the perfect kind of kickstart for upskilling self in technology, networking with other tech-enthusiasts and collaborative building in a community. Jatin, Chhavi and Mrunank here shed light on hackathons from an organizer, a mentor and participant and judge's perspective. The insights provided encourgae you to participate in various hackathons that are happening globally. Jatin here is himself one of the founding organizers of "Hack The League".
+        <br></br>
+        <br></br>
+        We bring to you this session consisting of  Do's and Dont's to follow while being a part of a hackathon from any perspective!
       </p>;
     },
   },
@@ -306,9 +306,9 @@ We bring to you this session consisting of  Do's and Dont's to follow while bein
     ctaLink: "https://www.youtube.com/live/ortVf_XxsoM?si=M9dFL5B5-muGZngx",
     content: () => {
       return <p>
-        In this engaging session, Praveen provides a comprehensive guide on Getting started with Hacktoberfest, an annual celebration of open-source contributions. Tailored for both beginners and seasoned developers, the session covers essential steps for participation, including how to find beginner-friendly issues and navigate the contribution process. 
+        In this engaging session, Praveen provides a comprehensive guide on Getting started with Hacktoberfest, an annual celebration of open-source contributions. Tailored for both beginners and seasoned developers, the session covers essential steps for participation, including how to find beginner-friendly issues and navigate the contribution process.
         <br></br>
-<br></br>
+        <br></br>
         Whether you're new to coding or an experienced professional, this talk offers valuable insights on making meaningful contributions to open-source projects during Hacktoberfest.
       </p>;
     },
@@ -321,9 +321,9 @@ We bring to you this session consisting of  Do's and Dont's to follow while bein
     ctaLink: "https://www.youtube.com/live/-r7uUwmCZzk?si=86NT48UOKGZ0ovku",
     content: () => {
       return <p>
-        In this insightful session, Jatin delves into the essential strategies for building and establishing a personal brand in the technology industry. The discussion covers practical tips on defining your unique value proposition, leveraging online platforms, and creating impactful content to enhance visibility. 
+        In this insightful session, Jatin delves into the essential strategies for building and establishing a personal brand in the technology industry. The discussion covers practical tips on defining your unique value proposition, leveraging online platforms, and creating impactful content to enhance visibility.
         <br></br>
-<br></br>
+        <br></br>
         Whether you're just starting out or looking to elevate your presence, this session offers valuable guidance on positioning yourself as a thought leader and effectively navigating the dynamic tech landscape. Perfect for professionals aiming to make a lasting impression in the tech world.
       </p>;
     },
@@ -336,10 +336,10 @@ We bring to you this session consisting of  Do's and Dont's to follow while bein
     ctaLink: "https://www.youtube.com/live/b6U4T6hIlJc?si=KCMnumuNGRP8zcAv",
     content: () => {
       return <p>
-        Building applications is one of the interesting skills to learn where you can actually implement an idea that once riddled your mind as "What if I had XYZ app for XYZ task? Oh! It would've been so convenient.", ain't it? 
+        Building applications is one of the interesting skills to learn where you can actually implement an idea that once riddled your mind as "What if I had XYZ app for XYZ task? Oh! It would've been so convenient.", ain't it?
         <br></br>
-<br></br>
-Well to channelize your curiosity about building android applications Divyansh has a hands-on workshop developing a beginner-friendly application and introducing you to some basic and essential terms and concepts to learn as you entitle yourself with android development.
+        <br></br>
+        Well to channelize your curiosity about building android applications Divyansh has a hands-on workshop developing a beginner-friendly application and introducing you to some basic and essential terms and concepts to learn as you entitle yourself with android development.
       </p>;
     },
   },
@@ -351,10 +351,10 @@ Well to channelize your curiosity about building android applications Divyansh h
     ctaLink: "https://www.youtube.com/live/hqvOYh6h0v8?si=4lDhbuHzzp9hUlYY",
     content: () => {
       return <p>
-        Visually appealing screens always catch your eye? Wonder if only you could learn to design one of your ideas into existence too? Join us in this insightful session where an Sowmiya delves into the art of building user interface/experience designs. 
+        Visually appealing screens always catch your eye? Wonder if only you could learn to design one of your ideas into existence too? Join us in this insightful session where an Sowmiya delves into the art of building user interface/experience designs.
         <br></br>
-<br></br>
-The session covers essential best practices for creating intuitive and engaging UI designs, focusing on the latest trends, tools, and methodologies that ensure user-centric experiences. Whether you're a seasoned designer or just starting out, this talk provides valuable tips and strategies to elevate your design skills and create interfaces that truly resonate with users.
+        <br></br>
+        The session covers essential best practices for creating intuitive and engaging UI designs, focusing on the latest trends, tools, and methodologies that ensure user-centric experiences. Whether you're a seasoned designer or just starting out, this talk provides valuable tips and strategies to elevate your design skills and create interfaces that truly resonate with users.
       </p>;
     },
   },
@@ -366,10 +366,10 @@ The session covers essential best practices for creating intuitive and engaging 
     ctaLink: "https://www.youtube.com/live/t9X_PDOJyCI?si=NC2HWRAiQH_K6tHR",
     content: () => {
       return <p>
-        In this engaging session, join us as Mrunank takes you through a hands-on introduction to Git and GitHub. Whether you&apos;re a complete beginner or looking to sharpen your skills, this workshop will guide you through the essentials of version control and collaboration. 
+        In this engaging session, join us as Mrunank takes you through a hands-on introduction to Git and GitHub. Whether you&apos;re a complete beginner or looking to sharpen your skills, this workshop will guide you through the essentials of version control and collaboration.
         <br></br>
-<br></br>
-Learn the fundamentals of Git, explore the powerful features of GitHub, and get practical experience with real-world projects. Perfect for anyone eager to start their journey in software development or enhance their workflow!
+        <br></br>
+        Learn the fundamentals of Git, explore the powerful features of GitHub, and get practical experience with real-world projects. Perfect for anyone eager to start their journey in software development or enhance their workflow!
       </p>;
     },
   },
@@ -381,10 +381,10 @@ Learn the fundamentals of Git, explore the powerful features of GitHub, and get 
     ctaLink: "https://youtu.be/3YVLJs0g7mU?si=uRSTUicQtsv-GXZP",
     content: () => {
       return <p>
-        	Imagine stepping into a digital fortress, where the walls are constructed from complex codes and intricate protocols. In this enlightening session, our expert speaker unveils the crucial building blocks of cyber security, offering a comprehensive introduction to the fundamental principles that safeguard our digital world. 
-          <br></br>
-<br></br>
-Join us as we delve into the core concepts, strategies, and best practices essential for protecting information in an increasingly interconnected era.
+        Imagine stepping into a digital fortress, where the walls are constructed from complex codes and intricate protocols. In this enlightening session, our expert speaker unveils the crucial building blocks of cyber security, offering a comprehensive introduction to the fundamental principles that safeguard our digital world.
+        <br></br>
+        <br></br>
+        Join us as we delve into the core concepts, strategies, and best practices essential for protecting information in an increasingly interconnected era.
       </p>
     },
   },
