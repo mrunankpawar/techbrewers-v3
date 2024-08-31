@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
 import { FaInstagram, FaLinkedinIn, FaXTwitter, FaYoutube, FaDiscord } from "react-icons/fa6";
+import { TextHoverEffect } from './ui/TextHoverEffect';
 
 function Footer() {
   return (
@@ -42,7 +43,7 @@ function Footer() {
     </div>
     <div className="overflow-hidden relative">
         <p className="text-center uppercase mt-20 text-6xl sm:text-6xl md:text-8xl lg:text-[11rem] xl:text-[12rem] font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 dark:from-violet-800/[0.2] to-neutral-200 dark:to-white-100/[0.1]">
-          TechBrewers
+          <TextHoverEffect text="TECHBREWERS" />
         </p>
     </div>
     
