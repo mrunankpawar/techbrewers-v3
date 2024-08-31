@@ -109,18 +109,18 @@ function Sponsors() {
         </h3>
 
         <div className="container mx-auto px-4 mt-10">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {sponsors.map((sponsor, index) => (
-              <div key={index}
+              <div
+                key={index}
                 className="flex items-center justify-center p-4 border border-violet-200 rounded-lg shadow-md hover:shadow-lg filter transition duration-300">
                 <Link href={sponsor.url} passHref target="__blank">
-
                   <Image
                     src={sponsor.logo}
                     alt={sponsor.name}
                     width={150}
                     height={150}
-                    className="object-contain"
+                    className="object-contain w-20 h-20 sm:w-28 sm:h-24 md:w-28 md:h-24 lg:w-28 lg:h-24"
                   />
                 </Link>
               </div>
