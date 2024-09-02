@@ -140,11 +140,12 @@ export const BentoGridItem = ({
               </div>
 
               <MagicButton
-                title={subscribed ? "Subscribed" : "Subscribe now"}
+                title={subscribed ? "Thanks for clicking, we hope you subscribed 🎉" : "Don't miss out! Subscribe now 🔔"}
                 icon={<IoCopyOutline />}
                 position="left"
                 handleClick={handleSubscribe}
-                otherClasses="!bg-[#161A31]"
+                // otherClasses="!bg-[#161A31]"
+                otherClasses="bg-black-100"
               />
             </div>
           )}
