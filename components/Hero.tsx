@@ -10,9 +10,7 @@ function Hero() {
   return (
     <div className="relative h-screen w-full pb-20">
       {/* Background Grids */}
-      <div className="absolute inset-0 flex items-center justify-center dark:bg-black-100 bg-white dark:bg-grid-white/[0.07] bg-grid-black/[0.2]">
-        <div className="absolute inset-0 dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] pointer-events-none" />
-      </div>
+    
 
       {/* Hero Content */}
       <div className="relative flex flex-col items-center justify-center mx-auto h-full w-full max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] text-center">
