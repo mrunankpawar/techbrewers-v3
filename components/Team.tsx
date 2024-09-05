@@ -14,7 +14,7 @@ const people = [
     name: "Vaibhav Kadam",
     designation: "",
     image:
-      "/images/team/vaibhav.png",
+      "/images/team/vaibhavc.png",
     url: "https://www.linkedin.com/in/dennis-george-george/"
   },
   {

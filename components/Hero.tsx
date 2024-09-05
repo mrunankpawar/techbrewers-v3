@@ -46,7 +46,7 @@ function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 h-screen w-full" style={{ opacity: 0.10 }}>
         <Image
-          src="/images/bgcorner.png"
+          src="/images/bgfilled.png"
           alt="Background Image"
           className="object-cover"
           fill={true}
