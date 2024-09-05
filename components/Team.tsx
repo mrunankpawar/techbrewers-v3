@@ -1,6 +1,4 @@
 
-import { AnimatedTooltip } from "./ui/AnimatedTooltip";
-
 
 const people = [
   {
@@ -45,6 +43,13 @@ const people = [
     image:
       "/images/team/akanksha.jpg",
   },
+  {
+    id: 7,
+    name: "Mrunank Pawar",
+    designation: "",
+    image:
+      "/images/team/dennis.png",
+  },
 ];
 
 function Team() {
@@ -54,11 +59,23 @@ function Team() {
         <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
           Humans of TechBrewers
         </h3>
-        <div className="flex flex-row items-center justify-center w-full mt-10">
-          <AnimatedTooltip items={people} />
+        <div className="flex flex-wrap justify-center gap-6 mt-10">
+          {people.map((person) => (
+            <div key={person.id} className="flex flex-col items-center w-1/3 sm:w-1/3 lg:w-1/4">
+              <div className="w-24 h-24 md:w-32 md:h-32 relative overflow-hidden rounded-full">
+                <img
+                  src={person.image}
+                  alt={person.name}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <p className="mt-2 text-sm md:text-base font-semibold">{person.name}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
+
   );
 }
 
