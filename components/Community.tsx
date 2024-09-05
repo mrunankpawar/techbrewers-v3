@@ -5,7 +5,6 @@ import SparklesCore from "./ui/Sparkles";
 // import { calsans } from "@/fonts/calsans";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
-import TracingBeam from "./ui/TracingBeam";
 import { Timeline } from "./ui/Timeline";
 
 const data = [
@@ -165,15 +164,13 @@ function Community() {
           <Timeline data={data} />
         </div>
 
-        <h3 className="text-xl mb-3 md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
-          All you need, All in one place
-        </h3>
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">All you need, All in one place</h3>
         <div className="w-[40rem] h-40 relative">
           {/* Gradients */}
-          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+          {/* <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
           <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
           <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" /> */}
 
           {/* Core component */}
           <SparklesCore
