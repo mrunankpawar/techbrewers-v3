@@ -11,8 +11,8 @@
     },
     {
       id: 2,
-      title: "Subscribe to TechBrewers Monthly Newsletter",
-      description: "",
+      title: "TechBrewers Monthly Newsletter",
+      description: "Subscribe to the monthly newsletter for all the latest updates",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2 text-center",
       imgClassName: "",
       titleClassName: "justify-start items-center",
@@ -22,8 +22,8 @@
     {
       id: 3,
       title: "Learn 🧠 • Connect 🤝 • Build 💻 ",
-      description: "",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+      description: "We have always been trying to align our initiatives with our core values.",
+      className: "lg:col-span-2 md:col-span-3 md:row-span-2 text-center",
       imgClassName: "",
       titleClassName: "justify-center items-center",
       img: "",

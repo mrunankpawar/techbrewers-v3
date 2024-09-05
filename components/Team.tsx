@@ -1,4 +1,4 @@
-
+import Image from "next/image";
 
 const people = [
   {
@@ -7,6 +7,7 @@ const people = [
     designation: "",
     image:
       "/images/team/mrunank.png",
+    url: "https://www.linkedin.com/in/mrunankpawar/"
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const people = [
     designation: "",
     image:
       "/images/team/vaibhav.png",
+    url: "https://www.linkedin.com/in/dennis-george-george/"
   },
   {
     id: 3,
@@ -21,6 +23,7 @@ const people = [
     designation: "",
     image:
       "/images/team/abhi.jpg",
+    url: "https://www.linkedin.com/in/dennis-george-george/"
   },
   {
     id: 4,
@@ -28,6 +31,7 @@ const people = [
     designation: "",
     image:
       "/images/team/sana.png",
+    url: "https://www.linkedin.com/in/dennis-george-george/"
   },
   {
     id: 5,
@@ -35,6 +39,7 @@ const people = [
     designation: "",
     image:
       "/images/team/ayush.png",
+    url: "https://www.linkedin.com/in/dennis-george-george/"
   },
   {
     id: 6,
@@ -42,13 +47,7 @@ const people = [
     designation: "",
     image:
       "/images/team/akanksha.jpg",
-  },
-  {
-    id: 7,
-    name: "Mrunank Pawar",
-    designation: "",
-    image:
-      "/images/team/dennis.png",
+    url: "https://www.linkedin.com/in/dennis-george-george/"
   },
 ];
 
@@ -63,13 +62,22 @@ function Team() {
           {people.map((person) => (
             <div key={person.id} className="flex flex-col items-center w-1/3 sm:w-1/3 lg:w-1/4">
               <div className="w-24 h-24 md:w-32 md:h-32 relative overflow-hidden rounded-full">
-                <img
+                <Image
                   src={person.image}
                   alt={person.name}
-                  className="object-cover w-full h-full"
+                  className="object-cover"
+                  width={200}
+                  height={200}
                 />
               </div>
-              <p className="mt-2 text-sm md:text-base font-semibold">{person.name}</p>
+              <a
+                href={person.url}
+                className="mt-2 text-sm md:text-base font-semibold hover:text-violet-400"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {person.name}
+              </a>
             </div>
           ))}
         </div>
