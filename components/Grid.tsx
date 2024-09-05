@@ -12,7 +12,7 @@ const Grid = () => {
           Connecting a global community of tech enthusiasts, we’re a diverse group driven by shared passion and collaboration.
         </p>
       </div>
-      <BentoGrid className="w-full py-20 px-0 lg:px-28 xl:px-40">
+      <BentoGrid className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw]">
         {gridItems.map((item, i) => (
           <BentoGridItem
             id={item.id}
