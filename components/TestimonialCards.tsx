@@ -40,26 +40,6 @@ const testimonials = [
       },
 ];
 
-// const testimonials2 = [
-//   {
-//     quote:
-//       "One of the community which I have seen growing from zero. I know the team personally and everyone is working hard without expecting anything in return. That's what community means. I will always be there with TechBrewers community.",
-//     name: "Rohan Kulkarni",
-//     title: "Developer @Upsurge Labs",
-//   },
-//   {
-//     quote:
-//       "I came to Pune from a different city and as my college was a tier 3 college, I didn't get much active clubs and college communities there. So I started looking for active communities in Pune. TechBrewers helped me grow on a personal and professional scale. ",
-//     name: "Krushna Nalawade",
-//     title: "Chief Executive @hypebuddy",
-//   },
-//   {
-//     quote:
-//       "I have been part of the TechBrewers community since its initial days. TechBrewers has helped me grow socially as well as technologically. During our meetups, I had an opportunity to exchange project ideas with fellow club members. I have been referred for an internship through the TechBrewers community.",
-//     name: "Astitva Nikose",
-//     title: "Assistant Manager @Jio",
-//   },
-// ];
 
 function TestimonialCards() {
   return (
@@ -79,11 +59,6 @@ function TestimonialCards() {
             direction="right"
             speed="slow"
           />
-          {/* <InfiniteMovingCards
-            items={testimonials2}
-            direction="right"
-            speed="slow"
-          /> */}
         </div>
       </div>
     </div>

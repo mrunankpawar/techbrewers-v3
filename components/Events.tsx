@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { EvervaultCard } from "./ui/EvervaultCard";
+// import { EvervaultCard } from "./ui/EvervaultCard";
 
 function Events() {
   return (

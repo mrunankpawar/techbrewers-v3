@@ -3,8 +3,8 @@ import React from "react";
 import { EvervaultCard } from "./ui/EvervaultCard";
 import SparklesCore from "./ui/Sparkles";
 // import { calsans } from "@/fonts/calsans";
-import Image from "next/image";
-import { twMerge } from "tailwind-merge";
+// import Image from "next/image";
+// import { twMerge } from "tailwind-merge";
 import { Timeline } from "./ui/Timeline";
 
 const data = [

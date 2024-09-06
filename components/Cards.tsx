@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import { Carousel, Card } from "@/components/ui/CardCarousel";
-import { div } from "three/webgpu";
+// import { div } from "three/webgpu";
 
 function CardCarousel() {
   const photos = data.map((card, index) => (

@@ -1,7 +1,7 @@
 import React from 'react'
-import Cards  from '@/components/Cards'
+// import Cards  from '@/components/Cards'
 import CardCarousel from "@/components/Cards";
-import MeetupTeam from "@/components/MeetupTeam";
+// import MeetupTeam from "@/components/MeetupTeam";
 
 
 function Meetup() {

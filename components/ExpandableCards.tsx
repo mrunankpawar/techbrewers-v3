@@ -259,10 +259,10 @@ const cards = [
     ctaLink: "https://www.youtube.com/live/QL6Zbnf_mi4?si=CdnSVv9pSspQRrW0",
     content: () => {
       return <p>
-        Embark on a captivating journey into the realm of Angular development with Club TechBrewers at our   event "Getting Started with Angular." This session unites tech enthusiasts and professionals alike to delve into the intricacies of Angular, exploring its latest features, best practices, and real-world applications. Whether you're a seasoned developer or just beginning your journey with Angular.
+        Embark on a captivating journey into the realm of Angular development with Club TechBrewers at our event Getting Started with Angular. This session unites tech enthusiasts and professionals alike to delve into the intricacies of Angular, exploring its latest features, best practices, and real-world applications. Whether you&apos;re a seasoned developer or just beginning your journey with Angular.
         <br></br>
         <br></br>
-        Santosh Yadav brings over 15 years of experience in programming and application development, known for his solution-oriented approach. With expertise in managing projects from concept to completion, he's recognized as an Angular GDE and GitHub Star.
+        Santosh Yadav brings over 15 years of experience in programming and application development, known for his solution-oriented approach. With expertise in managing projects from concept to completion, he&apos;s recognized as an Angular GDE and GitHub Star.
       </p>;
     },
   },
@@ -275,10 +275,10 @@ const cards = [
     ctaLink: "https://www.youtube.com/live/yW87L0FzqXk?si=SBbm7qyUDzIjK4a6",
     content: () => {
       return <p>
-        Amazon Web Services is one of the world's largest and widely used cloud services platform. With the deployment, cloud storage and automation tools it provides, learning AWS tools and technologies has always driven people towards cloud-based development. This event as the title suggests is a hands-on workshop on building a CI/CD pipeline on AWS for smooth production flow and automating the whole process.
+        Amazon Web Services is one of the world&apos;s largest and widely used cloud services platform. With the deployment, cloud storage and automation tools it provides, learning AWS tools and technologies has always driven people towards cloud-based development. This event as the title suggests is a hands-on workshop on building a CI/CD pipeline on AWS for smooth production flow and automating the whole process.
         <br></br>
         <br></br>
-        You'll gain insights about AWS cloud computing principles, DevOps, DevSecOps, auto-scaling strategies and prioritize what all constraints while deploying your application on AWS. The session is beginner-friendly too, so simply follow the workshop and implement the same.
+        You&apos;ll gain insights about AWS cloud computing principles, DevOps, DevSecOps, auto-scaling strategies and prioritize what all constraints while deploying your application on AWS. The session is beginner-friendly too, so simply follow the workshop and implement the same.
       </p>;
     },
   },
@@ -291,10 +291,10 @@ const cards = [
     ctaLink: "https://www.youtube.com/live/LazVwF18uZU?si=bQBbjwapdYVkcNlM",
     content: () => {
       return <p>
-        Hackathons have always been the perfect kind of kickstart for upskilling self in technology, networking with other tech-enthusiasts and collaborative building in a community. Jatin, Chhavi and Mrunank here shed light on hackathons from an organizer, a mentor and participant and judge's perspective. The insights provided encourgae you to participate in various hackathons that are happening globally. Jatin here is himself one of the founding organizers of "Hack The League".
+        Hackathons have always been the perfect kind of kickstart for upskilling self in technology, networking with other tech-enthusiasts and collaborative building in a community. Jatin, Chhavi and Mrunank here shed light on hackathons from an organizer, a mentor and participant and judge&apos;s perspective. The insights provided encourgae you to participate in various hackathons that are happening globally. Jatin here is himself one of the founding organizers of Hack The League.
         <br></br>
         <br></br>
-        We bring to you this session consisting of  Do's and Dont's to follow while being a part of a hackathon from any perspective!
+        We bring to you this session consisting of  Do&apos;s and Dont&apos;s to follow while being a part of a hackathon from any perspective!
       </p>;
     },
   },
@@ -309,7 +309,7 @@ const cards = [
         In this engaging session, Praveen provides a comprehensive guide on Getting started with Hacktoberfest, an annual celebration of open-source contributions. Tailored for both beginners and seasoned developers, the session covers essential steps for participation, including how to find beginner-friendly issues and navigate the contribution process.
         <br></br>
         <br></br>
-        Whether you're new to coding or an experienced professional, this talk offers valuable insights on making meaningful contributions to open-source projects during Hacktoberfest.
+        Whether you&apos;re new to coding or an experienced professional, this talk offers valuable insights on making meaningful contributions to open-source projects during Hacktoberfest.
       </p>;
     },
   },
@@ -324,7 +324,7 @@ const cards = [
         In this insightful session, Jatin delves into the essential strategies for building and establishing a personal brand in the technology industry. The discussion covers practical tips on defining your unique value proposition, leveraging online platforms, and creating impactful content to enhance visibility.
         <br></br>
         <br></br>
-        Whether you're just starting out or looking to elevate your presence, this session offers valuable guidance on positioning yourself as a thought leader and effectively navigating the dynamic tech landscape. Perfect for professionals aiming to make a lasting impression in the tech world.
+        Whether you&apos;re just starting out or looking to elevate your presence, this session offers valuable guidance on positioning yourself as a thought leader and effectively navigating the dynamic tech landscape. Perfect for professionals aiming to make a lasting impression in the tech world.
       </p>;
     },
   },
@@ -336,7 +336,7 @@ const cards = [
     ctaLink: "https://www.youtube.com/live/b6U4T6hIlJc?si=KCMnumuNGRP8zcAv",
     content: () => {
       return <p>
-        Building applications is one of the interesting skills to learn where you can actually implement an idea that once riddled your mind as "What if I had XYZ app for XYZ task? Oh! It would've been so convenient.", ain't it?
+        Building applications is one of the interesting skills to learn where you can actually implement an idea that once riddled your mind as What if I had XYZ app for XYZ task? Oh! It would&apos;ve been so convenient., ain&apos;t it?
         <br></br>
         <br></br>
         Well to channelize your curiosity about building android applications Divyansh has a hands-on workshop developing a beginner-friendly application and introducing you to some basic and essential terms and concepts to learn as you entitle yourself with android development.
@@ -354,7 +354,7 @@ const cards = [
         Visually appealing screens always catch your eye? Wonder if only you could learn to design one of your ideas into existence too? Join us in this insightful session where an Sowmiya delves into the art of building user interface/experience designs.
         <br></br>
         <br></br>
-        The session covers essential best practices for creating intuitive and engaging UI designs, focusing on the latest trends, tools, and methodologies that ensure user-centric experiences. Whether you're a seasoned designer or just starting out, this talk provides valuable tips and strategies to elevate your design skills and create interfaces that truly resonate with users.
+        The session covers essential best practices for creating intuitive and engaging UI designs, focusing on the latest trends, tools, and methodologies that ensure user-centric experiences. Whether you&apos;re a seasoned designer or just starting out, this talk provides valuable tips and strategies to elevate your design skills and create interfaces that truly resonate with users.
       </p>;
     },
   },
