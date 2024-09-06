@@ -9,7 +9,7 @@ const Grid = () => {
           Some numbers that matter
         </h3>
         <p className="mt-4 font-normal text-base md:text-lg text-violet-200 max-w-xl mx-auto z-10">
-          Connecting a global community of tech enthusiasts, we’re a diverse group driven by shared passion and collaboration.
+          Connecting a global community of tech enthusiasts, we&apos;re a diverse group driven by shared passion and collaboration.
         </p>
       </div>
       <BentoGrid className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] mt-10 lg:mt-12">
