@@ -1,8 +1,6 @@
-import React from 'react'
-// import Cards  from '@/components/Cards'
+import React from "react";
 import CardCarousel from "@/components/Cards";
 // import MeetupTeam from "@/components/MeetupTeam";
-
 
 function Meetup() {
   return (
@@ -12,7 +10,7 @@ function Meetup() {
         {/* <MeetupTeam /> */}
       </div>
     </div>
-  )
+  );
 }
 
-export default Meetup
+export default Meetup;

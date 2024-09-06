@@ -170,7 +170,6 @@ function ExpandableCards() {
           </motion.div>
         ))}
       </ul>
-
     </>
   );
 }
@@ -218,12 +217,23 @@ const cards = [
     ctaText: "Watch now",
     ctaLink: "https://www.youtube.com/live/Ol9F-mSUh9A?si=1GWg-9d34w1U7Xqd",
     content: () => {
-      return <p>
-        WCAN is an introductory guide designed for aspiring cybersecurity professionals. WCAN, which stands for Web, Cloud, API, and Network security, offers a comprehensive overview of key areas in the cybersecurity landscape. This talk organized by Club TechBrewers covers fundamental concepts, practical techniques, and essential tools needed to exploit as well as secure digital assets in these critical domains.
-        <br></br>
-        <br></br>
-        Ideal for cybersecurity enthusiasts, it provides a solid foundation for anyone looking to embark on a career in cybersecurity and develop the skills required to attack and protect against modern cyber threats.
-      </p>;
+      return (
+        <p>
+          WCAN is an introductory guide designed for aspiring cybersecurity
+          professionals. WCAN, which stands for Web, Cloud, API, and Network
+          security, offers a comprehensive overview of key areas in the
+          cybersecurity landscape. This talk organized by Club TechBrewers
+          covers fundamental concepts, practical techniques, and essential tools
+          needed to exploit as well as secure digital assets in these critical
+          domains.
+          <br></br>
+          <br></br>
+          Ideal for cybersecurity enthusiasts, it provides a solid foundation
+          for anyone looking to embark on a career in cybersecurity and develop
+          the skills required to attack and protect against modern cyber
+          threats.
+        </p>
+      );
     },
   },
   {
@@ -236,16 +246,17 @@ const cards = [
       return (
         <p>
           Entering the world of Product Management can feel like exploring new
-          territory, especially when you&apos;re bombarded with so many questions.
-          Maybe you&apos;re not sure about the differences between Product and
-          Program Management, or you&apos;re wondering how to get ready for a PM job,
-          or any other doubts regarding Product Management in general. 💻
+          territory, especially when you&apos;re bombarded with so many
+          questions. Maybe you&apos;re not sure about the differences between
+          Product and Program Management, or you&apos;re wondering how to get
+          ready for a PM job, or any other doubts regarding Product Management
+          in general. 💻
           <br></br>
           <br></br>
-          It can all be overwhelming, but don&apos;t worry! Think of this session as
-          your guide through the world of Product Management. We&apos;ll break things
-          down for you in simple terms, helping you understand the ins and outs
-          of Product Management. 🎉
+          It can all be overwhelming, but don&apos;t worry! Think of this
+          session as your guide through the world of Product Management.
+          We&apos;ll break things down for you in simple terms, helping you
+          understand the ins and outs of Product Management. 🎉
         </p>
       );
     },
@@ -258,12 +269,22 @@ const cards = [
     ctaText: "Watch now",
     ctaLink: "https://www.youtube.com/live/QL6Zbnf_mi4?si=CdnSVv9pSspQRrW0",
     content: () => {
-      return <p>
-        Embark on a captivating journey into the realm of Angular development with Club TechBrewers at our event Getting Started with Angular. This session unites tech enthusiasts and professionals alike to delve into the intricacies of Angular, exploring its latest features, best practices, and real-world applications. Whether you&apos;re a seasoned developer or just beginning your journey with Angular.
-        <br></br>
-        <br></br>
-        Santosh Yadav brings over 15 years of experience in programming and application development, known for his solution-oriented approach. With expertise in managing projects from concept to completion, he&apos;s recognized as an Angular GDE and GitHub Star.
-      </p>;
+      return (
+        <p>
+          Embark on a captivating journey into the realm of Angular development
+          with Club TechBrewers at our event Getting Started with Angular. This
+          session unites tech enthusiasts and professionals alike to delve into
+          the intricacies of Angular, exploring its latest features, best
+          practices, and real-world applications. Whether you&apos;re a seasoned
+          developer or just beginning your journey with Angular.
+          <br></br>
+          <br></br>
+          Santosh Yadav brings over 15 years of experience in programming and
+          application development, known for his solution-oriented approach.
+          With expertise in managing projects from concept to completion,
+          he&apos;s recognized as an Angular GDE and GitHub Star.
+        </p>
+      );
     },
   },
 
@@ -274,12 +295,23 @@ const cards = [
     ctaText: "Watch now",
     ctaLink: "https://www.youtube.com/live/yW87L0FzqXk?si=SBbm7qyUDzIjK4a6",
     content: () => {
-      return <p>
-        Amazon Web Services is one of the world&apos;s largest and widely used cloud services platform. With the deployment, cloud storage and automation tools it provides, learning AWS tools and technologies has always driven people towards cloud-based development. This event as the title suggests is a hands-on workshop on building a CI/CD pipeline on AWS for smooth production flow and automating the whole process.
-        <br></br>
-        <br></br>
-        You&apos;ll gain insights about AWS cloud computing principles, DevOps, DevSecOps, auto-scaling strategies and prioritize what all constraints while deploying your application on AWS. The session is beginner-friendly too, so simply follow the workshop and implement the same.
-      </p>;
+      return (
+        <p>
+          Amazon Web Services is one of the world&apos;s largest and widely used
+          cloud services platform. With the deployment, cloud storage and
+          automation tools it provides, learning AWS tools and technologies has
+          always driven people towards cloud-based development. This event as
+          the title suggests is a hands-on workshop on building a CI/CD pipeline
+          on AWS for smooth production flow and automating the whole process.
+          <br></br>
+          <br></br>
+          You&apos;ll gain insights about AWS cloud computing principles,
+          DevOps, DevSecOps, auto-scaling strategies and prioritize what all
+          constraints while deploying your application on AWS. The session is
+          beginner-friendly too, so simply follow the workshop and implement the
+          same.
+        </p>
+      );
     },
   },
 
@@ -290,12 +322,22 @@ const cards = [
     ctaText: "Watch now",
     ctaLink: "https://www.youtube.com/live/LazVwF18uZU?si=bQBbjwapdYVkcNlM",
     content: () => {
-      return <p>
-        Hackathons have always been the perfect kind of kickstart for upskilling self in technology, networking with other tech-enthusiasts and collaborative building in a community. Jatin, Chhavi and Mrunank here shed light on hackathons from an organizer, a mentor and participant and judge&apos;s perspective. The insights provided encourgae you to participate in various hackathons that are happening globally. Jatin here is himself one of the founding organizers of Hack The League.
-        <br></br>
-        <br></br>
-        We bring to you this session consisting of  Do&apos;s and Dont&apos;s to follow while being a part of a hackathon from any perspective!
-      </p>;
+      return (
+        <p>
+          Hackathons have always been the perfect kind of kickstart for
+          upskilling self in technology, networking with other tech-enthusiasts
+          and collaborative building in a community. Jatin, Chhavi and Mrunank
+          here shed light on hackathons from an organizer, a mentor and
+          participant and judge&apos;s perspective. The insights provided
+          encourgae you to participate in various hackathons that are happening
+          globally. Jatin here is himself one of the founding organizers of Hack
+          The League.
+          <br></br>
+          <br></br>
+          We bring to you this session consisting of Do&apos;s and Dont&apos;s
+          to follow while being a part of a hackathon from any perspective!
+        </p>
+      );
     },
   },
   {
@@ -305,12 +347,21 @@ const cards = [
     ctaText: "Watch now",
     ctaLink: "https://www.youtube.com/live/ortVf_XxsoM?si=M9dFL5B5-muGZngx",
     content: () => {
-      return <p>
-        In this engaging session, Praveen provides a comprehensive guide on Getting started with Hacktoberfest, an annual celebration of open-source contributions. Tailored for both beginners and seasoned developers, the session covers essential steps for participation, including how to find beginner-friendly issues and navigate the contribution process.
-        <br></br>
-        <br></br>
-        Whether you&apos;re new to coding or an experienced professional, this talk offers valuable insights on making meaningful contributions to open-source projects during Hacktoberfest.
-      </p>;
+      return (
+        <p>
+          In this engaging session, Praveen provides a comprehensive guide on
+          Getting started with Hacktoberfest, an annual celebration of
+          open-source contributions. Tailored for both beginners and seasoned
+          developers, the session covers essential steps for participation,
+          including how to find beginner-friendly issues and navigate the
+          contribution process.
+          <br></br>
+          <br></br>
+          Whether you&apos;re new to coding or an experienced professional, this
+          talk offers valuable insights on making meaningful contributions to
+          open-source projects during Hacktoberfest.
+        </p>
+      );
     },
   },
   {
@@ -320,12 +371,22 @@ const cards = [
     ctaText: "Watch now",
     ctaLink: "https://www.youtube.com/live/-r7uUwmCZzk?si=86NT48UOKGZ0ovku",
     content: () => {
-      return <p>
-        In this insightful session, Jatin delves into the essential strategies for building and establishing a personal brand in the technology industry. The discussion covers practical tips on defining your unique value proposition, leveraging online platforms, and creating impactful content to enhance visibility.
-        <br></br>
-        <br></br>
-        Whether you&apos;re just starting out or looking to elevate your presence, this session offers valuable guidance on positioning yourself as a thought leader and effectively navigating the dynamic tech landscape. Perfect for professionals aiming to make a lasting impression in the tech world.
-      </p>;
+      return (
+        <p>
+          In this insightful session, Jatin delves into the essential strategies
+          for building and establishing a personal brand in the technology
+          industry. The discussion covers practical tips on defining your unique
+          value proposition, leveraging online platforms, and creating impactful
+          content to enhance visibility.
+          <br></br>
+          <br></br>
+          Whether you&apos;re just starting out or looking to elevate your
+          presence, this session offers valuable guidance on positioning
+          yourself as a thought leader and effectively navigating the dynamic
+          tech landscape. Perfect for professionals aiming to make a lasting
+          impression in the tech world.
+        </p>
+      );
     },
   },
   {
@@ -335,12 +396,20 @@ const cards = [
     ctaText: "Watch now",
     ctaLink: "https://www.youtube.com/live/b6U4T6hIlJc?si=KCMnumuNGRP8zcAv",
     content: () => {
-      return <p>
-        Building applications is one of the interesting skills to learn where you can actually implement an idea that once riddled your mind as What if I had XYZ app for XYZ task? Oh! It would&apos;ve been so convenient., ain&apos;t it?
-        <br></br>
-        <br></br>
-        Well to channelize your curiosity about building android applications Divyansh has a hands-on workshop developing a beginner-friendly application and introducing you to some basic and essential terms and concepts to learn as you entitle yourself with android development.
-      </p>;
+      return (
+        <p>
+          Building applications is one of the interesting skills to learn where
+          you can actually implement an idea that once riddled your mind as What
+          if I had XYZ app for XYZ task? Oh! It would&apos;ve been so
+          convenient., ain&apos;t it?
+          <br></br>
+          <br></br>
+          Well to channelize your curiosity about building android applications
+          Divyansh has a hands-on workshop developing a beginner-friendly
+          application and introducing you to some basic and essential terms and
+          concepts to learn as you entitle yourself with android development.
+        </p>
+      );
     },
   },
   {
@@ -350,12 +419,22 @@ const cards = [
     ctaText: "Watch now",
     ctaLink: "https://www.youtube.com/live/hqvOYh6h0v8?si=4lDhbuHzzp9hUlYY",
     content: () => {
-      return <p>
-        Visually appealing screens always catch your eye? Wonder if only you could learn to design one of your ideas into existence too? Join us in this insightful session where an Sowmiya delves into the art of building user interface/experience designs.
-        <br></br>
-        <br></br>
-        The session covers essential best practices for creating intuitive and engaging UI designs, focusing on the latest trends, tools, and methodologies that ensure user-centric experiences. Whether you&apos;re a seasoned designer or just starting out, this talk provides valuable tips and strategies to elevate your design skills and create interfaces that truly resonate with users.
-      </p>;
+      return (
+        <p>
+          Visually appealing screens always catch your eye? Wonder if only you
+          could learn to design one of your ideas into existence too? Join us in
+          this insightful session where an Sowmiya delves into the art of
+          building user interface/experience designs.
+          <br></br>
+          <br></br>
+          The session covers essential best practices for creating intuitive and
+          engaging UI designs, focusing on the latest trends, tools, and
+          methodologies that ensure user-centric experiences. Whether
+          you&apos;re a seasoned designer or just starting out, this talk
+          provides valuable tips and strategies to elevate your design skills
+          and create interfaces that truly resonate with users.
+        </p>
+      );
     },
   },
   {
@@ -365,12 +444,21 @@ const cards = [
     ctaText: "Watch now",
     ctaLink: "https://www.youtube.com/live/t9X_PDOJyCI?si=NC2HWRAiQH_K6tHR",
     content: () => {
-      return <p>
-        In this engaging session, join us as Mrunank takes you through a hands-on introduction to Git and GitHub. Whether you&apos;re a complete beginner or looking to sharpen your skills, this workshop will guide you through the essentials of version control and collaboration.
-        <br></br>
-        <br></br>
-        Learn the fundamentals of Git, explore the powerful features of GitHub, and get practical experience with real-world projects. Perfect for anyone eager to start their journey in software development or enhance their workflow!
-      </p>;
+      return (
+        <p>
+          In this engaging session, join us as Mrunank takes you through a
+          hands-on introduction to Git and GitHub. Whether you&apos;re a
+          complete beginner or looking to sharpen your skills, this workshop
+          will guide you through the essentials of version control and
+          collaboration.
+          <br></br>
+          <br></br>
+          Learn the fundamentals of Git, explore the powerful features of
+          GitHub, and get practical experience with real-world projects. Perfect
+          for anyone eager to start their journey in software development or
+          enhance their workflow!
+        </p>
+      );
     },
   },
   {
@@ -380,12 +468,20 @@ const cards = [
     ctaText: "Watch now",
     ctaLink: "https://youtu.be/3YVLJs0g7mU?si=uRSTUicQtsv-GXZP",
     content: () => {
-      return <p>
-        Imagine stepping into a digital fortress, where the walls are constructed from complex codes and intricate protocols. In this enlightening session, our expert speaker unveils the crucial building blocks of cyber security, offering a comprehensive introduction to the fundamental principles that safeguard our digital world.
-        <br></br>
-        <br></br>
-        Join us as we delve into the core concepts, strategies, and best practices essential for protecting information in an increasingly interconnected era.
-      </p>
+      return (
+        <p>
+          Imagine stepping into a digital fortress, where the walls are
+          constructed from complex codes and intricate protocols. In this
+          enlightening session, our expert speaker unveils the crucial building
+          blocks of cyber security, offering a comprehensive introduction to the
+          fundamental principles that safeguard our digital world.
+          <br></br>
+          <br></br>
+          Join us as we delve into the core concepts, strategies, and best
+          practices essential for protecting information in an increasingly
+          interconnected era.
+        </p>
+      );
     },
   },
 ];

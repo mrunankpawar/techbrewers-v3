@@ -21,35 +21,35 @@ const testimonials = [
     title: "Product Growth and DevRel @Zeeve.io",
   },
   {
-        quote:
-          "One of the community which I have seen growing from zero. I know the team personally and everyone is working hard without expecting anything in return. That's what community means. I will always be there with TechBrewers community.",
-        name: "Rohan Kulkarni",
-        title: "Developer @Upsurge Labs",
-      },
-      {
-        quote:
-          "I came to Pune from a different city and as my college was a tier 3 college, I didn't get much active clubs and college communities there. So I started looking for active communities in Pune. TechBrewers helped me grow on a personal and professional scale. ",
-        name: "Krushna Nalawade",
-        title: "Chief Executive @hypebuddy",
-      },
-      {
-        quote:
-          "I have been part of the TechBrewers community since its initial days. TechBrewers has helped me grow socially as well as technologically. During our meetups, I had an opportunity to exchange project ideas with fellow club members. I have been referred for an internship through the TechBrewers community.",
-        name: "Astitva Nikose",
-        title: "Assistant Manager @Jio",
-      },
+    quote:
+      "One of the community which I have seen growing from zero. I know the team personally and everyone is working hard without expecting anything in return. That's what community means. I will always be there with TechBrewers community.",
+    name: "Rohan Kulkarni",
+    title: "Developer @Upsurge Labs",
+  },
+  {
+    quote:
+      "I came to Pune from a different city and as my college was a tier 3 college, I didn't get much active clubs and college communities there. So I started looking for active communities in Pune. TechBrewers helped me grow on a personal and professional scale. ",
+    name: "Krushna Nalawade",
+    title: "Chief Executive @hypebuddy",
+  },
+  {
+    quote:
+      "I have been part of the TechBrewers community since its initial days. TechBrewers has helped me grow socially as well as technologically. During our meetups, I had an opportunity to exchange project ideas with fellow club members. I have been referred for an internship through the TechBrewers community.",
+    name: "Astitva Nikose",
+    title: "Assistant Manager @Jio",
+  },
 ];
-
 
 function TestimonialCards() {
   return (
     <div className="h-[40rem] w-full dark:bg-black-100 dark:bg-dot-white/[0.1] relative flex flex-col items-center justify-center overflow-hidden">
       <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center text-center">
-      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
-         What people say about us
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
+          What people say about us
         </h3>
         <p className="mt-4 font-normal text-base md:text-lg text-violet-200 max-w-xl mx-auto z-10 mb-10">
-        Discover the powerful stories of growth, collaboration, and the remarkable connections that define the TechBrewers experience.
+          Discover the powerful stories of growth, collaboration, and the
+          remarkable connections that define the TechBrewers experience.
         </p>
       </div>
       <div className="flex justify-center w-full overflow-hidden px-4 sm:px-6 lg:px-8">

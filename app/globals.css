@@ -4,6 +4,11 @@
 
 
 @layer base {
+  ::selection {
+    background-color: #6c63ff; /* Your background color */
+    color: #ffffff; /* Your text color */
+  }
+
     :root {
       --background: 0 0% 100%;
       --foreground: 240 10% 3.9%;

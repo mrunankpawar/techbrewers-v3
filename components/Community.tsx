@@ -2,9 +2,6 @@
 import React from "react";
 import { EvervaultCard } from "./ui/EvervaultCard";
 import SparklesCore from "./ui/Sparkles";
-// import { calsans } from "@/fonts/calsans";
-// import Image from "next/image";
-// import { twMerge } from "tailwind-merge";
 import { Timeline } from "./ui/Timeline";
 import Link from "next/link";
 
@@ -169,13 +166,6 @@ function Community() {
           All you need, All in one place
         </h3>
         <div className="w-[40rem] h-40 relative">
-          {/* Gradients */}
-          {/* <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
-          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
-          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" /> */}
-
-          {/* Core component */}
           <SparklesCore
             background="transparent"
             minSize={0.4}
@@ -185,12 +175,8 @@ function Community() {
             particleColor="#FFFFFF"
           />
 
-          {/* Radial Gradient to prevent sharp edges */}
           <div className="absolute inset-0 w-full h-full bg-black-100 [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
         </div>
-        {/* <h1 className="mt-5 md:mt-0 text-4xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
-          Club TechBrewers
-        </h1> */}
 
         <div className="container mx-auto px-4 mt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -206,90 +192,90 @@ function Community() {
 
             {/* Cybersec */}
             <Link href="https://discord.gg/Jhp9zrkyz5" target="_blank" passHref>
-            <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
-              <EvervaultCard text="🔐" />
+              <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
+                <EvervaultCard text="🔐" />
 
-              <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
-                Cybersecurity
-              </h2>
-            </div>
+                <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
+                  Cybersecurity
+                </h2>
+              </div>
             </Link>
 
             {/* Cloud */}
             <Link href="https://discord.gg/avEERtbqYQ" target="_blank" passHref>
-            <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
-              <EvervaultCard text="☁️" />
+              <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
+                <EvervaultCard text="☁️" />
 
-              <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
-                Cloud
-              </h2>
-            </div>
+                <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
+                  Cloud
+                </h2>
+              </div>
             </Link>
 
             {/* App Dev */}
             <Link href="https://discord.gg/gGXYaz7bJ9" target="_blank" passHref>
-            <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
-              <EvervaultCard text="📱" />
+              <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
+                <EvervaultCard text="📱" />
 
-              <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
-                App Development
-              </h2>
-            </div>
+                <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
+                  App Development
+                </h2>
+              </div>
             </Link>
 
             {/* Product Management */}
             <Link href="https://discord.gg/DqUcPvAQSH" target="_blank" passHref>
-            <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
-              <EvervaultCard text="💡" />
+              <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
+                <EvervaultCard text="💡" />
 
-              <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
-                Product Management
-              </h2>
-            </div>
+                <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
+                  Product Management
+                </h2>
+              </div>
             </Link>
 
             {/* AR /VR */}
             <Link href="https://discord.gg/FGkd3rYXc4" target="_blank" passHref>
-            <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
-              <EvervaultCard text="ᯅ" />
+              <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
+                <EvervaultCard text="ᯅ" />
 
-              <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
-                AR /VR
-              </h2>
-            </div>
+                <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
+                  AR /VR
+                </h2>
+              </div>
             </Link>
 
             {/* AI /ML */}
             <Link href="https://discord.gg/weK9ByUEZa" target="_blank" passHref>
-            <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
-              <EvervaultCard text="🤖" />
+              <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
+                <EvervaultCard text="🤖" />
 
-              <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
-                AI /ML
-              </h2>
-            </div>
+                <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
+                  AI /ML
+                </h2>
+              </div>
             </Link>
 
             {/* Networking */}
             <Link href="https://discord.gg/Kj7DvEQW2R" target="_blank" passHref>
-            <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
-              <EvervaultCard text="🤝" />
+              <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
+                <EvervaultCard text="🤝" />
 
-              <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
-                Networking
-              </h2>
-            </div>
+                <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
+                  Networking
+                </h2>
+              </div>
             </Link>
 
             {/* Opportunities */}
             <Link href="https://discord.gg/5JuF8gPtKX" target="_blank" passHref>
-            <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
-              <EvervaultCard text="💼" />
+              <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
+                <EvervaultCard text="💼" />
 
-              <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
-                Opportunities
-              </h2>
-            </div>
+                <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
+                  Opportunities
+                </h2>
+              </div>
             </Link>
           </div>
         </div>
