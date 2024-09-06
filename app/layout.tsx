@@ -11,6 +11,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Club TechBrewers",
   description: "Club TechBrewers is a global tech community with an aim of helping folks learn, connect and build.",
+  icons: {
+    icon: "/images/TB_Rocket.png",
+  },
 };
 
 export default function RootLayout({
