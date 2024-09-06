@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
 import { FaInstagram, FaLinkedinIn, FaXTwitter, FaYoutube, FaDiscord } from "react-icons/fa6";
+import { SiPeerlist } from "react-icons/si";
 import { TextHoverEffect } from './ui/TextHoverEffect';
 
 function Footer() {
@@ -23,7 +24,7 @@ function Footer() {
             <Link href='https://www.linkedin.com/company/club-techbrewers/' className='text-white hover:text-violet-300' target='_blank'>
               <FaLinkedinIn className="text-white hover:text-[#0A66C2] transition-colors duration-200"/>
             </Link>
-            <Link href='https://twitter.com/ClubTechBrewers' className='text-white hover:text-violet-300' target='_blank'>
+            <Link href='https://twitter.com/ClubTechBrewers' className='text-white hover:text-black-100' target='_blank'>
               <FaXTwitter />
             </Link>
             <Link href='https://www.youtube.com/@club_techbrewers' className='text-white hover:text-violet-300' target='_blank'>
@@ -31,6 +32,9 @@ function Footer() {
             </Link>
             <Link href='https://bit.ly/TBDISCORD' className='text-white hover:text-violet-300' target='_blank'>
               <FaDiscord className="text-white hover:text-[#7289DA] transition-colors duration-200"/>
+            </Link>
+            <Link href='https://peerlist.io/company/techbrewers' className='text-white hover:text-violet-300' target='_blank'>
+              <SiPeerlist className="text-white hover:text-[#01A93A] transition-colors duration-200"/>
             </Link>
 
           </div>
