@@ -6,6 +6,7 @@ import SparklesCore from "./ui/Sparkles";
 // import Image from "next/image";
 // import { twMerge } from "tailwind-merge";
 import { Timeline } from "./ui/Timeline";
+import Link from "next/link";
 
 const data = [
   {
@@ -164,7 +165,9 @@ function Community() {
           <Timeline data={data} />
         </div>
 
-        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">All you need, All in one place</h3>
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
+          All you need, All in one place
+        </h3>
         <div className="w-[40rem] h-40 relative">
           {/* Gradients */}
           {/* <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
@@ -192,15 +195,17 @@ function Community() {
         <div className="container mx-auto px-4 mt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {/* Web dev */}
-            <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
-              <EvervaultCard text="💻" />
-
-              <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
-                Web Development
-              </h2>
-            </div>
+            <Link href="https://discord.gg/kQtQpAKV9K" target="_blank" passHref>
+              <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem] cursor-pointer">
+                <EvervaultCard text="💻" />
+                <h2 className="mt-5 md:mb-3 uppercase font-semibold tracking-widest text-md text-center text-blue-100 max-w-80 z-10">
+                  Web Development
+                </h2>
+              </div>
+            </Link>
 
             {/* Cybersec */}
+            <Link href="https://discord.gg/Jhp9zrkyz5" target="_blank" passHref>
             <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
               <EvervaultCard text="🔐" />
 
@@ -208,8 +213,10 @@ function Community() {
                 Cybersecurity
               </h2>
             </div>
+            </Link>
 
             {/* Cloud */}
+            <Link href="https://discord.gg/avEERtbqYQ" target="_blank" passHref>
             <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
               <EvervaultCard text="☁️" />
 
@@ -217,8 +224,10 @@ function Community() {
                 Cloud
               </h2>
             </div>
+            </Link>
 
             {/* App Dev */}
+            <Link href="https://discord.gg/gGXYaz7bJ9" target="_blank" passHref>
             <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
               <EvervaultCard text="📱" />
 
@@ -226,8 +235,10 @@ function Community() {
                 App Development
               </h2>
             </div>
+            </Link>
 
-            {/* Card 3 */}
+            {/* Product Management */}
+            <Link href="https://discord.gg/DqUcPvAQSH" target="_blank" passHref>
             <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
               <EvervaultCard text="💡" />
 
@@ -235,8 +246,10 @@ function Community() {
                 Product Management
               </h2>
             </div>
+            </Link>
 
             {/* AR /VR */}
+            <Link href="https://discord.gg/FGkd3rYXc4" target="_blank" passHref>
             <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
               <EvervaultCard text="ᯅ" />
 
@@ -244,8 +257,10 @@ function Community() {
                 AR /VR
               </h2>
             </div>
+            </Link>
 
             {/* AI /ML */}
+            <Link href="https://discord.gg/weK9ByUEZa" target="_blank" passHref>
             <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
               <EvervaultCard text="🤖" />
 
@@ -253,8 +268,10 @@ function Community() {
                 AI /ML
               </h2>
             </div>
+            </Link>
 
             {/* Networking */}
+            <Link href="https://discord.gg/Kj7DvEQW2R" target="_blank" passHref>
             <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
               <EvervaultCard text="🤝" />
 
@@ -262,8 +279,10 @@ function Community() {
                 Networking
               </h2>
             </div>
+            </Link>
 
             {/* Opportunities */}
+            <Link href="https://discord.gg/5JuF8gPtKX" target="_blank" passHref>
             <div className="border-2 rounded-xl border-violet-300 dark:border-violet-300/[0.5] flex flex-col items-center max-w-sm mx-auto p-4 relative h-[20rem]">
               <EvervaultCard text="💼" />
 
@@ -271,6 +290,7 @@ function Community() {
                 Opportunities
               </h2>
             </div>
+            </Link>
           </div>
         </div>
       </div>
