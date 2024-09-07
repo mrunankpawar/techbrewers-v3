@@ -108,11 +108,11 @@ const data = [
   {
     category: "Celebration + Connect",
     title: "TechBrewers CelCon",
-    src: "/images/meetup/celcon/5.jpg",
+    src: "/images/meetup/celcon/audience.jpg",
     content: (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Image
-          src="/images/meetup/celcon/audience.jpg"
+          src="/images/meetup/celcon/audienceh.jpg"
           alt="Mrunank speaking at TechBrewers CelCon"
           height="500"
           width="500"
