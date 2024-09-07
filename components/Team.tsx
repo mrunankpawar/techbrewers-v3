@@ -12,14 +12,14 @@ const people = [
     id: 2,
     name: "Vaibhav Kadam",
     designation: "",
-    image: "/images/team/vaibhavc.png",
+    image: "/images/team/vaibhav.png",
     url: "https://www.linkedin.com/in/dennis-george-george/",
   },
   {
     id: 3,
     name: "Abhi Savale",
     designation: "",
-    image: "/images/team/abhi.jpg",
+    image: "/images/team/abhi.png",
     url: "https://www.linkedin.com/in/dennis-george-george/",
   },
   {
@@ -40,7 +40,7 @@ const people = [
     id: 6,
     name: "Akanksha Sonawane",
     designation: "",
-    image: "/images/team/akanksha.jpg",
+    image: "/images/team/akanksha.png",
     url: "https://www.linkedin.com/in/dennis-george-george/",
   },
 ];
