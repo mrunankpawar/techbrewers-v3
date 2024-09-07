@@ -10,10 +10,12 @@ function Hero() {
   return (
     <div className="relative h-screen w-full pb-20">
       <div className="relative flex flex-col items-center justify-center mx-auto h-full w-full max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] text-center">
-        <img
+        <Image
           src="/images/techbrewers.png"
           alt="TechBrewers logo"
           className="pb-5 w-40 md:w-44 lg:w-48"
+          width={192}
+          height={192}
         />
         <h2 className="mb-3 text-lg sm:text-xl md:text-2xl lg:text-2xl font-medium sm:font-semibold md:font-bold lg:font-extrabold text-blue-100 uppercase tracking-widest z-10">
           <FlipWords words={words} /> with

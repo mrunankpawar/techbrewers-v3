@@ -20,7 +20,7 @@ export default function Home() {
         <meta property="og:title" content="Club TechBrewers" />
         <meta property="og:description" content="Join the TechBrewers community to learn, connect and build in tech." />
         <meta property="og:url" content="https://techbrewers.org/" />
-        <meta property="og:image" content="/images/ogimagehome.jpg" />
+        <meta property="og:image" content="/images/ogimagehome.png" />
       </Head>
     <main className="mt-5 pt-5 relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
       <div className="max-w-8xl w-full">
