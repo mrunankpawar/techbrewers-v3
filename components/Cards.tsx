@@ -112,14 +112,14 @@ const data = [
     content: (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Image
-          src="/images/meetup/celcon/4.jpg"
+          src="/images/meetup/celcon/audience.jpg"
           alt="Mrunank speaking at TechBrewers CelCon"
           height="500"
           width="500"
           className="rounded-lg w-full h-auto object-contain"
         />
         <Image
-          src="/images/meetup/celcon/2.jpg"
+          src="/images/meetup/celcon/mrunankspeak.jpg"
           alt="Mrunank addressing the audience at TechBrewers CelCon"
           height="500"
           width="500"
@@ -127,7 +127,7 @@ const data = [
         />
 
         <Image
-          src="/images/meetup/celcon/1.jpg"
+          src="/images/meetup/celcon/ayushspeak.jpg"
           alt="Attendess sharing their experience"
           height="500"
           width="500"
@@ -142,7 +142,7 @@ const data = [
           className="rounded-lg w-full h-auto object-contain"
         />
         <Image
-          src="/images/meetup/celcon/3.jpg"
+          src="/images/meetup/celcon/celconteam.jpg"
           alt="TechBrewers Team at CelCon"
           height="500"
           width="500"
