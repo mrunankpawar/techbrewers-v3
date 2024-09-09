@@ -4,7 +4,7 @@
       id: 1,
       title: "Some numbers that matter",
       description: "Join our vibrant community of over 2,000 members, spread across more than 10 countries worldwide!",
-      className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh] text-center",
+      className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[37.5rem] text-center",
       imgClassName: "w-full h-full",
       titleClassName: "justify-start items-center",
       spareImg: "",
