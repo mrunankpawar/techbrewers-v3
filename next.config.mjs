@@ -5,4 +5,12 @@ const nextConfig = {
     },
 };
 
+module.exports = {
+  experimental: {
+    modern: true,
+    polyfillsOptimization: true,
+  },
+};
+
+
 export default nextConfig;
