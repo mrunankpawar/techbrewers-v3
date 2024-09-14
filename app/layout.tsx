@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "./provider";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react"
 
 
 const inter = Inter({ subsets: ["latin"] });
