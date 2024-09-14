@@ -26,6 +26,7 @@ export default function RootLayout({
   return (
     <html className="bg-black-100" lang="en">
       <body className={inter.className && "bg-black-100"}>
+      <meta property="og:image" content="images/ogimagehome"/>
       <ThemeProvider attribute="class" defaultTheme="dark">
         <div className="relative w-full flex items-center justify-center">
           <FloatingNav navItems={[
