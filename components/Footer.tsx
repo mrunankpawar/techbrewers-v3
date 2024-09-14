@@ -74,11 +74,11 @@ function Footer() {
               Partner with us
             </Link>
             <Link
-              href="https://drive.google.com/drive/folders/1IQOpzydf6TpsRUpgsCXPN2VC4e-27sul?usp=sharing"
+              href="https://bit.ly/TBDISCORD"
               target="_blank"
               className="text-xl text-white hover:text-violet-300"
             >
-              Brand Guide
+              Join Community
             </Link>
           </div>
         </div>
