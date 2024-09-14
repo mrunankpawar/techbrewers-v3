@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html className="bg-black-100" lang="en">
       <head>
-      <meta property="og:image" content="images/ogimagehome.png"/>
+      <meta property="og:image" content="https://drive.google.com/file/d/1In4zGOmzTPQqT8FtvQSqRpVWHkZQgshJ/view?usp=drive_link"/>
       </head>
       <body className={inter.className && "bg-black-100"}>
       <ThemeProvider attribute="class" defaultTheme="dark">
