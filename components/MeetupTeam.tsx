@@ -57,6 +57,13 @@ const people = [
     image: "/images/meetupteam/faizan.png",
     url: "https://www.linkedin.com/in/akhtar-faizan/",
   },
+  {
+    id: 9,
+    name: "Vishwas Kshirsagar",
+    designation: "Data Science Consultant",
+    image: "/images/meetupteam/vishwas.png",
+    url: "https://www.linkedin.com/in/k98vishwas",
+  },
 ];
 
 function Team() {
