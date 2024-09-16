@@ -9,7 +9,7 @@ function CardCarousel() {
   ));
 
   return (
-    <div className="w-full h-full py-20">
+    <div className="w-full h-full pt-20 pb-10">
       <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
         Glimpses from our past meetups
       </h3>
