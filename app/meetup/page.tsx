@@ -3,7 +3,6 @@ import Meetup from "@/components/Meetup";
 import MeetupTeam from "@/components/MeetupTeam";
 // import ExpandableCards from "@/components/ExpandableCards";
 // import CardCarousel from "@/components/Cards";
-import Script from 'next/script';
 
 function page() {
   return (
@@ -18,15 +17,6 @@ function page() {
         <meta property="og:url" content="https://techbrewers.org/meetup" />
         <meta property="og:image" content="/images/ogimagemeetup.jpg" />
       </Head>
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MZEN1DZW0S" />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'YOUR_GOOGLE_ANALYTICS_ID');  // Replace with your Google Analytics ID
-        `}
-      </Script>
       
     <div>
       <Meetup />

@@ -7,7 +7,6 @@ import Team from "@/components/Team";
 import TestimonialCards from "@/components/TestimonialCards";
 // import { InfiniteMovingCards } from "@/components/ui/InfiniteMovingCards";
 // import Image from "next/image";
-import Script from 'next/script';
 
 export default function Home() {
   return (
@@ -23,15 +22,6 @@ export default function Home() {
         <meta property="og:url" content="https://techbrewers.org/" />
         <meta property="og:image" content="/images/ogimagehome.png" />
       </Head>
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MZEN1DZW0S" />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'YOUR_GOOGLE_ANALYTICS_ID');  // Replace with your Google Analytics ID
-        `}
-      </Script>
     <main className="mt-5 pt-5 relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
       <div className="max-w-8xl w-full">
         <Hero />

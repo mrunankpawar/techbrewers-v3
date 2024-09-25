@@ -28,6 +28,7 @@ export default function RootLayout({
       <head>
       <meta property="og:image" content="https://drive.google.com/file/d/1In4zGOmzTPQqT8FtvQSqRpVWHkZQgshJ/view?usp=drive_link"/>
       </head>
+
       <body className={inter.className && "bg-black-100"}>
       <ThemeProvider attribute="class" defaultTheme="dark">
         <div className="relative w-full flex items-center justify-center">
