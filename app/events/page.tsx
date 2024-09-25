@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Events from "@/components/Events";
 import ExpandableCards from "@/components/ExpandableCards";
+import Script from 'next/script';
 
 function page() {
   return (
@@ -16,6 +17,17 @@ function page() {
         <meta property="og:url" content="https://techbrewers.org/events" />
         <meta property="og:image" content="/images/ogimageevents.jpg" />
       </Head>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MZEN1DZW0S" />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'YOUR_GOOGLE_ANALYTICS_ID');  // Replace with your Google Analytics ID
+        `}
+      </Script>
+      
+
     <div>
       <Events />
       <ExpandableCards />
