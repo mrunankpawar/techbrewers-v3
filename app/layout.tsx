@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Club TechBrewers",
     description: "Join the TechBrewers community to learn, connect and build in tech.",
     url: "https://techbrewers.org/",
-    images: "/images/ogimagehome.png",
+    images: "https://techbrewers.org/images/ogimagehome.png",
   },
 };
 
