@@ -1,10 +1,12 @@
 import React from "react";
+import Link from "next/link";
 import CardCarousel from "@/components/Cards";
 // import MeetupTeam from "@/components/MeetupTeam";
 import { FaCalendarAlt, FaClock, FaMapMarkerAlt } from "react-icons/fa";
 import MeetupSpeakers from "@/components/MeetupSpeakers";
 import { BackgroundLines } from "./ui/BackgroundLines";
 import { CardSpotlight } from "./ui/CardSpotlight";
+import MagicButton from "./ui/MagicButton";
 
 const RocketIcon = () => {
   return (
@@ -75,6 +77,16 @@ function Meetup() {
           <Step title="Special surprises and exclusive swag for attendees!" />
       </ul>
     </div>
+
+    <div className="z-10">
+          <Link href="https://bit.ly/TBMP3" target="__blank">
+            <MagicButton
+              title="Register now"
+              // icon={<FaArrowRight />}
+              position="right"
+            />
+          </Link>
+        </div>
     
   </CardSpotlight>
 
