@@ -78,7 +78,7 @@ function Meetup() {
       </ul>
     </div>
 
-    <div className="z-10">
+    <div className="z-10 mt-4 sm:mt-6">
           <Link href="https://bit.ly/TBMP3" target="__blank">
             <MagicButton
               title="Register now"
