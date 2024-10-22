@@ -53,7 +53,7 @@ function Meetup() {
           </div>
           <div className="flex items-center space-x-2">
             <FaClock className="text-xl sm:text-2xl text-indigo-400" />
-            <span>Time: 10:30 AM - 5:00 PM</span>
+            <span>Time: 10:30 AM - 4:30 PM IST</span>
           </div>
           <div className="flex items-center space-x-2">
             <FaMapMarkerAlt className="text-xl sm:text-2xl text-indigo-400" />
