@@ -57,7 +57,7 @@ function Meetup() {
           </div>
           <div className="flex items-center space-x-2">
             <FaMapMarkerAlt className="text-xl sm:text-2xl text-indigo-400" />
-            <span>Venue: TBD</span>
+            <span>Venue: The Daftar, Baner, Pune</span>
           </div>
         </div>
 
