@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import Meetup from "@/components/Meetup";
 import MeetupTeam from "@/components/MeetupTeam";
+import MeetupSponsors from "@/components/MeetupSponsors";
+// import MeetupSpeakers from "@/components/MeetupSpeakers";
 // import ExpandableCards from "@/components/ExpandableCards";
 // import CardCarousel from "@/components/Cards";
 
@@ -21,6 +23,7 @@ function page() {
     <div>
       <Meetup />
       <MeetupTeam />
+      <MeetupSponsors />
     </div>
     </>
   )
