@@ -65,18 +65,19 @@ function Footer() {
               <SiPeerlist className="text-white hover:text-[#01A93A] transition-colors duration-200" />
             </Link>
           </div>
-          <div className="flex flex-row gap-x-[0.5rem] md:gap-x-[2rem] text-[0.8rem] md:text-[1rem] items-center text-center justify-between w-full md:w-unset mt-1">
+          {/* <div className="flex flex-row gap-x-[0.5rem] md:gap-x-[2rem] text-[0.8rem] md:text-[1rem] items-center text-center justify-between w-full md:w-unset mt-1"> */}
+          <div className="flex flex-row gap-x-[0.5rem] md:gap-x-[2rem] text-sm sm:text-base md:text-lg font-medium items-center text-center justify-between w-full md:w-unset mt-1">
             <Link
               href="mailto:contact@techbrewers.org"
               target="_blank"
-              className="text-xl text-white hover:text-violet-300"
+              className=" text-white hover:text-violet-300"
             >
               Partner with us
             </Link>
             <Link
               href="https://bit.ly/TBDISCORD"
               target="_blank"
-              className="text-xl text-white hover:text-violet-300"
+              className=" text-white hover:text-violet-300"
             >
               Join Community
             </Link>
