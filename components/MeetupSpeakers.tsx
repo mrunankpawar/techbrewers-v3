@@ -25,17 +25,17 @@ const people = [
   },
   {
     id: 4,
-    name: "STAY TUNED",
-    designation: "Cyber Security Engineer",
-    image: "/images/meetupteam/tuned2.png",
-    // url: "https://www.linkedin.com/in/jeenika/",
+    name: "Yogini Bende",
+    designation: "Co-founder and CTO @ Peerlist",
+    image: "/images/meetupteam/yogini.png",
+    url: "https://peerlist.io/yogini",
   },
   {
     id: 8,
-    name: "STAY TUNED",
-    designation: "Software Engineer @ Criteo",
-    image: "/images/meetupteam/tuned.png",
-    // url: "https://www.linkedin.com/in/akhtar-faizan/",
+    name: "Akash Bhadange",
+    designation: "Co-founder and CEO @ Peerlist",
+    image: "/images/meetupteam/akash.png",
+    url: "https://peerlist.io/designerdada",
   },
   
 ];
@@ -65,7 +65,7 @@ function Team() {
                 />
               </div>
               <a
-                // href={person.url}
+                href={person.url}
                 className="mt-2 text-sm md:text-base font-semibold hover:text-violet-400"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -73,7 +73,7 @@ function Team() {
                 {person.name}
               </a>
               <div className="text-xs md:text-sm">
-                {/* {person.designation} */}
+                {person.designation}
                 </div>
             </div>
           ))}
