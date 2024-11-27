@@ -3,6 +3,11 @@ import Link from "next/link";
 
 const meetupSponsors = [
   {
+    name: "GitHub",
+    logo: "/images/sponsors/github.png",
+    url: "https://github.com/",
+  },
+  {
     name: "Securityium",
     logo: "/images/sponsors/securityium.png",
     url: "https://www.securityium.com/",
@@ -31,6 +36,11 @@ const meetupSponsors = [
     name: "Aeka Coffee",
     logo: "/images/sponsors/aeka.png",
     url: "https://www.instagram.com/aekascoffee/",
+  },
+  {
+    name: "Moneylancer Investments",
+    logo: "/images/sponsors/moneylancer.png",
+    url: "https://mymoneylancer.com/",
   },
 
 ];
