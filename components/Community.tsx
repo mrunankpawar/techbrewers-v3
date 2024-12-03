@@ -148,6 +148,30 @@ const data = [
       </div>
     ),
   },
+  {
+    title: "Late 2024",
+    content: (
+      <div>
+        <p className="text-neutral-800 dark:text-neutral-200 text-md text-left font-bold md:text-lg mb-4">
+          In-person Meetup
+        </p>
+        <div className="mb-8">
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            🎉 Celebrated 3 years of TechBrewers
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            🚀 TechBrewers Meetup 3.0
+          </div>
+          {/* <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            🎉 TechBrewers GenAI Meetup
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-left text-md md:text-lg">
+            👾 Launch community on Discord
+          </div> */}
+        </div>
+      </div>
+    ),
+  },
 ];
 
 function Community() {
