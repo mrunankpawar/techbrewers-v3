@@ -18,10 +18,10 @@ const people = [
   },
   {
     id: 3,
-    name: "STAY TUNED",
-    // designation: "Head of Service Delivery @ Securityium",
-    image: "/images/meetupteam/tuned.png",
-    // url: "https://www.linkedin.com/in/touhidshaikh22/",
+    name: "Vijaykumar Jangamashetti",
+    designation: "Sr Google Cloud Consulting Architect, Google",
+    image: "/images/meetupteam/vijaykumar.png",
+    url: "https://www.linkedin.com/in/vijaykumar-jangamashetti/",
   },
   {
     id: 4,
