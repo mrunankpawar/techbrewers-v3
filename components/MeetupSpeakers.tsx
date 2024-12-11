@@ -4,17 +4,17 @@ import React, { useState, useEffect } from "react";
 const people = [
   {
     id: 1,
-    name: "STAY TUNED",
-    // designation: "Customer Success @ Vercel",
-    image: "/images/meetupteam/tuned.png",
-    url: "https://www.linkedin.com/in/npralhad/",
+    name: "Ganesh Divekar",
+    designation: "Engineering @ Bajaj Finserv",
+    image: "/images/meetupteam/ganesh.png",
+    url: "https://www.linkedin.com/in/ganesh-divekar-96a72bb7",
   },
   {
     id: 2,
-    name: "STAY TUNED",
-    // designation: "Assistant Vice President @ State Street",
-    image: "/images/meetupteam/tuned2.png",
-    // url: "https://www.linkedin.com/in/ambhorerahul/",
+    name: "Pranoti Nandurkar",
+    designation: "Technical Architect @ Tata Consultancy Services",
+    image: "/images/meetupteam/pranoti.png",
+    url: "https://www.linkedin.com/in/pranoti-nandurkar-170021b",
   },
   {
     id: 3,
