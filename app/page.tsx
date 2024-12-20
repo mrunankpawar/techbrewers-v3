@@ -12,17 +12,17 @@ export default function Home() {
   return (
     <>
     <Head>
-        <title>Club TechBrewers</title>
-        <meta name="description" content="Club TechBrewers" />
+        <title>TechThrusters</title>
+        {/* <meta name="description" content="Club TechBrewers" /> */}
         <meta name="description" content="TechThrusters" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="UTF-8" />
         {/* Open Graph / Social media meta tags */}
-        <meta property="og:title" content="Club TechBrewers" />
+        {/* <meta property="og:title" content="Club TechBrewers" /> */}
         <meta property="og:title" content="TechThrusters" />
-        <meta property="og:description" content="Join the TechBrewers community to learn, connect and build in tech." />
+        {/* <meta property="og:description" content="Join the TechBrewers community to learn, connect and build in tech." /> */}
         <meta property="og:description" content="Join TechThrusters community to learn, connect and build in tech." />
-        <meta property="og:url" content="https://techbrewers.org/" />
+        {/* <meta property="og:url" content="https://techbrewers.org/" /> */}
         <meta property="og:url" content="https://techthrusters.org/" />
         <meta property="og:image" content="/images/ogimagehome.png" />
       </Head>

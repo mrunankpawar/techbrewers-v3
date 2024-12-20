@@ -16,8 +16,8 @@ function Footer() {
     <div className="bg-violet-100/[0.05] pt-2 rounded-3xl mt-20">
       <div className="container-1200 flex flex-col md:flex-row justify-between items-center mt-[3rem] md:mt-[7rem] pl-20 pr-20">
         <Image
-          src="/images/techbrewers.png"
-          alt="TechBrewers Logo"
+          src="/images/logo/techthrusterswhite.png"
+          alt="TechThrusters Logo"
           width={225}
           height={225}
         />
@@ -68,7 +68,7 @@ function Footer() {
           {/* <div className="flex flex-row gap-x-[0.5rem] md:gap-x-[2rem] text-[0.8rem] md:text-[1rem] items-center text-center justify-between w-full md:w-unset mt-1"> */}
           <div className="flex flex-row gap-x-[0.5rem] md:gap-x-[2rem] text-sm sm:text-base md:text-lg font-medium items-center text-center justify-between w-full md:w-unset mt-1">
             <Link
-              href="mailto:contact@techbrewers.org"
+              href="mailto:contact@techthrusters.org"
               target="_blank"
               className=" text-white hover:text-violet-300"
             >
@@ -85,8 +85,8 @@ function Footer() {
         </div>
       </div>
       <div className="overflow-hidden relative">
-        <p className="text-center uppercase mt-20 text-6xl sm:text-6xl md:text-8xl lg:text-[11rem] xl:text-[12rem] font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 dark:from-violet-800/[0.2] to-neutral-200 dark:to-white-100/[0.1]">
-          <TextHoverEffect text="TECHBREWERS" />
+        <p className="text-center uppercase mt-20 text-3xl sm:text-5xl md:text-7xl lg:text-[10rem] xl:text-[11rem] font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 dark:from-violet-800/[0.2] to-neutral-200 dark:to-white-100/[0.1]">
+          <TextHoverEffect text="TECHTHRUSTERS" />
         </p>
       </div>
     </div>
