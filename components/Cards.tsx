@@ -33,6 +33,78 @@ const DummyContent = () => {
 const data = [
   {
     category: "Community Meetup",
+    title: "TechBrewers Meetup 3.0",
+    src: "/images/meetup/meetup3/cover3.JPG",
+    content: (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Image
+          src="/images/meetup/meetup3/mrunank.JPG"
+          alt="Mrunank speaking at TechBrewers Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/vj.JPG"
+          alt="Vijaykumar speaking at TechBrewers Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/sakshi.jpg"
+          alt="Sakshi speaking at TechBrewers Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/pranoti.jpg"
+          alt="Pranoti speaking at TechBrewers Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/ganesh.jpg"
+          alt="Ganesh speaking at TechBrewers Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/crowd.jpg"
+          alt="Folks attending  Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/networking.jpg"
+          alt="Folks networking at TechBrewers Community Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/swags.jpg"
+          alt="Attendees excited to get their goodies"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/group.JPG"
+          alt="Group photo at TechBrewers Community Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+      </div>
+    ),
+  },
+  {
+    category: "Community Meetup",
     title: "TechBrewers Community Meetup 2.0",
     src: "/images/meetup/meetup2/cover3.jpg",
     content: (
