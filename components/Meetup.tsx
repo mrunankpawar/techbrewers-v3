@@ -37,63 +37,57 @@ const Step = ({ title }: { title: string }) => {
   );
 };
 
-
 function Meetup() {
   return (
     <div className="mt-0 md:mt-10 h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-5 md:py-10">
       <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center text-center">
-      <div className="w-full h-full pt-20 pb-10">
-      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
-        TechBrewers Meetup 3.0
-      </h3>
+        {/* <div className="w-full h-full pt-20 pb-10"> */}
+          {/* <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
+            TechBrewers Meetup 3.0
+          </h3> */}
 
-      {/* Date, Time, and Venue - Stack vertically on mobile, horizontal on larger screens */}
-      <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-sm sm:text-base md:text-lg font-medium text-indigo-100 m-10">
-          <div className="flex items-center space-x-2">
-            <FaCalendarAlt className="text-xl sm:text-2xl text-indigo-400" />
-            <span>Date: December 21, 2024</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <FaClock className="text-xl sm:text-2xl text-indigo-400" />
-            <span>Time: 10:30AM - 4:30PM IST</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <FaMapMarkerAlt className="text-xl sm:text-2xl text-indigo-400" />
-            <span>Venue: Origin Workspaces</span>
-          </div>
-        </div>
+          {/* Date, Time, and Venue - Stack vertically on mobile, horizontal on larger screens */}
+          {/* <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-sm sm:text-base md:text-lg font-medium text-indigo-100 m-10">
+            <div className="flex items-center space-x-2">
+              <FaCalendarAlt className="text-xl sm:text-2xl text-indigo-400" />
+              <span>Date: December 21, 2024</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <FaClock className="text-xl sm:text-2xl text-indigo-400" />
+              <span>Time: 10:30AM - 4:30PM IST</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <FaMapMarkerAlt className="text-xl sm:text-2xl text-indigo-400" />
+              <span>Venue: Origin Workspaces</span>
+            </div>
+          </div> */}
 
-        
-  <CardSpotlight className="relative p-6 bg-indigo-950 bg-opacity-30 backdrop-filter backdrop-blur-lg rounded-lg max-w-xs md:max-w-lg mx-auto shadow-lg">
-    <p className="text-xl font-bold relative z-20 mt-2 text-white text-left">
-      Why Join Us at TechBrewers Meetup 3.0?
-    </p>
-    <div className="text-white-200 mt-4 relative z-20 text-left">
-      Follow these exciting reasons why you shouldn&apos;t miss out:
-      <ul className="list-none mt-4 space-y-2">
-      <Step title="Connect with forward-thinking innovators and industry experts." />
-          <Step title="Get hands-on experience with the latest tech trends." />
-          <Step title="Grow your professional network and collaborate on groundbreaking projects." />
-          <Step title="Special surprises and exclusive swag for attendees!" />
-      </ul>
-    </div>
+          {/* <CardSpotlight className="relative p-6 bg-indigo-950 bg-opacity-30 backdrop-filter backdrop-blur-lg rounded-lg max-w-xs md:max-w-lg mx-auto shadow-lg"> */}
+            {/* <p className="text-xl font-bold relative z-20 mt-2 text-white text-left">
+              Why Join Us at TechBrewers Meetup 3.0?
+            </p> */}
+            {/* <div className="text-white-200 mt-4 relative z-20 text-left">
+              Follow these exciting reasons why you shouldn&apos;t miss out:
+              <ul className="list-none mt-4 space-y-2">
+                <Step title="Connect with forward-thinking innovators and industry experts." />
+                <Step title="Get hands-on experience with the latest tech trends." />
+                <Step title="Grow your professional network and collaborate on groundbreaking projects." />
+                <Step title="Special surprises and exclusive swag for attendees!" />
+              </ul>
+            </div> */}
 
-    <div className="z-10 mt-4 sm:mt-6">
-          <Link href="https://bit.ly/TBMP3" target="__blank">
-            <MagicButton
-              title="Register now"
-              // icon={<FaArrowRight />}
-              position="right"
-            />
-          </Link>
-        </div>
-    
-  </CardSpotlight>
-
-        <MeetupSpeakers />
-    </div>
+            {/* <div className="z-10 mt-4 sm:mt-6">
+              <Link href="https://bit.ly/TBMP3" target="__blank">
+                <MagicButton
+                  title="Register now"
+                  // icon={<FaArrowRight />}
+                  position="right"
+                />
+              </Link>
+            </div> */}
+          {/* </CardSpotlight> */}
+        {/* </div> */}
         <CardCarousel />
-        {/* <MeetupTeam /> */}
       </div>
     </div>
   );
