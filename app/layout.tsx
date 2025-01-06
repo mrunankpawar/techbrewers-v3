@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     icon: "/images/TB_Rocket.png",
   },
   openGraph: {
-    title: "Club TechBrewers",
-    description: "Join the TechBrewers community to learn, connect and build in tech.",
-    url: "https://techbrewers.org/",
-    images: "https://techbrewers.org/images/ogimagehome.png",
+    title: "TechThrusters",
+    description: "Join the TechThrusters community to learn, connect and build in tech.",
+    url: "https://techthrusters.org/",
+    images: "https://techthrusters.org/images/ogimagehome.png",
   },
 };
 

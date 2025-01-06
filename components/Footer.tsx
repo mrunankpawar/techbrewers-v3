@@ -16,7 +16,7 @@ function Footer() {
     <div className="bg-violet-100/[0.05] pt-2 rounded-3xl mt-20">
       <div className="container-1200 flex flex-col md:flex-row justify-between items-center mt-[3rem] md:mt-[7rem] pl-20 pr-20">
         <Image
-          src="/images/logo/techthrusterswhite.png"
+          src="/images/logo/whitetrans.png"
           alt="TechThrusters Logo"
           width={225}
           height={225}
@@ -24,20 +24,20 @@ function Footer() {
         <div className="flex flex-col justify-between items-center md:items-end mt-12 md:mt-0 h-full gap-y-4 w-full md:w-auto">
           <div className="flex flex-row items-center w-full justify-between md:justify-end gap-x-auto md:gap-x-6 md:w-unset mx-auto text-3xl">
             <Link
-              href="https://www.instagram.com/club_techbrewers/"
+              href="https://www.instagram.com/tech.thrusters/"
               target="_blank"
             >
               <FaInstagram className="text-white hover:text-pink-500 transition-colors duration-200" />
             </Link>
             <Link
-              href="https://www.linkedin.com/company/club-techbrewers/"
+              href="https://www.linkedin.com/company/techthrusters/"
               className="text-white hover:text-violet-300"
               target="_blank"
             >
               <FaLinkedinIn className="text-white hover:text-[#0A66C2] transition-colors duration-200" />
             </Link>
             <Link
-              href="https://twitter.com/ClubTechBrewers"
+              href="https://twitter.com/TechThrusters"
               className="text-white hover:text-black-100"
               target="_blank"
             >
@@ -58,7 +58,7 @@ function Footer() {
               <FaDiscord className="text-white hover:text-[#7289DA] transition-colors duration-200" />
             </Link>
             <Link
-              href="https://peerlist.io/company/techbrewers"
+              href="https://peerlist.io/company/techthrusters"
               className="text-white hover:text-violet-300"
               target="_blank"
             >
