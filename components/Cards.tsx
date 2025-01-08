@@ -52,42 +52,42 @@ const data = [
           className="rounded-lg w-full h-auto object-contain"
         />
         <Image
-          src="/images/meetup/meetup3/sakshi.jpg"
+          src="/images/meetup/meetup3/sakshi.JPG"
           alt="Sakshi speaking at TechBrewers Meetup 3.0"
           height="500"
           width="500"
           className="rounded-lg w-full h-auto object-contain"
         />
         <Image
-          src="/images/meetup/meetup3/pranoti.jpg"
+          src="/images/meetup/meetup3/pranoti.JPG"
           alt="Pranoti speaking at TechBrewers Meetup 3.0"
           height="500"
           width="500"
           className="rounded-lg w-full h-auto object-contain"
         />
         <Image
-          src="/images/meetup/meetup3/ganesh.jpg"
+          src="/images/meetup/meetup3/ganesh.JPG"
           alt="Ganesh speaking at TechBrewers Meetup 3.0"
           height="500"
           width="500"
           className="rounded-lg w-full h-auto object-contain"
         />
         <Image
-          src="/images/meetup/meetup3/crowd.jpg"
+          src="/images/meetup/meetup3/crowd.JPG"
           alt="Folks attending  Meetup 3.0"
           height="500"
           width="500"
           className="rounded-lg w-full h-auto object-contain"
         />
         <Image
-          src="/images/meetup/meetup3/networking.jpg"
+          src="/images/meetup/meetup3/networking.JPG"
           alt="Folks networking at TechBrewers Community Meetup 3.0"
           height="500"
           width="500"
           className="rounded-lg w-full h-auto object-contain"
         />
         <Image
-          src="/images/meetup/meetup3/swags.jpg"
+          src="/images/meetup/meetup3/swags.JPG"
           alt="Attendees excited to get their goodies"
           height="500"
           width="500"
