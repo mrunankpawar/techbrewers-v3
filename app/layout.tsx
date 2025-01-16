@@ -38,6 +38,7 @@ export default function RootLayout({
         <div className="relative w-full flex items-center justify-center">
           <FloatingNav navItems={[
             { name: "Home", link: "/" },
+            // { name: "Community", link: "/community" },
             { name: "Community", link: "/community" },
             { name: "Events", link: "/events" },
             { name: "Meetup", link: "/meetup" },

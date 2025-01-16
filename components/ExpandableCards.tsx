@@ -211,6 +211,25 @@ export const CloseIcon = () => {
 
 const cards = [
   {
+    description: "Mohd Toukir Khan",
+    title: "Learning Open Source with Hacktoberfest",
+    src: "/images/events/oshack.png",
+    ctaText: "Watch now",
+    ctaLink: "https://www.youtube.com/live/iphlaYDN3J0?si=WWbIS9l21jikFpcV",
+    content: () => {
+      return (
+        <p>
+          The speaker provides practical guidance on how to get started with Hacktoberfest, beginning with registering on the official Hacktoberfest website to join the event. Once registered, participants can explore repositories on GitHub labeled with Hacktoberfest, focusing on projects that align with their interests or areas of expertise. 
+          <br></br>
+          <br></br>
+          Contributions should be meaningful, with pull requests carefully adhering to the project&apos;s contribution guidelines to ensure they are accepted. The speaker also emphasizes the importance of respectful engagement, encouraging participants to interact courteously with project maintainers and fellow contributors, as collaboration is a cornerstone of open-source development.
+
+          
+        </p>
+      );
+    },
+  },
+  {
     description: "Aditya Shende",
     title: "Getting Started in Cyber Stream Security",
     src: "/images/events/wcan.png",

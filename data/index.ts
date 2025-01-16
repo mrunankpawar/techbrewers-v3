@@ -11,7 +11,7 @@
     },
     {
       id: 2,
-      title: "TechBrewers Monthly Newsletter",
+      title: "TechThrusters Monthly Newsletter",
       description: "Subscribe to the monthly newsletter for all the latest updates",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2 text-center",
       imgClassName: "",
