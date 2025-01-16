@@ -339,6 +339,21 @@ const challenges = [
   // Add more challenges as needed
 ];
 
+const hallOfFame = [
+  { name: "", photo: "/images/meetupteam/tuned2.png" },
+  { name: "", photo: "/images/meetupteam/tuned.png" },
+  { name: "", photo: "/images/meetupteam/tuned2.png" },
+  { name: "", photo: "/images/meetupteam/tuned.png" },
+  { name: "", photo: "/images/meetupteam/tuned.png" },
+  { name: "", photo: "/images/meetupteam/tuned2.png" },
+  { name: "", photo: "/images/meetupteam/tuned.png" },
+  { name: "", photo: "/images/meetupteam/tuned2.png" },
+  { name: "", photo: "/images/meetupteam/tuned2.png" },
+  { name: "", photo: "/images/meetupteam/tuned.png" },
+  { name: "", photo: "/images/meetupteam/tuned2.png" },
+  { name: "", photo: "/images/meetupteam/tuned.png" },
+];
+
 function Community() {
   return (
     <div className="mt-0 md:mt-10 h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-28 md:py-20">
@@ -371,9 +386,9 @@ function Community() {
               <br></br>
               <br></br>
               Participants will be judged based on creativity, clarity, and how
-              effectively their work showcases their skills. The winner will
-              be featured here on the website and our monthly newsletters. Ready to rise to the challenge?
-              
+              effectively their work showcases their skills. The winner will be
+              featured here on the website and our monthly newsletters. Ready to
+              rise to the challenge?
             </p>
 
             <div className="">
@@ -413,6 +428,28 @@ function Community() {
           ))}
         </div>
 
+        {/* -------------- */}
+
+        <h3 className="mb-5 mt-24 pb-5 text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
+          Hall of Fame
+        </h3>
+    
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {hallOfFame.map((contributor, index) => (
+            <div key={index} className="flex flex-col items-center text-center">
+              <Image
+                src={contributor.photo}
+                alt={contributor.name}
+                className="rounded-full mb-2 w-24 h-24"
+                width={96}
+                height={96}
+              />
+              <p className="text-sm font-medium text-vwhite">
+                {contributor.name}
+              </p>
+            </div>
+          ))}
+        </div>
         {/* -------------- */}
       </div>
     </div>
