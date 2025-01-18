@@ -321,7 +321,7 @@ const challenges = [
   {
     month: "January",
     challenge: "Best GitHub Profile README",
-    poster: "/images/meetup/meetup3/group.JPG",
+    poster: "/images/challenges/JanuaryChallenge.png",
     winner: {
       name: "John Doe",
       photo: "/images/meetup/meetup3/group.JPG",
@@ -392,7 +392,7 @@ function Community() {
             </p>
 
             <div className="">
-              <Link href="https://bit.ly/TBDISCORD" target="__blank">
+              <Link href="https://bit.ly/TDISCORD" target="__blank">
                 <MagicButton
                   title="Participate now"
                   icon={<FaArrowRight />}
