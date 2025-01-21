@@ -2,13 +2,24 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="h-screen flex flex-col items-center justify-center bg-gray-100">
-      <h1 className="text-6xl font-bold text-gray-800 mb-4">404</h1>
-      <p className="text-xl text-gray-600 mb-8">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black-100 py-8">
+      {/* Image Section */}
+      <div className="mb-6">
+        <img
+          src="/images/404e.png"
+          alt="Page Not Found"
+          className="w-2/3 sm:w-1/3 md:w-1/6 h-auto mx-auto"
+        />
+      </div>
+      
+      {/* Text Section */}
+      <p className="mb-6 text-center text-lg sm:text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400">
         Oops! The page you&apos;re looking for doesn&apos;t exist.
       </p>
+
+      {/* Button Section */}
       <Link href="/" legacyBehavior>
-        <a className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">
+        <a className="px-6 py-3 bg-violet-500 text-white text-sm sm:text-base rounded-lg shadow-md hover:bg-violet-600 transition-all">
           Go Back Home
         </a>
       </Link>
