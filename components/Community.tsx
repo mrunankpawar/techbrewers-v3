@@ -319,23 +319,33 @@ import { FaArrowRight } from "react-icons/fa";
 
 const challenges = [
   {
+    month: "February",
+    challenge: "Technical Blog Writing Challenge",
+    poster: "/images/challenges/FebruaryChallenge.png",
+    winner: {
+      name: "Samarth Pujari",
+      photo: "/images/meetup/meetup3/group.JPG",
+    },
+  },
+  {
+    month: "February",
+    challenge: "Technical Blog Writing Challenge",
+    poster: "/images/challenges/FebruaryChallenge.png",
+    winner: {
+      name: "TBD",
+      photo: "/images/meetup/meetup3/group.JPG",
+    },
+  },
+  {
     month: "January",
     challenge: "Best GitHub Profile README",
     poster: "/images/challenges/JanuaryChallenge.png",
     winner: {
-      name: "John Doe",
-      photo: "/images/meetup/meetup3/group.JPG",
+      name: "Samarth Pujari",
+      photo: "/images/challenges/FebruaryChallenge.png",
     },
   },
-  // {
-  //   month: "February",
-  //   challenge: "Best GitHub Profile README",
-  //   poster: "/images/meetup/meetup3/group.JPG",
-  //   winner: {
-  //     name: "Jane Smith",
-  //     photo: "/images/meetup/meetup3/group.JPG",
-  //   },
-  // },
+  
   // Add more challenges as needed
 ];
 
@@ -380,15 +390,7 @@ function Community() {
               {challenges[0].month} Challenge
             </p>
             <p className="text-gray-400 mb-6">
-              This month, the spotlight is on your <b>GitHub Profile</b>! Revamp
-              or create a standout README that highlights your creativity,
-              clarity, and the skills or projects you&apos;re most proud of.
-              <br></br>
-              <br></br>
-              Participants will be judged based on creativity, clarity, and how
-              effectively their work showcases their skills. The winner will be
-              featured here on the website and our monthly newsletters. Ready to
-              rise to the challenge?
+            The spotlight is on your <b>Technical Writing Skills</b>! This month, we challenge you to write and publish a technical blog on <a href="https://peerlist.io/mrunank/signup" className="text-indigo-300">Peerlist</a>. Whether it&apos;s an in-depth tutorial, a project breakdown, or an insightful take on a tech concept—this is your chance to showcase your knowledge and writing skills!
             </p>
 
             <div className="">
@@ -405,10 +407,10 @@ function Community() {
 
         {/* Past Challenges */}
         <h2 className="text-2xl font-bold mb-6">Past Challenges</h2>
-        <h4 className="text-md text-gray-400">
+        {/* <h4 className="text-md text-gray-400">
           🐣 No past challenges to show yet, but don&apos;t worry—greatness
           takes time (and so do brag-worthy victories)!
-        </h4>
+        </h4> */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {challenges.slice(1).map((challenge, index) => (
             <div key={index} className="shadow-lg p-4 border rounded-lg">
