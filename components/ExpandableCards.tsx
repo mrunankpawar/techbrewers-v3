@@ -211,6 +211,29 @@ export const CloseIcon = () => {
 
 const cards = [
   {
+    description: "Vinod Thomas",
+    title: "Transitioning to Product Management",
+    src: "/images/events/pm2.png",
+    ctaText: "Watch now",
+    ctaLink: "https://www.youtube.com/live/kIcvBf5bRyc?feature=shared",
+    content: () => {
+      return (
+        <p>
+          Breaking into Product Management without prior experience can feel
+          like an uphill battle. But what if you had a roadmap to make it
+          happen?
+          <br></br>
+          <br></br>
+          Breaking into Product Management without prior experience can feel
+          like an uphill battle. But what if you had a roadmap to make it
+          happen? Join us for an insightful session with Vinod Thomas, Product
+          Manager at Google, as he shares his journey of gaining product
+          experience and transitioning into Product Management. 🏆
+        </p>
+      );
+    },
+  },
+  {
     description: "Mohd Toukir Khan",
     title: "Learning Open Source with Hacktoberfest",
     src: "/images/events/oshack.png",
@@ -233,29 +256,6 @@ const cards = [
           engagement, encouraging participants to interact courteously with
           project maintainers and fellow contributors, as collaboration is a
           cornerstone of open-source development.
-        </p>
-      );
-    },
-  },
-  {
-    description: "Vinod Thomas",
-    title: "Gaining Product Experience and Transitioning to Product Management",
-    src: "/images/events/pm2.png",
-    ctaText: "Watch now",
-    ctaLink: "https://www.youtube.com/live/kIcvBf5bRyc?feature=shared",
-    content: () => {
-      return (
-        <p>
-          Breaking into Product Management without prior experience can feel
-          like an uphill battle. But what if you had a roadmap to make it
-          happen?
-          <br></br>
-          <br></br>
-          Breaking into Product Management without prior experience can feel
-          like an uphill battle. But what if you had a roadmap to make it
-          happen? Join us for an insightful session with Vinod Thomas, Product
-          Manager at Google, as he shares his journey of gaining product
-          experience and transitioning into Product Management. 🏆
         </p>
       );
     },
