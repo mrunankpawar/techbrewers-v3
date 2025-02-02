@@ -219,12 +219,43 @@ const cards = [
     content: () => {
       return (
         <p>
-          The speaker provides practical guidance on how to get started with Hacktoberfest, beginning with registering on the official Hacktoberfest website to join the event. Once registered, participants can explore repositories on GitHub labeled with Hacktoberfest, focusing on projects that align with their interests or areas of expertise. 
+          The speaker provides practical guidance on how to get started with
+          Hacktoberfest, beginning with registering on the official
+          Hacktoberfest website to join the event. Once registered, participants
+          can explore repositories on GitHub labeled with Hacktoberfest,
+          focusing on projects that align with their interests or areas of
+          expertise.
           <br></br>
           <br></br>
-          Contributions should be meaningful, with pull requests carefully adhering to the project&apos;s contribution guidelines to ensure they are accepted. The speaker also emphasizes the importance of respectful engagement, encouraging participants to interact courteously with project maintainers and fellow contributors, as collaboration is a cornerstone of open-source development.
-
-          
+          Contributions should be meaningful, with pull requests carefully
+          adhering to the project&apos;s contribution guidelines to ensure they
+          are accepted. The speaker also emphasizes the importance of respectful
+          engagement, encouraging participants to interact courteously with
+          project maintainers and fellow contributors, as collaboration is a
+          cornerstone of open-source development.
+        </p>
+      );
+    },
+  },
+  {
+    description: "Vinod Thomas",
+    title: "Gaining Product Experience and Transitioning to Product Management",
+    src: "/images/events/pm2.png",
+    ctaText: "Watch now",
+    ctaLink: "https://www.youtube.com/live/kIcvBf5bRyc?feature=shared",
+    content: () => {
+      return (
+        <p>
+          Breaking into Product Management without prior experience can feel
+          like an uphill battle. But what if you had a roadmap to make it
+          happen?
+          <br></br>
+          <br></br>
+          Breaking into Product Management without prior experience can feel
+          like an uphill battle. But what if you had a roadmap to make it
+          happen? Join us for an insightful session with Vinod Thomas, Product
+          Manager at Google, as he shares his journey of gaining product
+          experience and transitioning into Product Management. 🏆
         </p>
       );
     },

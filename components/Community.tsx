@@ -339,7 +339,7 @@ const challenges = [
   {
     month: "January",
     challenge: "Best GitHub Profile README",
-    poster: "/images/challenges/JanuaryChallenge.png",
+    poster: "/images/challengewinners/January.png",
     winner: {
       name: "Samarth Pujari",
       photo: "/images/challenges/FebruaryChallenge.png",
