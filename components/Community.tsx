@@ -394,7 +394,7 @@ function Community() {
             </p>
 
             <div className="">
-              <Link href="https://bit.ly/TDISCORD" target="__blank">
+              <Link href="https://discord.com/invite/4sUmgTZa8H" target="__blank">
                 <MagicButton
                   title="Participate now"
                   icon={<FaArrowRight />}
