@@ -319,11 +319,20 @@ import { FaArrowRight } from "react-icons/fa";
 
 const challenges = [
   {
-    month: "February",
-    challenge: "Technical Blog Writing Challenge",
-    poster: "/images/challenges/FebruaryChallenge.png",
+    month: "March",
+    challenge: "30 Days Skill Sprint Challenge",
+    poster: "/images/challenges/MarchChallenge.png",
     winner: {
       name: "Samarth Pujari",
+      photo: "/images/meetup/meetup3/group.JPG",
+    },
+  },
+  {
+    month: "March",
+    challenge: "30 Days Skill Sprint Challenge",
+    poster: "/images/challenges/MarchChallenge.png",
+    winner: {
+      name: "TBD",
       photo: "/images/meetup/meetup3/group.JPG",
     },
   },
@@ -345,8 +354,6 @@ const challenges = [
       photo: "/images/challenges/FebruaryChallenge.png",
     },
   },
-  
-  // Add more challenges as needed
 ];
 
 const hallOfFame = [
@@ -390,7 +397,7 @@ function Community() {
               {challenges[0].month} Challenge
             </p>
             <p className="text-gray-400 mb-6">
-            The spotlight is on your <b>Technical Writing Skills</b>! This month, we challenge you to write and publish a technical blog on <a href="https://peerlist.io/mrunank/signup" className="text-indigo-300">Peerlist</a>. Whether it&apos;s an in-depth tutorial, a project breakdown, or an insightful take on a tech concept—this is your chance to showcase your knowledge and writing skills!
+            This month the spotlight is on <b>learning and growth</b>! We challenge you to pick a skill of your choice and commit to learning it for 30 days. Whether it&apos;s Docker, Firebase, Figma, or any other skill—share your progress weekly on Discord and level up!
             </p>
 
             <div className="">
