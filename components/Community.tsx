@@ -339,9 +339,9 @@ const challenges = [
   {
     month: "February",
     challenge: "Technical Blog Writing Challenge",
-    poster: "/images/challenges/FebruaryChallenge.png",
+    poster: "/images/challengewinners/february.png",
     winner: {
-      name: "TBD",
+      name: "Jagadhiswaran Devaraj",
       photo: "/images/meetup/meetup3/group.JPG",
     },
   },
