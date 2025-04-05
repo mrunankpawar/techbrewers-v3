@@ -319,20 +319,29 @@ import { FaArrowRight } from "react-icons/fa";
 
 const challenges = [
   {
-    month: "March",
-    challenge: "30 Days Skill Sprint Challenge",
-    poster: "/images/challenges/MarchChallenge.png",
+    month: "April",
+    challenge: "Leetcode Streak Challenge",
+    poster: "/images/challenges/AprilChallenge.png",
     winner: {
       name: "Samarth Pujari",
       photo: "/images/meetup/meetup3/group.JPG",
     },
   },
   {
-    month: "March",
-    challenge: "30 Days Skill Sprint Challenge",
-    poster: "/images/challenges/MarchChallenge.png",
+    month: "April",
+    challenge: "Leetcode Streak Challenge",
+    poster: "/images/challenges/AprilChallenge.png",
     winner: {
       name: "TBD",
+      photo: "/images/meetup/meetup3/group.JPG",
+    },
+  },
+  {
+    month: "March",
+    challenge: "30 Days Skill Sprint Challenge",
+    poster: "/images/challengewinners/march.png",
+    winner: {
+      name: "Everyone (Keep Learning)",
       photo: "/images/meetup/meetup3/group.JPG",
     },
   },
@@ -397,7 +406,9 @@ function Community() {
               {challenges[0].month} Challenge
             </p>
             <p className="text-gray-400 mb-6">
-            This month the spotlight is on <b>learning and growth</b>! We challenge you to pick a skill of your choice and commit to learning it for 30 days. Whether it&apos;s Docker, Firebase, Figma, or any other skill—share your progress weekly on Discord and level up!
+            This month the spotlight is on <b>problem-solving</b>! For April, we challenge you to take on the <b>LeetCode Streak Challenge</b>—solve at least one problem every day from <b>5th April - 30th April.</b><br></br><br></br> Whether you&apos;re just starting out or sharpening your DSA skills, this is your chance to build momentum and boost your confidence.
+
+
             </p>
 
             <div className="">
@@ -439,7 +450,7 @@ function Community() {
 
         {/* -------------- */}
 
-        <h3 className="mb-5 mt-24 pb-5 text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
+        {/* <h3 className="mb-5 mt-24 pb-5 text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
           Hall of Fame
         </h3>
     
@@ -458,7 +469,7 @@ function Community() {
               </p>
             </div>
           ))}
-        </div>
+        </div> */}
         {/* -------------- */}
       </div>
     </div>
