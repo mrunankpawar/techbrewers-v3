@@ -105,6 +105,11 @@ const sponsors = [
     logo: "/images/sponsors/moneylancer.png",
     url: "https://mymoneylancer.com/",
   },
+  {
+    name: "Pune FOSS 3.0",
+    logo: "/images/sponsors/punefoss.png",
+    url: "https://fossunited.org/c/pune/punefoss3",
+  },
 ];
 
 function Sponsors() {
