@@ -107,7 +107,7 @@ const sponsors = [
   },
   {
     name: "Pune FOSS 3.0",
-    logo: "/images/sponsors/punefoss.png",
+    logo: "/images/sponsors/punefoss3.png",
     url: "https://fossunited.org/c/pune/punefoss3",
   },
 ];
