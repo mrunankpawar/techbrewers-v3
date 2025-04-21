@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 
 // Also install this npm i --save-dev @types/react-lottie
@@ -26,7 +26,6 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        // change gap-4 to gap-8, change grid-cols-3 to grid-cols-5, remove md:auto-rows-[18rem], add responsive code
         "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto",
         className
       )}
@@ -41,7 +40,6 @@ export const BentoGridItem = ({
   id,
   title,
   description,
-  //   remove unecessary things here
   img,
   imgClassName,
   titleClassName,
@@ -58,8 +56,17 @@ export const BentoGridItem = ({
   descriptionClassName?: string;
   spareImg?: string;
 }) => {
-
   const [subscribed, setSubscribed] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const defaultOptions = {
     loop: true,
@@ -72,37 +79,33 @@ export const BentoGridItem = ({
 
   const handleSubscribe = () => {
     setSubscribed(true);
-
-    window.open("https://clubtechbrewers.substack.com/", "_blank");
+    window.open("https://techthrusters.substack.com/", "_blank");
   };
 
   return (
     <div
       className={cn(
-        // remove p-4 rounded-3xl dark:bg-black dark:border-white/[0.2] bg-white  border border-transparent, add border border-white/[0.1] overflow-hidden relative
         "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4",
         className
       )}
       style={{
         background: "#07091C",
-        backgroundColor:
-          "linear-gradient(90deg, rgba(4,7,29,1) 0%, #000002 100%)",
+        backgroundColor: "linear-gradient(90deg, rgba(4,7,29,1) 0%, #000002 100%)",
       }}
     >
-      {/* add img divs */}
       <div className={`${id === 6 && "flex justify-center"} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
             <img
               src={img}
               alt={img}
-              className={cn(imgClassName, "object-cover object-center ")}
+              className={cn(imgClassName, "object-cover object-center")}
+              loading="lazy"
             />
           )}
         </div>
 
-        {id === 2 && (
-          // add background animation , remove the p tag
+        {id === 2 && !isMobile && (
           <BackgroundGradientAnimation>
             <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
           </BackgroundGradientAnimation>
@@ -111,18 +114,17 @@ export const BentoGridItem = ({
         <div
           className={cn(
             titleClassName,
-            `group-hover/bento:translate-x-2 text-xs transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5  ${id === 2 && 'justify-center'} ${id === 3 ? "lg:p-5" : "lg:p-10"}`
+            `group-hover/bento:translate-x-2 text-xs transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 ${id === 2 && 'justify-center'} ${id === 3 ? "lg:p-5" : "lg:p-10"}`
           )}
         >
-          <div className={`font-sans text-base lg:text-xl max-w-96 font-bold z-10 ${id === 1 && 'xl:pt-16 2xl:pt-20'}`} >
+          <div className={`font-sans text-base lg:text-xl max-w-96 font-bold z-10 ${id === 1 && 'xl:pt-16 2xl:pt-20'}`}>
             {title}
           </div>
-          {/* change the order of the title and des, font-extralight, remove text-xs text-neutral-600 dark:text-neutral-300 , change the text-color */}
           <div className="font-sans font-normal pt-5 md:max-w-64 md:text-xs lg:text-base text-sm text-violet-100 z-50">
             {description}
           </div>
 
-          {id === 1 && (
+          {id === 1 && !isMobile && (
             <div>
               <GridGlobe />
               <BackgroundBeams />
@@ -131,8 +133,10 @@ export const BentoGridItem = ({
 
           {id === 2 && (
             <div className="mt-2 relative">
-              <div className={`absolute -bottom-5 right-0 ${subscribed ? "block" : "block"}`} >
-                <Lottie options={defaultOptions} height={200} width={400} />
+              <div className={`absolute -bottom-5 right-0 ${subscribed ? "block" : "block"}`}>
+                {!isMobile && (
+                  <Lottie options={defaultOptions} height={200} width={400} />
+                )}
               </div>
 
               <MagicButton
@@ -140,13 +144,12 @@ export const BentoGridItem = ({
                 icon={<IoCopyOutline />}
                 position="left"
                 handleClick={handleSubscribe}
-                // otherClasses="!bg-[#161A31]"
                 otherClasses="bg-black-100"
               />
             </div>
           )}
 
-          {id === 3 && (
+          {id === 3 && !isMobile && (
             <Boxes />
           )}
         </div>
