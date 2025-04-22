@@ -9,7 +9,15 @@ function Events() {
           Upcoming Events
         </h3>
         <h5 className="mt-8 mb-8 md:mt-16 md:mb-16 text-md md:text-lg font-bold text-violet-300/[0.4] z-10">
-          No upcoming events at the moment
+          <iframe
+            src="https://lu.ma/embed/event/evt-HdAhjZ0LeTtOy7K/simple"
+            width="550"
+            height="750"
+            frameBorder="0"
+            allowFullScreen={true}
+            aria-hidden="false"
+            tabIndex={0}
+          ></iframe>
         </h5>
         <h3 className="mb-3 text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
           Past Events
