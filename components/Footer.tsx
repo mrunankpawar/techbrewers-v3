@@ -89,8 +89,11 @@ function Footer() {
           <TextHoverEffect text="TECHTHRUSTERS" />
         </p>
       </div>
+      <div className="text-center text-white/20 text-sm py-4">
+        © 2025 TechThrusters. All rights reserved.
+      </div>
     </div>
   );
 }
-
 export default Footer;
+
