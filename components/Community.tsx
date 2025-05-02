@@ -319,20 +319,29 @@ import { FaArrowRight } from "react-icons/fa";
 
 const challenges = [
   {
-    month: "April",
-    challenge: "Leetcode Streak Challenge",
-    poster: "/images/challenges/AprilChallenge.png",
+    month: "May",
+    challenge: "Portfolio Challenge",
+    poster: "/images/challenges/MayChallenge.png",
     winner: {
       name: "Samarth Pujari",
       photo: "/images/meetup/meetup3/group.JPG",
     },
   },
   {
+    month: "May",
+    challenge: "Portfolio Challenge",
+    poster: "/images/challenges/MayChallenge.png",
+    winner: {
+      name: "It can be you!",
+      photo: "/images/meetup/meetup3/group.JPG",
+    },
+  },
+  {
     month: "April",
     challenge: "Leetcode Streak Challenge",
-    poster: "/images/challenges/AprilChallenge.png",
+    poster: "/images/challengewinners/april.png",
     winner: {
-      name: "TBD",
+      name: "Niharika Panda",
       photo: "/images/meetup/meetup3/group.JPG",
     },
   },
@@ -406,9 +415,9 @@ function Community() {
               {challenges[0].month} Challenge
             </p>
             <p className="text-gray-400 mb-6">
-            This month the spotlight is on <b>problem-solving</b>! For April, we challenge you to take on the <b>LeetCode Streak Challenge</b>—solve at least one problem every day from <b>5th April - 30th April.</b><br></br><br></br> Whether you&apos;re just starting out or sharpening your DSA skills, this is your chance to build momentum and boost your confidence.
-
-
+            This month, the spotlight is on <b>showcasing yourself and your work</b>! This month, we challenge you to take on the <b>Portfolio Challenge</b>—share your personal portfolio website in the <b>#may-challenge</b> Discord channel anytime <b> before 31st May</b>.<br></br><br></br>
+            
+            Whether it&apos;s your first portfolio or a fresh revamp, this is your moment to show off your projects, tell your story, and get feedback from the community.
             </p>
 
             <div className="">
