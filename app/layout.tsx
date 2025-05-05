@@ -11,14 +11,36 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  title: "TechThrusters",
+  description: "Join the TechThrusters community to learn, connect and build in tech.",
   icons: {
     icon: "/images/TB_Rocket.png",
   },
   openGraph: {
+    type: "website",
     title: "TechThrusters",
     description: "Join the TechThrusters community to learn, connect and build in tech.",
     url: "https://techthrusters.org/",
-    images: "https://techthrusters.org/images/ogimagehome.png",
+    siteName: "TechThrusters",
+    images: [
+      {
+        url: "https://techthrusters.org/images/ogimagehome.png",
+        width: 1200,
+        height: 630,
+        alt: "TechThrusters - Empowering Tech Innovation & Community",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TechThrusters",
+    description: "Join the TechThrusters community to learn, connect and build in tech.",
+    images: ["https://techthrusters.org/images/ogimagehome.png"],
+    creator: "@TechThrusters",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -29,10 +51,6 @@ export default function RootLayout({
 }>) {
   return (
     <html className="bg-black-100" lang="en">
-      <head>
-      <meta property="og:image" content="https://drive.google.com/file/d/1In4zGOmzTPQqT8FtvQSqRpVWHkZQgshJ/view?usp=drive_link"/>
-      </head>
-
       <body className={inter.className && "bg-black-100"}>
       <ThemeProvider attribute="class" defaultTheme="dark">
         <div className="relative w-full flex items-center justify-center">
