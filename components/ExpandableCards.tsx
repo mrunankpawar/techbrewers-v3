@@ -211,6 +211,40 @@ export const CloseIcon = () => {
 
 const cards = [
   {
+    description: "Kevin Blanco",
+    title: "Building Developer Communities",
+    src: "/images/events/kevin.png",
+    ctaText: "Watch now",
+    ctaLink: "https://www.youtube.com/live/629hOd60J9k?si=D6FwwRcRLf6t4AtD",
+    content: () => {
+      return (
+        <p>
+          Join us for an exclusive session with Kevin Blanco, Senior DevRel Advocate at Appsmith, as he shares his incredible 10-year journey in building developer communities across the globe.
+          <br></br>
+          <br></br>
+          In just 30 minutes, Kevin will walk us through real-world experiences, key lessons, and actionable insights on how to create, scale, and sustain thriving tech communities. Whether you&apos;re a community enthusiast, aspiring DevRel, or just curious about what it takes—this talk is for you!
+        </p>
+      );
+    },
+  },
+  {
+    description: "Abhijeet Ingle",
+    title: "Integrating LLMs in Your Applications",
+    src: "/images/events/abhijeet.png",
+    ctaText: "Watch now",
+    ctaLink: "https://www.youtube.com/live/wRNQ5wFU7WQ?si=pXE3_ahfdCqB5-41",
+    content: () => {
+      return (
+        <p>
+          An exciting virtual session with Abhijeet Ingle, Security Researcher, as he dives into Integrating LLMs in Your Applications: A Security-First Approach.
+          <br></br>
+          <br></br>
+          AI-powered applications are the future, but are they secure? This session will uncover the potential security risks of integrating Large Language Models (LLMs) and how to mitigate them with a security-first mindset. Whether you&apos;re a developer, researcher, or security enthusiast, this is your chance to learn how to build AI-driven applications without compromising security!
+        </p>
+      );
+    },
+  },
+  {
     description: "Vinod Thomas",
     title: "Transitioning to Product Management",
     src: "/images/events/pm2.png",
