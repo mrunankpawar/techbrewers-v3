@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
-import { FloatingNav } from "@/components/ui/FloatingNav";
+import GlowMenu from "@/components/ui/GlowMenu";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
-
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -53,15 +52,7 @@ export default function RootLayout({
     <html className="bg-black-100" lang="en">
       <body className={inter.className && "bg-black-100"}>
       <ThemeProvider attribute="class" defaultTheme="dark">
-        <div className="relative w-full flex items-center justify-center">
-          <FloatingNav navItems={[
-            { name: "Home", link: "/" },
-            // { name: "Community", link: "/community" },
-            { name: "Community", link: "/community" },
-            { name: "Events", link: "/events" },
-            { name: "Meetup", link: "/meetup" },
-          ]}/>
-        </div>
+        <GlowMenu />
         {children}
         <Footer />
       </ ThemeProvider>
