@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiHome, FiUsers, FiCalendar, FiMapPin, FiMenu, FiX } from "react-icons/fi";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const navItems = [
   {
@@ -67,7 +67,20 @@ const sharedTransition = {
   duration: 0.5,
 };
 
-function NavItem({ item, isMobile = false }: { item: typeof navItems[0]; isMobile?: boolean }) {
+function NavItem({ item, isMobile = false, onClose }: { item: typeof navItems[0]; isMobile?: boolean; onClose?: () => void }) {
+  const router = useRouter();
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (isMobile && onClose) {
+      e.preventDefault();
+      router.push(item.link);
+      // Small delay to allow the page to start loading before closing the menu
+      setTimeout(() => {
+        onClose();
+      }, 100);
+    }
+  };
+
   return (
     <motion.li className={cn("relative", isMobile && "w-full")}> 
       <motion.div
@@ -109,6 +122,7 @@ function NavItem({ item, isMobile = false }: { item: typeof navItems[0]; isMobil
               "flex items-center gap-2 text-white",
               isMobile && "gap-3 w-full text-center justify-center"
             )}
+            onClick={handleClick}
           >
             <span className="transition-colors duration-300 text-white">{item.icon}</span>
             {item.name}
@@ -130,6 +144,7 @@ function NavItem({ item, isMobile = false }: { item: typeof navItems[0]; isMobil
               "flex items-center gap-2 text-white",
               isMobile && "gap-3 w-full text-center justify-center"
             )}
+            onClick={handleClick}
           >
             <span className="transition-colors duration-300 text-white">{item.icon}</span>
             {item.name}
@@ -196,7 +211,7 @@ export const GlowMenu = ({ className }: { className?: string }) => {
             </button>
             <ul className="flex flex-col gap-6 items-center justify-center">
               {navItems.map((item) => (
-                <NavItem key={item.name} item={item} isMobile />
+                <NavItem key={item.name} item={item} isMobile onClose={() => setMobileOpen(false)} />
               ))}
             </ul>
           </motion.div>
