@@ -3,6 +3,8 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import MagicButton from "./ui/MagicButton";
+import { FaArrowRight } from "react-icons/fa";
 
 function ExpandableCards() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
@@ -44,7 +46,7 @@ function ExpandableCards() {
       </AnimatePresence>
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="fixed inset-0  grid place-items-center z-[100]">
+          <div className="fixed inset-0 grid place-items-center z-[100]">
             <motion.button
               key={`button-${active.title}-${id}`}
               layout
@@ -68,7 +70,7 @@ function ExpandableCards() {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px] border border-white/[0.3] h-full md:h-fit md:max-h-[90%]  flex flex-col bg-white dark:bg-black-100 sm:rounded-3xl overflow-hidden"
+              className="w-full max-w-[500px] border border-violet-300/20 h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-black-100 sm:rounded-3xl overflow-hidden"
             >
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
@@ -102,9 +104,24 @@ function ExpandableCards() {
                     layoutId={`button-${active.title}-${id}`}
                     href={active.ctaLink}
                     target="_blank"
-                    className="px-4 py-3 text-sm rounded-full font-bold border border-violet-300 hover:bg-black-100 text-white"
+                    className="group flex items-center gap-2 px-4 py-2 text-sm font-medium text-violet-300 border border-violet-400/10 rounded-lg hover:border-violet-400/30 hover:bg-violet-400/5 transition-all duration-300"
                   >
                     {active.ctaText}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
                   </motion.a>
                 </div>
                 <div className="pt-4 relative px-4">
@@ -125,13 +142,13 @@ function ExpandableCards() {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full gap-4">
+      <ul className="max-w-2xl mx-auto w-full space-y-4">
         {cards.map((card, index) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
             onClick={() => setActive(card)}
-            className="p-4 flex flex-col md:flex-row justify-between items-center md:items-start hover:bg-neutral-50 dark:hover:bg-violet-950 rounded-xl cursor-pointer"
+            className="p-4 flex flex-col md:flex-row justify-between items-center md:items-start border border-violet-300/20 hover:bg-gradient-to-b from-violet-500/5 to-indigo-500/5 rounded-xl cursor-pointer"
           >
             <div className="flex flex-col items-center md:items-start gap-4 md:flex-row w-full">
               <motion.div
@@ -163,9 +180,24 @@ function ExpandableCards() {
             </div>
             <motion.button
               layoutId={`button-${card.title}-${id}`}
-              className="px-4 w-32 py-2 text-sm rounded-full font-bold border border-violet-300 hover:bg-black-100 hover:text-white text-white mt-4 md:mt-0"
+              className="group flex items-center gap-2 px-4 py-2 text-sm font-medium text-violet-300 border border-violet-400/10 rounded-lg hover:border-violet-400/30 hover:bg-violet-400/5 transition-all duration-300 mt-4 md:mt-0"
             >
               {card.ctaText}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-4 h-4 transition-transform group-hover:translate-x-1"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
             </motion.button>
           </motion.div>
         ))}
@@ -214,7 +246,7 @@ const cards = [
     description: "Kevin Blanco",
     title: "Building Developer Communities",
     src: "/images/events/kevin.png",
-    ctaText: "Watch now",
+    ctaText: "Watch",
     ctaLink: "https://www.youtube.com/live/629hOd60J9k?si=D6FwwRcRLf6t4AtD",
     content: () => {
       return (
@@ -231,7 +263,7 @@ const cards = [
     description: "Abhijeet Ingle",
     title: "Integrating LLMs in Your Applications",
     src: "/images/events/abhijeet.png",
-    ctaText: "Watch now",
+    ctaText: "Watch",
     ctaLink: "https://www.youtube.com/live/wRNQ5wFU7WQ?si=pXE3_ahfdCqB5-41",
     content: () => {
       return (
@@ -248,7 +280,7 @@ const cards = [
     description: "Vinod Thomas",
     title: "Transitioning to Product Management",
     src: "/images/events/pm2.png",
-    ctaText: "Watch now",
+    ctaText: "Watch",
     ctaLink: "https://www.youtube.com/live/kIcvBf5bRyc?feature=shared",
     content: () => {
       return (
@@ -262,7 +294,7 @@ const cards = [
           like an uphill battle. But what if you had a roadmap to make it
           happen? Join us for an insightful session with Vinod Thomas, Product
           Manager at Google, as he shares his journey of gaining product
-          experience and transitioning into Product Management. 🏆
+          experience and transitioning into Product Management.
         </p>
       );
     },
@@ -271,7 +303,7 @@ const cards = [
     description: "Mohd Toukir Khan",
     title: "Learning Open Source with Hacktoberfest",
     src: "/images/events/oshack.png",
-    ctaText: "Watch now",
+    ctaText: "Watch",
     ctaLink: "https://www.youtube.com/live/iphlaYDN3J0?si=WWbIS9l21jikFpcV",
     content: () => {
       return (
@@ -298,7 +330,7 @@ const cards = [
     description: "Aditya Shende",
     title: "Getting Started in Cyber Stream Security",
     src: "/images/events/wcan.png",
-    ctaText: "Watch now",
+    ctaText: "Watch",
     ctaLink: "https://www.youtube.com/live/Ol9F-mSUh9A?si=1GWg-9d34w1U7Xqd",
     content: () => {
       return (
@@ -324,7 +356,7 @@ const cards = [
     description: "Vik Agarwal (Product Leader at Meta)",
     title: "Navigating a Career in Product Management",
     src: "/images/events/productManagement.png",
-    ctaText: "Watch now",
+    ctaText: "Watch",
     ctaLink: "https://www.youtube.com/live/1J9Y3ERrP9A?si=yYikT6qdTVaCIkZz",
     content: () => {
       return (
@@ -350,7 +382,7 @@ const cards = [
     description: "Santosh Yadav (GDE Angular)",
     title: "Getting Started with Angular",
     src: "/images/events/angular.png",
-    ctaText: "Watch now",
+    ctaText: "Watch",
     ctaLink: "https://www.youtube.com/live/QL6Zbnf_mi4?si=CdnSVv9pSspQRrW0",
     content: () => {
       return (
@@ -376,7 +408,7 @@ const cards = [
     description: "Sankalp Paranjpe",
     title: "Building Efficient CI/ CD Pipelines on AWS",
     src: "/images/events/cloud.png",
-    ctaText: "Watch now",
+    ctaText: "Watch",
     ctaLink: "https://www.youtube.com/live/yW87L0FzqXk?si=SBbm7qyUDzIjK4a6",
     content: () => {
       return (
@@ -403,7 +435,7 @@ const cards = [
     description: "Jatin Pandya, Chhavi Garg and Mrunank Pawar",
     title: "Hackathon Chats: Exploring Ideas",
     src: "/images/events/hackathonChats.png",
-    ctaText: "Watch now",
+    ctaText: "Watch",
     ctaLink: "https://www.youtube.com/live/LazVwF18uZU?si=bQBbjwapdYVkcNlM",
     content: () => {
       return (
@@ -428,7 +460,7 @@ const cards = [
     description: "Praveen Kumar Purushothaman",
     title: "TechBrewers x Hacktoberfest'23",
     src: "/images/events/hacktoberfest.png",
-    ctaText: "Watch now",
+    ctaText: "Watch",
     ctaLink: "https://www.youtube.com/live/ortVf_XxsoM?si=M9dFL5B5-muGZngx",
     content: () => {
       return (
@@ -452,7 +484,7 @@ const cards = [
     description: "Jatin Pandya (Organiser of Hack The League)",
     title: "Elevate YOU: Personal Branding Workshop",
     src: "/images/events/personalBranding.png",
-    ctaText: "Watch now",
+    ctaText: "Watch",
     ctaLink: "https://www.youtube.com/live/-r7uUwmCZzk?si=86NT48UOKGZ0ovku",
     content: () => {
       return (
@@ -477,7 +509,7 @@ const cards = [
     description: "Divyansh Singh",
     title: "Getting started with Android Development",
     src: "/images/events/android.png",
-    ctaText: "Watch now",
+    ctaText: "Watch",
     ctaLink: "https://www.youtube.com/live/b6U4T6hIlJc?si=KCMnumuNGRP8zcAv",
     content: () => {
       return (
@@ -500,7 +532,7 @@ const cards = [
     description: "Sowmiya V",
     title: "Introduction to UI/ UX Design",
     src: "/images/events/ui-uxbig.png",
-    ctaText: "Watch now",
+    ctaText: "Watch",
     ctaLink: "https://www.youtube.com/live/hqvOYh6h0v8?si=4lDhbuHzzp9hUlYY",
     content: () => {
       return (
@@ -525,7 +557,7 @@ const cards = [
     description: "Mrunank Pawar",
     title: "Getting Started with Git and GitHub",
     src: "/images/events/gitgithub.png",
-    ctaText: "Watch now",
+    ctaText: "Watch",
     ctaLink: "https://www.youtube.com/live/t9X_PDOJyCI?si=NC2HWRAiQH_K6tHR",
     content: () => {
       return (
@@ -549,7 +581,7 @@ const cards = [
     description: "Vaibhav Kadam",
     title: "Fundamentals of Cyber Security",
     src: "/images/events/vibhavrect.png",
-    ctaText: "Watch now",
+    ctaText: "Watch",
     ctaLink: "https://youtu.be/3YVLJs0g7mU?si=uRSTUicQtsv-GXZP",
     content: () => {
       return (
