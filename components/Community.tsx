@@ -8,12 +8,21 @@ import { FaArrowRight, FaChevronDown, FaChevronUp } from "react-icons/fa";
 // Monthly Challenge Data
 const challenges = [
   {
+    month: "June",
+    challenge: "Builder's Space",
+    poster: "/images/challenges/JuneChallenge.png",
+    winner: {
+      name: "Samarth Pujari",
+      photo: "/images/meetup/meetup3/group.JPG",
+    },
+  },
+  {
     month: "May",
     challenge: "Portfolio Challenge",
     poster: "/images/challenges/MayChallenge.png",
     winner: {
-      name: "Samarth Pujari",
-      photo: "/images/meetup/meetup3/group.JPG",
+      name: "Jagadhiswaran Devaraj",
+      photo: "/images/challengewinners/may.png",
     },
   },
   {
@@ -188,8 +197,9 @@ function Community() {
               {challenges[0].month} Challenge
             </p>
             <p className="text-gray-400 mb-6">
-              This month, the spotlight is on <b>showcasing yourself and your work</b>! This month, we challenge you to take on the <b>Portfolio Challenge</b>—share your personal portfolio website in the <b>#may-challenge</b> Discord channel anytime <b> before 31st May</b>.<br></br><br></br>
-              Whether it&apos;s your first portfolio or a fresh revamp, this is your moment to show off your projects, tell your story, and get feedback from the community.
+            This month, the spotlight is on building and shipping! We challenge you to take on the side project Project Challenge—share your side project challenge in the #builders-space Discord channel anytime before 30th June. <br></br> <br></br>
+
+Whether it&apos;s a weekend build or something you&apos;ve been quietly hacking on, this is your moment to launch, get visibility, and receive valuable feedback from the community.
             </p>
             <Link href="https://discord.com/invite/4sUmgTZa8H" target="_blank" rel="noopener noreferrer">
               <MagicButton
