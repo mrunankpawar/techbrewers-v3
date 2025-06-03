@@ -12,6 +12,8 @@ import { SiPeerlist } from "react-icons/si";
 import { TextHoverEffect } from "./ui/TextHoverEffect";
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <div className="bg-violet-100/[0.05] pt-2 rounded-3xl mt-20">
       <div className="container-1200 flex flex-col md:flex-row justify-between items-center mt-[3rem] md:mt-[7rem] pl-20 pr-20">
@@ -90,7 +92,7 @@ function Footer() {
         </p>
       </div>
       <div className="text-center text-white/20 text-sm py-4">
-        © 2025 TechThrusters. All rights reserved.
+        © {currentYear} TechThrusters. All rights reserved.
       </div>
     </div>
   );
