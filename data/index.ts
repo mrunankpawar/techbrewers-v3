@@ -11,8 +11,8 @@
     },
     {
       id: 2,
-      title: "TechThrusters Monthly Newsletter",
-      description: "Subscribe to the monthly newsletter for all the latest updates",
+      title: "TechThrusters Weekly Newsletter",
+      description: "Subscribe to the weekly newsletter for all the latest updates",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2 text-center",
       imgClassName: "",
       titleClassName: "justify-start items-center",

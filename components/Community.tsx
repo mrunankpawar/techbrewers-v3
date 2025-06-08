@@ -263,7 +263,7 @@ Whether it&apos;s a weekend build or something you&apos;ve been quietly hacking 
 
         {/* Newsletter Section */}
         <h3 className="mt-20 mb-5 pb-5 text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
-          Monthly Newsletter
+          Weekly Newsletter
         </h3>
         
         {/* Latest Newsletter Embed */}
