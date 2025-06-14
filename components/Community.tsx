@@ -73,6 +73,12 @@ const newsletters = [
     embedUrl: "https://techthrusters.substack.com/embed"
   },
   {
+    title: "June Weekly Newsletter",
+    week: "Week 1",
+    date: "June 1 - 7",
+    link: "https://open.substack.com/pub/techthrusters/p/techthrusters-weekly-newsletter-week?r=n6g8k",
+  },
+  {
     title: "April Monthly Newsletter",
     week: "2025",
     date: "April 1 - 30",
