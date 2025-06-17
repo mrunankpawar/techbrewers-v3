@@ -9,93 +9,104 @@ import {
   FaDiscord,
 } from "react-icons/fa6";
 import { SiPeerlist } from "react-icons/si";
-import { TextHoverEffect } from "./ui/TextHoverEffect";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="bg-violet-100/[0.05] pt-2 rounded-3xl mt-20">
-      <div className="container-1200 flex flex-col md:flex-row justify-between items-center mt-[3rem] md:mt-[7rem] pl-20 pr-20">
-        <Image
-          src="/images/logo/whitetrans.png"
-          alt="TechThrusters Logo"
-          width={225}
-          height={225}
-        />
-        <div className="flex flex-col justify-between items-center md:items-end mt-12 md:mt-0 h-full gap-y-4 w-full md:w-auto">
-          <div className="flex flex-row items-center w-full justify-between md:justify-end gap-x-auto md:gap-x-6 md:w-unset mx-auto text-3xl">
-            <Link
-              href="https://www.instagram.com/tech.thrusters/"
-              target="_blank"
-            >
-              <FaInstagram className="text-white hover:text-pink-500 transition-colors duration-200" />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/company/techthrusters/"
-              className="text-white hover:text-violet-300"
-              target="_blank"
-            >
-              <FaLinkedinIn className="text-white hover:text-[#0A66C2] transition-colors duration-200" />
-            </Link>
-            <Link
-              href="https://twitter.com/TechThrusters"
-              className="text-white hover:text-black-100"
-              target="_blank"
-            >
-              <FaXTwitter />
-            </Link>
-            <Link
-              href="https://www.youtube.com/@club_techbrewers"
-              className="text-white hover:text-violet-300"
-              target="_blank"
-            >
-              <FaYoutube className="text-white hover:text-[#FF0000] transition-colors duration-200" />
-            </Link>
-            <Link
-              href="https://bit.ly/TBDISCORD"
-              className="text-white hover:text-violet-300"
-              target="_blank"
-            >
-              <FaDiscord className="text-white hover:text-[#7289DA] transition-colors duration-200" />
-            </Link>
-            <Link
-              href="https://peerlist.io/company/techthrusters"
-              className="text-white hover:text-violet-300"
-              target="_blank"
-            >
-              <SiPeerlist className="text-white hover:text-[#01A93A] transition-colors duration-200" />
-            </Link>
+    <footer className="bg-violet-100/[0.05] mt-20 py-12">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Logo and Description */}
+          <div className="col-span-1 md:col-span-2">
+            <Image
+              src="/images/logo/whitetrans.png"
+              alt="TechThrusters Logo"
+              width={180}
+              height={180}
+              className="mb-4"
+            />
+            <p className="text-gray-400 text-base leading-relaxed">
+              Join our vibrant community of tech enthusiasts, learners, and builders.
+            </p>
           </div>
-          {/* <div className="flex flex-row gap-x-[0.5rem] md:gap-x-[2rem] text-[0.8rem] md:text-[1rem] items-center text-center justify-between w-full md:w-unset mt-1"> */}
-          <div className="flex flex-row gap-x-[0.5rem] md:gap-x-[2rem] text-sm sm:text-base md:text-lg font-medium items-center text-center justify-between w-full md:w-unset mt-1">
-            <Link
-              href="mailto:contact@techthrusters.org"
-              target="_blank"
-              className=" text-white hover:text-violet-300"
-            >
-              Partner with us
-            </Link>
-            <Link
-              href="https://bit.ly/TBDISCORD"
-              target="_blank"
-              className=" text-white hover:text-violet-300"
-            >
-              Join Community
-            </Link>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/events" className="text-gray-400 hover:text-violet-300 text-base transition-colors duration-200">
+                  Events
+                </Link>
+              </li>
+              <li>
+                <Link href="/challenges" className="text-gray-400 hover:text-violet-300 text-base transition-colors duration-200">
+                  Challenges
+                </Link>
+              </li>
+              <li>
+                <Link href="/community" className="text-gray-400 hover:text-violet-300 text-base transition-colors duration-200">
+                  Community
+                </Link>
+              </li>
+              <li>
+                <Link href="mailto:contact@techthrusters.org" className="text-gray-400 hover:text-violet-300 text-base transition-colors duration-200">
+                  Partner with us
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Connect */}
+          <div>
+            <h3 className="text-white font-semibold text-lg mb-4">Connect</h3>
+            <div className="flex flex-col space-y-3">
+              <Link
+                href="https://bit.ly/TBDISCORD"
+                target="_blank"
+                className="text-gray-400 hover:text-violet-300 text-base flex items-center gap-2 transition-colors duration-200"
+              >
+                <FaDiscord className="text-xl" /> Join Discord
+              </Link>
+              <Link
+                href="https://techthrusters.substack.com"
+                target="_blank"
+                className="text-gray-400 hover:text-violet-300 text-base flex items-center gap-2 transition-colors duration-200"
+              >
+                Subscribe to Newsletter
+              </Link>
+            </div>
           </div>
         </div>
+
+        {/* Social Links */}
+        <div className="flex justify-center space-x-8 mt-10 pt-8 border-t border-violet-300/10">
+          <Link href="https://www.instagram.com/tech.thrusters/" target="_blank">
+            <FaInstagram className="text-gray-400 hover:text-pink-500 text-2xl transition-colors duration-200" />
+          </Link>
+          <Link href="https://www.linkedin.com/company/techthrusters/" target="_blank">
+            <FaLinkedinIn className="text-gray-400 hover:text-[#0A66C2] text-2xl transition-colors duration-200" />
+          </Link>
+          <Link href="https://twitter.com/TechThrusters" target="_blank">
+            <FaXTwitter className="text-gray-400 hover:text-white text-2xl transition-colors duration-200" />
+          </Link>
+          <Link href="https://www.youtube.com/@tech.thrusters" target="_blank">
+            <FaYoutube className="text-gray-400 hover:text-[#FF0000] text-2xl transition-colors duration-200" />
+          </Link>
+          <Link href="https://peerlist.io/company/techthrusters" target="_blank">
+            <SiPeerlist className="text-gray-400 hover:text-[#01A93A] text-2xl transition-colors duration-200" />
+          </Link>
+        </div>
+
+        {/* Copyright */}
+        <div className="text-center text-gray-400 text-sm mt-10">
+          © {currentYear} TechThrusters. All rights reserved.
+        </div>
       </div>
-      <div className="overflow-hidden relative">
-        <p className="text-center uppercase mt-20 text-3xl sm:text-5xl md:text-7xl lg:text-[10rem] xl:text-[11rem] font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 dark:from-violet-800/[0.2] to-neutral-200 dark:to-white-100/[0.1]">
-          <TextHoverEffect text="TECHTHRUSTERS" />
-        </p>
-      </div>
-      <div className="text-center text-white/20 text-sm py-4">
-        © {currentYear} TechThrusters. All rights reserved.
-      </div>
-    </div>
+    </footer>
   );
 }
+
 export default Footer;
 
