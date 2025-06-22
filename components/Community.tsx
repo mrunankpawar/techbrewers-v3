@@ -66,11 +66,22 @@ const challenges = [
 // Newsletter Data
 const newsletters = [
   {
-    title: "May 2024",
-    week: "Week 1",
-    date: "May 1-7",
+    title: "June Weekly Newsletter",
+    week: "Week 3",
+    date: "June 15-21",
     link: "https://techthrusters.substack.com/p/may-2024",
-    embedUrl: "https://techthrusters.substack.com/embed"
+  },
+  {
+    title: "June Weekly Newsletter",
+    week: "Week 3",
+    date: "June 15 - 21",
+    link: "https://open.substack.com/pub/techthrusters/p/techthrusters-weekly-newsletter-week-312?r=n6g8k",
+  },
+  {
+    title: "June Weekly Newsletter",
+    week: "Week 2",
+    date: "June 8 - 14",
+    link: "https://open.substack.com/pub/techthrusters/p/techthrusters-weekly-newsletter-week-1ef?r=n6g8k",
   },
   {
     title: "June Weekly Newsletter",
