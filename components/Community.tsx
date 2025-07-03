@@ -8,12 +8,21 @@ import { FaArrowRight, FaChevronDown, FaChevronUp } from "react-icons/fa";
 // Monthly Challenge Data
 const challenges = [
   {
-    month: "June",
-    challenge: "Builder's Space",
-    poster: "/images/challenges/JuneChallenge.png",
+    month: "July",
+    challenge: "TechThrusters - Explore and Elevate",
+    poster: "/images/challenges/JulyChallenge.png",
     winner: {
       name: "Samarth Pujari",
       photo: "/images/meetup/meetup3/group.JPG",
+    },
+  },
+  {
+    month: "June",
+    challenge: "Builders Space",
+    poster: "/images/challenges/MayChallenge.png",
+    winner: {
+      name: "Kishan Sharma",
+      photo: "/images/challengewinners/june.png",
     },
   },
   {
@@ -214,9 +223,9 @@ function Community() {
               {challenges[0].month} Challenge
             </p>
             <p className="text-gray-400 mb-6">
-            This month, the spotlight is on building and shipping! We challenge you to take on the side project Project Challenge—share your side project challenge in the #builders-space Discord channel anytime before 30th June. <br></br> <br></br>
+            This month, we&apos;re turning the spotlight inward with a challenge designed to make TechThrusters even better — and we need your insights to do it! The <b>Explore & Elevate</b> challenge invites you to explore our website and spot anything that could be improved — whether it&apos;s a bug, UI issue, or a creative suggestion to enhance the user experience or overall community.<br></br> <br></br>
 
-Whether it&apos;s a weekend build or something you&apos;ve been quietly hacking on, this is your moment to launch, get visibility, and receive valuable feedback from the community.
+            It&apos;s your chance to contribute directly to the platform you&apos;re part of — and get recognized for it.
             </p>
             <Link href="https://discord.com/invite/4sUmgTZa8H" target="_blank" rel="noopener noreferrer">
               <MagicButton
