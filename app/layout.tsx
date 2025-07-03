@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "./provider";
 import GlowMenu from "@/components/ui/GlowMenu";
 import Footer from "@/components/Footer";
+import KeyboardShortcuts from "@/components/ui/KeyboardShortcuts";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -52,6 +53,7 @@ export default function RootLayout({
     <html className="bg-black-100" lang="en">
       <body className={inter.className && "bg-black-100"}>
       <ThemeProvider attribute="class" defaultTheme="dark">
+        <KeyboardShortcuts />
         <GlowMenu />
         {children}
         <Footer />
