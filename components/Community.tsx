@@ -229,7 +229,7 @@ function Community() {
               {challenges[0].month} Challenge
             </p>
             <p className="text-gray-400 mb-6">
-            This month, we&apos;re turning the spotlight inward with a challenge designed to make TechThrusters even better — and we need your insights to do it! The <b>Explore & Elevate</b> challenge invites you to explore our website and spot anything that could be improved — whether it&apos;s a bug, UI issue, or a creative suggestion to enhance the user experience or overall community.<br></br> <br></br>
+            This month, we&apos;re turning the spotlight inward with a challenge designed to make TechThrusters even better! The <b>Explore & Elevate</b> challenge invites you to explore our website and spot anything that could be improved — whether it&apos;s a bug, UI issue, or a creative suggestion to enhance the user experience or overall community.<br></br> <br></br>
 
             It&apos;s your chance to contribute directly to the platform you&apos;re part of — and get recognized for it.
             </p>
