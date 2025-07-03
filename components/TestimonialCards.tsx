@@ -49,7 +49,7 @@ function TestimonialCards() {
         </h3>
         <p className="mt-4 font-normal text-base md:text-lg text-violet-200 max-w-xl mx-auto z-10 mb-10">
           Discover the powerful stories of growth, collaboration, and the
-          remarkable connections that define the TechBrewers experience.
+          remarkable connections that define the TechThrusters experience.
         </p>
       </div>
       <div className="flex justify-center w-full overflow-hidden px-4 sm:px-6 lg:px-8">

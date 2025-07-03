@@ -9,7 +9,7 @@ function CardCarousel() {
   ));
 
   return (
-    <div className="w-full h-full py-20">
+    <div className="w-full h-full pt-20 pb-10">
       <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
         Glimpses from our past meetups
       </h3>
@@ -31,6 +31,78 @@ const DummyContent = () => {
 };
 
 const data = [
+  {
+    category: "Community Meetup",
+    title: "TechBrewers Meetup 3.0",
+    src: "/images/meetup/meetup3/cover3.JPG",
+    content: (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Image
+          src="/images/meetup/meetup3/mrunank.JPG"
+          alt="Mrunank speaking at TechBrewers Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/vj.JPG"
+          alt="Vijaykumar speaking at TechBrewers Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/sakshi.JPG"
+          alt="Sakshi speaking at TechBrewers Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/pranoti.JPG"
+          alt="Pranoti speaking at TechBrewers Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/ganesh.JPG"
+          alt="Ganesh speaking at TechBrewers Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/crowd.JPG"
+          alt="Folks attending  Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/networking.JPG"
+          alt="Folks networking at TechBrewers Community Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/swags.JPG"
+          alt="Attendees excited to get their goodies"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+        <Image
+          src="/images/meetup/meetup3/group.JPG"
+          alt="Group photo at TechBrewers Community Meetup 3.0"
+          height="500"
+          width="500"
+          className="rounded-lg w-full h-auto object-contain"
+        />
+      </div>
+    ),
+  },
   {
     category: "Community Meetup",
     title: "TechBrewers Community Meetup 2.0",
@@ -108,18 +180,18 @@ const data = [
   {
     category: "Celebration + Connect",
     title: "TechBrewers CelCon",
-    src: "/images/meetup/celcon/5.jpg",
+    src: "/images/meetup/celcon/audience.jpg",
     content: (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Image
-          src="/images/meetup/celcon/4.jpg"
+          src="/images/meetup/celcon/audienceh.jpg"
           alt="Mrunank speaking at TechBrewers CelCon"
           height="500"
           width="500"
           className="rounded-lg w-full h-auto object-contain"
         />
         <Image
-          src="/images/meetup/celcon/2.jpg"
+          src="/images/meetup/celcon/mrunankspeak.jpg"
           alt="Mrunank addressing the audience at TechBrewers CelCon"
           height="500"
           width="500"
@@ -127,7 +199,7 @@ const data = [
         />
 
         <Image
-          src="/images/meetup/celcon/1.jpg"
+          src="/images/meetup/celcon/ayushspeak.jpg"
           alt="Attendess sharing their experience"
           height="500"
           width="500"
@@ -142,7 +214,7 @@ const data = [
           className="rounded-lg w-full h-auto object-contain"
         />
         <Image
-          src="/images/meetup/celcon/3.jpg"
+          src="/images/meetup/celcon/celconteam.jpg"
           alt="TechBrewers Team at CelCon"
           height="500"
           width="500"

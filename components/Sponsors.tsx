@@ -3,6 +3,11 @@ import Link from "next/link";
 
 const sponsors = [
   {
+    name: "GitHub",
+    logo: "/images/sponsors/github.png",
+    url: "https://github.com/",
+  },
+  {
     name: "Azure Developer Community",
     logo: "/images/sponsors/adc.jpg",
     url: "https://azdev.reskilll.com/",
@@ -94,6 +99,16 @@ const sponsors = [
     name: "GDG Silicon Valley",
     logo: "/images/sponsors/gdg.jpg",
     url: "https://gdg.community.dev/gdg-silicon-valley/",
+  },
+  {
+    name: "Moneylancer Investments",
+    logo: "/images/sponsors/moneylancer.png",
+    url: "https://mymoneylancer.com/",
+  },
+  {
+    name: "Pune FOSS 3.0",
+    logo: "/images/sponsors/punefoss3.png",
+    url: "https://fossunited.org/c/pune/punefoss3",
   },
 ];
 
