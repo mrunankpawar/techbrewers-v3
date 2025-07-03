@@ -77,121 +77,127 @@ const newsletters = [
   {
     title: "June Weekly Newsletter",
     week: "Week 3",
-    date: "June 15-21",
+    // date: "June 15-21",
     link: "https://techthrusters.substack.com/p/may-2024",
+  },
+  {
+    title: "July Weekly Newsletter",
+    week: "Week 1",
+    // date: "June 22 - July 1",
+    link: "https://open.substack.com/pub/techthrusters/p/techthrusters-weekly-newsletter-week-916?r=n6g8k",
   },
   {
     title: "June Weekly Newsletter",
     week: "Week 3",
-    date: "June 15 - 21",
+    // date: "June 15 - 21",
     link: "https://open.substack.com/pub/techthrusters/p/techthrusters-weekly-newsletter-week-312?r=n6g8k",
   },
   {
     title: "June Weekly Newsletter",
     week: "Week 2",
-    date: "June 8 - 14",
+    // date: "June 8 - 14",
     link: "https://open.substack.com/pub/techthrusters/p/techthrusters-weekly-newsletter-week-1ef?r=n6g8k",
   },
   {
     title: "June Weekly Newsletter",
     week: "Week 1",
-    date: "June 1 - 7",
+    // date: "June 1 - 7",
     link: "https://open.substack.com/pub/techthrusters/p/techthrusters-weekly-newsletter-week?r=n6g8k",
   },
   {
     title: "April Monthly Newsletter",
     week: "2025",
-    date: "April 1 - 30",
+    // date: "April 1 - 30",
     link: "https://techthrusters.substack.com/p/techthrusters-monthly-newsletter-d21?r=n6g8k",
   },
   {
     title: "March Monthly Newsletter",
     week: "2025",
-    date: "March 1 - 31",
+    // date: "March 1 - 31",
     link: "https://techthrusters.substack.com/p/techthrusters-monthly-newsletter-f51?r=n6g8k",
   },
   {
     title: "February Monthly Newsletter",
     week: "2025",
-    date: "February 1 - 28",
+    // date: "February 1 - 28",
     link: "https://techthrusters.substack.com/p/techthrusters-monthly-newsletter-1a8?r=n6g8k",
   },
   {
     title: "January Monthly Newsletter",
     week: "2025",
-    date: "January 1 - 31",
+    // date: "January 1 - 31",
     link: "https://techthrusters.substack.com/p/techthrusters-monthly-newsletter?r=n6g8k",
   },
   {
     title: "December Monthly Newsletter",
     week: "2024",
-    date: "December 1 - 31",
+    // date: "December 1 - 31",
     link: "https://techthrusters.substack.com/p/techbrewers-december-newsletter?r=n6g8k",
   },
   {
     title: "November Monthly Newsletter",
     week: "2024",
-    date: "November 1 - 30",
+    // date: "November 1 - 30",
     link: "https://techthrusters.substack.com/p/techbrewers-november-newsletter?r=n6g8k",
   },
   {
     title: "October Monthly Newsletter",
     week: "2024",
-    date: "October 1 - 31",
+    // date: "October 1 - 31",
     link: "https://techthrusters.substack.com/p/techbrewers-october-newsletter?r=n6g8k",
   },
   {
     title: "September Monthly Newsletter",
     week: "2024",
-    date: "September 1 - 30",
+    // date: "September 1 - 30",
     link: "https://techthrusters.substack.com/p/techbrewers-september-newsletter?r=n6g8k",
   },
   {
     title: "August Monthly Newsletter",
     week: "2024",
-    date: "August 1 - 31",
+    // date: "August 1 - 31",
     link: "https://techthrusters.substack.com/p/techbrewers-august-newsletter?r=n6g8k",
   },
   {
     title: "July Monthly Newsletter",
     week: "2024",
-    date: "July 1 - 31",
+    // date: "July 1 - 31",
     link: "https://techthrusters.substack.com/p/techbrewers-july-newsletter?r=n6g8k",
   },
   {
     title: "June Monthly Newsletter",
     week: "2024",
-    date: "June 1 - 30",
+    // date: "June 1 - 30",
     link: "https://techthrusters.substack.com/p/techbrewers-june-newsletter?r=n6g8k",
   },
   {
     title: "May Monthly Newsletter",
     week: "2024",
-    date: "May 1 - 31",
+    // date: "May 1 - 31",
     link: "https://techthrusters.substack.com/p/techbrewers-may-newsletter?r=n6g8k",
   },
   {
     title: "April Monthly Newsletter",
     week: "2024",
-    date: "April 1 - 30",
+    // date: "April 1 - 30",
     link: "https://techthrusters.substack.com/p/techbrewers-april-newsletter?r=n6g8k",
   },
   {
     title: "March Monthly Newsletter",
     week: "2024",
-    date: "March 1 - 31",
+    // date: "March 1 - 31",
     link: "https://techthrusters.substack.com/p/techbrewers-march-newsletter?r=n6g8k",
   },
   {
     title: "February Monthly Newsletter",
     week: "2024",
-    date: "February 1 - 29",
+    // date: "February 1 - 29",
     link: "https://techthrusters.substack.com/p/techbrewers-february-newsletter?r=n6g8k",
   },
   {
     title: "January Monthly Newsletter",
     week: "2024",
-    date: "January 1 - 31",
+    // date: "January 1 - 31",
     link: "https://techthrusters.substack.com/p/techbrewers-january-newsletter?r=n6g8k",
   }
 ];
@@ -318,7 +324,7 @@ function Community() {
                   {newsletter.title}
                 </h4>
                 <p className="text-lg text-violet-300/80 mb-1">{newsletter.week}</p>
-                <p className="text-sm text-gray-400 mb-4">{newsletter.date}</p>
+                <p className="text-sm text-gray-400 mb-4">{}</p>
                 <div className="flex justify-center">
                   <Link href={newsletter.link} target="_blank" rel="noopener noreferrer">
                     <button className="group flex items-center gap-2 px-4 py-2 text-sm font-medium text-violet-300 border border-violet-400/10 rounded-lg hover:border-violet-400/30 hover:bg-violet-400/5 transition-all duration-300">
