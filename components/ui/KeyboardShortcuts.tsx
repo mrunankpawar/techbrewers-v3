@@ -69,7 +69,7 @@ const KeyboardShortcuts = () => {
     <>
       {/* Keyboard Shortcuts Indicator */}
       {showIndicator && (
-        <div className="fixed bottom-4 right-4 z-[9998] bg-violet-600 text-white px-3 py-2 rounded-lg shadow-lg flex items-center gap-2 text-sm">
+        <div className="fixed bottom-4 right-4 z-[9998] bg-violet-600 text-white px-3 py-2 rounded-lg shadow-lg flex items-center gap-2 text-sm hidden md:flex">
           <FiSettings className="h-4 w-4" />
           <span>Press ? for shortcuts</span>
           <button
@@ -83,7 +83,7 @@ const KeyboardShortcuts = () => {
       
       {/* Help Modal */}
       {showHelp && (
-        <div className="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm hidden md:flex items-center justify-center p-4">
           <div className="bg-white dark:bg-gray-900 rounded-lg shadow-xl max-w-md w-full p-6 relative">
             <button
               onClick={() => setShowHelp(false)}
