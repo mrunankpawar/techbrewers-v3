@@ -82,6 +82,12 @@ const newsletters = [
   },
   {
     title: "July Weekly Newsletter",
+    week: "Week 2",
+    // date: "June 22 - July 1",
+    link: "https://open.substack.com/pub/techthrusters/p/techthrusters-weekly-newsletter-week-e9b?r=n6g8k",
+  },
+  {
+    title: "July Weekly Newsletter",
     week: "Week 1",
     // date: "June 22 - July 1",
     link: "https://open.substack.com/pub/techthrusters/p/techthrusters-weekly-newsletter-week-916?r=n6g8k",
