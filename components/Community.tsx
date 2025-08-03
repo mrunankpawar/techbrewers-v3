@@ -8,14 +8,23 @@ import { FaArrowRight, FaChevronDown, FaChevronUp } from "react-icons/fa";
 // Monthly Challenge Data
 const challenges = [
   {
-    month: "July",
-    challenge: "TechThrusters - Explore and Elevate",
-    poster: "/images/challenges/JulyChallenge.png",
+    month: "August",
+    challenge: "The Art of CSS",
+    poster: "/images/challenges/AugustChallenge.png",
     winner: {
       name: "Samarth Pujari",
       photo: "/images/meetup/meetup3/group.JPG",
     },
   },
+  // {
+  //   month: "July",
+  //   challenge: "TechThrusters - Explore and Elevate",
+  //   poster: "/images/challenges/JulyChallenge.png",
+  //   winner: {
+  //     // name: "Samarth Pujari",
+  //     // photo: "/images/meetup/meetup3/group.JPG",
+  //   },
+  // },
   {
     month: "June",
     challenge: "Builders Space",
@@ -235,9 +244,10 @@ function Community() {
               {challenges[0].month} Challenge
             </p>
             <p className="text-gray-400 mb-6">
-            This month, we&apos;re turning the spotlight inward with a challenge designed to make TechThrusters even better! The <b>Explore & Elevate</b> challenge invites you to explore our website and spot anything that could be improved — whether it&apos;s a bug, UI issue, or a creative suggestion to enhance the user experience or overall community.<br></br> <br></br>
-
-            It&apos;s your chance to contribute directly to the platform you&apos;re part of — and get recognized for it.
+            This month, we&apos;re celebrating creativity through code with a challenge that turns HTML & CSS into art!
+The Art of CSS challenge invites you to craft beautiful visual creations using only HTML and CSS — no images, no JavaScript, just pure styling magic. 🎨✨
+<br></br><br></br>
+Whether it&apos;s animated shapes, characters, scenes, or abstract patterns — let your imagination run wild and show the community what&apos;s possible with just CSS code!
             </p>
             <Link href="https://discord.com/invite/4sUmgTZa8H" target="_blank" rel="noopener noreferrer">
               <MagicButton
