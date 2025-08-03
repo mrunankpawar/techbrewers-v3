@@ -50,6 +50,9 @@ function Hero() {
         <h1 className="mt-5 md:mt-0 text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-violet-50 to-violet-400 z-10">
           TechThrusters
         </h1>
+        <p className="mt-4 text-base md:text-lg text-gray-200 dark:text-gray-300 max-w-2xl mx-auto z-10">
+          TechThrusters is a global tech community enabling folks to Learn, Connect, and Build together through collaboration and shared growth.
+        </p>
         <div className="mt-8 lg:mt-4 z-10">
           <Link href="https://bit.ly/TBDISCORD" target="__blank">
             <MagicButton
