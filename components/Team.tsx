@@ -47,18 +47,18 @@ function Team() {
         <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
           Humans of TechThrusters
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
           {people.map((person) => (
             <CometCard key={person.id} className="w-full">
               <a
                 href={person.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative w-80 h-96 mx-auto block cursor-pointer"
+                className="group relative w-64 h-80 mx-auto block cursor-pointer"
               >
                 <div className="relative w-full h-full rounded-[16px] overflow-hidden bg-[#1F2121] border border-gray-800/50">
                   {/* Profile Image */}
-                  <div className="relative w-full h-64 overflow-hidden">
+                  <div className="relative w-full h-52 overflow-hidden">
                     <Image
                       src={person.image}
                       alt={person.name}
@@ -70,7 +70,7 @@ function Team() {
                   
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-                    <h4 className="text-xl md:text-2xl font-bold text-white text-center leading-tight drop-shadow-lg p-5">
+                    <h4 className="text-l md:text-xl font-bold text-white text-center leading-tight drop-shadow-lg p-5">
                       {person.name}
                     </h4>
                   </div> 
