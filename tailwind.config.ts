@@ -41,6 +41,21 @@ const config = {
   			blue: {
   				'100': '#E4ECFF'
   			},
+  			// New warm orange color palette
+  			orange: {
+  				'50': '#fef7ed',
+  				'100': '#fdedd3',
+  				'200': '#fbd9a5',
+  				'300': '#f8c06d',
+  				'400': '#f5a332',
+  				'500': '#e28a49', // soft golden orange
+  				'600': '#d25c1b', // vibrant amber orange
+  				'700': '#c54f0e', // warm burnt orange
+  				'800': '#9f3a0e', // reddish brown
+  				'900': '#64260f', // deep brownish orange
+  				DEFAULT: '#c54f0e'
+  			},
+  			// Legacy purple for gradual transition
   			purple: '#CBACF9',
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',

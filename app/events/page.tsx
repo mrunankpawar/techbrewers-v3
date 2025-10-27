@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Events from "@/components/Events";
 import ExpandableCards from "@/components/ExpandableCards";
+import Navbar from "@/components/Navbar";
 
 function page() {
   return (
@@ -18,7 +19,8 @@ function page() {
       </Head>
       
 
-    <div>
+    <div className="gradient-background min-h-screen">
+      <Navbar />
       <Events />
       <ExpandableCards />
     </div>

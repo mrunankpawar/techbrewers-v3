@@ -5,7 +5,7 @@
 
 @layer base {
   ::selection {
-    background-color: #6c63ff; /* Your background color */
+    background-color: #c54f0e; /* Warm burnt orange */
     color: #ffffff; /* Your text color */
   }
 
@@ -106,6 +106,57 @@
   
     .black-gradient {
       background: linear-gradient(90deg, #161a31 0%, #06091f 100%);
+    }
+    
+    .orange-gradient {
+      background: linear-gradient(90deg, #64260f 0%, #c54f0e 50%, #e28a49 100%);
+    }
+    
+    .warm-gradient {
+      background: linear-gradient(135deg, #64260f 0%, #9f3a0e 25%, #c54f0e 50%, #d25c1b 75%, #e28a49 100%);
+    }
+    
+    .bg-gradient-radial {
+      background: radial-gradient(circle, var(--tw-gradient-stops));
+    }
+    
+    .hero-glow {
+      background: radial-gradient(circle at 50% 50%, rgba(197, 79, 14, 0.3) 0%, rgba(197, 79, 14, 0.1) 30%, transparent 70%);
+    }
+    
+    .nubien-glow {
+      background: radial-gradient(circle at 50% 50%, rgba(197, 79, 14, 0.08) 0%, rgba(197, 79, 14, 0.03) 40%, transparent 70%);
+    }
+    
+    /* Sepia Background with Grid */
+    .sepia-background {
+      background-color: #2a2019;
+      background-image: 
+        linear-gradient(rgba(101, 38, 15, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101, 38, 15, 0.15) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    
+    .sepia-background-hero {
+      background-color: #2a2019;
+      background-image: 
+        linear-gradient(rgba(101, 38, 15, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101, 38, 15, 0.15) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    
+    .sepia-gradient-overlay {
+      background: radial-gradient(ellipse at top left, rgba(197, 79, 14, 0.25) 0%, rgba(101, 38, 15, 0.1) 40%, transparent 70%);
+    }
+    
+    /* Gradient background without grid */
+    .gradient-background {
+      background: linear-gradient(180deg, #2a2019 0%, #3a2a1f 50%, #2a2019 100%);
+    }
+    
+    /* Brown solid background */
+    .brown-background {
+      background-color: #1a1209;
     }
   }
 
