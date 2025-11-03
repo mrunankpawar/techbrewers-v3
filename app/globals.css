@@ -184,3 +184,18 @@
 .transform-3d {
   transform-style: preserve-3d;
 }
+
+/* Infinite Scroll Animation for Sponsors */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+  display: flex;
+}

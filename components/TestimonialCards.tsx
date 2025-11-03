@@ -18,7 +18,7 @@ const testimonials = [
     quote:
       "TechBrewers has been not only keen on doing initiatives to grow the community in a positive way but also in constantly collaborating with many communities to make sure impact never stops. Being a part of this group is no less than the feeling of pride that these people are giving their absolute best to make sure we all grow in the community.",
     name: "Jatin Pandya",
-    title: "Product Growth and DevRel @Zeeve.io",
+    title: "DevRel @ Supra",
   },
   {
     quote:
@@ -44,7 +44,7 @@ function TestimonialCards() {
   return (
     <div className="h-[40rem] w-full dark:bg-black-100 dark:bg-dot-white/[0.1] relative flex flex-col items-center justify-center overflow-hidden">
       <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center text-center">
-        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600 z-10">
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50 z-10">
           What people say about us
         </h3>
         <p className="mt-4 font-normal text-base md:text-lg text-violet-200 max-w-xl mx-auto z-10 mb-10">

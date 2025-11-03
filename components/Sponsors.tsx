@@ -114,9 +114,9 @@ const sponsors = [
 
 function Sponsors() {
   return (
-    <div className="mt-0 md:mt-10 h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-5 md:py-10">
+    <div className="h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-5 md:py-10 gradient-background">
       <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center text-center">
-        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600 z-10">
+        <h3 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50 z-10">
           Sponsors and Partners
         </h3>
 
@@ -125,7 +125,7 @@ function Sponsors() {
             {sponsors.map((sponsor, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center p-4 border border-violet-200 rounded-lg shadow-md hover:shadow-lg filter transition duration-300"
+                className="flex items-center justify-center p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:border-orange-500/30 transition-all duration-300"
               >
                 <Link href={sponsor.url} passHref target="__blank">
                   <Image
@@ -133,7 +133,7 @@ function Sponsors() {
                     alt={sponsor.name}
                     width={150}
                     height={150}
-                    className="object-contain w-20 h-20 sm:w-28 sm:h-24 md:w-28 md:h-24 lg:w-28 lg:h-24"
+                    className="object-contain w-20 h-20 sm:w-28 sm:h-24 md:w-28 md:h-24 lg:w-28 lg:h-24 opacity-60 hover:opacity-100 transition-all duration-300"
                   />
                 </Link>
               </div>

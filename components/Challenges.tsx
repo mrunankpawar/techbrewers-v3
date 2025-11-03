@@ -31,7 +31,7 @@ function Challenges() {
   return (
     <div className="mt-0 md:mt-10 h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-28 md:py-20">
       <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center text-center">
-        <h3 className="mb-5 pb-5 text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600 z-10">
+        <h3 className="mb-5 pb-5 text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50 z-10">
           TechThrusters Monthly Challenges
         </h3>
 
@@ -69,7 +69,7 @@ function Challenges() {
 
 
         {/* Past Challenges */}
-        <h2 className="text-2xl font-bold mb-6">Past Challenges</h2>
+        <h2 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50 mb-6">Past Challenges</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {challenges.slice(1).map((challenge, index) => (
             <div key={index} className="shadow-lg p-4 border rounded-lg">
