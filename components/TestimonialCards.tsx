@@ -18,7 +18,7 @@ const testimonials = [
     quote:
       "TechBrewers has been not only keen on doing initiatives to grow the community in a positive way but also in constantly collaborating with many communities to make sure impact never stops. Being a part of this group is no less than the feeling of pride that these people are giving their absolute best to make sure we all grow in the community.",
     name: "Jatin Pandya",
-    title: "DevRel @ Supra",
+    title: "Product Growth and DevRel @Zeeve.io",
   },
   {
     quote:
