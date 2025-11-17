@@ -38,32 +38,38 @@ const HeroNew = () => {
         </h1>
 
         {/* Header Images */}
-        <div className="flex items-center justify-center mb-6">
+        <div className="flex items-center justify-center mb-6 select-none pointer-events-none">
           <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-white/20 -mr-4 md:-mr-6 z-10">
             <Image
               src="/images/header/1.png"
-              alt="Community Member 1"
+              alt=""
               width={80}
               height={80}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full select-none pointer-events-none"
+              draggable={false}
+              unoptimized
             />
           </div>
           <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-white/20 -mr-4 md:-mr-6 z-20">
             <Image
               src="/images/header/2.png"
-              alt="Community Member 2"
+              alt=""
               width={80}
               height={80}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full select-none pointer-events-none"
+              draggable={false}
+              unoptimized
             />
           </div>
           <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-white/20 z-30">
             <Image
               src="/images/header/3.png"
-              alt="Community Member 3"
+              alt=""
               width={80}
               height={80}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full select-none pointer-events-none"
+              draggable={false}
+              unoptimized
             />
           </div>
         </div>
