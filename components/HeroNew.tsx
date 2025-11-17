@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import AnnouncementBar from './AnnouncementBar';
 import Navbar from './Navbar';
 
@@ -28,6 +29,37 @@ const HeroNew = () => {
           <br />
           <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">Learn. Connect. Build</span>
         </h1>
+
+        {/* Header Images */}
+        <div className="flex items-center justify-center mb-6">
+          <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-white/20 -mr-4 md:-mr-6 z-10">
+            <Image
+              src="/images/header/1.png"
+              alt="Community Member 1"
+              width={80}
+              height={80}
+              className="object-cover w-full h-full"
+            />
+          </div>
+          <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-white/20 -mr-4 md:-mr-6 z-20">
+            <Image
+              src="/images/header/2.png"
+              alt="Community Member 2"
+              width={80}
+              height={80}
+              className="object-cover w-full h-full"
+            />
+          </div>
+          <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-white/20 z-30">
+            <Image
+              src="/images/header/3.png"
+              alt="Community Member 3"
+              width={80}
+              height={80}
+              className="object-cover w-full h-full"
+            />
+          </div>
+        </div>
 
         {/* Description */}
         <p className="text-lg md:text-xl text-white/80 text-center mb-8 max-w-3xl leading-relaxed">
