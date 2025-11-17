@@ -21,8 +21,10 @@ function page() {
 
     <div className="gradient-background min-h-screen">
       <Navbar />
-      <Events />
-      <ExpandableCards />
+      <div className="pt-24 md:pt-28">
+        <Events />
+        <ExpandableCards />
+      </div>
     </div>
     </>
   )

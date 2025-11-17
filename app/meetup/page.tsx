@@ -20,9 +20,11 @@ function page() {
       
     <div className="gradient-background min-h-screen">
       <Navbar />
-      <Meetup />
-      <MeetupTeam />
-      <MeetupSponsors />
+      <div className="pt-24 md:pt-28">
+        <Meetup />
+        <MeetupTeam />
+        <MeetupSponsors />
+      </div>
     </div>
     </>
   )

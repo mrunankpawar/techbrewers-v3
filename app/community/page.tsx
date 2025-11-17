@@ -18,7 +18,9 @@ function page() {
       </Head>
     <div className="gradient-background min-h-screen">
       <Navbar />
-      <Community />
+      <div className="pt-24 md:pt-28">
+        <Community />
+      </div>
     </div>
     </>
   )
