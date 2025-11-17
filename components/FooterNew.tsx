@@ -29,15 +29,14 @@ const FooterNew = () => {
             </p>
           </div>
 
-          {/* Template Pages Column */}
+          {/* Navigation Column */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-6">Template Pages</h3>
+            <h3 className="text-white font-bold text-lg mb-6">Navigation</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">Home</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">About</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">Portfolio</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">Contact</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">FAQ</a></li>
+              <li><a href="/" className="text-gray-400 hover:text-orange-400 transition-colors">Home</a></li>
+              <li><a href="/community" className="text-gray-400 hover:text-orange-400 transition-colors">Community</a></li>
+              <li><a href="/events" className="text-gray-400 hover:text-orange-400 transition-colors">Events</a></li>
+              <li><a href="/meetup" className="text-gray-400 hover:text-orange-400 transition-colors">Meetups</a></li>
             </ul>
           </div>
 
@@ -45,10 +44,10 @@ const FooterNew = () => {
           <div>
             <h3 className="text-white font-bold text-lg mb-6">Social</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">Twitter (X)</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">Instagram</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">YouTube</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">LinkedIn</a></li>
+              <li><a href="https://twitter.com/TechThrusters" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">Twitter (X)</a></li>
+              <li><a href="https://instagram.com/tech.thrusters" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">Instagram</a></li>
+              <li><a href="https://bit.ly/TBDISCORD" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">Discord</a></li>
+              <li><a href="https://linkedin.com/company/techthrusters" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">LinkedIn</a></li>
             </ul>
           </div>
         </div>

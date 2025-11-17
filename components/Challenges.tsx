@@ -47,12 +47,9 @@ function Challenges() {
         />
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <h2 className="text-2xl font-semibold mb-2">{challenges[0].challenge}</h2>
-          <p className="text-gray-700 mb-4">{challenges[0].month} Challenge</p>
-          <p className="text-gray-600 mb-6">
-            Join us for the {challenges[0].challenge}, where creativity meets competition. Show your talent and win exciting prizes while showcasing your skills. Dont miss the chance to be featured as our challenge winner!
-          </p>
-          <p className="text-gray-600 mb-6">
-            Join us for the {challenges[0].challenge}, where creativity meets competition. Show your talent and win exciting prizes atured as our challenge winner!
+          <p className="text-gray-400 mb-4">{challenges[0].month} Challenge</p>
+          <p className="text-gray-400 mb-6">
+            Join us for the {challenges[0].challenge}, where creativity meets competition. Show your talent and win exciting prizes while showcasing your skills. Don't miss the chance to be featured as our challenge winner!
           </p>
           
           <div className="">
@@ -81,8 +78,8 @@ function Challenges() {
                 height={300}
               />
               <h2 className="text-xl font-semibold mb-2">{challenge.month}</h2>
-              <p className="text-gray-700 mb-4">{challenge.challenge}</p>
-              <p className="text-sm font-medium text-center text-gray-600">
+              <p className="text-gray-400 mb-4">{challenge.challenge}</p>
+              <p className="text-sm font-medium text-center text-gray-400">
                 Winner: {challenge.winner.name}
               </p>
             </div>

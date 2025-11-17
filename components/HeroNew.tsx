@@ -19,8 +19,15 @@ const HeroNew = () => {
       <div className="relative z-10 flex flex-col items-center justify-center min-h-[80vh] px-6">
         {/* Badge */}
         <div className="mb-8 flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
-          <span className="text-orange-200 text-sm font-medium">2025</span>
-          <span className="text-white text-sm font-medium ml-2">Next-Gen Tech Community</span>
+          <span className="bg-orange-500/20 border border-orange-400/30 rounded-full px-2 py-1 text-orange-200 text-sm font-medium">NEW</span>
+          <a 
+            href="https://bit.ly/TTOSPI" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white text-sm font-medium ml-2 hover:text-orange-200 transition-colors"
+          >
+            Open Source Project Incubator Program
+          </a>
         </div>
 
         {/* Main Headline */}

@@ -3,9 +3,6 @@ import Meetup from "@/components/Meetup";
 import MeetupTeam from "@/components/MeetupTeam";
 import MeetupSponsors from "@/components/MeetupSponsors";
 import Navbar from "@/components/Navbar";
-// import MeetupSpeakers from "@/components/MeetupSpeakers";
-// import ExpandableCards from "@/components/ExpandableCards";
-// import CardCarousel from "@/components/Cards";
 
 function page() {
   return (

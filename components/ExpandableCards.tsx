@@ -3,7 +3,6 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
-import MagicButton from "./ui/MagicButton";
 import { FaArrowRight } from "react-icons/fa";
 
 function ExpandableCards() {

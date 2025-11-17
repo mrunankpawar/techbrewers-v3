@@ -240,7 +240,7 @@ function Community() {
             <h2 className="text-2xl font-semibold mb-2">
               {challenges[0].challenge}
             </h2>
-            <p className="text-indigo-300 mb-4">
+            <p className="text-orange-300 mb-4">
               {challenges[0].month} Challenge
             </p>
             <p className="text-gray-400 mb-6">
@@ -264,11 +264,11 @@ Whether it&apos;s animated shapes, characters, scenes, or abstract patterns — 
           {challenges.slice(1, showAllChallenges ? undefined : 4).map((challenge, index) => (
             <div 
               key={index} 
-              className="p-6 rounded-xl border border-violet-300/20 bg-black-100/50 backdrop-blur-sm relative overflow-hidden group hover:border-violet-400/50 transition-all duration-300"
+              className="p-6 rounded-xl border border-orange-300/20 bg-black-100/50 backdrop-blur-sm relative overflow-hidden group hover:border-orange-400/50 transition-all duration-300"
             >
               {/* Background Pattern */}
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-indigo-500/5 opacity-50" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-orange-700/5 opacity-50" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(197,79,14,0.1),rgba(255,255,255,0))]" />
               
               {/* Content */}
               <div className="relative z-10">
@@ -280,10 +280,10 @@ Whether it&apos;s animated shapes, characters, scenes, or abstract patterns — 
                     fill
                   />
                 </div>
-                <h4 className="text-xl font-semibold mb-1 text-violet-200">
+                <h4 className="text-xl font-semibold mb-1 text-orange-200">
                   {challenge.month}
                 </h4>
-                <p className="text-lg text-violet-300/80 mb-1">{challenge.challenge}</p>
+                <p className="text-lg text-orange-300/80 mb-1">{challenge.challenge}</p>
                 <p className="text-sm text-gray-400">
                   Winner: {challenge.winner.name}
                 </p>
@@ -295,7 +295,7 @@ Whether it&apos;s animated shapes, characters, scenes, or abstract patterns — 
         {challenges.length > 4 && (
           <button
             onClick={() => setShowAllChallenges(!showAllChallenges)}
-            className="flex items-center gap-2 text-violet-400 hover:text-violet-300 mb-20"
+            className="flex items-center gap-2 text-orange-400 hover:text-orange-300 mb-20"
           >
             {showAllChallenges ? (
               <>
@@ -328,22 +328,22 @@ Whether it&apos;s animated shapes, characters, scenes, or abstract patterns — 
           {newsletters.slice(1, showAllNewsletters ? undefined : 4).map((newsletter, index) => (
             <div 
               key={index} 
-              className="p-6 rounded-xl border border-violet-300/20 bg-black-100/50 backdrop-blur-sm relative overflow-hidden group hover:border-violet-400/50 transition-all duration-300"
+              className="p-6 rounded-xl border border-orange-300/20 bg-black-100/50 backdrop-blur-sm relative overflow-hidden group hover:border-orange-400/50 transition-all duration-300"
             >
               {/* Background Pattern */}
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-indigo-500/5 opacity-50" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-orange-700/5 opacity-50" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(197,79,14,0.1),rgba(255,255,255,0))]" />
               
               {/* Content */}
               <div className="relative z-10">
-                <h4 className="text-xl font-semibold mb-1 text-violet-200">
+                <h4 className="text-xl font-semibold mb-1 text-orange-200">
                   {newsletter.title}
                 </h4>
-                <p className="text-lg text-violet-300/80 mb-1">{newsletter.week}</p>
+                <p className="text-lg text-orange-300/80 mb-1">{newsletter.week}</p>
                 <p className="text-sm text-gray-400 mb-4">{}</p>
                 <div className="flex justify-center">
                   <Link href={newsletter.link} target="_blank" rel="noopener noreferrer">
-                    <button className="group flex items-center gap-2 px-4 py-2 text-sm font-medium text-violet-300 border border-violet-400/10 rounded-lg hover:border-violet-400/30 hover:bg-violet-400/5 transition-all duration-300">
+                    <button className="group flex items-center gap-2 px-4 py-2 text-sm font-medium text-orange-300 border border-orange-400/10 rounded-lg hover:border-orange-400/30 hover:bg-orange-400/5 transition-all duration-300">
                       Read Newsletter
                       <FaArrowRight className="transform group-hover:translate-x-1 transition-transform duration-300" />
                     </button>
@@ -357,7 +357,7 @@ Whether it&apos;s animated shapes, characters, scenes, or abstract patterns — 
         {newsletters.length > 4 && (
           <button
             onClick={() => setShowAllNewsletters(!showAllNewsletters)}
-            className="flex items-center gap-2 text-violet-400 hover:text-violet-300 mb-20"
+            className="flex items-center gap-2 text-orange-400 hover:text-orange-300 mb-20"
           >
             {showAllNewsletters ? (
               <>

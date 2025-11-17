@@ -66,7 +66,7 @@ function Team() {
               </div>
               <a
                 href={person.url}
-                className="mt-2 text-sm md:text-base font-semibold hover:text-violet-400"
+                className="mt-2 text-sm md:text-base font-semibold hover:text-orange-400"
                 target="_blank"
                 rel="noopener noreferrer"
               >

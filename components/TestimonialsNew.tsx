@@ -1,7 +1,13 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+
+interface TestimonialCardProps {
+  quote: string;
+  name: string;
+  company: string;
+  type: string;
+}
 
 const testimonials = [
   {
@@ -9,7 +15,6 @@ const testimonials = [
     quote: "I have been part of the TechThrusters community which is organising multiple latest technology initiatives including webinars which I am extremely happy to be part of it. Not only it has helped me learn new tech but also allowing to present relevant technologies including the cloud.",
     name: "Rahul Ambhore",
     company: "State Street",
-    avatar: "/images/team/mrunank.png",
     type: "large-orange",
   },
   {
@@ -17,7 +22,6 @@ const testimonials = [
     quote: "Club TechThrusters is no doubt one of the best tech-based communities, I have seen that has grown by such a huge margin in India with such potential the impact they are doing through their programs and events have been really been impactful.",
     name: "Anmol Reshi",
     company: "Sudans Tech",
-    avatar: "/images/team/abhi.png",
     type: "small-dark",
   },
   {
@@ -25,7 +29,6 @@ const testimonials = [
     quote: "TechThrusters has been not only keen on doing initiatives to grow the community in a positive way but also in constantly collaborating with many communities to make sure impact never stops.",
     name: "Jatin Pandya",
     company: "Supra",
-    avatar: "/images/team/mrunank.png",
     type: "small-dark",
   },
   {
@@ -33,7 +36,6 @@ const testimonials = [
     quote: "We no longer juggle multiple tools. TechThrusters brought all our integrations together in one place, which simplified our entire workflow.",
     name: "Rohan Kulkarni",
     company: "Upsurge Labs",
-    avatar: "/images/team/vaibhav.png",
     type: "small-dark",
   },
   {
@@ -41,7 +43,6 @@ const testimonials = [
     quote: "I came to Pune from a different city and as my college was a tier 3 college, I didn't get much active clubs and college communities there. TechThrusters helped me grow on a personal and professional scale.",
     name: "Krushna Nalawade",
     company: "hypebuddy",
-    avatar: "/images/team/sana.png",
     type: "small-dark",
   },
   {
@@ -49,7 +50,6 @@ const testimonials = [
     quote: "Collaborative coding feels effortless now. With TechThrusters's real-time previews, pair programming has become faster and more productive.",
     name: "Astitva Nikose",
     company: "Jio",
-    avatar: "/images/team/akanksha.png",
     type: "small-dark",
   },
   {
@@ -57,15 +57,12 @@ const testimonials = [
     quote: "Being a part of this group is no less than the feeling of pride that these people are giving their absolute best to make sure we all grow in the community. The growth rate of the community is really commendable.",
     name: "Astitva Nikose",
     company: "Jio",
-    avatar: "/images/team/ayush.png",
     type: "large-light",
   },
 ];
 
-const TestimonialCard = ({ quote, name, company, avatar, type }) => {
+const TestimonialCard = ({ quote, name, company, type }: TestimonialCardProps) => {
   const isLargeCard = type.startsWith("large");
-  const avatarSize = isLargeCard ? 48 : 36;
-  const avatarBorderRadius = isLargeCard ? "rounded-[41px]" : "rounded-[30.75px]";
   const padding = isLargeCard ? "p-6" : "p-5";
 
   let cardClasses = `flex flex-col justify-between items-start overflow-hidden rounded-[10px] shadow-[0px_2px_4px_rgba(0,0,0,0.08)] relative ${padding}`;
@@ -98,22 +95,9 @@ const TestimonialCard = ({ quote, name, company, avatar, type }) => {
   return (
     <div className={`${cardClasses} ${cardWidth} ${cardHeight} flex flex-col justify-between`}>
       <div className={`relative z-10 font-normal break-words flex-grow ${quoteClasses} mb-6`}>{quote}</div>
-      <div className="relative z-10 flex items-center gap-3 mt-auto">
-        <div className="flex-shrink-0">
-          <div className={`${avatarBorderRadius} overflow-hidden flex-shrink-0`} style={{ width: avatarSize, height: avatarSize, border: "1px solid rgba(255, 255, 255, 0.08)" }}>
-            <Image
-              src={avatar || "/placeholder.svg"}
-              alt={`${name} avatar`}
-              width={avatarSize}
-              height={avatarSize}
-              className="object-cover w-full h-full"
-            />
-          </div>
-        </div>
-        <div className="flex flex-col justify-center items-start gap-0.5 min-w-0 flex-1">
-          <div className={`${nameClasses} truncate w-full`}>{name}</div>
-          <div className={`${companyClasses} truncate w-full`}>{company}</div>
-        </div>
+      <div className="relative z-10 flex flex-col justify-center items-start gap-0.5 mt-auto">
+        <div className={`${nameClasses} truncate w-full`}>{name}</div>
+        <div className={`${companyClasses} truncate w-full`}>{company}</div>
       </div>
     </div>
   );
