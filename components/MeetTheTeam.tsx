@@ -32,20 +32,6 @@ const teamMembers = [
     image: "/images/team/sananew.png",
     linkedin: "https://www.linkedin.com/in/sanashaikh30/",
   },
-  {
-    id: 5,
-    name: "Ayush Singh",
-    // title: "Chief Product Officer",
-    image: "/images/team/ayushnew.png",
-    linkedin: "https://www.linkedin.com/in/ayush-singh-work/",
-  },
-  {
-    id: 6,
-    name: "Akanksha Sonawane",
-    // title: "Senior Product Designer",
-    image: "/images/team/akankshanew.png",
-    linkedin: "https://www.linkedin.com/in/akanksha-sonawane/",
-  },
 ];
 
 const MeetTheTeam = () => {

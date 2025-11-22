@@ -16,16 +16,13 @@ const FooterNew = () => {
               <Image
                 src="/images/logo/whitetrans.png"
                 alt="TechThrusters Logo"
-                width={100}
-                height={32}
-                className="h-8 w-auto object-contain"
+                width={180}
+                height={54}
+                className="h-12 w-auto object-contain"
               />
             </div>
-            <p className="text-gray-400 mb-2">
-              Made remotely with <span className="text-orange-500">💜</span> and passion
-            </p>
-            <p className="text-gray-400">
-              - TechThrusters Team
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Learn. Connect. Build. Together we grow.
             </p>
           </div>
 
