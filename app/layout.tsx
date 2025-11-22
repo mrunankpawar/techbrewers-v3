@@ -5,6 +5,7 @@ import { ThemeProvider } from "./provider";
 import KeyboardShortcuts from "@/components/ui/KeyboardShortcuts";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { AuthProvider } from '@descope/nextjs-sdk';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -50,12 +51,14 @@ export default function RootLayout({
   return (
     <html className="bg-black-100" lang="en">
       <body className={inter.className && "bg-black-100"}>
-      <ThemeProvider attribute="class" defaultTheme="dark">
-        <KeyboardShortcuts />
-        {children}
-      </ ThemeProvider>
-      <Analytics/>
-      <SpeedInsights/>
+      <AuthProvider projectId={process.env.NEXT_PUBLIC_DESCOPE_PROJECT_ID || ""}>
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          <KeyboardShortcuts />
+          {children}
+        </ ThemeProvider>
+        <Analytics/>
+        <SpeedInsights/>
+      </AuthProvider>
       </body>
     </html>
   );
