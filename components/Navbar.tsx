@@ -40,11 +40,14 @@ const Navbar = () => {
         className={cn(
           'bg-black/20 backdrop-blur-sm border border-white/20 transition-all duration-300',
           isScrolled 
-            ? 'mx-auto px-4 py-2 rounded-2xl md:rounded-full' 
+            ? 'mx-auto px-4 py-2 rounded-2xl md:rounded-full max-w-7xl' 
             : 'w-full px-6 py-4 border-t-0 border-l-0 border-r-0'
         )}
       >
-        <div className="flex items-center justify-between">
+        <div className={cn(
+          'flex items-center justify-between',
+          !isScrolled && 'max-w-7xl mx-auto'
+        )}>
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
             <Image
