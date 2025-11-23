@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
@@ -12,6 +12,8 @@ const Navbar = () => {
   const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
+  const userMenuRef = useRef<HTMLDivElement>(null);
 
   // Descope hooks
   const { isAuthenticated, isSessionLoading } = useSession();
@@ -26,6 +28,23 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close user menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
+        setShowUserMenu(false);
+      }
+    };
+
+    if (showUserMenu) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showUserMenu]);
 
   const handleLogout = useCallback(() => {
     sdk.logout();
@@ -98,36 +117,59 @@ const Navbar = () => {
             {!isSessionLoading && (
               <>
                 {isAuthenticated && user ? (
-                  <>
-                    <div className="hidden md:flex items-center gap-3">
+                  <div className="relative" ref={userMenuRef}>
+                    <button
+                      onClick={() => setShowUserMenu(!showUserMenu)}
+                      className={cn(
+                        'bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all duration-300 flex items-center justify-between flex-shrink-0 backdrop-blur-sm border border-white/20',
+                        showUserMenu && 'bg-white/20 border-white/30',
+                        isScrolled ? 'px-4 py-1.5 text-sm gap-2' : 'px-6 py-2 gap-2'
+                      )}
+                      aria-expanded={showUserMenu}
+                      aria-haspopup="true"
+                    >
                       <span className={cn(
-                        'text-white text-sm lg:text-base',
+                        'font-medium truncate max-w-[120px]',
                         isScrolled ? 'text-sm' : 'text-base'
                       )}>
                         {user.name || user.email || 'User'}
                       </span>
-                      <button
-                        onClick={handleLogout}
+                      <svg
                         className={cn(
-                          'bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all duration-300 flex items-center space-x-2 flex-shrink-0 backdrop-blur-sm border border-white/20',
-                          isScrolled ? 'px-4 py-1.5 text-sm' : 'px-6 py-2'
+                          'flex-shrink-0 transition-transform duration-300',
+                          showUserMenu ? 'rotate-180' : '',
+                          isScrolled ? 'w-4 h-4' : 'w-5 h-5'
                         )}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        <span>Logout</span>
-                      </button>
-                    </div>
-                    <div className="md:hidden">
-                      <button
-                        onClick={handleLogout}
-                        className={cn(
-                          'bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all duration-300 flex items-center space-x-2 flex-shrink-0 backdrop-blur-sm border border-white/20',
-                          isScrolled ? 'px-4 py-1.5 text-sm' : 'px-6 py-2'
-                        )}
-                      >
-                        <span>Logout</span>
-                      </button>
-                    </div>
-                  </>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    
+                    {showUserMenu && (
+                      <div className="absolute top-full right-0 mt-2 bg-black/95 backdrop-blur-md border border-white/20 rounded-lg overflow-hidden z-50 min-w-[180px] shadow-2xl transform transition-all duration-200 ease-out origin-top-right">
+                        <div className="py-1">
+                          <div className="px-4 py-2 border-b border-white/10">
+                            <p className="text-xs text-white/60 uppercase tracking-wider">Account</p>
+                            <p className="text-sm text-white font-medium mt-1 truncate">
+                              {user.name || user.email || 'User'}
+                            </p>
+                          </div>
+                          <button
+                            onClick={handleLogout}
+                            className="w-full px-4 py-3 text-left text-white hover:bg-white/10 active:bg-white/15 transition-colors flex items-center gap-3 group"
+                          >
+                            <svg className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                            </svg>
+                            <span className="font-medium">Logout</span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 ) : (
                   <Link
                     href="/sign-up"
@@ -209,9 +251,15 @@ const Navbar = () => {
               ))}
               {isAuthenticated && user && (
                 <div className="pt-2 border-t border-white/20">
-                  <div className="px-4 py-2 text-white text-sm">
-                    {user.name || user.email || 'User'}
-                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className="w-full px-4 py-2 text-left text-white hover:bg-white/10 transition-colors flex items-center gap-3 rounded-lg"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    <span>Logout</span>
+                  </button>
                 </div>
               )}
             </div>

@@ -54,7 +54,7 @@ export default function RootLayout({
       <AuthProvider 
         projectId={process.env.NEXT_PUBLIC_DESCOPE_PROJECT_ID || ""}
         persistTokens={true}
-        sessionTokenViaCookie={false}
+        sessionTokenViaCookie={true}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
           <KeyboardShortcuts />
