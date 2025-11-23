@@ -30,8 +30,8 @@ export default function SignUpPage() {
       <div className="absolute inset-0 sepia-gradient-overlay" />
       
       <Navbar />
-      <div className="relative z-10 flex-1 flex items-center px-6 md:px-12 lg:px-24 pt-24 md:pt-28 pb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+      <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto px-6 md:px-8 lg:px-12 pt-24 md:pt-28 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center w-full">
           {/* Left Side - Header Text */}
           <div className="flex flex-col justify-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent leading-tight pb-2">
