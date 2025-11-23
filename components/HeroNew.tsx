@@ -16,7 +16,7 @@ const HeroNew = () => {
       <Navbar />
 
       {/* Hero Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-[80vh] px-6 pt-24 md:pt-28">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-[80vh] px-6 pt-32 md:pt-40">
         {/* Badge */}
         <div className="mb-8 flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
           <span className="bg-orange-500/20 border border-orange-400/30 rounded-full px-2 py-1 text-orange-200 text-sm font-medium">NEW</span>

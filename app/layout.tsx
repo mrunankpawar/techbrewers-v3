@@ -51,7 +51,11 @@ export default function RootLayout({
   return (
     <html className="bg-black-100" lang="en">
       <body className={inter.className && "bg-black-100"}>
-      <AuthProvider projectId={process.env.NEXT_PUBLIC_DESCOPE_PROJECT_ID || ""}>
+      <AuthProvider 
+        projectId={process.env.NEXT_PUBLIC_DESCOPE_PROJECT_ID || ""}
+        persistTokens={true}
+        sessionTokenViaCookie={false}
+      >
         <ThemeProvider attribute="class" defaultTheme="dark">
           <KeyboardShortcuts />
           {children}

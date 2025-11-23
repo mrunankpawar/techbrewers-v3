@@ -62,9 +62,31 @@ export default function SignUpPage() {
                   unoptimized
                 />
               </div>
-              <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-white/20 z-30">
+              <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-white/20 -mr-2 md:-mr-3 z-30">
                 <Image
                   src="/images/header/3.png"
+                  alt=""
+                  width={48}
+                  height={48}
+                  className="object-cover w-full h-full select-none pointer-events-none"
+                  draggable={false}
+                  unoptimized
+                />
+              </div>
+              <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-white/20 -mr-2 md:-mr-3 z-40">
+                <Image
+                  src="/images/header/4.png"
+                  alt=""
+                  width={48}
+                  height={48}
+                  className="object-cover w-full h-full select-none pointer-events-none"
+                  draggable={false}
+                  unoptimized
+                />
+              </div>
+              <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-white/20 z-50">
+                <Image
+                  src="/images/header/5.png"
                   alt=""
                   width={48}
                   height={48}
@@ -124,6 +146,7 @@ export default function SignUpPage() {
             <div className="w-full max-w-md">
               <Descope
                 flowId="sign-up-or-in"
+                theme="light"
                 onSuccess={handleSuccess}
                 onError={handleError}
               />

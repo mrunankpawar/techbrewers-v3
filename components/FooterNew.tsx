@@ -14,7 +14,7 @@ const FooterNew = () => {
           <div>
             <div className="flex items-center mb-6">
               <Image
-                src="/images/logo/whitetrans.png"
+                src="/images/logo/trans-rect-white.png"
                 alt="TechThrusters Logo"
                 width={180}
                 height={54}

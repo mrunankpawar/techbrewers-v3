@@ -63,7 +63,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
             <Image
-              src="/images/logo/whitetrans.png"
+              src="/images/logo/trans-rect-white.png"
               alt="TechThrusters Logo"
               width={180}
               height={54}
