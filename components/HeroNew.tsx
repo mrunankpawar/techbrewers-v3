@@ -85,9 +85,14 @@ const HeroNew = () => {
           <button className="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-semibold transition-colors backdrop-blur-sm border border-white/20">
             Connect With Us
           </button>
-          <button className="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-semibold transition-colors backdrop-blur-sm border border-white/20">
-            What is TechThrusters?
-          </button>
+          <a 
+            href="https://bit.ly/TBDISCORD"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-semibold transition-colors backdrop-blur-sm border border-white/20 text-center"
+          >
+            Join Discord
+          </a>
         </div>
       </div>
     </div>

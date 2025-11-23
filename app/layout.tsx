@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 import KeyboardShortcuts from "@/components/ui/KeyboardShortcuts";
@@ -63,6 +64,22 @@ export default function RootLayout({
         <Analytics/>
         <SpeedInsights/>
       </AuthProvider>
+      <Script
+        id="linkedin-embed-script"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              var script = document.createElement('script');
+              script.src = 'https://platform.linkedin.com/in.js';
+              script.type = 'text/javascript';
+              script.async = true;
+              script.innerHTML = 'lang: en_US';
+              document.head.appendChild(script);
+            })();
+          `
+        }}
+      />
       </body>
     </html>
   );
