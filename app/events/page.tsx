@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Events from "@/components/Events";
 import ExpandableCards from "@/components/ExpandableCards";
 import Navbar from "@/components/Navbar";
+import FooterNew from "@/components/FooterNew";
 
 function page() {
   return (
@@ -25,6 +26,7 @@ function page() {
         <Events />
         <ExpandableCards />
       </div>
+      <FooterNew />
     </div>
     </>
   )

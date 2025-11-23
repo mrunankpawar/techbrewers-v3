@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Community from "@/components/Community";
 import Navbar from "@/components/Navbar";
+import FooterNew from "@/components/FooterNew";
 
 function page() {
   return (
@@ -21,6 +22,7 @@ function page() {
       <div className="pt-24 md:pt-28">
         <Community />
       </div>
+      <FooterNew />
     </div>
     </>
   )

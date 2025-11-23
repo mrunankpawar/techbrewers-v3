@@ -104,7 +104,7 @@ const people = [
 
 function Team() {
   return (
-    <div className="mt-0 md:mt-10 h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-5 md:py-10">
+    <div className="mt-0 h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-5 md:py-10">
       <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center text-center">
         <h3 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50 z-10">
           Speaker Archive
@@ -126,13 +126,13 @@ function Team() {
               </div>
               <a
                 href={person.url}
-                className="mt-2 text-sm md:text-base font-semibold hover:text-orange-400"
+                className="mt-2 text-sm md:text-base font-semibold text-white hover:text-orange-400"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {person.name}
               </a>
-              <div className="text-xs md:text-sm">
+              <div className="text-xs md:text-sm text-white/80">
                 {person.designation}
                 </div>
             </div>
