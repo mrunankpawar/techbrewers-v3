@@ -34,14 +34,6 @@ const MeetupStats = () => {
         <div className="max-w-7xl mx-auto w-full">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-              <svg className="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
-                <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
-              </svg>
-              <span className="text-white text-sm font-medium">Our Impact</span>
-            </div>
-            
             <h2 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
               <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
                 Building Community

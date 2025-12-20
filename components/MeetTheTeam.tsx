@@ -44,14 +44,6 @@ const MeetTheTeam = () => {
       <div className="relative max-w-7xl mx-auto">
         {/* Top Section */}
         <div className="text-center mb-12">
-          {/* Our Team Badge */}
-          <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-            <svg className="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-            </svg>
-            <span className="text-white text-sm font-medium">Our Team</span>
-          </div>
-          
           {/* Main Title */}
           <h2 className="text-4xl md:text-6xl font-bold mb-4">
             <span className="text-white">Meet the Team Making</span>

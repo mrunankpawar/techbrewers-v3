@@ -9,13 +9,22 @@ function ExpandableCards() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
     null
   );
+  const [isClosing, setIsClosing] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const id = useId();
 
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setActive(null);
+      setIsClosing(false);
+    }, 200);
+  };
+
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setActive(false);
+      if (event.key === "Escape" && active && typeof active === "object") {
+        handleClose();
       }
     }
 
@@ -29,7 +38,7 @@ function ExpandableCards() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [active]);
 
-  useOutsideClick(ref, () => setActive(null));
+  useOutsideClick(ref, () => handleClose());
 
   return (
     <>
@@ -38,7 +47,13 @@ function ExpandableCards() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            exit={{ 
+              opacity: 0,
+              transition: {
+                duration: 0.2,
+                ease: "easeIn"
+              }
+            }}
             className="fixed inset-0 bg-black/40 backdrop-blur-sm h-full w-full z-10"
           />
         )}
@@ -48,7 +63,6 @@ function ExpandableCards() {
           <div className="fixed inset-0 grid place-items-center z-[100]">
             <motion.button
               key={`button-${active.title}-${id}`}
-              layout
               initial={{
                 opacity: 0,
               }}
@@ -58,17 +72,30 @@ function ExpandableCards() {
               exit={{
                 opacity: 0,
                 transition: {
-                  duration: 0.05,
+                  duration: 0.2,
                 },
               }}
               className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
-              onClick={() => setActive(null)}
+              onClick={handleClose}
             >
               <CloseIcon />
             </motion.button>
             <motion.div
+              key={`card-${active.title}-${id}`}
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ 
+                opacity: 0, 
+                scale: 0.95,
+                transition: {
+                  duration: 0.2,
+                  ease: "easeIn",
+                  layout: { duration: 0 }
+                }
+              }}
+              layout={!isClosing}
               className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col sm:rounded-3xl overflow-hidden shadow-2xl"
               style={{ 
                 backgroundColor: '#0a0a0a',
@@ -77,7 +104,7 @@ function ExpandableCards() {
                 borderStyle: 'solid'
               }}
             >
-              <motion.div layoutId={`image-${active.title}-${id}`}>
+              <motion.div layoutId={`image-${active.title}-${id}`} layout={!isClosing}>
                 <Image
                   priority
                   width={200}
@@ -93,12 +120,14 @@ function ExpandableCards() {
                   <div className="">
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
+                      layout={!isClosing}
                       className="font-bold text-white"
                     >
                       {active.title}
                     </motion.h3>
                     <motion.p
                       layoutId={`description-${active.description}-${id}`}
+                      layout={!isClosing}
                       className="text-gray-300"
                       style={{ color: '#d4a574' }}
                     >
@@ -108,6 +137,7 @@ function ExpandableCards() {
 
                   <motion.a
                     layoutId={`button-${active.title}-${id}`}
+                    layout={!isClosing}
                     href={active.ctaLink}
                     target="_blank"
                     className="group flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border transition-all duration-300"

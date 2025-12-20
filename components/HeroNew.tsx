@@ -80,11 +80,8 @@ const HeroNew = () => {
           Build projects, launch careers, and connect with tech leaders shaping tomorrow.
         </p>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-12">
-          <button className="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-semibold transition-colors backdrop-blur-sm border border-white/20">
-            Connect With Us
-          </button>
+        {/* CTA Button */}
+        <div className="flex justify-center mb-12">
           <a 
             href="https://bit.ly/TBDISCORD"
             target="_blank"
