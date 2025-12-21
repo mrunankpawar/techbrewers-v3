@@ -52,13 +52,13 @@ const CommunityInfo = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-16 max-w-5xl mx-auto">
+        <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 mb-16 max-w-5xl mx-auto">
           {features.map((feature) => (
             <div
               key={feature.id}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-orange-500/30 transition-all duration-300 group w-full max-w-[280px] flex flex-col items-center text-center"
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-orange-500/30 transition-all duration-300 group w-full max-w-[280px] flex flex-col items-center text-center h-full"
             >
-              <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-4">
+              <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-4 flex-shrink-0">
                 <Image
                   src={feature.image}
                   alt={feature.title}
@@ -67,8 +67,8 @@ const CommunityInfo = () => {
                   className="object-contain w-full h-full"
                 />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">{feature.description}</p>
+              <h3 className="text-xl font-bold text-white mb-2 flex-shrink-0">{feature.title}</h3>
+              <p className="text-gray-300 text-sm leading-relaxed mt-auto">{feature.description}</p>
             </div>
           ))}
         </div>

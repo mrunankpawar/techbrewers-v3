@@ -1,8 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { FaArrowRight, FaUsers, FaHandshake, FaTrophy, FaBook, FaCalendarAlt, FaCode, FaGraduationCap, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaArrowRight, FaUsers, FaHandshake, FaTrophy, FaCalendarAlt, FaCode, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const Community = () => {
   const resources = [
@@ -14,34 +13,11 @@ const Community = () => {
       linkText: "View Meetups"
     },
     {
-      icon: <FaTrophy className="w-8 h-8" />,
-      title: "Join Monthly Challenges",
-      description: "Participate in our monthly coding challenges, showcase your skills, and compete with the community.",
-      link: "/challenges",
-      linkText: "View Challenges"
-    },
-    {
       icon: <FaCode className="w-8 h-8" />,
       title: "Contribute to Open Source",
       description: "Build impactful projects and contribute to open source initiatives with the community.",
       link: "https://bit.ly/TTOSPI",
       linkText: "Learn More",
-      external: true
-    },
-    {
-      icon: <FaBook className="w-8 h-8" />,
-      title: "Share Knowledge",
-      description: "Write blog posts, give talks, or share your expertise to help others grow in their tech journey.",
-      link: "https://bit.ly/TBDISCORD",
-      linkText: "Join Discord",
-      external: true
-    },
-    {
-      icon: <FaGraduationCap className="w-8 h-8" />,
-      title: "Mentor Others",
-      description: "Share your experience and guide newcomers in their tech careers through mentorship.",
-      link: "https://bit.ly/TBDISCORD",
-      linkText: "Get Started",
       external: true
     },
     {
@@ -70,27 +46,6 @@ const Community = () => {
     {
       title: "Collaborative",
       description: "We believe in the power of working together to achieve greater things."
-    }
-  ];
-
-  const memberSpotlights = [
-    {
-      name: "Active Contributors",
-      role: "Community Leaders",
-      achievement: "Organizing events and mentoring newcomers",
-      image: "/images/team/mrunanknew.png"
-    },
-    {
-      name: "Challenge Winners",
-      role: "Monthly Champions",
-      achievement: "Showcasing exceptional skills in our challenges",
-      image: "/images/team/vaibhavnew.png"
-    },
-    {
-      name: "Open Source Builders",
-      role: "Project Contributors",
-      achievement: "Building impactful open source projects",
-      image: "/images/team/abhinew.png"
     }
   ];
 
@@ -145,7 +100,7 @@ const Community = () => {
               </span>
             </h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              We're more than just a community—we're a movement dedicated to helping each other succeed in tech.
+              We&apos;re more than just a community—we&apos;re a movement dedicated to helping each other succeed in tech.
             </p>
           </div>
 
@@ -208,43 +163,6 @@ const Community = () => {
               </div>
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* Member Spotlights */}
-      <div className="relative py-20 px-6 gradient-background">
-        <div className="relative max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">
-              <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
-                Community Spotlights
-              </span>
-            </h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              Meet the amazing people making a difference in our community.
-            </p>
-        </div>
-
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {memberSpotlights.map((spotlight, index) => (
-            <div 
-              key={index} 
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-orange-500/30 transition-all duration-300 text-center"
-              >
-                <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-orange-500/30">
-                  <Image
-                    src={spotlight.image}
-                    alt={spotlight.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-1">{spotlight.name}</h3>
-                <p className="text-orange-400 text-sm mb-3">{spotlight.role}</p>
-                <p className="text-gray-300 text-sm">{spotlight.achievement}</p>
-              </div>
-            ))}
-            </div>
         </div>
       </div>
 

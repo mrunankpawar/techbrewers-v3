@@ -1,13 +1,16 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black-100 py-8">
       {/* Image Section */}
       <div className="mb-6">
-        <img
+        <Image
           src="/images/404e.png"
           alt="Page Not Found"
+          width={400}
+          height={400}
           className="w-2/3 sm:w-1/3 md:w-1/6 h-auto mx-auto"
         />
       </div>

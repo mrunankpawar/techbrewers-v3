@@ -49,7 +49,7 @@ function Challenges() {
           <h2 className="text-2xl font-semibold mb-2">{challenges[0].challenge}</h2>
           <p className="text-gray-400 mb-4">{challenges[0].month} Challenge</p>
           <p className="text-gray-400 mb-6">
-            Join us for the {challenges[0].challenge}, where creativity meets competition. Show your talent and win exciting prizes while showcasing your skills. Don't miss the chance to be featured as our challenge winner!
+            Join us for the {challenges[0].challenge}, where creativity meets competition. Show your talent and win exciting prizes while showcasing your skills. Don&apos;t miss the chance to be featured as our challenge winner!
           </p>
           
           <div className="">
