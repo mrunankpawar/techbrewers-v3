@@ -1,14 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
-import AnnouncementBar from './AnnouncementBar';
 import Navbar from './Navbar';
 
 const HeroNew = () => {
   return (
     <div className="relative min-h-screen overflow-hidden sepia-background-hero">
-      {/* Announcement Bar */}
-      <AnnouncementBar />
-      
       {/* Gradient Overlay */}
       <div className="absolute inset-0 sepia-gradient-overlay" />
       

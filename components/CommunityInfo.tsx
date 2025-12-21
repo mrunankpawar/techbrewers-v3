@@ -26,10 +26,9 @@ const CommunityInfo = () => {
   ];
 
   const stats = [
-    { value: '1900+', label: 'Active Members' },
+    { value: '1900+', label: 'Members' },
     { value: '50+', label: 'Events & Workshops' },
-    { value: '100+', label: 'Projects Built' },
-    { value: '3+', label: 'Years Growing' },
+    { value: '4+', label: 'Years Growing' },
   ];
 
   return (
@@ -56,7 +55,7 @@ const CommunityInfo = () => {
           {features.map((feature) => (
             <div
               key={feature.id}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-orange-500/30 transition-all duration-300 group w-full max-w-[280px] flex flex-col items-center text-center h-full"
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-orange-500/30 transition-all duration-300 group w-full max-w-[280px] md:max-w-[280px] mx-auto md:mx-0 flex flex-col items-center text-center h-full"
             >
               <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-4 flex-shrink-0">
                 <Image
