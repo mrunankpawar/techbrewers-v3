@@ -1,378 +1,263 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import MagicButton from "./ui/MagicButton";
-import { FaArrowRight, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaArrowRight, FaUsers, FaHandshake, FaTrophy, FaCalendarAlt, FaCode, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 
-// Monthly Challenge Data
-const challenges = [
-  {
-    month: "August",
-    challenge: "The Art of CSS",
-    poster: "/images/challenges/AugustChallenge.png",
-    winner: {
-      name: "Samarth Pujari",
-      photo: "/images/meetup/meetup3/group.JPG",
+const Community = () => {
+  const resources = [
+    {
+      icon: <FaCalendarAlt className="w-8 h-8" />,
+      title: "Attend Meetups & Events",
+      description: "Join our in-person and virtual events to learn from industry experts and network with fellow developers.",
+      link: "/meetup",
+      linkText: "View Meetups"
     },
-  },
-  // {
-  //   month: "July",
-  //   challenge: "TechThrusters - Explore and Elevate",
-  //   poster: "/images/challenges/JulyChallenge.png",
-  //   winner: {
-  //     // name: "Samarth Pujari",
-  //     // photo: "/images/meetup/meetup3/group.JPG",
-  //   },
-  // },
-  {
-    month: "June",
-    challenge: "Builders Space",
-    poster: "/images/challenges/MayChallenge.png",
-    winner: {
-      name: "Kishan Sharma",
-      photo: "/images/challengewinners/june.png",
+    {
+      icon: <FaCode className="w-8 h-8" />,
+      title: "Contribute to Open Source",
+      description: "Build impactful projects and contribute to open source initiatives with the community.",
+      link: "https://bit.ly/TTOSPI",
+      linkText: "Learn More",
+      external: true
     },
-  },
-  {
-    month: "May",
-    challenge: "Portfolio Challenge",
-    poster: "/images/challenges/MayChallenge.png",
-    winner: {
-      name: "Jagadhiswaran Devaraj",
-      photo: "/images/challengewinners/may.png",
-    },
-  },
-  {
-    month: "April",
-    challenge: "Leetcode Streak Challenge",
-    poster: "/images/challenges/AprilChallenge.png",
-    winner: {
-      name: "Niharika Panda",
-      photo: "/images/challengewinners/april.png",
-    },
-  },
-  {
-    month: "March",
-    challenge: "30 Days Skill Sprint Challenge",
-    poster: "/images/challenges/MarchChallenge.png",
-    winner: {
-      name: "Everyone (Keep Learning)",
-      photo: "/images/challengewinners/march.png",
-    },
-  },
-  {
-    month: "February",
-    challenge: "Technical Blog Writing Challenge",
-    poster: "/images/challenges/FebruaryChallenge.png",
-    winner: {
-      name: "Jagadhiswaran Devaraj",
-      photo: "/images/challengewinners/february.png",
-    },
-  },
-  {
-    month: "January",
-    challenge: "Best GitHub Profile README",
-    poster: "/images/challenges/JanuaryChallenge.png",
-    winner: {
-      name: "Samarth Pujari",
-      photo: "/images/challengewinners/january.png",
-    },
-  },
-];
+    {
+      icon: <FaUsers className="w-8 h-8" />,
+      title: "Build Together",
+      description: "Collaborate on projects, form study groups, and build meaningful connections with like-minded developers.",
+      link: "https://bit.ly/TBDISCORD",
+      linkText: "Connect Now",
+      external: true
+    }
+  ];
 
-// Newsletter Data
-const newsletters = [
-  {
-    title: "June Weekly Newsletter",
-    week: "Week 3",
-    // date: "June 15-21",
-    link: "https://techthrusters.substack.com/p/may-2024",
-  },
-  {
-    title: "July Weekly Newsletter",
-    week: "Week 2",
-    // date: "June 22 - July 1",
-    link: "https://open.substack.com/pub/techthrusters/p/techthrusters-weekly-newsletter-week-e9b?r=n6g8k",
-  },
-  {
-    title: "July Weekly Newsletter",
-    week: "Week 1",
-    // date: "June 22 - July 1",
-    link: "https://open.substack.com/pub/techthrusters/p/techthrusters-weekly-newsletter-week-916?r=n6g8k",
-  },
-  {
-    title: "June Weekly Newsletter",
-    week: "Week 3",
-    // date: "June 15 - 21",
-    link: "https://open.substack.com/pub/techthrusters/p/techthrusters-weekly-newsletter-week-312?r=n6g8k",
-  },
-  {
-    title: "June Weekly Newsletter",
-    week: "Week 2",
-    // date: "June 8 - 14",
-    link: "https://open.substack.com/pub/techthrusters/p/techthrusters-weekly-newsletter-week-1ef?r=n6g8k",
-  },
-  {
-    title: "June Weekly Newsletter",
-    week: "Week 1",
-    // date: "June 1 - 7",
-    link: "https://open.substack.com/pub/techthrusters/p/techthrusters-weekly-newsletter-week?r=n6g8k",
-  },
-  {
-    title: "April Monthly Newsletter",
-    week: "2025",
-    // date: "April 1 - 30",
-    link: "https://techthrusters.substack.com/p/techthrusters-monthly-newsletter-d21?r=n6g8k",
-  },
-  {
-    title: "March Monthly Newsletter",
-    week: "2025",
-    // date: "March 1 - 31",
-    link: "https://techthrusters.substack.com/p/techthrusters-monthly-newsletter-f51?r=n6g8k",
-  },
-  {
-    title: "February Monthly Newsletter",
-    week: "2025",
-    // date: "February 1 - 28",
-    link: "https://techthrusters.substack.com/p/techthrusters-monthly-newsletter-1a8?r=n6g8k",
-  },
-  {
-    title: "January Monthly Newsletter",
-    week: "2025",
-    // date: "January 1 - 31",
-    link: "https://techthrusters.substack.com/p/techthrusters-monthly-newsletter?r=n6g8k",
-  },
-  {
-    title: "December Monthly Newsletter",
-    week: "2024",
-    // date: "December 1 - 31",
-    link: "https://techthrusters.substack.com/p/techbrewers-december-newsletter?r=n6g8k",
-  },
-  {
-    title: "November Monthly Newsletter",
-    week: "2024",
-    // date: "November 1 - 30",
-    link: "https://techthrusters.substack.com/p/techbrewers-november-newsletter?r=n6g8k",
-  },
-  {
-    title: "October Monthly Newsletter",
-    week: "2024",
-    // date: "October 1 - 31",
-    link: "https://techthrusters.substack.com/p/techbrewers-october-newsletter?r=n6g8k",
-  },
-  {
-    title: "September Monthly Newsletter",
-    week: "2024",
-    // date: "September 1 - 30",
-    link: "https://techthrusters.substack.com/p/techbrewers-september-newsletter?r=n6g8k",
-  },
-  {
-    title: "August Monthly Newsletter",
-    week: "2024",
-    // date: "August 1 - 31",
-    link: "https://techthrusters.substack.com/p/techbrewers-august-newsletter?r=n6g8k",
-  },
-  {
-    title: "July Monthly Newsletter",
-    week: "2024",
-    // date: "July 1 - 31",
-    link: "https://techthrusters.substack.com/p/techbrewers-july-newsletter?r=n6g8k",
-  },
-  {
-    title: "June Monthly Newsletter",
-    week: "2024",
-    // date: "June 1 - 30",
-    link: "https://techthrusters.substack.com/p/techbrewers-june-newsletter?r=n6g8k",
-  },
-  {
-    title: "May Monthly Newsletter",
-    week: "2024",
-    // date: "May 1 - 31",
-    link: "https://techthrusters.substack.com/p/techbrewers-may-newsletter?r=n6g8k",
-  },
-  {
-    title: "April Monthly Newsletter",
-    week: "2024",
-    // date: "April 1 - 30",
-    link: "https://techthrusters.substack.com/p/techbrewers-april-newsletter?r=n6g8k",
-  },
-  {
-    title: "March Monthly Newsletter",
-    week: "2024",
-    // date: "March 1 - 31",
-    link: "https://techthrusters.substack.com/p/techbrewers-march-newsletter?r=n6g8k",
-  },
-  {
-    title: "February Monthly Newsletter",
-    week: "2024",
-    // date: "February 1 - 29",
-    link: "https://techthrusters.substack.com/p/techbrewers-february-newsletter?r=n6g8k",
-  },
-  {
-    title: "January Monthly Newsletter",
-    week: "2024",
-    // date: "January 1 - 31",
-    link: "https://techthrusters.substack.com/p/techbrewers-january-newsletter?r=n6g8k",
-  }
-];
-
-function Community() {
-  const [showAllChallenges, setShowAllChallenges] = useState(false);
-  const [showAllNewsletters, setShowAllNewsletters] = useState(false);
+  const communityValues = [
+    {
+      title: "Supportive",
+      description: "A safe space where everyone can learn, ask questions, and grow without judgment."
+    },
+    {
+      title: "Inclusive",
+      description: "We welcome developers of all skill levels, backgrounds, and experiences."
+    },
+    {
+      title: "Growth-Focused",
+      description: "Continuous learning and improvement are at the heart of everything we do."
+    },
+    {
+      title: "Collaborative",
+      description: "We believe in the power of working together to achieve greater things."
+    }
+  ];
 
   return (
-    <div className="mt-0 md:mt-10 h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-28 md:py-20">
-      <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center text-center">
-        {/* Monthly Challenge Section */}
-        <h3 className="mb-5 pb-5 text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
-          Monthly Challenges
-        </h3>
-        <div className="shadow-lg p-6 border rounded-lg mb-12 flex flex-col md:flex-row items-center">
-          <Image
-            src={challenges[0].poster}
-            alt="Present Challenge Poster"
-            className="rounded-lg mb-4 md:mb-0 md:mr-6 w-full md:w-2/3 h-auto"
-            width={600}
-            height={250}
-          />
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <h2 className="text-2xl font-semibold mb-2">
-              {challenges[0].challenge}
-            </h2>
-            <p className="text-indigo-300 mb-4">
-              {challenges[0].month} Challenge
-            </p>
-            <p className="text-gray-400 mb-6">
-            This month, we&apos;re celebrating creativity through code with a challenge that turns HTML & CSS into art!
-The Art of CSS challenge invites you to craft beautiful visual creations using only HTML and CSS — no images, no JavaScript, just pure styling magic. 🎨✨
-<br></br><br></br>
-Whether it&apos;s animated shapes, characters, scenes, or abstract patterns — let your imagination run wild and show the community what&apos;s possible with just CSS code!
-            </p>
-            <Link href="https://discord.com/invite/4sUmgTZa8H" target="_blank" rel="noopener noreferrer">
-              <MagicButton
-                title="Participate now"
-                icon={<FaArrowRight />}
-                position="right"
-              />
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Hero Section */}
+      <div className="relative py-20 px-6 gradient-background">
+        <div className="absolute inset-0 bg-gradient-radial from-orange-500/10 via-orange-500/5 to-transparent pointer-events-none" />
+        
+        <div className="relative max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
+              Join a Community That
+            </span>
+            <br />
+            <span className="bg-gradient-to-b from-orange-400 to-orange-600 bg-clip-text text-transparent">
+              Grows With You
+            </span>
+          </h1>
+          
+          <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
+            Connect with 1900+ developers, learn from experts, build projects, and advance your tech career in a supportive environment.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://bit.ly/TBDISCORD"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-orange-600 hover:bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
+            >
+              Join Discord Community
+              <FaArrowRight />
+            </a>
+            <Link
+              href="/events"
+              className="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-semibold transition-colors backdrop-blur-sm border border-white/20"
+            >
+              Explore Events
             </Link>
           </div>
         </div>
+      </div>
 
-        {/* Past Challenges Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {challenges.slice(1, showAllChallenges ? undefined : 4).map((challenge, index) => (
-            <div 
-              key={index} 
-              className="p-6 rounded-xl border border-violet-300/20 bg-black-100/50 backdrop-blur-sm relative overflow-hidden group hover:border-violet-400/50 transition-all duration-300"
-            >
-              {/* Background Pattern */}
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-indigo-500/5 opacity-50" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
-              
-              {/* Content */}
-              <div className="relative z-10">
-                <div className="relative w-full h-40 mb-4 max-w-[200px] mx-auto">
-                  <Image
-                    src={challenge.winner.photo}
-                    alt={`${challenge.winner.name} - Winner`}
-                    className="rounded-lg object-contain"
-                    fill
-                  />
+      {/* Why Join Section */}
+      <div className="relative py-20 px-6 gradient-background">
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4">
+              <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
+                Why Join TechThrusters?
+              </span>
+            </h2>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+              We&apos;re more than just a community—we&apos;re a movement dedicated to helping each other succeed in tech.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {communityValues.map((value, index) => (
+              <div
+                key={index}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-orange-500/30 transition-all duration-300 text-center"
+              >
+                <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
+                <p className="text-gray-300 text-sm leading-relaxed">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Resources Section */}
+      <div className="relative py-20 px-6 gradient-background">
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4">
+              <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
+                Resources
+              </span>
+            </h2>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+              Everything you need to get started and stay connected with the community.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {resources.map((resource, index) => (
+              <div
+                key={index}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-orange-500/30 transition-all duration-300 group"
+              >
+                <div className="text-orange-400 mb-4">{resource.icon}</div>
+                <h3 className="text-xl font-bold text-white mb-3">{resource.title}</h3>
+                <p className="text-gray-300 text-sm mb-4 leading-relaxed">{resource.description}</p>
+                {resource.external ? (
+                  <a
+                    href={resource.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 font-medium text-sm group-hover:gap-3 transition-all"
+                  >
+                    {resource.linkText}
+                    <FaArrowRight />
+                  </a>
+                ) : (
+                  <Link
+                    href={resource.link}
+                    className="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 font-medium text-sm group-hover:gap-3 transition-all"
+                  >
+                    {resource.linkText}
+                    <FaArrowRight />
+            </Link>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Final CTA Section */}
+      <div className="relative py-20 px-6 gradient-background">
+        <div className="absolute inset-0 bg-gradient-radial from-orange-500/15 via-orange-500/5 to-transparent pointer-events-none" />
+        
+        <div className="relative max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
+              Ready to Join the Movement?
+            </span>
+          </h2>
+          
+          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+            Join 1900+ developers who are learning, building, and growing together. Your tech journey starts here.
+          </p>
+
+          <div className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-8 mb-8">
+            <h3 className="text-2xl font-bold text-white mb-4">What to Expect When You Join</h3>
+            <div className="grid md:grid-cols-2 gap-4 text-left">
+              <div className="flex items-start gap-3">
+                <FaUsers className="text-orange-400 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="text-white font-semibold mb-1">Active Community</h4>
+                  <p className="text-gray-300 text-sm">Engage in daily discussions, get help, and share your progress.</p>
                 </div>
-                <h4 className="text-xl font-semibold mb-1 text-violet-200">
-                  {challenge.month}
-                </h4>
-                <p className="text-lg text-violet-300/80 mb-1">{challenge.challenge}</p>
-                <p className="text-sm text-gray-400">
-                  Winner: {challenge.winner.name}
-                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <FaCalendarAlt className="text-orange-400 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="text-white font-semibold mb-1">Regular Events</h4>
+                  <p className="text-gray-300 text-sm">Attend workshops, meetups, and networking sessions.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <FaTrophy className="text-orange-400 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="text-white font-semibold mb-1">Monthly Challenges</h4>
+                  <p className="text-gray-300 text-sm">Participate in coding challenges and showcase your skills.</p>
+                </div>
+        </div>
+              <div className="flex items-start gap-3">
+                <FaHandshake className="text-orange-400 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="text-white font-semibold mb-1">Mentorship Opportunities</h4>
+                  <p className="text-gray-300 text-sm">Get mentored or become a mentor to help others grow.</p>
+                </div>
               </div>
             </div>
-          ))}
         </div>
-        
-        {challenges.length > 4 && (
-          <button
-            onClick={() => setShowAllChallenges(!showAllChallenges)}
-            className="flex items-center gap-2 text-violet-400 hover:text-violet-300 mb-20"
+
+          <a
+            href="https://bit.ly/TBDISCORD"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
           >
-            {showAllChallenges ? (
-              <>
-                Show Less <FaChevronUp />
-              </>
-            ) : (
-              <>
-                View More Challenges <FaChevronDown />
-              </>
-            )}
-          </button>
-        )}
+            Join Discord Community
+            <FaArrowRight />
+          </a>
 
-        {/* Newsletter Section */}
-        <h3 className="mt-20 mb-5 pb-5 text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
-          Weekly Newsletter
-        </h3>
-        
-        {/* Latest Newsletter Embed */}
-        <div className="w-full mb-12">
-          <iframe
-            src="https://techthrusters.substack.com/embed?theme=dark"
-            className="w-full h-[600px] border-0"
-            title="Latest Newsletter"
-          />
-        </div>
-
-        {/* Past Newsletters */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          {newsletters.slice(1, showAllNewsletters ? undefined : 4).map((newsletter, index) => (
-            <div 
-              key={index} 
-              className="p-6 rounded-xl border border-violet-300/20 bg-black-100/50 backdrop-blur-sm relative overflow-hidden group hover:border-violet-400/50 transition-all duration-300"
+          <div className="mt-8 flex justify-center gap-6">
+            <a
+              href="https://twitter.com/TechThrusters"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-orange-400 transition-colors"
+              aria-label="Twitter"
             >
-              {/* Background Pattern */}
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-indigo-500/5 opacity-50" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
-              
-              {/* Content */}
-              <div className="relative z-10">
-                <h4 className="text-xl font-semibold mb-1 text-violet-200">
-                  {newsletter.title}
-                </h4>
-                <p className="text-lg text-violet-300/80 mb-1">{newsletter.week}</p>
-                <p className="text-sm text-gray-400 mb-4">{}</p>
-                <div className="flex justify-center">
-                  <Link href={newsletter.link} target="_blank" rel="noopener noreferrer">
-                    <button className="group flex items-center gap-2 px-4 py-2 text-sm font-medium text-violet-300 border border-violet-400/10 rounded-lg hover:border-violet-400/30 hover:bg-violet-400/5 transition-all duration-300">
-                      Read Newsletter
-                      <FaArrowRight className="transform group-hover:translate-x-1 transition-transform duration-300" />
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
+              <FaTwitter className="w-6 h-6" />
+            </a>
+            <a
+              href="https://linkedin.com/company/techthrusters"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-orange-400 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin className="w-6 h-6" />
+            </a>
+            <a
+              href="https://instagram.com/tech.thrusters"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-orange-400 transition-colors"
+              aria-label="Instagram"
+            >
+              <FaInstagram className="w-6 h-6" />
+            </a>
+          </div>
         </div>
-
-        {newsletters.length > 4 && (
-          <button
-            onClick={() => setShowAllNewsletters(!showAllNewsletters)}
-            className="flex items-center gap-2 text-violet-400 hover:text-violet-300 mb-20"
-          >
-            {showAllNewsletters ? (
-              <>
-                Show Less <FaChevronUp />
-              </>
-            ) : (
-              <>
-                View More Newsletters <FaChevronDown />
-              </>
-            )}
-          </button>
-        )}
       </div>
     </div>
   );
-}
+};
 
 export default Community;

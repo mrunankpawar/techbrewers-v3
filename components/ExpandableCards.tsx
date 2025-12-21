@@ -3,20 +3,28 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
-import MagicButton from "./ui/MagicButton";
 import { FaArrowRight } from "react-icons/fa";
 
 function ExpandableCards() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
     null
   );
+  const [isClosing, setIsClosing] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const id = useId();
 
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setActive(null);
+      setIsClosing(false);
+    }, 200);
+  };
+
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setActive(false);
+      if (event.key === "Escape" && active && typeof active === "object") {
+        handleClose();
       }
     }
 
@@ -30,7 +38,7 @@ function ExpandableCards() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [active]);
 
-  useOutsideClick(ref, () => setActive(null));
+  useOutsideClick(ref, () => handleClose());
 
   return (
     <>
@@ -39,8 +47,14 @@ function ExpandableCards() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/20 h-full w-full z-10"
+            exit={{ 
+              opacity: 0,
+              transition: {
+                duration: 0.2,
+                ease: "easeIn"
+              }
+            }}
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm h-full w-full z-10"
           />
         )}
       </AnimatePresence>
@@ -49,7 +63,6 @@ function ExpandableCards() {
           <div className="fixed inset-0 grid place-items-center z-[100]">
             <motion.button
               key={`button-${active.title}-${id}`}
-              layout
               initial={{
                 opacity: 0,
               }}
@@ -59,20 +72,39 @@ function ExpandableCards() {
               exit={{
                 opacity: 0,
                 transition: {
-                  duration: 0.05,
+                  duration: 0.2,
                 },
               }}
               className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
-              onClick={() => setActive(null)}
+              onClick={handleClose}
             >
               <CloseIcon />
             </motion.button>
             <motion.div
+              key={`card-${active.title}-${id}`}
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px] border border-violet-300/20 h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-black-100 sm:rounded-3xl overflow-hidden"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ 
+                opacity: 0, 
+                scale: 0.95,
+                transition: {
+                  duration: 0.2,
+                  ease: "easeIn",
+                  layout: { duration: 0 }
+                }
+              }}
+              layout={!isClosing}
+              className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col sm:rounded-3xl overflow-hidden shadow-2xl"
+              style={{ 
+                backgroundColor: '#0a0a0a',
+                borderColor: 'rgba(226, 138, 73, 0.3)',
+                borderWidth: '1px',
+                borderStyle: 'solid'
+              }}
             >
-              <motion.div layoutId={`image-${active.title}-${id}`}>
+              <motion.div layoutId={`image-${active.title}-${id}`} layout={!isClosing}>
                 <Image
                   priority
                   width={200}
@@ -88,13 +120,16 @@ function ExpandableCards() {
                   <div className="">
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
-                      className="font-bold text-neutral-700 dark:text-neutral-200"
+                      layout={!isClosing}
+                      className="font-bold text-white"
                     >
                       {active.title}
                     </motion.h3>
                     <motion.p
                       layoutId={`description-${active.description}-${id}`}
-                      className="text-neutral-600 dark:text-neutral-400"
+                      layout={!isClosing}
+                      className="text-gray-300"
+                      style={{ color: '#d4a574' }}
                     >
                       {active.description}
                     </motion.p>
@@ -102,9 +137,22 @@ function ExpandableCards() {
 
                   <motion.a
                     layoutId={`button-${active.title}-${id}`}
+                    layout={!isClosing}
                     href={active.ctaLink}
                     target="_blank"
-                    className="group flex items-center gap-2 px-4 py-2 text-sm font-medium text-violet-300 border border-violet-400/10 rounded-lg hover:border-violet-400/30 hover:bg-violet-400/5 transition-all duration-300"
+                    className="group flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border transition-all duration-300"
+                    style={{ 
+                      color: '#e28a49',
+                      borderColor: 'rgba(226, 138, 73, 0.4)'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(226, 138, 73, 0.6)';
+                      e.currentTarget.style.backgroundColor = 'rgba(226, 138, 73, 0.15)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(226, 138, 73, 0.4)';
+                      e.currentTarget.style.backgroundColor = 'transparent';
+                    }}
                   >
                     {active.ctaText}
                     <svg
@@ -130,7 +178,7 @@ function ExpandableCards() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                    className="text-white text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
                   >
                     {typeof active.content === "function"
                       ? active.content()
@@ -142,13 +190,13 @@ function ExpandableCards() {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full space-y-4">
+      <ul className="max-w-2xl mx-auto w-full space-y-4 px-6 pb-20">
         {cards.map((card, index) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
             onClick={() => setActive(card)}
-            className="p-4 flex flex-col md:flex-row justify-between items-center md:items-start border border-violet-300/20 hover:bg-gradient-to-b from-violet-500/5 to-indigo-500/5 rounded-xl cursor-pointer"
+            className="p-4 flex flex-col md:flex-row justify-between items-center md:items-start border border-orange-300/20 hover:border-orange-400/40 hover:bg-gradient-to-b from-orange-500/5 to-orange-700/5 rounded-xl cursor-pointer transition-all duration-300 bg-white/5 dark:bg-black/20"
           >
             <div className="flex flex-col items-center md:items-start gap-4 md:flex-row w-full">
               <motion.div
@@ -166,13 +214,14 @@ function ExpandableCards() {
               <div className="text-center md:text-left w-full md:w-auto">
                 <motion.h3
                   layoutId={`title-${card.title}-${id}`}
-                  className="font-medium text-neutral-800 dark:text-neutral-200"
+                  className="font-medium text-white"
                 >
                   {card.title}
                 </motion.h3>
                 <motion.p
                   layoutId={`description-${card.description}-${id}`}
-                  className="text-neutral-600 dark:text-neutral-400"
+                  className="text-orange-700"
+                  style={{ color: '#C54F0E' }}
                 >
                   {card.description}
                 </motion.p>
@@ -180,7 +229,19 @@ function ExpandableCards() {
             </div>
             <motion.button
               layoutId={`button-${card.title}-${id}`}
-              className="group flex items-center gap-2 px-4 py-2 text-sm font-medium text-violet-300 border border-violet-400/10 rounded-lg hover:border-violet-400/30 hover:bg-violet-400/5 transition-all duration-300 mt-4 md:mt-0"
+              className="group flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border transition-all duration-300 mt-4 md:mt-0"
+              style={{ 
+                color: '#C54F0E',
+                borderColor: 'rgba(197, 79, 14, 0.3)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(197, 79, 14, 0.5)';
+                e.currentTarget.style.backgroundColor = 'rgba(197, 79, 14, 0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(197, 79, 14, 0.3)';
+                e.currentTarget.style.backgroundColor = 'transparent';
+              }}
             >
               {card.ctaText}
               <svg

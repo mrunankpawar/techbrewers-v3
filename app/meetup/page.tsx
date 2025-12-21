@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import Meetup from "@/components/Meetup";
+import MeetupStats from "@/components/MeetupStats";
 import MeetupTeam from "@/components/MeetupTeam";
 import MeetupSponsors from "@/components/MeetupSponsors";
-// import MeetupSpeakers from "@/components/MeetupSpeakers";
-// import ExpandableCards from "@/components/ExpandableCards";
-// import CardCarousel from "@/components/Cards";
+import Navbar from "@/components/Navbar";
+import FooterNew from "@/components/FooterNew";
 
 function page() {
   return (
@@ -20,10 +20,15 @@ function page() {
         <meta property="og:image" content="/images/ogimagemeetup.jpg" />
       </Head>
       
-    <div>
-      <Meetup />
-      <MeetupTeam />
-      <MeetupSponsors />
+    <div className="min-h-screen">
+      <Navbar />
+      <MeetupStats />
+      <div className="gradient-background">
+        <Meetup />
+        <MeetupTeam />
+        <MeetupSponsors />
+      </div>
+      <FooterNew />
     </div>
     </>
   )

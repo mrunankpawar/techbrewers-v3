@@ -1,12 +1,10 @@
 import Head from 'next/head';
-import Grid from "@/components/Grid";
-import Hero from "@/components/Hero";
+import HeroNew from "@/components/HeroNew";
+import CommunityInfo from "@/components/CommunityInfo";
 import Sponsors from "@/components/Sponsors";
-import Team from "@/components/Team";
-import TestimonialCards from "@/components/TestimonialCards";
-import GlowMenu from '@/components/ui/GlowMenu';
-// import { InfiniteMovingCards } from "@/components/ui/InfiniteMovingCards";
-// import Image from "next/image";
+import MeetTheTeam from "@/components/MeetTheTeam";
+import TestimonialsNew from "@/components/TestimonialsNew";
+import FooterNew from "@/components/FooterNew";
 
 export default function Home() {
   const structuredData = {
@@ -59,18 +57,13 @@ export default function Home() {
         />
       </Head>
       
-      <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden">
-        {/* Background gradient effects */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.1),transparent_50%)]" />
-        
-        <div className="relative bg-black-100 max-w-8xl w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-          <Hero />
-          <Grid />
-          <TestimonialCards />
-          <Team />
-          <Sponsors />
-        </div>
+      <main className="relative overflow-hidden">
+        <HeroNew />
+        <CommunityInfo />
+        <Sponsors />
+        <MeetTheTeam />
+        <TestimonialsNew />
+        <FooterNew />
       </main>
     </>
   );

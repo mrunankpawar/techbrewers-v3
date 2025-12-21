@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import Community from "@/components/Community";
+import Navbar from "@/components/Navbar";
+import FooterNew from "@/components/FooterNew";
 
 function page() {
   return (
@@ -15,8 +17,12 @@ function page() {
         <meta property="og:url" content="https://techthrusters.org/community" />
         <meta property="og:image" content="/images/ogimagecommunity.jpg" />
       </Head>
-    <div>
-      <Community />
+    <div className="gradient-background min-h-screen">
+      <Navbar />
+      <div className="pt-24 md:pt-28">
+        <Community />
+      </div>
+      <FooterNew />
     </div>
     </>
   )

@@ -10,7 +10,7 @@ function CardCarousel() {
 
   return (
     <div className="w-full h-full pt-20 pb-10">
-      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-violet-50 to-violet-400 z-10">
+      <h3 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50 z-10">
         Glimpses from our past meetups
       </h3>
       <Carousel items={photos} />
@@ -19,16 +19,6 @@ function CardCarousel() {
 }
 
 export default CardCarousel;
-
-const DummyContent = () => {
-  return (
-    <>
-      {[...new Array(3).fill(1)].map((_, index) => {
-        return <div key={"dummy-content" + index}></div>;
-      })}
-    </>
-  );
-};
 
 const data = [
   {
