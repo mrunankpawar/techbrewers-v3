@@ -84,43 +84,43 @@ const KeyboardShortcuts = () => {
       {/* Help Modal */}
       {showHelp && (
         <div className="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm hidden md:flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-gray-900 rounded-lg shadow-xl max-w-md w-full p-6 relative">
+          <div className="bg-neutral-900 backdrop-blur-sm border border-white/10 rounded-xl shadow-xl max-w-md w-full p-6 relative">
             <button
               onClick={() => setShowHelp(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+              className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
             >
               <FiX className="h-5 w-5" />
             </button>
             
-            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+            <h2 className="text-xl font-bold mb-4 text-white">
               Keyboard Shortcuts
             </h2>
             
             <div className="space-y-3">
               <div className="flex justify-between items-center">
-                <span className="text-gray-700 dark:text-gray-300">Home</span>
-                <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-sm font-mono">H</kbd>
+                <span className="text-gray-300">Home</span>
+                <kbd className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm font-mono text-white">H</kbd>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-700 dark:text-gray-300">Community</span>
-                <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-sm font-mono">C</kbd>
+                <span className="text-gray-300">Community</span>
+                <kbd className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm font-mono text-white">C</kbd>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-700 dark:text-gray-300">Events</span>
-                <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-sm font-mono">E</kbd>
+                <span className="text-gray-300">Events</span>
+                <kbd className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm font-mono text-white">E</kbd>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-700 dark:text-gray-300">Meetup</span>
-                <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-sm font-mono">M</kbd>
+                <span className="text-gray-300">Meetup</span>
+                <kbd className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm font-mono text-white">M</kbd>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-700 dark:text-gray-300">Show/Hide Help</span>
-                <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-sm font-mono">?</kbd>
+                <span className="text-gray-300">Show/Hide Help</span>
+                <kbd className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm font-mono text-white">?</kbd>
               </div>
             </div>
             
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
-              Press <kbd className="px-1 py-0.5 bg-gray-200 dark:bg-gray-700 rounded text-xs">ESC</kbd> to close
+            <p className="text-sm text-gray-400 mt-4">
+              Press <kbd className="px-1 py-0.5 bg-white/10 border border-white/20 rounded text-xs text-white">ESC</kbd> to close
             </p>
           </div>
         </div>
