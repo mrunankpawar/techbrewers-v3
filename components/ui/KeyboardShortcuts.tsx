@@ -1,132 +1,195 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { FiX, FiSettings } from "react-icons/fi";
 
 const KeyboardShortcuts = () => {
   const router = useRouter();
+  const pathname = usePathname();
   const [showHelp, setShowHelp] = useState(false);
   const [showIndicator, setShowIndicator] = useState(true);
 
-  useEffect(() => {
-    const handleKeyPress = (event: KeyboardEvent) => {
-      // Only trigger if not typing in an input field
-      if (
-        event.target instanceof HTMLInputElement ||
-        event.target instanceof HTMLTextAreaElement ||
-        event.target instanceof HTMLSelectElement
-      ) {
-        return;
-      }
+  // Keyboard shortcuts functionality commented out
+  // useEffect(() => {
+  //   const handleKeyPress = (event: KeyboardEvent) => {
+  //     const target = event.target as HTMLElement;
+  //     const activeElement = document.activeElement as HTMLElement;
+  //     
+  //     // Helper function to check if element is an input field
+  //     const isInputField = (element: HTMLElement | null): boolean => {
+  //       if (!element || element === document.body || element === document.documentElement) {
+  //         return false;
+  //       }
+  //       
+  //       const tagName = element.tagName?.toLowerCase();
+  //       
+  //       // Direct input check
+  //       if (tagName === 'input' || tagName === 'textarea' || tagName === 'select') {
+  //         return true;
+  //       }
+  //       
+  //       // Check if it's contentEditable
+  //       if (element.isContentEditable) {
+  //         return true;
+  //       }
+  //       
+  //       // Check role attribute (for ARIA inputs)
+  //       const role = element.getAttribute('role');
+  //       if (role === 'textbox' || role === 'combobox' || role === 'searchbox') {
+  //         return true;
+  //       }
+  //       
+  //       // Check input type attribute
+  //       const inputType = (element as HTMLInputElement).type;
+  //       if (inputType) {
+  //         return true;
+  //       }
+  //       
+  //       // Check if element is inside an input/textarea/select/form
+  //       if (element.closest('input, textarea, select, form, [contenteditable="true"], [role="textbox"], [role="combobox"]')) {
+  //         return true;
+  //       }
+  //       
+  //       return false;
+  //     };
 
-      // Check for modifier keys (Ctrl, Alt, etc.)
-      if (event.ctrlKey || event.altKey || event.metaKey) {
-        return;
-      }
+  //     // Check active element (where user is currently typing)
+  //     if (isInputField(activeElement)) {
+  //       return;
+  //     }
 
-      switch (event.key.toLowerCase()) {
-        case "h":
-          event.preventDefault();
-          console.log("Navigating to Home");
-          router.push("/");
-          break;
-        case "c":
-          event.preventDefault();
-          console.log("Navigating to Community");
-          router.push("/community");
-          break;
-        case "e":
-          event.preventDefault();
-          console.log("Navigating to Events");
-          router.push("/events");
-          break;
-        case "m":
-          event.preventDefault();
-          console.log("Navigating to Meetup");
-          router.push("/meetup");
-          break;
-        case "?":
-          event.preventDefault();
-          console.log("Toggling help");
-          setShowHelp(!showHelp);
-          break;
-        case "escape":
-          setShowHelp(false);
-          break;
-      }
-    };
+  //     // Check event target
+  //     if (isInputField(target)) {
+  //       return;
+  //     }
 
-    // Add event listener
-    window.addEventListener("keydown", handleKeyPress);
+  //     // Check event composed path (for shadow DOM and nested elements)
+  //     const composedPath = event.composedPath();
+  //     for (const node of composedPath) {
+  //       if (node instanceof HTMLElement && isInputField(node)) {
+  //         return;
+  //       }
+  //     }
+  //     
+  //     // Extra check for sign-up page: if anything is focused and we're on sign-up, block shortcuts
+  //     if (pathname === '/sign-up' && activeElement && 
+  //         activeElement !== document.body && activeElement !== document.documentElement) {
+  //       // If it's inside a form container, block it
+  //       if (activeElement.closest('[class*="descope"], form, [role="form"]')) {
+  //         return;
+  //       }
+  //     }
 
-    // Cleanup
-    return () => {
-      window.removeEventListener("keydown", handleKeyPress);
-    };
-  }, [router, showHelp]);
+  //     // Check for modifier keys (Ctrl, Alt, etc.)
+  //     if (event.ctrlKey || event.altKey || event.metaKey || event.shiftKey) {
+  //       return;
+  //     }
 
-  return (
-    <>
-      {/* Keyboard Shortcuts Indicator */}
-      {showIndicator && (
-        <div className="fixed bottom-4 right-4 z-[9998] bg-gradient-to-r from-orange-600 to-orange-700 text-white px-3 py-2 rounded-lg shadow-lg items-center gap-2 text-sm hidden md:flex">
-          <FiSettings className="h-4 w-4" />
-          <span>Press ? for shortcuts</span>
-          <button
-            onClick={() => setShowIndicator(false)}
-            className="ml-2 text-white/70 hover:text-white"
-          >
-            <FiX className="h-3 w-3" />
-          </button>
-        </div>
-      )}
-      
-      {/* Help Modal */}
-      {showHelp && (
-        <div className="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm hidden md:flex items-center justify-center p-4">
-          <div className="bg-neutral-900 backdrop-blur-sm border border-white/10 rounded-xl shadow-xl max-w-md w-full p-6 relative">
-            <button
-              onClick={() => setShowHelp(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
-            >
-              <FiX className="h-5 w-5" />
-            </button>
-            
-            <h2 className="text-xl font-bold mb-4 text-white">
-              Keyboard Shortcuts
-            </h2>
-            
-            <div className="space-y-3">
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Home</span>
-                <kbd className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm font-mono text-white">H</kbd>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Community</span>
-                <kbd className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm font-mono text-white">C</kbd>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Events</span>
-                <kbd className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm font-mono text-white">E</kbd>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Meetup</span>
-                <kbd className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm font-mono text-white">M</kbd>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Show/Hide Help</span>
-                <kbd className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm font-mono text-white">?</kbd>
-              </div>
-            </div>
-            
-            <p className="text-sm text-gray-400 mt-4">
-              Press <kbd className="px-1 py-0.5 bg-white/10 border border-white/20 rounded text-xs text-white">ESC</kbd> to close
-            </p>
-          </div>
-        </div>
-      )}
-    </>
-  );
+  //     switch (event.key.toLowerCase()) {
+  //       case "h":
+  //         event.preventDefault();
+  //         console.log("Navigating to Home");
+  //         router.push("/");
+  //         break;
+  //       case "c":
+  //         event.preventDefault();
+  //         console.log("Navigating to Community");
+  //         router.push("/community");
+  //         break;
+  //       case "e":
+  //         event.preventDefault();
+  //         console.log("Navigating to Events");
+  //         router.push("/events");
+  //         break;
+  //       case "m":
+  //         event.preventDefault();
+  //         console.log("Navigating to Meetup");
+  //         router.push("/meetup");
+  //         break;
+  //       case "?":
+  //         event.preventDefault();
+  //         console.log("Toggling help");
+  //         setShowHelp(!showHelp);
+  //         break;
+  //       case "escape":
+  //         setShowHelp(false);
+  //         break;
+  //     }
+  //   };
+
+  //   // Add event listener
+  //   window.addEventListener("keydown", handleKeyPress);
+
+  //   // Cleanup
+  //   return () => {
+  //     window.removeEventListener("keydown", handleKeyPress);
+  //   };
+  // }, [router, showHelp, pathname]);
+
+  // Keyboard shortcuts UI commented out
+  return null;
+  // return (
+  //   <>
+  //     {/* Keyboard Shortcuts Indicator */}
+  //     {showIndicator && (
+  //       <div className="fixed bottom-4 right-4 z-[9998] bg-gradient-to-r from-orange-600 to-orange-700 text-white px-3 py-2 rounded-lg shadow-lg items-center gap-2 text-sm hidden md:flex">
+  //         <FiSettings className="h-4 w-4" />
+  //         <span>Press ? for shortcuts</span>
+  //         <button
+  //           onClick={() => setShowIndicator(false)}
+  //           className="ml-2 text-white/70 hover:text-white"
+  //         >
+  //           <FiX className="h-3 w-3" />
+  //         </button>
+  //       </div>
+  //     )}
+  //     
+  //     {/* Help Modal */}
+  //     {showHelp && (
+  //       <div className="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm hidden md:flex items-center justify-center p-4">
+  //         <div className="bg-neutral-900 backdrop-blur-sm border border-white/10 rounded-xl shadow-xl max-w-md w-full p-6 relative">
+  //           <button
+  //             onClick={() => setShowHelp(false)}
+  //             className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+  //           >
+  //             <FiX className="h-5 w-5" />
+  //           </button>
+  //           
+  //           <h2 className="text-xl font-bold mb-4 text-white">
+  //             Keyboard Shortcuts
+  //           </h2>
+  //           
+  //           <div className="space-y-3">
+  //             <div className="flex justify-between items-center">
+  //               <span className="text-gray-300">Home</span>
+  //               <kbd className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm font-mono text-white">H</kbd>
+  //             </div>
+  //             <div className="flex justify-between items-center">
+  //               <span className="text-gray-300">Community</span>
+  //               <kbd className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm font-mono text-white">C</kbd>
+  //             </div>
+  //             <div className="flex justify-between items-center">
+  //               <span className="text-gray-300">Events</span>
+  //               <kbd className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm font-mono text-white">E</kbd>
+  //             </div>
+  //             <div className="flex justify-between items-center">
+  //               <span className="text-gray-300">Meetup</span>
+  //               <kbd className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm font-mono text-white">M</kbd>
+  //             </div>
+  //             <div className="flex justify-between items-center">
+  //               <span className="text-gray-300">Show/Hide Help</span>
+  //               <kbd className="px-2 py-1 bg-white/10 border border-white/20 rounded text-sm font-mono text-white">?</kbd>
+  //             </div>
+  //           </div>
+  //           
+  //           <p className="text-sm text-gray-400 mt-4">
+  //             Press <kbd className="px-1 py-0.5 bg-white/10 border border-white/20 rounded text-xs text-white">ESC</kbd> to close
+  //           </p>
+  //         </div>
+  //       </div>
+  //     )}
+  //   </>
+  // );
 };
 
 export default KeyboardShortcuts; 
