@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 
 const FooterNew = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
     <footer className="relative overflow-hidden brown-background">
       {/* Background Effects */}
@@ -53,7 +55,7 @@ const FooterNew = () => {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex items-center justify-center">
             <div className="text-gray-400/50 text-sm">
-              © {new Date().getFullYear()} TechThrusters
+              © {currentYear} TechThrusters
             </div>
           </div>
         </div>

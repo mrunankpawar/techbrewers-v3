@@ -110,7 +110,7 @@ const Community = () => {
                 key={index}
                 className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-orange-500/30 transition-all duration-300 text-center"
               >
-                <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
+                <h3 className="text-xl font-bold bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent mb-3">{value.title}</h3>
                 <p className="text-gray-300 text-sm leading-relaxed">{value.description}</p>
               </div>
             ))}
