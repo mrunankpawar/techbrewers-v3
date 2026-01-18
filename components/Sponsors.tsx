@@ -125,7 +125,7 @@ function Sponsors() {
             {sponsors.map((sponsor, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:border-orange-500/30 transition-all duration-300"
+                className="flex items-center justify-center p-4 border border-white/10 rounded-lg"
               >
                 <Link href={sponsor.url} passHref target="__blank">
                   <Image
@@ -133,7 +133,7 @@ function Sponsors() {
                     alt={sponsor.name}
                     width={150}
                     height={150}
-                    className="object-contain w-20 h-20 sm:w-28 sm:h-24 md:w-28 md:h-24 lg:w-28 lg:h-24 opacity-60 hover:opacity-100 transition-all duration-300"
+                    className="object-contain w-20 h-20 sm:w-28 sm:h-24 md:w-28 md:h-24 lg:w-28 lg:h-24"
                   />
                 </Link>
               </div>
