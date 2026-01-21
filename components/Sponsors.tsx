@@ -2,88 +2,22 @@ import Image from "next/image";
 import Link from "next/link";
 
 const sponsors = [
+  // Row 1: 2 logos
   {
     name: "GitHub",
     logo: "/images/sponsors/github.png",
     url: "https://github.com/",
   },
   {
-    name: "Azure Developer Community",
-    logo: "/images/sponsors/adc.jpg",
-    url: "https://azdev.reskilll.com/",
-  },
-  {
-    name: "Securityium",
-    logo: "/images/sponsors/securityium.png",
-    url: "https://www.securityium.com/",
-  },
-
-  {
-    name: "Daftar",
-    logo: "/images/sponsors/daftar.png",
-    url: "https://www.instagram.com/thedaftar/",
-  },
-  {
     name: "Peerlist",
     logo: "/images/sponsors/peerlist.png",
     url: "https://peerlist.io/",
   },
+  // Row 2: 3 logos
   {
-    name: "Bsides Pune",
-    logo: "/images/sponsors/bsidespune.png",
-    url: "https://www.linkedin.com/company/bsides-pune/",
-  },
-  {
-    name: "Geeks For Geeks",
-    logo: "/images/sponsors/gfg.png",
-    url: "https://www.geeksforgeeks.org/",
-  },
-  {
-    name: "Give My Certificate",
-    logo: "/images/sponsors/gmc.png",
-    url: "https://givemycertificate.com/",
-  },
-
-  {
-    name: "Hack This Fall",
-    logo: "/images/sponsors/htf.png",
-    url: "https://hackthisfall.tech/",
-  },
-  {
-    name: "Hack The League",
-    logo: "/images/sponsors/htl.png",
-    url: "https://hacktheleague.com/",
-  },
-  {
-    name: "Hack The Mountains",
-    logo: "/images/sponsors/htm.png",
-    url: "https://hackthemountain.tech/",
-  },
-  {
-    name: "Hack 2 Skill",
-    logo: "/images/sponsors/h2s.png",
-    url: "https://hack2skill.com/",
-  },
-  {
-    name: "Developer Week",
-    logo: "/images/sponsors/devweek.png",
-    url: "https://www.developerweek.com/",
-  },
-
-  {
-    name: "Aeka Coffee",
-    logo: "/images/sponsors/aeka.png",
-    url: "https://www.instagram.com/aekascoffee/",
-  },
-  {
-    name: "Keploy",
-    logo: "/images/sponsors/keploy.png",
-    url: "https://keploy.io/",
-  },
-  {
-    name: "SKNISB",
-    logo: "/images/sponsors/sknisb.png",
-    url: "https://sknisb.in/",
+    name: "Azure Developer Community",
+    logo: "/images/sponsors/adc.jpg",
+    url: "https://azdev.reskilll.com/",
   },
   {
     name: "Cloud Native Day Pune",
@@ -91,19 +25,67 @@ const sponsors = [
     url: "https://www.cloudnativepune.com/",
   },
   {
+    name: "Moneylancer Investments",
+    logo: "/images/sponsors/moneylancer.png",
+    url: "https://mymoneylancer.com/",
+  },
+  // Row 3: 4 logos
+  {
+    name: "Securityium",
+    logo: "/images/sponsors/securityium.png",
+    url: "https://www.securityium.com/",
+  },
+  {
+    name: "Geeks For Geeks",
+    logo: "/images/sponsors/gfg.png",
+    url: "https://www.geeksforgeeks.org/",
+  },
+  {
+    name: "Daftar",
+    logo: "/images/sponsors/daftar.png",
+    url: "https://www.instagram.com/thedaftar/",
+  },
+  {
+    name: "Hack 2 Skill",
+    logo: "/images/sponsors/h2s.png",
+    url: "https://hack2skill.com/",
+  },
+  // Row 4: 4 logos
+  {
+    name: "Bsides Pune",
+    logo: "/images/sponsors/bsidespune.png",
+    url: "https://www.linkedin.com/company/bsides-pune/",
+  },
+  {
+    name: "Give My Certificate",
+    logo: "/images/sponsors/gmc.png",
+    url: "https://givemycertificate.com/",
+  },
+  {
+    name: "Aeka Coffee",
+    logo: "/images/sponsors/aeka.png",
+    url: "https://www.instagram.com/aekascoffee/",
+  },
+  {
     name: "Zeeve",
     logo: "/images/sponsors/zeeve.png",
     url: "https://www.zeeve.io/",
   },
+  // Row 5: 4 logos
   {
-    name: "GDG Silicon Valley",
-    logo: "/images/sponsors/gdg.jpg",
-    url: "https://gdg.community.dev/gdg-silicon-valley/",
+    name: "Hack This Fall",
+    logo: "/images/sponsors/htf.png",
+    url: "https://hackthisfall.tech/",
   },
   {
-    name: "Moneylancer Investments",
-    logo: "/images/sponsors/moneylancer.png",
-    url: "https://mymoneylancer.com/",
+    name: "Hack The Mountains",
+    logo: "/images/sponsors/htm.png",
+    url: "https://hackthemountain.tech/",
+  },
+  {
+    name: "Hack The League",
+    logo: "/images/sponsors/htl.png",
+    url: "https://hacktheleague.com/",
   },
   {
     name: "Pune FOSS 3.0",
@@ -114,30 +96,190 @@ const sponsors = [
 
 function Sponsors() {
   return (
-    <div className="h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-5 md:py-10 gradient-background">
-      <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center text-center">
-        <h3 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50 z-10">
-          Sponsors and Partners
-        </h3>
+    <div className="h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-10 md:py-14 gradient-background">
+      <div className="max-w-[89vw] md:max-w-3xl lg:max-w-6xl flex flex-col items-center justify-center text-center gap-4">
+        <div className="space-y-3">
+          <p className="text-sm uppercase tracking-[0.3em] text-white/60">
+            Community Backed
+          </p>
+          <h3 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50 z-10">
+            Sponsors & Partners
+          </h3>
+          <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto">
+            TechThrusters is free and open for everyone, made possible by these wonderful sponsors and partners who support our events, programs, and members.
+          </p>
+        </div>
 
-        <div className="container mx-auto px-4 mt-10">
-          <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {sponsors.map((sponsor, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center p-4 border border-white/10 rounded-lg"
-              >
-                <Link href={sponsor.url} passHref target="__blank">
-                  <Image
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    width={150}
-                    height={150}
-                    className="object-contain w-20 h-20 sm:w-28 sm:h-24 md:w-28 md:h-24 lg:w-28 lg:h-24"
-                  />
-                </Link>
-              </div>
-            ))}
+        <div className="container mx-auto px-4 mt-8 md:mt-10 w-full">
+          <div className="overflow-hidden rounded-lg">
+            {/* Row 1: 2 logos */}
+            <div className="grid grid-cols-2">
+              {sponsors.slice(0, 2).map((sponsor, index) => {
+                const isLastInRow = index === 1;
+                const roundedTopLeft = index === 0;
+                const roundedTopRight = index === 1;
+                
+                let roundedClasses = '';
+                if (roundedTopLeft) roundedClasses += ' rounded-tl-lg';
+                if (roundedTopRight) roundedClasses += ' rounded-tr-lg';
+                
+                let borderClasses = 'border-t border-l border-white/10';
+                if (isLastInRow) borderClasses += ' border-r';
+                borderClasses += ' border-b';
+                
+                return (
+                  <Link 
+                    key={index}
+                    href={sponsor.url} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex flex-col items-center justify-center group ${borderClasses} ${roundedClasses}`}
+                  >
+                    <div className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 p-4">
+                      <Image
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        width={150}
+                        height={150}
+                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                      />
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+            
+            {/* Row 2: 3 logos */}
+            <div className="grid grid-cols-3">
+              {sponsors.slice(2, 5).map((sponsor, index) => {
+                const actualIndex = index + 2;
+                const isLastInRow = index === 2;
+                
+                let borderClasses = 'border-l border-b border-white/10';
+                if (isLastInRow) borderClasses += ' border-r';
+                
+                return (
+                  <Link 
+                    key={actualIndex}
+                    href={sponsor.url} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex flex-col items-center justify-center group ${borderClasses}`}
+                  >
+                    <div className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 p-4">
+                      <Image
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        width={150}
+                        height={150}
+                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                      />
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+            
+            {/* Row 3: 4 logos */}
+            <div className="grid grid-cols-4">
+              {sponsors.slice(5, 9).map((sponsor, index) => {
+                const actualIndex = index + 5;
+                const isLastInRow = index === 3;
+                
+                let borderClasses = 'border-l border-b border-white/10';
+                if (isLastInRow) borderClasses += ' border-r';
+                
+                return (
+                  <Link 
+                    key={actualIndex}
+                    href={sponsor.url} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex flex-col items-center justify-center group ${borderClasses}`}
+                  >
+                    <div className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 p-4">
+                      <Image
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        width={150}
+                        height={150}
+                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                      />
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+            
+            {/* Row 4: 4 logos */}
+            <div className="grid grid-cols-4">
+              {sponsors.slice(9, 13).map((sponsor, index) => {
+                const actualIndex = index + 9;
+                const isLastInRow = index === 3;
+                
+                let borderClasses = 'border-l border-b border-white/10';
+                if (isLastInRow) borderClasses += ' border-r';
+                
+                return (
+                  <Link 
+                    key={actualIndex}
+                    href={sponsor.url} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex flex-col items-center justify-center group ${borderClasses}`}
+                  >
+                    <div className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 p-4">
+                      <Image
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        width={150}
+                        height={150}
+                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                      />
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+            
+            {/* Row 5: 4 logos */}
+            <div className="grid grid-cols-4">
+              {sponsors.slice(13).map((sponsor, index) => {
+                const actualIndex = index + 13;
+                const isLastInRow = index === 3;
+                
+                // Determine rounded corners for bottom row
+                const roundedBottomLeft = index === 0;
+                const roundedBottomRight = index === 3;
+                
+                let roundedClasses = '';
+                if (roundedBottomLeft) roundedClasses += ' rounded-bl-lg';
+                if (roundedBottomRight) roundedClasses += ' rounded-br-lg';
+                
+                let borderClasses = 'border-l border-b border-white/10';
+                if (isLastInRow) borderClasses += ' border-r';
+                
+                return (
+                  <Link 
+                    key={actualIndex}
+                    href={sponsor.url} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex flex-col items-center justify-center group ${borderClasses} ${roundedClasses}`}
+                  >
+                    <div className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 p-4">
+                      <Image
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        width={150}
+                        height={150}
+                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                      />
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
