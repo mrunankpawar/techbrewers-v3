@@ -110,31 +110,39 @@ function Team() {
           Speaker Archive
         </h3>
         <div className="flex flex-wrap justify-center gap-6 mt-10">
-          {people.map((person) => (
+          {people.map((person, index) => (
             <div
               key={person.id}
-              className="flex flex-col items-center w-1/3 sm:w-1/3 lg:w-1/4"
+              className="group relative flex flex-col items-center w-1/3 sm:w-1/3 lg:w-1/4"
+              style={{ 
+                animationDelay: `${index * 50}ms`,
+                willChange: 'transform'
+              }}
             >
-              <div className="w-24 h-24 md:w-32 md:h-32 relative overflow-hidden rounded-full">
-                <Image
-                  src={person.image}
-                  alt={person.name}
-                  className="object-cover"
-                  width={200}
-                  height={200}
-                />
+              <div className="relative mb-3">
+                <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/30 via-orange-400/20 to-orange-500/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative w-24 h-24 md:w-32 md:h-32 overflow-hidden rounded-full border-2 border-white/20 group-hover:border-orange-500/60 transition-all duration-500 group-hover:scale-110">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-orange-600/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <Image
+                    src={person.image}
+                    alt={person.name}
+                    className="object-cover relative z-10"
+                    width={200}
+                    height={200}
+                  />
+                </div>
               </div>
               <a
                 href={person.url}
-                className="mt-2 text-sm md:text-base font-semibold text-white hover:text-orange-400"
+                className="mt-2 text-sm md:text-base font-semibold text-white hover:text-orange-300 transition-colors duration-300 text-center"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {person.name}
               </a>
-              <div className="text-xs md:text-sm text-white/80">
+              <div className="text-xs md:text-sm text-white/70 group-hover:text-white/90 transition-colors duration-300 text-center mt-1">
                 {person.designation}
-                </div>
+              </div>
             </div>
           ))}
         </div>

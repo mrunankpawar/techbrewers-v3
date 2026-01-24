@@ -111,7 +111,7 @@ function Sponsors() {
         </div>
 
         <div className="container mx-auto px-4 mt-8 md:mt-10 w-full">
-          <div className="overflow-hidden rounded-lg">
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-black/20 to-black/10 backdrop-blur-sm">
             {/* Row 1: 2 logos */}
             <div className="grid grid-cols-2">
               {sponsors.slice(0, 2).map((sponsor, index) => {
@@ -120,8 +120,8 @@ function Sponsors() {
                 const roundedTopRight = index === 1;
                 
                 let roundedClasses = '';
-                if (roundedTopLeft) roundedClasses += ' rounded-tl-lg';
-                if (roundedTopRight) roundedClasses += ' rounded-tr-lg';
+                if (roundedTopLeft) roundedClasses += ' rounded-tl-2xl';
+                if (roundedTopRight) roundedClasses += ' rounded-tr-2xl';
                 
                 let borderClasses = 'border-t border-l border-white/10';
                 if (isLastInRow) borderClasses += ' border-r';
@@ -133,15 +133,17 @@ function Sponsors() {
                     href={sponsor.url} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex flex-col items-center justify-center group ${borderClasses} ${roundedClasses}`}
+                    className={`flex flex-col items-center justify-center group ${borderClasses} ${roundedClasses} hover:bg-white/5 transition-all duration-300 relative`}
+                    style={{ willChange: 'background-color' }}
                   >
-                    <div className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 p-4">
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:to-orange-500/0 transition-all duration-300 pointer-events-none" />
+                    <div className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 p-4 relative z-10">
                       <Image
                         src={sponsor.logo}
                         alt={sponsor.name}
                         width={150}
                         height={150}
-                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100 group-hover:scale-110"
                       />
                     </div>
                   </Link>
@@ -164,15 +166,17 @@ function Sponsors() {
                     href={sponsor.url} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex flex-col items-center justify-center group ${borderClasses}`}
+                    className={`flex flex-col items-center justify-center group ${borderClasses} hover:bg-white/5 transition-all duration-300 relative`}
+                    style={{ willChange: 'background-color' }}
                   >
-                    <div className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 p-4">
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:to-orange-500/0 transition-all duration-300 pointer-events-none" />
+                    <div className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 p-4 relative z-10">
                       <Image
                         src={sponsor.logo}
                         alt={sponsor.name}
                         width={150}
                         height={150}
-                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100 group-hover:scale-110"
                       />
                     </div>
                   </Link>
@@ -195,15 +199,17 @@ function Sponsors() {
                     href={sponsor.url} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex flex-col items-center justify-center group ${borderClasses}`}
+                    className={`flex flex-col items-center justify-center group ${borderClasses} hover:bg-white/5 transition-all duration-300 relative`}
+                    style={{ willChange: 'background-color' }}
                   >
-                    <div className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 p-4">
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:to-orange-500/0 transition-all duration-300 pointer-events-none" />
+                    <div className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 p-4 relative z-10">
                       <Image
                         src={sponsor.logo}
                         alt={sponsor.name}
                         width={150}
                         height={150}
-                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100 group-hover:scale-110"
                       />
                     </div>
                   </Link>
@@ -226,15 +232,17 @@ function Sponsors() {
                     href={sponsor.url} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex flex-col items-center justify-center group ${borderClasses}`}
+                    className={`flex flex-col items-center justify-center group ${borderClasses} hover:bg-white/5 transition-all duration-300 relative`}
+                    style={{ willChange: 'background-color' }}
                   >
-                    <div className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 p-4">
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:to-orange-500/0 transition-all duration-300 pointer-events-none" />
+                    <div className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 p-4 relative z-10">
                       <Image
                         src={sponsor.logo}
                         alt={sponsor.name}
                         width={150}
                         height={150}
-                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100 group-hover:scale-110"
                       />
                     </div>
                   </Link>
@@ -253,8 +261,8 @@ function Sponsors() {
                 const roundedBottomRight = index === 3;
                 
                 let roundedClasses = '';
-                if (roundedBottomLeft) roundedClasses += ' rounded-bl-lg';
-                if (roundedBottomRight) roundedClasses += ' rounded-br-lg';
+                if (roundedBottomLeft) roundedClasses += ' rounded-bl-2xl';
+                if (roundedBottomRight) roundedClasses += ' rounded-br-2xl';
                 
                 let borderClasses = 'border-l border-b border-white/10';
                 if (isLastInRow) borderClasses += ' border-r';
@@ -265,15 +273,17 @@ function Sponsors() {
                     href={sponsor.url} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex flex-col items-center justify-center group ${borderClasses} ${roundedClasses}`}
+                    className={`flex flex-col items-center justify-center group ${borderClasses} ${roundedClasses} hover:bg-white/5 transition-all duration-300 relative`}
+                    style={{ willChange: 'background-color' }}
                   >
-                    <div className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 p-4">
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:to-orange-500/0 transition-all duration-300 pointer-events-none" />
+                    <div className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 p-4 relative z-10">
                       <Image
                         src={sponsor.logo}
                         alt={sponsor.name}
                         width={150}
                         height={150}
-                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100 group-hover:scale-110"
                       />
                     </div>
                   </Link>

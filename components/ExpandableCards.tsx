@@ -54,7 +54,7 @@ function ExpandableCards() {
                 ease: "easeIn"
               }
             }}
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm h-full w-full z-10"
+            className="fixed inset-0 bg-black/60 backdrop-blur-md h-full w-full z-10"
           />
         )}
       </AnimatePresence>
@@ -96,13 +96,7 @@ function ExpandableCards() {
                 }
               }}
               layout={!isClosing}
-              className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col sm:rounded-3xl overflow-hidden shadow-2xl"
-              style={{ 
-                backgroundColor: '#0a0a0a',
-                borderColor: 'rgba(226, 138, 73, 0.3)',
-                borderWidth: '1px',
-                borderStyle: 'solid'
-              }}
+              className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col sm:rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-black/90 via-black/80 to-black/90 backdrop-blur-xl border border-orange-500/30"
             >
               <motion.div layoutId={`image-${active.title}-${id}`} layout={!isClosing}>
                 <Image
@@ -140,19 +134,7 @@ function ExpandableCards() {
                     layout={!isClosing}
                     href={active.ctaLink}
                     target="_blank"
-                    className="group flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border transition-all duration-300"
-                    style={{ 
-                      color: '#e28a49',
-                      borderColor: 'rgba(226, 138, 73, 0.4)'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(226, 138, 73, 0.6)';
-                      e.currentTarget.style.backgroundColor = 'rgba(226, 138, 73, 0.15)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(226, 138, 73, 0.4)';
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                    }}
+                    className="group flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-xl border transition-all duration-300 bg-gradient-to-r from-orange-500/20 to-orange-600/20 border-orange-500/40 hover:border-orange-500/60 hover:from-orange-500/30 hover:to-orange-600/30 text-orange-200 hover:text-orange-100"
                   >
                     {active.ctaText}
                     <svg
@@ -196,7 +178,8 @@ function ExpandableCards() {
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
             onClick={() => setActive(card)}
-            className="p-4 flex flex-col md:flex-row justify-between items-center md:items-start border border-orange-300/20 hover:border-orange-400/40 hover:bg-gradient-to-b from-orange-500/5 to-orange-700/5 rounded-xl cursor-pointer transition-all duration-300 bg-white/5 dark:bg-black/20"
+            className="group relative p-4 flex flex-col md:flex-row justify-between items-center md:items-start rounded-2xl cursor-pointer transition-all duration-500 bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 hover:border-orange-500/40 hover:shadow-[0_8px_30px_rgba(197,79,14,0.12)] hover:-translate-y-1"
+            style={{ willChange: 'transform' }}
           >
             <div className="flex flex-col items-center md:items-start gap-4 md:flex-row w-full">
               <motion.div
@@ -229,19 +212,7 @@ function ExpandableCards() {
             </div>
             <motion.button
               layoutId={`button-${card.title}-${id}`}
-              className="group flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border transition-all duration-300 mt-4 md:mt-0"
-              style={{ 
-                color: '#C54F0E',
-                borderColor: 'rgba(197, 79, 14, 0.3)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(197, 79, 14, 0.5)';
-                e.currentTarget.style.backgroundColor = 'rgba(197, 79, 14, 0.1)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(197, 79, 14, 0.3)';
-                e.currentTarget.style.backgroundColor = 'transparent';
-              }}
+              className="group flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-xl border transition-all duration-300 mt-4 md:mt-0 bg-gradient-to-r from-orange-500/10 to-orange-600/10 border-orange-500/30 hover:border-orange-500/50 hover:from-orange-500/20 hover:to-orange-600/20 text-orange-300 hover:text-orange-200"
             >
               {card.ctaText}
               <svg

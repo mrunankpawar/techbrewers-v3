@@ -63,9 +63,9 @@ const testimonials = [
 
 const TestimonialCard = ({ quote, name, company, type }: TestimonialCardProps) => {
   const isLargeCard = type.startsWith("large");
-  const padding = isLargeCard ? "p-6" : "p-5";
+  const padding = isLargeCard ? "p-8" : "p-6";
 
-  let cardClasses = `flex flex-col justify-between items-start overflow-hidden rounded-[10px] shadow-[0px_2px_4px_rgba(0,0,0,0.08)] relative ${padding}`;
+  let cardClasses = `group flex flex-col justify-between items-start overflow-hidden rounded-2xl shadow-[0px_2px_4px_rgba(0,0,0,0.08)] relative ${padding} transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(197,79,14,0.15)]`;
   let quoteClasses = "";
   let nameClasses = "";
   let companyClasses = "";
@@ -73,27 +73,30 @@ const TestimonialCard = ({ quote, name, company, type }: TestimonialCardProps) =
   const cardWidth = "w-full md:w-[384px]";
 
   if (type === "large-orange") {
-    cardClasses += " bg-gradient-to-br from-orange-600/20 to-orange-800/30 border border-orange-500/20";
+    cardClasses += " bg-gradient-to-br from-orange-600/25 via-orange-700/20 to-orange-800/25 backdrop-blur-xl border border-orange-500/30 hover:border-orange-400/50";
     quoteClasses += " text-white text-2xl font-medium leading-8";
-    nameClasses += " text-white text-base font-normal leading-6";
-    companyClasses += " text-white/60 text-base font-normal leading-6";
+    nameClasses += " text-white text-base font-semibold leading-6";
+    companyClasses += " text-white/70 text-base font-normal leading-6";
     cardHeight = "h-[502px]";
   } else if (type === "large-light") {
-    cardClasses += " bg-white/5 backdrop-blur-sm border border-white/10";
-    quoteClasses += " text-white/90 text-2xl font-medium leading-8";
-    nameClasses += " text-white text-base font-normal leading-6";
+    cardClasses += " bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 hover:border-orange-500/30";
+    quoteClasses += " text-white/95 text-2xl font-medium leading-8";
+    nameClasses += " text-white text-base font-semibold leading-6";
     companyClasses += " text-white/60 text-base font-normal leading-6";
     cardHeight = "h-[502px]";
   } else {
-    cardClasses += " bg-white/5 backdrop-blur-sm border border-white/10";
-    quoteClasses += " text-white/80 text-[17px] font-normal leading-6";
-    nameClasses += " text-white text-sm font-normal leading-[22px]";
-    companyClasses += " text-white/50 text-sm font-normal leading-[22px]";
+    cardClasses += " bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 hover:border-orange-500/30";
+    quoteClasses += " text-white/85 text-[17px] font-normal leading-6";
+    nameClasses += " text-white text-sm font-semibold leading-[22px]";
+    companyClasses += " text-white/55 text-sm font-normal leading-[22px]";
     cardHeight = "h-[244px]";
   }
 
   return (
-    <div className={`${cardClasses} ${cardWidth} ${cardHeight} flex flex-col justify-between`}>
+    <div className={`${cardClasses} ${cardWidth} ${cardHeight} flex flex-col justify-between`} style={{ willChange: 'transform' }}>
+      {/* Glow effect on hover */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:via-orange-500/0 group-hover:to-orange-500/5 transition-all duration-500 pointer-events-none" />
+      
       <div className={`relative z-10 font-normal break-words flex-grow ${quoteClasses} mb-6`}>{quote}</div>
       <div className="relative z-10 flex flex-col justify-center items-start gap-0.5 mt-auto">
         <div className={`${nameClasses} truncate w-full`}>{name}</div>

@@ -14,13 +14,13 @@ const HeroNew = () => {
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-[80vh] px-6 pt-32 md:pt-40">
         {/* Badge */}
-        <div className="mb-8 flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
-          <span className="bg-orange-500/20 border border-orange-400/30 rounded-full px-2 py-1 text-orange-200 text-sm font-medium">NEW</span>
+        <div className="mb-8 flex items-center bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-full px-4 py-2 hover:border-orange-500/40 transition-all duration-300 group shadow-lg hover:shadow-[0_8px_30px_rgba(197,79,14,0.15)]">
+          <span className="bg-gradient-to-r from-orange-500/30 to-orange-600/20 border border-orange-400/40 rounded-full px-3 py-1 text-orange-200 text-sm font-semibold group-hover:from-orange-500/40 group-hover:to-orange-600/30 transition-all duration-300">NEW</span>
           <a 
             href="https://bit.ly/TTOSPI" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-white text-sm font-medium ml-2 hover:text-orange-200 transition-colors"
+            className="text-white text-sm font-medium ml-3 hover:text-orange-200 transition-colors duration-300"
           >
             Open Source Project Incubator Program
           </a>
@@ -82,9 +82,11 @@ const HeroNew = () => {
             href="https://bit.ly/TBDISCORD"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-semibold transition-colors backdrop-blur-sm border border-white/20 text-center"
+            className="group relative bg-gradient-to-r from-white/10 to-white/5 hover:from-orange-500/20 hover:to-orange-600/20 text-white px-8 py-3.5 rounded-xl font-semibold transition-all duration-300 backdrop-blur-xl border border-white/20 hover:border-orange-500/40 text-center shadow-lg hover:shadow-[0_8px_30px_rgba(197,79,14,0.25)] hover:-translate-y-0.5"
+            style={{ willChange: 'transform' }}
           >
-            Join Discord
+            <span className="relative z-10">Join Discord</span>
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/10 group-hover:via-orange-500/5 group-hover:to-orange-500/10 transition-all duration-500 pointer-events-none" />
           </a>
         </div>
       </div>

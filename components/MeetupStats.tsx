@@ -51,34 +51,43 @@ const MeetupStats = () => {
 
           {/* Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
-            {stats.map((stat) => (
+            {stats.map((stat, index) => (
               <div
                 key={stat.id}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4 md:p-5 hover:border-orange-500/30 hover:bg-white/10 transition-all duration-300 text-center group"
+                className="group relative"
+                style={{ 
+                  animationDelay: `${index * 100}ms`,
+                  willChange: 'transform'
+                }}
               >
-                {/* Icon or Image */}
-                <div className="flex justify-center mb-3">
-                  {stat.image ? (
-                    <div className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center">
-                      <Image
-                        src={stat.image}
-                        alt={stat.label}
-                        width={64}
-                        height={64}
-                        className="object-contain w-full h-full"
-                      />
-                    </div>
-                  ) : null}
-                </div>
-                
-                {/* Value */}
-                <div className="text-2xl md:text-3xl font-bold text-white mb-1.5">
-                  {stat.value}
-                </div>
-                
-                {/* Label */}
-                <div className="text-xs md:text-sm text-white/70 font-medium">
-                  {stat.label}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8 hover:border-orange-500/40 transition-all duration-500 group-hover:shadow-[0_8px_30px_rgba(197,79,14,0.12)] group-hover:-translate-y-1 text-center">
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:via-orange-500/0 group-hover:to-orange-500/5 transition-all duration-500 pointer-events-none" />
+                  
+                  {/* Icon or Image */}
+                  <div className="flex justify-center mb-4 relative z-10">
+                    {stat.image ? (
+                      <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                        <Image
+                          src={stat.image}
+                          alt={stat.label}
+                          width={80}
+                          height={80}
+                          className="object-contain w-full h-full"
+                        />
+                      </div>
+                    ) : null}
+                  </div>
+                  
+                  {/* Value */}
+                  <div className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-white via-white to-white/80 bg-clip-text text-transparent mb-2 relative z-10 group-hover:from-orange-400 group-hover:via-orange-300 group-hover:to-orange-400 transition-all duration-500">
+                    {stat.value}
+                  </div>
+                  
+                  {/* Label */}
+                  <div className="text-sm md:text-base text-white/70 font-medium relative z-10 group-hover:text-gray-200 transition-colors duration-300">
+                    {stat.label}
+                  </div>
                 </div>
               </div>
             ))}

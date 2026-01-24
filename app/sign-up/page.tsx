@@ -106,51 +106,37 @@ export default function SignUpPage() {
 
             {/* Benefits List */}
             <div className="mt-8 space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 border border-orange-400/30 flex items-center justify-center mt-0.5">
-                  <svg className="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+              {[
+                "Access exclusive events and workshops",
+                "Connect with industry leaders and mentors",
+                "Build projects and showcase your skills",
+                "Join monthly challenges and competitions"
+              ].map((benefit, index) => (
+                <div key={index} className="flex items-start gap-3 group/item">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-orange-500/30 to-orange-600/20 border border-orange-400/40 flex items-center justify-center mt-0.5 group-hover/item:from-orange-500/40 group-hover/item:to-orange-600/30 group-hover/item:border-orange-400/60 transition-all duration-300 group-hover/item:scale-110">
+                    <svg className="w-4 h-4 text-orange-300 group-hover/item:text-orange-200 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-white/80 text-base group-hover/item:text-white transition-colors duration-300">{benefit}</p>
                 </div>
-                <p className="text-white/80 text-base">Access exclusive events and workshops</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 border border-orange-400/30 flex items-center justify-center mt-0.5">
-                  <svg className="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <p className="text-white/80 text-base">Connect with industry leaders and mentors</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 border border-orange-400/30 flex items-center justify-center mt-0.5">
-                  <svg className="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <p className="text-white/80 text-base">Build projects and showcase your skills</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 border border-orange-400/30 flex items-center justify-center mt-0.5">
-                  <svg className="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <p className="text-white/80 text-base">Join monthly challenges and competitions</p>
-              </div>
+              ))}
             </div>
           </div>
 
           {/* Right Side - Descope Component */}
           <div className="flex items-center justify-center lg:justify-end">
-            <div className="w-full max-w-md">
-              <Descope
-                flowId="sign-up-or-in"
-                theme="light"
-                onSuccess={handleSuccess}
-                onError={handleError}
-                redirectAfterSuccess="/events"
-              />
+            <div className="relative group w-full max-w-md">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-2xl blur-sm opacity-50" />
+              <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+                <Descope
+                  flowId="sign-up-or-in"
+                  theme="light"
+                  onSuccess={handleSuccess}
+                  onError={handleError}
+                  redirectAfterSuccess="/events"
+                />
+              </div>
             </div>
           </div>
         </div>

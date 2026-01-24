@@ -56,12 +56,15 @@ export default function ProfilePage() {
           </div>
 
           {/* Descope User Profile Widget */}
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 md:p-8">
-            <UserProfile
-              widgetId="user-profile-widget"
-              theme="dark"
-              onLogout={handleLogout}
-            />
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-2xl blur-sm opacity-50" />
+            <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8 hover:border-orange-500/30 transition-all duration-500">
+              <UserProfile
+                widgetId="user-profile-widget"
+                theme="dark"
+                onLogout={handleLogout}
+              />
+            </div>
           </div>
         </div>
       </div>
