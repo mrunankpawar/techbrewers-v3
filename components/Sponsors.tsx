@@ -99,9 +99,6 @@ function Sponsors() {
     <div className="h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-10 md:py-14 gradient-background">
       <div className="max-w-[89vw] md:max-w-3xl lg:max-w-6xl flex flex-col items-center justify-center text-center gap-4">
         <div className="space-y-3">
-          <p className="text-sm uppercase tracking-[0.3em] text-white/60">
-            Community Backed
-          </p>
           <h3 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50 z-10">
             Sponsors & Partners
           </h3>

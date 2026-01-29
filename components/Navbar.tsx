@@ -208,11 +208,14 @@ const Navbar = () => {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-white p-2"
+              className="md:hidden text-white p-2 transition-transform duration-300"
               aria-label="Toggle menu"
             >
               <svg
-                className="w-6 h-6"
+                className={cn(
+                  "w-6 h-6 transition-transform duration-300",
+                  isMobileMenuOpen && "rotate-90"
+                )}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -238,40 +241,61 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pt-4 border-t border-white/20">
-            <div className="flex flex-col space-y-3">
-              {navItems.map((item) => (
-                <Link
-                  key={item.link}
-                  href={item.link}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={cn(
-                    'transition-colors text-base py-2 px-4 rounded-lg',
-                    pathname === item.link
-                      ? 'text-orange-400 font-semibold bg-orange-400/10'
-                      : 'text-white hover:text-orange-400 hover:bg-white/5'
-                  )}
+        <div
+          className={cn(
+            "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
+            isMobileMenuOpen
+              ? "max-h-[500px] opacity-100 mt-4 pt-4 border-t border-white/20"
+              : "max-h-0 opacity-0 mt-0 pt-0 border-t-0"
+          )}
+        >
+          <div className="flex flex-col space-y-3">
+            {navItems.map((item, index) => (
+              <Link
+                key={item.link}
+                href={item.link}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={cn(
+                  'transition-all duration-300 text-base py-2 px-4 rounded-lg',
+                  pathname === item.link
+                    ? 'text-orange-400 font-semibold bg-orange-400/10'
+                    : 'text-white hover:text-orange-400 hover:bg-white/5',
+                  isMobileMenuOpen
+                    ? 'translate-y-0 opacity-100'
+                    : '-translate-y-2 opacity-0'
+                )}
+                style={{
+                  transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : `${(navItems.length - index) * 30}ms`
+                }}
+              >
+                {item.name}
+              </Link>
+            ))}
+            {isAuthenticated && user && (
+              <div
+                className={cn(
+                  "pt-2 border-t border-white/20 transition-all duration-300",
+                  isMobileMenuOpen
+                    ? 'translate-y-0 opacity-100'
+                    : '-translate-y-2 opacity-0'
+                )}
+                style={{
+                  transitionDelay: isMobileMenuOpen ? `${navItems.length * 50}ms` : '0ms'
+                }}
+              >
+                <button
+                  onClick={handleLogout}
+                  className="w-full px-4 py-2 text-left text-white hover:bg-white/10 transition-colors flex items-center gap-3 rounded-lg"
                 >
-                  {item.name}
-                </Link>
-              ))}
-              {isAuthenticated && user && (
-                <div className="pt-2 border-t border-white/20">
-                  <button
-                    onClick={handleLogout}
-                    className="w-full px-4 py-2 text-left text-white hover:bg-white/10 transition-colors flex items-center gap-3 rounded-lg"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                    </svg>
-                    <span>Logout</span>
-                  </button>
-                </div>
-              )}
-            </div>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                  </svg>
+                  <span>Logout</span>
+                </button>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
