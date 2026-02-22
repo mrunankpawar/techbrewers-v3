@@ -32,6 +32,7 @@ const CommunityInfo = () => {
   ];
 
   return (
+    
     <div className="relative py-20 px-6 gradient-background overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-radial from-orange-500/10 via-orange-500/5 to-transparent pointer-events-none" />

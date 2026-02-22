@@ -26,11 +26,12 @@ const MeetupStats = () => {
   ];
 
   return (
-    <div className="relative min-h-[70vh] overflow-hidden sepia-background-hero">
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 sepia-gradient-overlay" />
-      
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-[70vh] px-6 pt-32 md:pt-40 pb-16 md:pb-20">
+    <div className="relative min-h-[70vh] overflow-hidden">
+      {/* Hero Section */}
+      <div className="relative pt-16 md:pt-20 pb-16 md:pb-24 px-6 sepia-background-hero">
+        <div className="absolute inset-0 sepia-gradient-overlay" />
+        
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-[70vh]">
         <div className="max-w-7xl mx-auto w-full">
           {/* Section Header */}
           <div className="text-center mb-12">
@@ -92,6 +93,7 @@ const MeetupStats = () => {
               </div>
             ))}
           </div>
+        </div>
         </div>
       </div>
     </div>

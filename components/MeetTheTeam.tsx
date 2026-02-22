@@ -53,7 +53,7 @@ const MeetTheTeam = () => {
           
           {/* Description */}
           <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
-            Our team is made up of passionate professionals who bring their expertise and creativity to every project.
+            We&apos;re more than just a team—we&apos;re a close-knit family of passionate individuals.
           </p>
         </div>
 
