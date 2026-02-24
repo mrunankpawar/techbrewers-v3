@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: "TechThrusters",
     images: [
       {
-        url: "https://techthrusters.org/images/ogimagehome.png",
+        url: "https://techthrusters.org/images/webogimage.png",
         width: 1200,
         height: 630,
         alt: "TechThrusters - Empowering Tech Innovation & Community",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TechThrusters",
     description: "Join the TechThrusters community to learn, connect and build in tech.",
-    images: ["https://techthrusters.org/images/ogimagehome.png"],
+    images: ["https://techthrusters.org/images/webogimage.png"],
     creator: "@TechThrusters",
   },
   robots: {

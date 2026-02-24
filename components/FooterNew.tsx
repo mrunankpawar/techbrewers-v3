@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 
 const FooterNew = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
     <footer className="relative overflow-hidden brown-background">
       {/* Background Effects */}
@@ -30,10 +32,10 @@ const FooterNew = () => {
           <div>
             <h3 className="text-white font-bold text-lg mb-6">Navigation</h3>
             <ul className="space-y-3">
-              <li><a href="/" className="text-gray-400 hover:text-orange-400 transition-colors">Home</a></li>
-              <li><a href="/community" className="text-gray-400 hover:text-orange-400 transition-colors">Community</a></li>
-              <li><a href="/events" className="text-gray-400 hover:text-orange-400 transition-colors">Events</a></li>
-              <li><a href="/meetup" className="text-gray-400 hover:text-orange-400 transition-colors">Meetups</a></li>
+              <li><a href="/" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Home <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
+              <li><a href="/community" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Community <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
+              <li><a href="/events" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Events <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
+              <li><a href="/meetup" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Meetups <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
             </ul>
           </div>
 
@@ -41,10 +43,10 @@ const FooterNew = () => {
           <div>
             <h3 className="text-white font-bold text-lg mb-6">Social</h3>
             <ul className="space-y-3">
-              <li><a href="https://twitter.com/TechThrusters" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">Twitter (X)</a></li>
-              <li><a href="https://instagram.com/tech.thrusters" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">Instagram</a></li>
-              <li><a href="https://bit.ly/TBDISCORD" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">Discord</a></li>
-              <li><a href="https://linkedin.com/company/techthrusters" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">LinkedIn</a></li>
+              <li><a href="https://twitter.com/TechThrusters" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Twitter (X) <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
+              <li><a href="https://instagram.com/tech.thrusters" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Instagram <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
+              <li><a href="https://bit.ly/TBDISCORD" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Discord <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
+              <li><a href="https://linkedin.com/company/techthrusters" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">LinkedIn <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
             </ul>
           </div>
         </div>
@@ -53,7 +55,7 @@ const FooterNew = () => {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex items-center justify-center">
             <div className="text-gray-400/50 text-sm">
-              © {new Date().getFullYear()} TechThrusters
+              © {currentYear} TechThrusters
             </div>
           </div>
         </div>
