@@ -170,10 +170,10 @@ const Community = () => {
                   </div>
 
                   {/* Content Card - Alternating left/right */}
-                  <div className={`flex-1 w-full md:col-span-5 ${
+                  <div className={`flex-1 w-full pl-12 md:pl-0 md:col-span-5 ${
                     index % 2 === 0 
                       ? 'md:col-start-2 md:pr-8' 
-                      : 'md:col-start-7 md:pl-8'
+                      : 'md:col-start-7 md:pl-8 md:ml-8'
                   }`}>
                     <div className="group relative">
                       <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
