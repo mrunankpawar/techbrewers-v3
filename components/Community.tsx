@@ -260,16 +260,15 @@ const FAQSection = () => {
       question: "How do I join the TechThrusters community?",
       answer: (
         <>
-          Getting started is simple! Click the &apos;Join Discord Community&apos; button at the top of this page or{" "}
+          Getting started is simple, join our {` `}
           <a
             href="https://bit.ly/TBDISCORD"
             target="_blank"
             rel="noopener noreferrer"
             className="text-orange-400 hover:text-orange-300 underline transition-colors"
           >
-            join our Discord server
-          </a>
-          {" "}directly. Once you&apos;re in, introduce yourself in the welcome channel and start connecting with fellow developers. There&apos;s no application process - everyone is welcome!
+            Discord server
+          </a>. Once you&apos;re in, introduce yourself in the welcome channel and start connecting with fellow developers.
         </>
       )
     },
