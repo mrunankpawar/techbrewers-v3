@@ -178,7 +178,7 @@ function ExpandableCards() {
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
             onClick={() => setActive(card)}
-            className="group relative p-4 flex flex-col md:flex-row justify-between items-center md:items-start rounded-2xl cursor-pointer transition-all duration-500 bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 hover:border-orange-500/40 hover:shadow-[0_8px_30px_rgba(197,79,14,0.12)] hover:-translate-y-1"
+            className="group relative p-4 flex flex-col md:flex-row justify-between items-center md:items-start rounded-2xl cursor-pointer transition-all duration-500 bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 hover:border-orange-500/40 hover:shadow-[0_8px_30px_rgba(197,79,14,0.12)]"
             style={{ willChange: 'transform' }}
           >
             <div className="flex flex-col items-center md:items-start gap-4 md:flex-row w-full">
