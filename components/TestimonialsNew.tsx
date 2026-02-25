@@ -58,7 +58,7 @@ const TestimonialCard = ({ quote, name, company, type }: TestimonialCardProps) =
   const isLargeCard = type.startsWith("large");
   const padding = isLargeCard ? "p-8" : "p-6";
 
-  let cardClasses = `group flex flex-col justify-between items-start rounded-2xl shadow-[0px_2px_4px_rgba(0,0,0,0.08)] relative ${padding} transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(197,79,14,0.15)]`;
+  let cardClasses = `group flex flex-col justify-between items-start rounded-2xl shadow-[0px_2px_4px_rgba(0,0,0,0.08)] relative ${padding} transition-all duration-500 hover:shadow-[0_12px_40px_rgba(197,79,14,0.15)]`;
   let quoteClasses = "";
   let nameClasses = "";
   let companyClasses = "";

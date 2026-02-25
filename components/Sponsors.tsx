@@ -140,7 +140,7 @@ function Sponsors() {
                         alt={sponsor.name}
                         width={150}
                         height={150}
-                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100 group-hover:scale-110"
+                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100"
                       />
                     </div>
                   </Link>
@@ -173,7 +173,7 @@ function Sponsors() {
                         alt={sponsor.name}
                         width={150}
                         height={150}
-                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100 group-hover:scale-110"
+                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100"
                       />
                     </div>
                   </Link>
@@ -206,7 +206,7 @@ function Sponsors() {
                         alt={sponsor.name}
                         width={150}
                         height={150}
-                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100 group-hover:scale-110"
+                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100"
                       />
                     </div>
                   </Link>
@@ -239,7 +239,7 @@ function Sponsors() {
                         alt={sponsor.name}
                         width={150}
                         height={150}
-                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100 group-hover:scale-110"
+                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100"
                       />
                     </div>
                   </Link>
@@ -280,7 +280,7 @@ function Sponsors() {
                         alt={sponsor.name}
                         width={150}
                         height={150}
-                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100 group-hover:scale-110"
+                        className="object-contain w-full h-full max-w-[120px] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100"
                       />
                     </div>
                   </Link>

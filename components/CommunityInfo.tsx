@@ -66,12 +66,12 @@ const CommunityInfo = () => {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               {/* Card */}
-              <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-8 hover:border-orange-500/40 transition-all duration-500 group-hover:shadow-[0_8px_30px_rgba(197,79,14,0.12)] group-hover:-translate-y-1 h-full flex flex-col items-center text-center">
+              <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-8 hover:border-orange-500/40 transition-all duration-500 group-hover:shadow-[0_8px_30px_rgba(197,79,14,0.12)] h-full flex flex-col items-center text-center">
                 {/* Glow Effect */}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:via-orange-500/0 group-hover:to-orange-500/5 transition-all duration-500 pointer-events-none" />
                 
                 {/* Icon Container */}
-                <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center mb-6 flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
+                <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center mb-6 flex-shrink-0">
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-orange-600/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative w-full h-full flex items-center justify-center">
                     <Image

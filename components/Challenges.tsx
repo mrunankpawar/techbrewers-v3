@@ -44,7 +44,7 @@ function Challenges() {
             <Image
               src={challenges[0].poster}
               alt="Present Challenge Poster"
-              className="rounded-xl mb-4 md:mb-0 md:mr-6 w-full md:w-2/3 h-auto relative z-10 group-hover:scale-[1.02] transition-transform duration-500"
+              className="rounded-xl mb-4 md:mb-0 md:mr-6 w-full md:w-2/3 h-auto relative z-10"
               width={600}
               height={250}
             />
@@ -82,12 +82,12 @@ function Challenges() {
               }}
             >
               <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-4 hover:border-orange-500/40 transition-all duration-500 group-hover:shadow-[0_8px_30px_rgba(197,79,14,0.12)] group-hover:-translate-y-1">
+              <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-4 hover:border-orange-500/40 transition-all duration-500 group-hover:shadow-[0_8px_30px_rgba(197,79,14,0.12)]">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:via-orange-500/0 group-hover:to-orange-500/5 transition-all duration-500 pointer-events-none" />
                 <Image
                   src={challenge.poster}
                   alt={`${challenge.challenge} Poster`}
-                  className="rounded-xl mb-4 w-full h-auto relative z-10 group-hover:scale-[1.02] transition-transform duration-500"
+                  className="rounded-xl mb-4 w-full h-auto relative z-10"
                   width={500}
                   height={300}
                 />

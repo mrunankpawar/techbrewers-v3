@@ -121,7 +121,7 @@ function Team() {
             >
               <div className="relative mb-3">
                 <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/30 via-orange-400/20 to-orange-500/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative w-24 h-24 md:w-32 md:h-32 overflow-hidden rounded-full border-2 border-white/20 group-hover:border-orange-500/60 transition-all duration-500 group-hover:scale-110">
+                <div className="relative w-24 h-24 md:w-32 md:h-32 overflow-hidden rounded-full border-2 border-white/20 group-hover:border-orange-500/60 transition-all duration-500">
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-orange-600/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <Image
                     src={person.image}
