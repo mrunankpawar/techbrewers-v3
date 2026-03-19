@@ -117,7 +117,7 @@ const Community = () => {
         <div className="absolute inset-0 sepia-gradient-overlay" />
         <div className="relative z-10 flex flex-col items-center justify-center min-h-[70vh]">
           <div className="max-w-7xl mx-auto w-full text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
               Join a Community That
             </span>
@@ -177,14 +177,14 @@ const Community = () => {
             {/* Timeline Items */}
             <div className="space-y-12 md:space-y-16">
               {journeyTimeline.map((item, index) => (
-                <div
+              <div
                   key={item.year}
                   className="relative flex flex-col md:grid md:grid-cols-12 items-start md:items-center gap-6 md:gap-0"
-                  style={{ 
+                style={{ 
                     animationDelay: `${index * 150}ms`,
-                    willChange: 'transform'
-                  }}
-                >
+                  willChange: 'transform'
+                }}
+              >
                   {/* Timeline Dot - positioned absolutely on the line center */}
                   <div className="absolute left-[33px] md:left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
                     <div className="w-4 h-4 bg-orange-500 rounded-full border-4 border-black shadow-lg shadow-orange-500/50" />
@@ -198,9 +198,9 @@ const Community = () => {
                       : 'md:col-start-7 md:pl-8 md:ml-8'
                   }`}>
                     <div className="group relative">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8 hover:border-orange-500/40 transition-all duration-500 group-hover:shadow-[0_8px_30px_rgba(197,79,14,0.12)]">
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:via-orange-500/0 group-hover:to-orange-500/5 transition-all duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:via-orange-500/0 group-hover:to-orange-500/5 transition-all duration-500 pointer-events-none" />
                         
                         <div className="relative z-10">
                           <div className="flex items-center gap-3 mb-3">
@@ -212,7 +212,7 @@ const Community = () => {
                                 Present
                               </span>
                             )}
-                          </div>
+                </div>
                           
                           <h3 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-orange-200 transition-colors duration-300">
                             {item.title}
@@ -231,15 +231,15 @@ const Community = () => {
                               >
                                 {milestone}
                               </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
+            ))}
+          </div>
+        </div>
+      </div>
                     </div>
-                  </div>
+          </div>
                 </div>
               ))}
-            </div>
+              </div>
           </div>
         </div>
       </div>
@@ -295,7 +295,7 @@ const FAQSection = () => {
   };
 
   return (
-    <div className="relative py-20 px-6 gradient-background">
+      <div className="relative py-20 px-6 gradient-background">
       <div className="relative max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-6xl font-bold mb-4">
@@ -306,7 +306,7 @@ const FAQSection = () => {
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Have questions? We&apos;ve got answers. Here are some common questions about our community.
           </p>
-        </div>
+                  </div>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
@@ -337,7 +337,7 @@ const FAQSection = () => {
                   <div className="px-6 pb-5">
                     <div className="text-gray-300 leading-relaxed">
                       {typeof faq.answer === 'string' ? <p>{faq.answer}</p> : faq.answer}
-                    </div>
+                </div>
                   </div>
                 </div>
               </div>
