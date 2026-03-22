@@ -12,6 +12,7 @@ export default authMiddleware({
   publicRoutes: [
     '/',
     '/community',
+    '/events',
     '/meetup',
     '/sign-up',
   ]
