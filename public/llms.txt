@@ -1,0 +1,65 @@
+# TechThrusters
+
+> TechThrusters is a community-driven platform empowering tech innovation and learning through events, workshops, and meetups.
+
+TechThrusters helps people learn, connect, and build in tech. Use the links below to quickly gather the most relevant context about the community, upcoming/past events, and meetup highlights.
+
+## Start Here
+
+- [Home](https://techthrusters.org/): Mission, community stats (Learn / Connect / Build), sponsors & partners, team members, and testimonials.
+- [Community](https://techthrusters.org/community): Community story timeline, core values, FAQ, and resources (how to join, connect, and contribute).
+
+## Events & Workshops
+
+- [Events](https://techthrusters.org/events): Upcoming events (if any) and a “Past Events” section with clickable “Watch” links (YouTube) and short talk descriptions.
+
+## Featured Event Videos
+
+- [Building Developer Communities](https://www.youtube.com/live/629hOd60J9k?si=D6FwwRcRLf6t4AtD): How to create and sustain thriving developer communities.
+- [Integrating LLMs in Your Applications (Security-First)](https://www.youtube.com/live/wRNQ5wFU7WQ?si=pXE3_ahfdCqB5-41): A security-first guide to integrating LLMs safely.
+- [Transitioning to Product Management](https://www.youtube.com/live/kIcvBf5bRyc?feature=shared): A roadmap for breaking into product management.
+- [Learning Open Source with Hacktoberfest](https://www.youtube.com/live/iphlaYDN3J0?si=WWbIS9l21jikFpcV): Get started with Hacktoberfest and contribute effectively.
+- [Getting Started with Git and GitHub](https://www.youtube.com/live/t9X_PDOJyCI?si=NC2HWRAiQH_K6tHR): Practical fundamentals of version control and collaboration.
+- [Getting Started with Angular](https://www.youtube.com/live/QL6Zbnf_mi4?si=CdnSVv9pSspQRrW0): Best practices and real-world entry for Angular developers.
+
+## Meetups & Speaker Archive
+
+- [Meetups](https://techthrusters.org/meetup): Photo “glimpses” from past meetups (e.g., Meetup 1.0/2.0/3.0, GenAI meetup, CelCon) plus meetup stats and sponsor logos.
+- [Speaker Archive (on Meetups page)](https://techthrusters.org/meetup): The same page includes a speaker archive with speaker names/designations and links (e.g., LinkedIn) for follow-ups.
+
+## Join the Community
+
+- [Discord Community](https://discord.gg/techthrusters): Main place to introduce yourself and connect with other members.
+- [Discord (alternate invite)](https://bit.ly/TBDISCORD): Backup invite link to the same community.
+- [Sign up](https://techthrusters.org/sign-up): Create a member account (authentication required); successful signup redirects to `/events`.
+- [Profile](https://techthrusters.org/profile): Member profile and settings (authentication required).
+
+## Programs & Resources
+
+- [Open Source Project Incubator Program](https://bit.ly/TTOSPI): Program supporting contributions and building in public with the community.
+
+## Optional
+
+- [Robots.txt](https://techthrusters.org/robots.txt): Traditional crawler access rules.
+
+## Social & Partners (Extra Context)
+
+- [Twitter (X)](https://twitter.com/TechThrusters): Organization updates and announcements.
+- [LinkedIn](https://linkedin.com/company/techthrusters): Community updates and partner visibility.
+- [Instagram](https://instagram.com/tech.thrusters): Community highlights and photos.
+
+## Sponsors & Partners (Example Sites)
+
+- [GitHub](https://github.com/)
+- [Peerlist](https://peerlist.io/)
+- [Securityium](https://www.securityium.com/)
+- [GeeksforGeeks](https://www.geeksforgeeks.org/)
+- [Cloud Native Day Pune](https://www.cloudnativepune.com/)
+- [Hack The League](https://hacktheleague.com/)
+
+## Team (Example LinkedIn Profiles)
+
+- [Mrunank Pawar](https://www.linkedin.com/in/mrunankpawar/)
+- [Vaibhav Kadam](https://www.linkedin.com/in/4lph4v/)
+- [Abhi Savale](https://www.linkedin.com/in/abhijeet-savale/)
+- [Sana Shaikh](https://www.linkedin.com/in/sanashaikh30/)

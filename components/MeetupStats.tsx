@@ -29,8 +29,8 @@ const MeetupStats = () => {
     <div className="relative min-h-[70vh] overflow-hidden">
       {/* Hero Section */}
       <div className="relative pt-16 md:pt-20 pb-16 md:pb-24 px-6 sepia-background-hero">
-        <div className="absolute inset-0 sepia-gradient-overlay" />
-        
+      <div className="absolute inset-0 sepia-gradient-overlay" />
+      
         <div className="relative z-10 flex flex-col items-center justify-center min-h-[70vh]">
         <div className="max-w-7xl mx-auto w-full">
           {/* Section Header */}
@@ -93,7 +93,7 @@ const MeetupStats = () => {
               </div>
             ))}
           </div>
-        </div>
+          </div>
         </div>
       </div>
     </div>

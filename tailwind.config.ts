@@ -26,6 +26,9 @@ const config = {
   		}
   	},
   	extend: {
+  		fontFamily: {
+  			sans: ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
+  		},
   		colors: {
   			black: {
   				'100': '#000319',
