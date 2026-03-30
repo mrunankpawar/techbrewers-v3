@@ -159,7 +159,7 @@ const data = [
         />
         <Image
           src="/images/meetup/genai/group3.jpg"
-          alt="Event attnedees at TechBrewers GenAI Meetup"
+          alt="Event attendees at TechBrewers GenAI Meetup"
           height="500"
           width="500"
           className="rounded-lg w-full h-auto object-contain"

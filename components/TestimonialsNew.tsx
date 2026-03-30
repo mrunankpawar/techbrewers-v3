@@ -12,7 +12,7 @@ interface TestimonialCardProps {
 const testimonials = [
   {
     id: 1,
-    quote: "I have been part of the TechThrusters community which is organising multiple latest technology initiatives including webinars which I am extremely happy to be part of it. Not only it has helped me learn new tech but also allowing to present relevant technologies including the cloud.",
+    quote: "I have been part of the TechThrusters community, which is organizing multiple cutting-edge technology initiatives, including webinars, and I am extremely happy to be part of it. It has not only helped me learn new tech but also allowed me to present relevant technologies, including in the cloud.",
     name: "Rahul Ambhore",
     company: "State Street",
     type: "small-dark",

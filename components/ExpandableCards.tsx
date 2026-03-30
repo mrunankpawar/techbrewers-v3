@@ -448,7 +448,7 @@ const cards = [
           Amazon Web Services is one of the world&apos;s largest and widely used
           cloud services platform. With the deployment, cloud storage and
           automation tools it provides, learning AWS tools and technologies has
-          always driven people towards cloud-based development. This event as
+          always driven people toward cloud-based development. This event as
           the title suggests is a hands-on workshop on building a CI/CD pipeline
           on AWS for smooth production flow and automating the whole process.
           <br></br>
@@ -477,7 +477,7 @@ const cards = [
           and collaborative building in a community. Jatin, Chhavi and Mrunank
           here shed light on hackathons from an organizer, a mentor and
           participant and judge&apos;s perspective. The insights provided
-          encourgae you to participate in various hackathons that are happening
+          encourage you to participate in various hackathons that are happening
           globally. Jatin here is himself one of the founding organizers of Hack
           The League.
           <br></br>
@@ -513,7 +513,7 @@ const cards = [
     },
   },
   {
-    description: "Jatin Pandya (Organiser of Hack The League)",
+    description: "Jatin Pandya (Organizer of Hack The League)",
     title: "Elevate YOU: Personal Branding Workshop",
     src: "/images/events/personalBranding.png",
     ctaText: "Watch",

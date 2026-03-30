@@ -9,7 +9,7 @@ const MeetupStats = () => {
       id: 1,
       value: '7+',
       label: 'Meetups Organized',
-      image: '/images/thiings/organise.png',
+      image: '/images/thiings/organize.png',
     },
     {
       id: 2,
