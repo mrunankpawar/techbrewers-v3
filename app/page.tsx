@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import HeroNew from "@/components/HeroNew";
+import TechThrustersTalks from "@/components/TechThrustersTalks";
 import CommunityInfo from "@/components/CommunityInfo";
 import Sponsors from "@/components/Sponsors";
 import MeetTheTeam from "@/components/MeetTheTeam";
@@ -59,6 +60,7 @@ export default function Home() {
       
       <main className="relative overflow-hidden">
         <HeroNew />
+        <TechThrustersTalks />
         <CommunityInfo />
         <Sponsors />
         <MeetTheTeam />

@@ -36,6 +36,7 @@ const FooterNew = () => {
               <li><a href="/community" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Community <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
               <li><a href="/events" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Events <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
               <li><a href="/meetup" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Meetups <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
+              <li><a href="/talks" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">TechThrusters Talks <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
             </ul>
           </div>
 

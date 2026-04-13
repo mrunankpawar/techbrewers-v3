@@ -244,7 +244,6 @@ const Community = () => {
         </div>
       </div>
 
-
       {/* FAQ Section */}
       <FAQSection />
     </div>

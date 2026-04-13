@@ -9,6 +9,10 @@ TechThrusters helps people learn, connect, and build in tech. Use the links belo
 - [Home](https://techthrusters.org/): Mission, community stats (Learn / Connect / Build), sponsors & partners, team members, and testimonials.
 - [Community](https://techthrusters.org/community): Community story timeline, core values, FAQ, and resources (how to join, connect, and contribute).
 
+## TechThrusters Talks (speakers)
+
+- [TechThrusters Talks](https://techthrusters.org/talks): Apply to speak at community lightning talks, panels, and sessions; links to the public speaker interest form.
+
 ## Events & Workshops
 
 - [Events](https://techthrusters.org/events): Upcoming events (if any) and a “Past Events” section with clickable “Watch” links (YouTube) and short talk descriptions.

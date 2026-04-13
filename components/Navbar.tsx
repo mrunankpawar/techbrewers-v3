@@ -56,6 +56,7 @@ const Navbar = () => {
     { name: 'Community', link: '/community' },
     { name: 'Events', link: '/events' },
     { name: 'Meetups', link: '/meetup' },
+    { name: 'Talks', link: '/talks' },
   ];
 
   return (

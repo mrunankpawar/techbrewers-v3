@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Navbar from './Navbar';
 
 const HeroNew = () => {
@@ -13,17 +14,20 @@ const HeroNew = () => {
 
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-[80vh] px-6 pt-32 md:pt-40">
-        {/* Badge */}
-        <div className="mb-8 flex items-center bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-full px-4 py-2 hover:border-orange-500/40 transition-all duration-300 group shadow-lg hover:shadow-[0_8px_30px_rgba(197,79,14,0.15)]">
-          <span className="bg-gradient-to-r from-orange-500/30 to-orange-600/20 border border-orange-400/40 rounded-full px-3 py-1 text-orange-200 text-sm font-semibold group-hover:from-orange-500/40 group-hover:to-orange-600/30 transition-all duration-300">NEW</span>
-          <a 
-            href="https://bit.ly/TTOSPI" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-white text-sm font-medium ml-3 hover:text-orange-200 transition-colors duration-300"
+        {/* Announcement: TechThrusters Talks speaker applications */}
+        <div className="mb-8 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-0 max-w-lg sm:max-w-none mx-auto bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-2xl sm:rounded-full px-4 py-3 sm:py-2 hover:border-orange-500/40 transition-all duration-300 group shadow-lg hover:shadow-[0_8px_30px_rgba(197,79,14,0.15)]">
+          <div className="flex justify-center sm:justify-start sm:shrink-0">
+            <span className="inline-flex bg-gradient-to-r from-orange-500/30 to-orange-600/20 border border-orange-400/40 rounded-full px-3 py-1 text-orange-200 text-xs sm:text-sm font-semibold group-hover:from-orange-500/40 group-hover:to-orange-600/30 transition-all duration-300">
+              NEW
+            </span>
+          </div>
+          <Link
+            href="/talks"
+            className="text-center sm:text-left sm:ml-3 text-white text-sm sm:text-base font-semibold hover:text-orange-200 transition-colors duration-300"
+            aria-label="Apply to speak at TechThrusters Talks. Opens the TechThrusters Talks page."
           >
-            Open Source Project Incubator Program
-          </a>
+            Apply to speak — TechThrusters Talks
+          </Link>
         </div>
 
         {/* Main Headline */}

@@ -29,7 +29,7 @@ function page() {
       </Head>
     <div className="gradient-background min-h-screen">
       <Navbar />
-        <Community />
+      <Community />
       <FooterNew />
     </div>
     </>

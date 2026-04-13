@@ -14,6 +14,7 @@ export default authMiddleware({
     '/community',
     '/events',
     '/meetup',
+    '/talks',
     '/sign-up',
   ]
 })
