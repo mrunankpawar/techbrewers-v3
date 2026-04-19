@@ -4,14 +4,21 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useDescope, useSession, useUser } from '@descope/nextjs-sdk/client';
+
+const COMMUNITY_PATHS = ['/community', '/talks'] as const;
+
+const isCommunityPath = (path: string) =>
+  COMMUNITY_PATHS.some((p) => path === p || path.startsWith(`${p}/`));
 
 const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileCommunityOpen, setMobileCommunityOpen] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
 
@@ -46,6 +53,12 @@ const Navbar = () => {
     };
   }, [showUserMenu]);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      setMobileCommunityOpen(false);
+    }
+  }, [isMobileMenuOpen]);
+
   const handleLogout = useCallback(() => {
     sdk.logout();
     router.push('/');
@@ -53,11 +66,14 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', link: '/' },
-    { name: 'Community', link: '/community' },
     { name: 'Events', link: '/events' },
     { name: 'Meetups', link: '/meetup' },
-    { name: 'Talks', link: '/talks' },
   ];
+
+  const communitySubLinks = [
+    { name: 'Community', link: '/community', description: 'Story, values & FAQ' },
+    { name: 'TechThrusters Talks', link: '/talks', description: 'Apply to speak' },
+  ] as const;
 
   return (
     <nav
@@ -97,7 +113,65 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8 flex-1 justify-center">
-            {navItems.map((item) => (
+            {navItems[0] && (
+              <Link
+                href={navItems[0].link}
+                className={cn(
+                  'transition-colors text-sm lg:text-base',
+                  pathname === navItems[0].link
+                    ? 'text-orange-400 font-semibold'
+                    : 'text-white hover:text-orange-400'
+                )}
+              >
+                {navItems[0].name}
+              </Link>
+            )}
+
+            {/* Community + Talks (nested under Community) */}
+            <div className="relative group">
+              <button
+                type="button"
+                className={cn(
+                  'flex items-center gap-1 transition-colors text-sm lg:text-base outline-none',
+                  isCommunityPath(pathname)
+                    ? 'text-orange-400 font-semibold'
+                    : 'text-white hover:text-orange-400'
+                )}
+                aria-haspopup="true"
+                aria-label="Community menu"
+              >
+                Community
+                <ChevronDown className="h-4 w-4 opacity-80 transition-transform duration-200 group-hover:rotate-180" aria-hidden />
+              </button>
+              <div
+                className="absolute left-1/2 top-full z-50 min-w-[240px] -translate-x-1/2 pt-2 opacity-0 invisible transition-[opacity,visibility] duration-150 group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible"
+                role="menu"
+                aria-label="Community links"
+              >
+                <div className="rounded-xl border border-white/20 bg-black/95 py-2 shadow-xl backdrop-blur-md">
+                  {communitySubLinks.map((item) => (
+                    <Link
+                      key={item.link}
+                      href={item.link}
+                      role="menuitem"
+                      className={cn(
+                        'block px-4 py-2.5 text-sm transition-colors',
+                        pathname === item.link
+                          ? 'bg-orange-500/15 text-orange-300'
+                          : 'text-white/90 hover:bg-white/10 hover:text-white'
+                      )}
+                    >
+                      <span className="font-medium">{item.name}</span>
+                      <span className="mt-0.5 block text-xs font-normal text-white/50">
+                        {item.description}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {navItems.slice(1).map((item) => (
               <Link
                 key={item.link}
                 href={item.link}
@@ -251,7 +325,80 @@ const Navbar = () => {
           )}
         >
           <div className="flex flex-col space-y-3">
-            {navItems.map((item, index) => (
+            <Link
+              href="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={cn(
+                'transition-all duration-300 text-base py-2 px-4 rounded-lg',
+                pathname === '/'
+                  ? 'text-orange-400 font-semibold bg-orange-400/10'
+                  : 'text-white hover:text-orange-400 hover:bg-white/5',
+                isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
+              )}
+              style={{ transitionDelay: isMobileMenuOpen ? '0ms' : `${navItems.length * 30}ms` }}
+            >
+              Home
+            </Link>
+
+            <div
+              className={cn(
+                'transition-all duration-300 rounded-lg',
+                isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
+              )}
+              style={{ transitionDelay: isMobileMenuOpen ? '50ms' : `${(navItems.length - 0) * 30}ms` }}
+            >
+              <button
+                type="button"
+                onClick={() => setMobileCommunityOpen((o) => !o)}
+                className={cn(
+                  'flex w-full items-center justify-between text-base py-2 px-4 rounded-lg text-left transition-colors',
+                  isCommunityPath(pathname)
+                    ? 'text-orange-400 font-semibold bg-orange-400/10'
+                    : 'text-white hover:text-orange-400 hover:bg-white/5'
+                )}
+                aria-expanded={mobileCommunityOpen}
+                aria-controls="mobile-community-submenu"
+              >
+                <span>Community</span>
+                <ChevronDown
+                  className={cn(
+                    'h-5 w-5 shrink-0 transition-transform duration-200',
+                    mobileCommunityOpen && 'rotate-180'
+                  )}
+                  aria-hidden
+                />
+              </button>
+              <div
+                id="mobile-community-submenu"
+                className={cn(
+                  'overflow-hidden transition-all duration-300',
+                  mobileCommunityOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
+                )}
+              >
+                <div className="ml-2 mt-1 space-y-1 border-l border-white/20 pl-3">
+                  {communitySubLinks.map((item) => (
+                    <Link
+                      key={item.link}
+                      href={item.link}
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        setMobileCommunityOpen(false);
+                      }}
+                      className={cn(
+                        'block rounded-lg py-2 pl-2 pr-4 text-sm transition-colors',
+                        pathname === item.link
+                          ? 'text-orange-400 font-semibold'
+                          : 'text-white/90 hover:text-orange-300'
+                      )}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {navItems.slice(1).map((item, index) => (
               <Link
                 key={item.link}
                 href={item.link}
@@ -261,12 +408,12 @@ const Navbar = () => {
                   pathname === item.link
                     ? 'text-orange-400 font-semibold bg-orange-400/10'
                     : 'text-white hover:text-orange-400 hover:bg-white/5',
-                  isMobileMenuOpen
-                    ? 'translate-y-0 opacity-100'
-                    : '-translate-y-2 opacity-0'
+                  isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
                 )}
                 style={{
-                  transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : `${(navItems.length - index) * 30}ms`
+                  transitionDelay: isMobileMenuOpen
+                    ? `${(index + 2) * 50}ms`
+                    : `${(navItems.length - index - 1) * 30}ms`
                 }}
               >
                 {item.name}
