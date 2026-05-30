@@ -21,7 +21,7 @@ export default function NotFound() {
         
         {/* Text Section */}
         <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
-          <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
+          <span className="text-heading-gradient">
             Page Not Found
           </span>
         </h1>

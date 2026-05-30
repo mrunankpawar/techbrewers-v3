@@ -34,7 +34,7 @@ export default function SignUpPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center w-full">
           {/* Left Side - Header Text */}
           <div className="flex flex-col justify-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent leading-tight pb-2">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-heading-gradient leading-tight pb-2">
               Join the Community
             </h1>
             
@@ -134,7 +134,7 @@ export default function SignUpPage() {
                   theme="light"
                   onSuccess={handleSuccess}
                   onError={handleError}
-                  redirectAfterSuccess="/events"
+                  redirectAfterSuccess="/events/partners"
                 />
               </div>
             </div>

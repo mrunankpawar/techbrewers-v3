@@ -48,7 +48,7 @@ const MeetTheTeam = () => {
           <h2 className="text-4xl md:text-6xl font-bold mb-4">
             <span className="text-white">Meet the Team Making</span>
             <br />
-            <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">Things Happen Every Day</span>
+            <span className="text-heading-gradient">Things Happen Every Day</span>
           </h2>
           
           {/* Description */}

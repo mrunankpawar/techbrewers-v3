@@ -32,9 +32,9 @@ const HeroNew = () => {
 
         {/* Main Headline */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-6 leading-tight">
-          <span className="bg-gradient-to-b from-orange-600 via-orange-700 to-orange-800 bg-clip-text text-transparent">TechThrusters</span>
+          <span className="text-heading-gradient-brand">TechThrusters</span>
           <br />
-          <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">Learn. Connect. Build</span>
+          <span className="text-heading-gradient">Learn. Connect. Build</span>
         </h1>
 
         {/* Header Images */}

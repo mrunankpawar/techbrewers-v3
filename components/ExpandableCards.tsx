@@ -172,7 +172,28 @@ function ExpandableCards() {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full space-y-4 px-6 pb-20">
+      <section
+        id="past-livestreams"
+        className="relative mx-auto w-full max-w-6xl scroll-mt-28 px-5 pb-20 md:px-8"
+        aria-labelledby="past-livestreams-heading"
+      >
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-orange-400/90">
+            Past events
+          </p>
+          <h1
+            id="past-livestreams-heading"
+            className="text-3xl font-bold text-heading-gradient md:text-5xl"
+          >
+            YouTube livestreams
+          </h1>
+          <p className="mt-4 text-base text-gray-400 md:text-lg">
+            Rewatch recorded talks and community sessions from our YouTube
+            channel.
+          </p>
+        </div>
+
+      <ul className="mx-auto mt-12 max-w-2xl w-full list-none space-y-4 px-1">
         {cards.map((card, index) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
@@ -234,6 +255,7 @@ function ExpandableCards() {
           </motion.div>
         ))}
       </ul>
+      </section>
     </>
   );
 }

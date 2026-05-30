@@ -153,6 +153,23 @@
     .gradient-background {
       background: linear-gradient(180deg, #2a2019 0%, #3a2a1f 50%, #2a2019 100%);
     }
+
+    /*
+     * Section headings on dark backgrounds.
+     * Tailwind-only bg-clip-text + text-transparent can render invisible text
+     * (visible only when selected). Use these utilities instead.
+     */
+    .text-heading-gradient {
+      color: #ffffff;
+    }
+
+    .text-heading-gradient-orange {
+      color: #fb923c;
+    }
+
+    .text-heading-gradient-brand {
+      color: #ea580c;
+    }
     
     /* Brown solid background */
     .brown-background {

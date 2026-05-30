@@ -41,7 +41,7 @@ const CommunityInfo = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
+            <span className="text-heading-gradient">
               What Makes TechThrusters Special
             </span>
           </h2>
@@ -109,7 +109,7 @@ const CommunityInfo = () => {
                   className="text-center group/stat"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="text-4xl md:text-5xl font-bold bg-gradient-to-b from-white via-white to-white/80 bg-clip-text text-transparent mb-2 group-hover/stat:from-orange-400 group-hover/stat:via-orange-300 group-hover/stat:to-orange-400 transition-all duration-500">
+                  <div className="text-4xl md:text-5xl font-bold text-heading-gradient mb-2 transition-colors duration-500 group-hover/stat:text-orange-400">
                     {stat.value}
                   </div>
                   <div className="text-sm md:text-base text-gray-300/80 group-hover/stat:text-gray-200 transition-colors duration-300">

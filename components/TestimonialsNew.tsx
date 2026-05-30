@@ -106,7 +106,7 @@ const TestimonialsNew = () => {
       <div className="self-stretch py-6 md:py-8 lg:py-14 flex flex-col justify-center items-center gap-2">
         <div className="flex flex-col justify-start items-center gap-4">
           <h2 className="text-center text-white text-4xl md:text-6xl font-bold leading-tight">
-            <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
+            <span className="text-heading-gradient">
               Community made impactful
             </span>
           </h2>

@@ -31,7 +31,7 @@ const AnnouncementBar = () => {
           <div className="flex items-center space-x-2">
             <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
           </div>
-          <span className="text-sm bg-gradient-to-r from-white via-orange-50 to-white bg-clip-text text-transparent">
+          <span className="text-sm text-heading-gradient">
             <a 
               href="https://bit.ly/TBDISCORD" 
               target="_blank" 

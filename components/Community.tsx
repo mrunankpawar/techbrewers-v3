@@ -118,11 +118,11 @@ const Community = () => {
         <div className="relative z-10 flex flex-col items-center justify-center min-h-[70vh]">
           <div className="max-w-7xl mx-auto w-full text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
+            <span className="text-heading-gradient">
               Join a Community That
             </span>
             <br />
-            <span className="bg-gradient-to-b from-orange-400 to-orange-600 bg-clip-text text-transparent">
+            <span className="text-heading-gradient-orange">
               Grows With You
             </span>
           </h1>
@@ -144,7 +144,7 @@ const Community = () => {
               <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/10 group-hover:via-orange-500/5 group-hover:to-orange-500/10 transition-all duration-500 pointer-events-none" />
             </a>
             <Link
-              href="/events"
+              href="/events/partners"
               className="group relative bg-gradient-to-r from-white/10 to-white/5 hover:from-white/20 hover:to-white/10 text-white px-8 py-3.5 rounded-xl font-semibold transition-all duration-300 backdrop-blur-xl border border-white/20 hover:border-orange-500/40 shadow-lg hover:shadow-[0_8px_30px_rgba(197,79,14,0.15)] hover:-translate-y-0.5"
               style={{ willChange: 'transform' }}
             >
@@ -160,7 +160,7 @@ const Community = () => {
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-bold mb-4">
-              <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
+              <span className="text-heading-gradient">
                 Our Journey
               </span>
             </h2>
@@ -204,7 +204,7 @@ const Community = () => {
                         
                         <div className="relative z-10">
                           <div className="flex items-center gap-3 mb-3">
-                            <span className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-orange-400 to-orange-600 bg-clip-text text-transparent">
+                            <span className="text-3xl md:text-4xl font-bold text-heading-gradient-orange">
                               {item.year}
                             </span>
                             {index === journeyTimeline.length - 1 && (
@@ -298,7 +298,7 @@ const FAQSection = () => {
       <div className="relative max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
+            <span className="text-heading-gradient">
               Frequently Asked Questions
             </span>
           </h2>

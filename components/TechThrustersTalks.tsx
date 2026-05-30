@@ -25,7 +25,7 @@ const TechThrustersTalks = () => {
               id="techthrusters-talks-heading"
               className="text-3xl md:text-5xl font-bold mb-4"
             >
-              <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
+              <span className="text-heading-gradient">
                 TechThrusters Talks
               </span>
             </h2>

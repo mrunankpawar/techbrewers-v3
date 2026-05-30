@@ -108,7 +108,7 @@ export default function TalksPage() {
               </div>
               <p className="text-sm font-medium text-orange-200/80 mb-2">Community speaker series</p>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
+                <span className="text-heading-gradient">
                   TechThrusters Talks
                 </span>
               </h1>
@@ -140,7 +140,7 @@ export default function TalksPage() {
                   community page
                 </Link>{' '}
                 or{' '}
-                <Link href="/events" className="text-orange-300 hover:text-orange-200 underline underline-offset-2">
+                <Link href="/events/partners" className="text-orange-300 hover:text-orange-200 underline underline-offset-2">
                   browse events
                 </Link>{' '}
                 to see what we are about.

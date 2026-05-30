@@ -36,11 +36,11 @@ const MeetupStats = () => {
           {/* Section Header */}
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
-              <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
+              <span className="text-heading-gradient">
                 Building Community
               </span>
               <br />
-              <span className="bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
+              <span className="text-heading-gradient">
                 One Meetup at a Time
               </span>
             </h2>
@@ -81,7 +81,7 @@ const MeetupStats = () => {
                   </div>
                   
                   {/* Value */}
-                  <div className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-white via-white to-white/80 bg-clip-text text-transparent mb-2 relative z-10 group-hover:from-orange-400 group-hover:via-orange-300 group-hover:to-orange-400 transition-all duration-500">
+                  <div className="text-3xl md:text-4xl font-bold text-heading-gradient mb-2 relative z-10 transition-colors duration-500 group-hover:text-orange-400">
                     {stat.value}
                   </div>
                   
