@@ -64,7 +64,7 @@ export default function Home() {
         <CommunityInfo />
         <Sponsors />
         <MeetTheTeam />
-        <TestimonialsNew />
+        {/* <TestimonialsNew /> */}
         <FooterNew />
       </main>
     </>
