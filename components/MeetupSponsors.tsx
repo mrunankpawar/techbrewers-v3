@@ -1,64 +1,46 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 const meetupSponsors = [
-  {
-    name: "GitHub",
-    logo: "/images/sponsors/github.png",
-    url: "https://github.com/",
-  },
-  {
-    name: "Securityium",
-    logo: "/images/sponsors/securityium.png",
-    url: "https://www.securityium.com/",
-  },
-  {
-    name: "Daftar",
-    logo: "/images/sponsors/daftar.png",
-    url: "https://www.instagram.com/thedaftar/",
-  },
-  {
-    name: "Peerlist",
-    logo: "/images/sponsors/peerlist.png",
-    url: "https://peerlist.io/",
-  },
-  {
-    name: "Geeks For Geeks",
-    logo: "/images/sponsors/gfg.png",
-    url: "https://www.geeksforgeeks.org/",
-  },
-  {
-    name: "Hack 2 Skill",
-    logo: "/images/sponsors/h2s.png",
-    url: "https://hack2skill.com/",
-  },
-  {
-    name: "Aeka Coffee",
-    logo: "/images/sponsors/aeka.png",
-    url: "https://www.instagram.com/aekascoffee/",
-  },
-  {
-    name: "Moneylancer Investments",
-    logo: "/images/sponsors/moneylancer.png",
-    url: "https://mymoneylancer.com/",
-  },
-
+  { name: "GitHub", logo: "/images/sponsors/github.png", url: "https://github.com/" },
+  { name: "Securityium", logo: "/images/sponsors/securityium.png", url: "https://www.securityium.com/" },
+  { name: "Daftar", logo: "/images/sponsors/daftar.png", url: "https://www.instagram.com/thedaftar/" },
+  { name: "Peerlist", logo: "/images/sponsors/peerlist.png", url: "https://peerlist.io/" },
+  { name: "Geeks For Geeks", logo: "/images/sponsors/gfg.png", url: "https://www.geeksforgeeks.org/" },
+  { name: "Hack 2 Skill", logo: "/images/sponsors/h2s.png", url: "https://hack2skill.com/" },
+  { name: "Aeka Coffee", logo: "/images/sponsors/aeka.png", url: "https://www.instagram.com/aekascoffee/" },
+  { name: "Moneylancer Investments", logo: "/images/sponsors/moneylancer.png", url: "https://mymoneylancer.com/" },
 ];
 
 function Sponsors() {
   return (
     <div className="mt-0 h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-5 md:py-10">
       <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center text-center">
-        <h3 className="text-4xl md:text-6xl font-bold text-heading-gradient z-10">
+        <motion.h3
+          className="text-4xl md:text-6xl font-bold text-heading-gradient z-10"
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.42, ease }}
+        >
           Past Sponsors
-        </h3>
+        </motion.h3>
 
         <div className="container mx-auto px-4 mt-10">
           <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {meetupSponsors.map((sponsor, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="group relative"
+                initial={{ opacity: 0, scale: 0.92 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.05, ease }}
                 style={{ willChange: 'transform' }}
               >
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -74,7 +56,7 @@ function Sponsors() {
                     />
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

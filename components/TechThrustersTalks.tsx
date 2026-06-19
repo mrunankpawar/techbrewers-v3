@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
 import { Mic2 } from 'lucide-react';
 import { TECHTHRUSTERS_TALKS_FORM_URL } from '@/lib/techthrusters-talks';
+import { motion } from 'framer-motion';
 
 const TechThrustersTalks = () => {
   return (
@@ -12,10 +15,16 @@ const TechThrustersTalks = () => {
       <div className="absolute inset-0 bg-gradient-radial from-orange-500/10 via-orange-500/5 to-transparent pointer-events-none" />
 
       <div className="relative max-w-3xl mx-auto">
-        <div className="relative group">
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/10 via-transparent to-orange-500/10 rounded-2xl blur opacity-50" />
+        <motion.div
+          className="relative group"
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/10 via-transparent to-orange-500/10 rounded-2xl blur opacity-40" />
 
-          <div className="relative bg-gradient-to-br from-black/40 via-black/30 to-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-8 md:p-10 text-center hover:border-orange-500/30 transition-all duration-500">
+          <div className="relative bg-gradient-to-br from-black/40 via-black/30 to-black/40 border border-white/10 rounded-2xl p-8 md:p-10 text-center hover:border-orange-500/20 transition-colors duration-300">
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500/15 to-orange-600/10 border border-white/10 mb-5">
               <Mic2 className="w-6 h-6 text-orange-300/90" aria-hidden />
             </div>
@@ -42,20 +51,15 @@ const TechThrustersTalks = () => {
               href={TECHTHRUSTERS_TALKS_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-white/10 to-white/5 hover:from-orange-500/20 hover:to-orange-600/20 text-white px-8 py-3.5 rounded-xl font-semibold transition-all duration-300 backdrop-blur-xl border border-white/20 hover:border-orange-500/40 shadow-lg hover:shadow-[0_8px_30px_rgba(197,79,14,0.25)] hover:-translate-y-0.5"
-              style={{ willChange: 'transform' }}
+              className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-white/10 to-white/5 hover:from-orange-500/20 hover:to-orange-600/20 text-white px-8 py-3.5 rounded-xl font-semibold transition-colors duration-200 border border-white/20 hover:border-orange-500/40 shadow-lg hover:-translate-y-0.5 transition-transform"
             >
-              <span className="relative z-10">Apply to speak</span>
-              <span
-                className="relative z-10 inline-block group-hover:translate-x-0.5 transition-transform"
-                aria-hidden
-              >
+              <span>Apply to speak</span>
+              <span className="inline-block group-hover:translate-x-0.5 transition-transform duration-200" aria-hidden>
                 →
               </span>
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/10 group-hover:via-orange-500/5 group-hover:to-orange-500/10 transition-all duration-500 pointer-events-none" />
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

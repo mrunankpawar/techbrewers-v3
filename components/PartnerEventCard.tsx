@@ -17,7 +17,7 @@ function ArrowIcon() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-4 w-4 transition-transform group-hover:translate-x-1"
+      className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
       aria-hidden
     >
       <path d="M5 12h14" />
@@ -26,22 +26,14 @@ function ArrowIcon() {
   );
 }
 
-
 function PartnerEventCard({ event }: PartnerEventCardProps) {
   const eventPageUrl = event.eventPageUrl ?? event.registerUrl;
 
   return (
-    <article
-      className="group relative flex flex-col items-center justify-between rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.02] p-4 backdrop-blur-xl transition-all duration-500 hover:border-orange-500/40 hover:shadow-[0_8px_30px_rgba(197,79,14,0.12)] md:flex-row md:items-start"
-      style={{ willChange: "transform" }}
-    >
+    <article className="group relative flex flex-col items-center justify-between rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-4 transition-colors duration-300 hover:border-orange-500/30 md:flex-row md:items-start">
       <div className="flex w-full flex-col items-center gap-1 text-center md:items-start md:text-left">
         <h3 className="font-medium text-white">{event.title}</h3>
-        <time
-          dateTime={event.date}
-          className="text-sm"
-          style={{ color: "#C54F0E" }}
-        >
+        <time dateTime={event.date} className="text-sm" style={{ color: '#C54F0E' }}>
           {event.date}
         </time>
         {event.location ? (
@@ -53,7 +45,7 @@ function PartnerEventCard({ event }: PartnerEventCardProps) {
         href={eventPageUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="group mt-4 inline-flex items-center gap-2 rounded-xl border border-orange-500/30 bg-gradient-to-r from-orange-500/10 to-orange-600/10 px-4 py-2 text-sm font-medium text-orange-300 transition-all duration-300 hover:border-orange-500/50 hover:from-orange-500/20 hover:to-orange-600/20 hover:text-orange-200 md:mt-0 md:shrink-0"
+        className="group mt-4 inline-flex items-center gap-2 rounded-xl border border-orange-500/30 bg-gradient-to-r from-orange-500/10 to-orange-600/10 px-4 py-2 text-sm font-medium text-orange-300 transition-colors duration-200 hover:border-orange-500/50 hover:text-orange-200 md:mt-0 md:shrink-0"
       >
         Event page
         <ArrowIcon />

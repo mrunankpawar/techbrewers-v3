@@ -2,33 +2,32 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 const teamMembers = [
   {
     id: 1,
     name: "Mrunank Pawar",
-    // title: "Co-Founder, CEO",
     image: "/images/team/mrunanknew.png",
     linkedin: "https://www.linkedin.com/in/mrunankpawar/",
   },
   {
     id: 2,
     name: "Vaibhav Kadam",
-    // title: "Co-Founder, CTO",
     image: "/images/team/vaibhavnew.png",
     linkedin: "https://www.linkedin.com/in/4lph4v/",
   },
   {
     id: 3,
     name: "Abhi Savale",
-    // title: "Senior Developer",
     image: "/images/team/abhinew.png",
     linkedin: "https://www.linkedin.com/in/abhijeet-savale/",
   },
   {
     id: 4,
     name: "Sana Shaikh",
-    // title: "Chief Operations Officer",
     image: "/images/team/sananew.png",
     linkedin: "https://www.linkedin.com/in/sanashaikh30/",
   },
@@ -40,42 +39,46 @@ const MeetTheTeam = () => {
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-radial from-orange-500/15 via-orange-500/5 to-transparent pointer-events-none" />
       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-1/3 bg-gradient-to-t from-orange-500/10 via-transparent to-transparent pointer-events-none" />
-      
+
       <div className="relative max-w-7xl mx-auto">
         {/* Top Section */}
-        <div className="text-center mb-12">
-          {/* Main Title */}
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.45, ease }}
+        >
           <h2 className="text-4xl md:text-6xl font-bold mb-4">
             <span className="text-white">Meet the Team Making</span>
             <br />
             <span className="text-heading-gradient">Things Happen Every Day</span>
           </h2>
-          
-          {/* Description */}
           <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
             We&apos;re more than just a team—we&apos;re a close-knit family of passionate individuals.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Team Grid - Horizontal Cards */}
+        {/* Team Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {teamMembers.map((member, index) => (
-            <div
+            <motion.div
               key={member.id}
               className="group relative"
-              style={{ 
-                animationDelay: `${index * 100}ms`,
-                willChange: 'transform'
-              }}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.42, delay: index * 0.08, ease }}
+              style={{ willChange: 'transform' }}
             >
               {/* Gradient Border Effect */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
+
               {/* Card */}
-              <div className="relative bg-gradient-to-br from-black/40 via-black/30 to-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-orange-500/40 transition-all duration-500 group-hover:shadow-[0_8px_30px_rgba(197,79,14,0.12)] flex items-center">
+              <div className="relative bg-gradient-to-br from-black/40 via-black/30 to-black/40 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:border-orange-500/40 transition-all duration-500 group-hover:shadow-[0_8px_30px_rgba(197,79,14,0.12)] flex items-center">
                 {/* Glow Effect */}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:via-orange-500/0 group-hover:to-orange-500/5 transition-all duration-500 pointer-events-none" />
-                
+
                 {/* Profile Picture */}
                 <div className="flex-shrink-0 mr-4 relative z-10">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-white/20 group-hover:border-orange-500/60 transition-all duration-500">
@@ -88,14 +91,14 @@ const MeetTheTeam = () => {
                     />
                   </div>
                 </div>
-                
+
                 {/* Info Section */}
                 <div className="flex-1 min-w-0 relative z-10">
                   <h3 className="text-white font-bold text-lg truncate group-hover:text-orange-200 transition-colors duration-300">
                     {member.name}
                   </h3>
                 </div>
-                
+
                 {/* LinkedIn Button */}
                 <div className="flex-shrink-0 ml-4 relative z-10">
                   <a
@@ -111,7 +114,7 @@ const MeetTheTeam = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -120,4 +123,3 @@ const MeetTheTeam = () => {
 };
 
 export default MeetTheTeam;
-

@@ -1,21 +1,37 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from './Navbar';
+import { motion } from 'framer-motion';
+
+const ease = [0.22, 1, 0.36, 1] as const;
+
+function fadeUp(delay: number) {
+  return {
+    initial: { opacity: 0, y: 22 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.65, delay, ease },
+  };
+}
 
 const HeroNew = () => {
   return (
     <div className="relative min-h-screen overflow-hidden sepia-background-hero">
       {/* Gradient Overlay */}
       <div className="absolute inset-0 sepia-gradient-overlay" />
-      
+
       {/* Navigation */}
       <Navbar />
 
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-[80vh] px-6 pt-32 md:pt-40">
-        {/* Announcement: TechThrusters Talks speaker applications */}
-        <div className="mb-8 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-0 max-w-lg sm:max-w-none mx-auto bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-2xl sm:rounded-full px-4 py-3 sm:py-2 hover:border-orange-500/40 transition-all duration-300 group shadow-lg hover:shadow-[0_8px_30px_rgba(197,79,14,0.15)]">
+        {/* Announcement */}
+        <motion.div
+          {...fadeUp(0)}
+          className="mb-8 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-0 max-w-lg sm:max-w-none mx-auto bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-md border border-white/20 rounded-2xl sm:rounded-full px-4 py-3 sm:py-2 hover:border-orange-500/40 transition-all duration-300 group shadow-lg hover:shadow-[0_8px_30px_rgba(197,79,14,0.15)]"
+        >
           <div className="flex justify-center sm:justify-start sm:shrink-0">
             <span className="inline-flex bg-gradient-to-r from-orange-500/30 to-orange-600/20 border border-orange-400/40 rounded-full px-3 py-1 text-orange-200 text-xs sm:text-sm font-semibold group-hover:from-orange-500/40 group-hover:to-orange-600/30 transition-all duration-300">
               NEW
@@ -28,17 +44,23 @@ const HeroNew = () => {
           >
             Apply to speak — TechThrusters Talks
           </Link>
-        </div>
+        </motion.div>
 
         {/* Main Headline */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-6 leading-tight">
+        <motion.h1
+          {...fadeUp(0.15)}
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-6 leading-tight"
+        >
           <span className="text-heading-gradient-brand">TechThrusters</span>
           <br />
           <span className="text-heading-gradient">Learn. Connect. Build</span>
-        </h1>
+        </motion.h1>
 
         {/* Header Images */}
-        <div className="flex items-center justify-center mb-6 select-none pointer-events-none">
+        <motion.div
+          {...fadeUp(0.3)}
+          className="flex items-center justify-center mb-6 select-none pointer-events-none"
+        >
           <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-white/20 -mr-4 md:-mr-6 z-10">
             <Image
               src="/images/header/1.png"
@@ -72,27 +94,30 @@ const HeroNew = () => {
               unoptimized
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Description */}
-        <p className="text-lg md:text-xl text-white/80 text-center mb-8 max-w-3xl leading-relaxed">
-          Join a thriving community of innovators, creators, and lifelong learners. 
+        <motion.p
+          {...fadeUp(0.45)}
+          className="text-lg md:text-xl text-white/80 text-center mb-8 max-w-3xl leading-relaxed"
+        >
+          Join a thriving community of innovators, creators, and lifelong learners.
           Build projects, launch careers, and connect with tech leaders shaping tomorrow.
-        </p>
+        </motion.p>
 
         {/* CTA Button */}
-        <div className="flex justify-center mb-12">
-          <a 
+        <motion.div {...fadeUp(0.6)} className="flex justify-center mb-12">
+          <a
             href="https://bit.ly/TBDISCORD"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative bg-gradient-to-r from-white/10 to-white/5 hover:from-orange-500/20 hover:to-orange-600/20 text-white px-8 py-3.5 rounded-xl font-semibold transition-all duration-300 backdrop-blur-xl border border-white/20 hover:border-orange-500/40 text-center shadow-lg hover:shadow-[0_8px_30px_rgba(197,79,14,0.25)] hover:-translate-y-0.5"
+            className="group relative bg-gradient-to-r from-white/10 to-white/5 hover:from-orange-500/20 hover:to-orange-600/20 text-white px-8 py-3.5 rounded-xl font-semibold transition-all duration-300 backdrop-blur-md border border-white/20 hover:border-orange-500/40 text-center shadow-lg hover:shadow-[0_8px_30px_rgba(197,79,14,0.25)] hover:-translate-y-0.5"
             style={{ willChange: 'transform' }}
           >
             <span className="relative z-10">Join Discord</span>
             <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/10 group-hover:via-orange-500/5 group-hover:to-orange-500/10 transition-all duration-500 pointer-events-none" />
           </a>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

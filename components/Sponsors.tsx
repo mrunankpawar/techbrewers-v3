@@ -1,5 +1,8 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from 'framer-motion';
 
 const sponsors = [
   // Row 1: 2 logos
@@ -98,16 +101,28 @@ function Sponsors() {
   return (
     <div className="h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-10 md:py-14 gradient-background">
       <div className="max-w-[89vw] md:max-w-3xl lg:max-w-6xl flex flex-col items-center justify-center text-center gap-4">
-        <div className="space-y-3">
+        <motion.div
+          className="space-y-3"
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        >
           <h3 className="text-4xl md:text-6xl font-bold text-heading-gradient z-10">
             Sponsors & Partners
           </h3>
           <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto">
             TechThrusters is free and open for everyone, made possible by these wonderful sponsors and partners who support our events, programs, and members.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="container mx-auto px-4 mt-8 md:mt-10 w-full">
+        <motion.div
+          className="container mx-auto px-4 mt-8 md:mt-10 w-full"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.45, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        >
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-black/20 to-black/10 backdrop-blur-sm">
             {/* Row 1: 2 logos */}
             <div className="grid grid-cols-2">
@@ -288,7 +303,7 @@ function Sponsors() {
               })}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
