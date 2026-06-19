@@ -54,8 +54,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="bg-black-100" lang="en">
-      <body className={`${bricolageGrotesque.variable} ${bricolageGrotesque.className} bg-black-100`}>
+    <html className="bg-[#1a1209]" lang="en">
+      <body className={`${bricolageGrotesque.variable} ${bricolageGrotesque.className} bg-[#1a1209]`}>
       <AuthProvider 
         projectId={process.env.NEXT_PUBLIC_DESCOPE_PROJECT_ID || ""}
         persistTokens={true}

@@ -17,13 +17,6 @@ export type PartnerEvent = {
  */
 export const partnerEvents: PartnerEvent[] = [
   {
-    id: "developer-week-nyc-2026",
-    title: "Developer Week NYC",
-    date: "June 9–10, 2026",
-    location: "New York City",
-    registerUrl: "https://www.developerweek.com/newyork/",
-  },
-  {
     id: "punefoss-4",
     title: "PuneFOSS 4.0",
     date: "June 20, 2026",
