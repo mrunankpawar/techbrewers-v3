@@ -38,9 +38,10 @@ const CommunityInfo = () => {
   ];
 
   const stats = [
-    { value: '1900+', label: 'Members' },
-    { value: '50+', label: 'Events & Workshops' },
-    { value: '4+', label: 'Years Growing' },
+    { number: '1,900', label: 'Members' },
+    { number: '10', label: 'Countries' },
+    { number: '50', label: 'Events & Workshops' },
+    { number: '4', label: 'Years Growing' },
   ];
 
   return (
@@ -111,23 +112,28 @@ const CommunityInfo = () => {
           viewport={{ once: true, amount: 0.2 }}
           custom={0.08}
         >
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/10 via-transparent to-orange-500/10 rounded-2xl blur opacity-40" />
-          <div className="relative bg-gradient-to-br from-black/40 via-black/30 to-black/40 border border-white/10 rounded-2xl p-8 md:p-12">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          <div className="relative bg-[#1a1208] border border-white/[0.07] rounded-2xl px-6 py-10 md:py-12">
+            <div className="grid grid-cols-2 md:grid-cols-4">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
-                  className="text-center group/stat"
+                  className={[
+                    'flex flex-col items-center justify-center text-center px-6 py-8 md:py-0 border-white/10',
+                    index % 2 === 0 ? 'border-r' : '',
+                    index === 1 ? 'md:border-r' : '',
+                    index < 2 ? 'border-b md:border-b-0' : '',
+                  ].join(' ')}
                   variants={inView}
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true, amount: 0.3 }}
                   custom={index * 0.08}
                 >
-                  <div className="text-4xl md:text-5xl font-bold text-white mb-2 group-hover/stat:text-orange-300 transition-colors duration-200">
-                    {stat.value}
+                  <div className="text-5xl md:text-6xl font-bold mb-3 leading-none">
+                    <span className="text-white">{stat.number}</span>
+                    <span className="text-orange-500">+</span>
                   </div>
-                  <div className="text-sm md:text-base text-gray-400">
+                  <div className="text-sm md:text-base text-gray-400 tracking-wide">
                     {stat.label}
                   </div>
                 </motion.div>
