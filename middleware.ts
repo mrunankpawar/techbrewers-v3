@@ -17,6 +17,7 @@ export default authMiddleware({
     '/meetup',
     '/talks',
     '/sign-up',
+    '/auth/callback',
   ]
 })
 
