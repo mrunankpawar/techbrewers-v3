@@ -1,11 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 
-// Dynamically import Descope component with SSR disabled
 const Descope = dynamic(
   () => import('@descope/nextjs-sdk').then((mod) => mod.Descope),
   { ssr: false }
@@ -13,9 +13,11 @@ const Descope = dynamic(
 
 export default function SignUpPage() {
   const router = useRouter();
+  const [signedIn, setSignedIn] = useState(false);
 
   const handleSuccess = (_e: CustomEvent) => {
-    router.push('/');
+    setSignedIn(true);
+    setTimeout(() => router.push('/'), 1500);
   };
 
   const handleError = (e: CustomEvent) => {
@@ -127,12 +129,25 @@ export default function SignUpPage() {
             <div className="relative group w-full max-w-md">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-2xl blur-sm opacity-50" />
               <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-                <Descope
-                  flowId="sign-up-or-in"
-                  theme="light"
-                  onSuccess={handleSuccess}
-                  onError={handleError}
-                />
+                {signedIn ? (
+                  <div className="flex flex-col items-center justify-center gap-3 py-12 text-center">
+                    <div className="flex items-center justify-center w-14 h-14 rounded-full bg-orange-500/20 border border-orange-400/40">
+                      <svg className="w-7 h-7 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <p className="text-white font-semibold text-lg">Signed in successfully!</p>
+                    <p className="text-white/50 text-sm">Redirecting you to the home page…</p>
+                  </div>
+                ) : (
+                  <Descope
+                    flowId="sign-up-or-in"
+                    theme="light"
+                    onSuccess={handleSuccess}
+                    onError={handleError}
+                    redirectAfterSuccess="/"
+                  />
+                )}
               </div>
             </div>
           </div>
