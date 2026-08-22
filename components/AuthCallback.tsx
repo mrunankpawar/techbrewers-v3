@@ -40,7 +40,7 @@ function AuthCallbackInner() {
         <p className="text-sm font-semibold text-white">
           {name ? `Welcome back, ${name}!` : 'Signed in successfully!'}
         </p>
-        <p className="text-xs text-white/50">You're now logged in.</p>
+        <p className="text-xs text-white/50">You&apos;re now logged in.</p>
       </div>
     </div>
   );
