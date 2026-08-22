@@ -17,10 +17,27 @@ export type PartnerEvent = {
  */
 export const partnerEvents: PartnerEvent[] = [
   {
-    id: "punefoss-4",
-    title: "PuneFOSS 4.0",
-    date: "June 20, 2026",
-    location: "Pune",
-    registerUrl: "https://fossunited.org/c/pune/punefoss4",
+    id: "api-world-2026",
+    title: "API World",
+    date: "September 1–3, 2026",
+    location: "Santa Clara Convention Center",
+    registerUrl: "https://link.devnetwork.com/ZryGirAp",
+    eventPageUrl: "https://apiworld.co/",
+  },
+  {
+    id: "cloudx-2026",
+    title: "CloudX",
+    date: "September 1–3, 2026",
+    location: "Santa Clara Convention Center",
+    registerUrl: "https://link.devnetwork.com/ZryGirAp",
+    eventPageUrl: "https://cloudxconf.com/",
+  },
+  {
+    id: "ai-techworld-2026",
+    title: "AI TechWorld",
+    date: "September 1–3, 2026",
+    location: "Santa Clara Convention Center",
+    registerUrl: "https://link.devnetwork.com/ZryGirAp",
+    eventPageUrl: "https://aitechworld.co/",
   },
 ];
