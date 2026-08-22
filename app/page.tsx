@@ -5,6 +5,7 @@ import CommunityInfo from "@/components/CommunityInfo";
 import Sponsors from "@/components/Sponsors";
 import MeetTheTeam from "@/components/MeetTheTeam";
 import FooterNew from "@/components/FooterNew";
+import AuthCallback from "@/components/AuthCallback";
 import { SITE_URL, SOCIAL } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -36,6 +37,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
+      <AuthCallback />
       <main className="relative overflow-hidden">
         <HeroNew />
         <TechThrustersTalks />
