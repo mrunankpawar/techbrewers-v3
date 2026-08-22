@@ -2,16 +2,14 @@
 import React from "react";
 import { FaCalendarAlt, FaClock, FaUser } from "react-icons/fa";
 
-const upcomingEvents = [
-  {
-    title: "Why AI Coding Agents Break in Real Codebases",
-    speaker: "Manav Sutar",
-    date: "12th July 2025",
-    time: "8:30 PM IST",
-    tag: "Talk",
-    youtubeId: "r3JjQGa4j88",
-  },
-];
+const upcomingEvents: {
+  title: string;
+  speaker: string;
+  date: string;
+  time: string;
+  tag: string;
+  youtubeId?: string;
+}[] = [];
 
 function Events() {
   return (
@@ -24,7 +22,7 @@ function Events() {
         </div>
 
         <div className="mt-8 mb-12 md:mt-12 md:mb-16 w-full flex flex-col gap-6">
-          {upcomingEvents.map((event, index) => (
+          {upcomingEvents.length > 0 ? upcomingEvents.map((event, index) => (
             <div key={index} className="relative group text-left">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-7 hover:border-orange-500/40 transition-all duration-500">
@@ -63,7 +61,12 @@ function Events() {
                 )}
               </div>
             </div>
-          ))}
+          )) : (
+            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] px-6 py-8 text-center backdrop-blur-md">
+              <p className="text-gray-300">No upcoming sessions right now.</p>
+              <p className="mt-2 text-sm text-gray-500">Check back soon for new events and workshops.</p>
+            </div>
+          )}
         </div>
       </div>
     </div>

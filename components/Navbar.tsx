@@ -7,6 +7,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useDescope, useSession, useUser } from '@descope/nextjs-sdk/client';
+import { DISCORD_URL } from '@/lib/constants';
 
 const COMMUNITY_PATHS = ['/community', '/talks'] as const;
 const EVENTS_PATHS = ['/events'] as const;
@@ -319,7 +320,7 @@ const Navbar = () => {
               </>
             )}
             <a
-              href="https://bit.ly/TBDISCORD"
+              href={DISCORD_URL}
               target="_blank"
               rel="noopener noreferrer"
               className={cn(

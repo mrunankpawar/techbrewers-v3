@@ -1,63 +1,41 @@
-import Head from 'next/head';
+import type { Metadata } from 'next';
 import HeroNew from "@/components/HeroNew";
 import TechThrustersTalks from "@/components/TechThrustersTalks";
 import CommunityInfo from "@/components/CommunityInfo";
 import Sponsors from "@/components/Sponsors";
 import MeetTheTeam from "@/components/MeetTheTeam";
-import TestimonialsNew from "@/components/TestimonialsNew";
 import FooterNew from "@/components/FooterNew";
+import { SITE_URL, SOCIAL } from '@/lib/constants';
+
+export const metadata: Metadata = {
+  title: "TechThrusters | Tech Community, Events & Meetups",
+  description: "Join TechThrusters to learn, connect, and build in tech. Discover events, meetups, community programs, and opportunities to grow with 1900+ members.",
+  openGraph: {
+    url: SITE_URL,
+    images: [{ url: `${SITE_URL}/images/ogimagehome.png`, width: 1200, height: 630 }],
+  },
+  twitter: {
+    images: [`${SITE_URL}/images/ogimagehome.png`],
+  },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "TechThrusters",
+  url: SITE_URL,
+  logo: `${SITE_URL}/images/logo/whitetrans.png`,
+  description: "TechThrusters is a community-driven platform empowering tech innovation and learning.",
+  sameAs: [SOCIAL.twitter, SOCIAL.linkedin, SOCIAL.instagram, SOCIAL.discord],
+};
 
 export default function Home() {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "TechThrusters",
-    "url": "https://techthrusters.org",
-    "logo": "https://techthrusters.org/images/logo/whitetrans.png",
-    "description": "TechThrusters is a community-driven platform empowering tech innovation and learning.",
-    "sameAs": [
-      "https://twitter.com/TechThrusters",
-      "https://linkedin.com/company/techthrusters",
-      "https://instagram.com/tech.thrusters",
-      "https://discord.gg/techthrusters"
-    ]
-  };
-
   return (
     <>
-      <Head>
-        <title>TechThrusters</title>
-        <meta name="description" content="Join TechThrusters to learn, connect, and build in tech. Discover events, meetups, community programs, and opportunities to grow with 1900+ members." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="UTF-8" />
-        
-        {/* Primary Meta Tags */}
-        <meta name="title" content="TechThrusters | Tech Community, Events & Meetups" />
-        <meta name="keywords" content="tech community, tech events, programming, software development, tech innovation, tech learning, tech networking" />
-        <meta name="author" content="TechThrusters" />
-        <meta name="robots" content="index, follow" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://techthrusters.org/" />
-        <meta property="og:title" content="TechThrusters | Tech Community, Events & Meetups" />
-        <meta property="og:description" content="Join TechThrusters to learn, connect, and build in tech. Discover events, meetups, community programs, and opportunities to grow with 1900+ members." />
-        <meta property="og:image" content="https://techthrusters.org/images/ogimagehome.png" />
-        
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://techthrusters.org/" />
-        <meta property="twitter:title" content="TechThrusters | Tech Community, Events & Meetups" />
-        <meta property="twitter:description" content="Join TechThrusters to learn, connect, and build in tech. Discover events, meetups, community programs, and opportunities to grow with 1900+ members." />
-        <meta property="twitter:image" content="https://techthrusters.org/images/ogimagehome.png" />
-        
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-      </Head>
-      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <main className="relative overflow-hidden">
         <HeroNew />
         <TechThrustersTalks />

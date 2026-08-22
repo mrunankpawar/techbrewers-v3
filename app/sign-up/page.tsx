@@ -14,13 +14,11 @@ const Descope = dynamic(
 export default function SignUpPage() {
   const router = useRouter();
 
-  const handleSuccess = (e: any) => {
-    console.log('Authentication successful:', e.detail.user);
-    // Redirect to home page after successful authentication
+  const handleSuccess = (_e: CustomEvent) => {
     router.push('/');
   };
 
-  const handleError = (e: any) => {
+  const handleError = (e: CustomEvent) => {
     console.error('Authentication error:', e);
   };
 

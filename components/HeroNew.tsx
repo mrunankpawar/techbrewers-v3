@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from './Navbar';
 import { motion } from 'framer-motion';
+import { DISCORD_URL } from '@/lib/constants';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -108,7 +109,7 @@ const HeroNew = () => {
         {/* CTA Button */}
         <motion.div {...fadeUp(0.6)} className="flex justify-center mb-12">
           <a
-            href="https://bit.ly/TBDISCORD"
+            href={DISCORD_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative bg-gradient-to-r from-white/10 to-white/5 hover:from-orange-500/20 hover:to-orange-600/20 text-white px-8 py-3.5 rounded-xl font-semibold transition-all duration-300 backdrop-blur-md border border-white/20 hover:border-orange-500/40 text-center shadow-lg hover:shadow-[0_8px_30px_rgba(197,79,14,0.25)] hover:-translate-y-0.5"

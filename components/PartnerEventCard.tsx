@@ -33,7 +33,7 @@ function PartnerEventCard({ event }: PartnerEventCardProps) {
     <article className="group relative flex flex-col items-center justify-between rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-4 transition-colors duration-300 hover:border-orange-500/30 md:flex-row md:items-start">
       <div className="flex w-full flex-col items-center gap-1 text-center md:items-start md:text-left">
         <h3 className="font-medium text-white">{event.title}</h3>
-        <time dateTime={event.date} className="text-sm" style={{ color: '#C54F0E' }}>
+        <time dateTime={event.date} className="text-sm text-orange-700">
           {event.date}
         </time>
         {event.location ? (

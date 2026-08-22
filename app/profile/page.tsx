@@ -3,8 +3,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
-import { useUser } from '@descope/nextjs-sdk/client';
-import { useDescope } from '@descope/nextjs-sdk/client';
+import { useUser, useDescope } from '@descope/nextjs-sdk/client';
 import Navbar from '@/components/Navbar';
 import { FaSpinner } from 'react-icons/fa';
 
