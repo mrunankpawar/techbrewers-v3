@@ -134,7 +134,6 @@ export default function SignUpPage() {
                   theme="light"
                   onSuccess={handleSuccess}
                   onError={handleError}
-                  redirectAfterSuccess="/events/partners"
                 />
               </div>
             </div>
