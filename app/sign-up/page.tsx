@@ -145,7 +145,6 @@ export default function SignUpPage() {
                     theme="light"
                     onSuccess={handleSuccess}
                     onError={handleError}
-                    redirectAfterSuccess="/auth/callback"
                   />
                 )}
               </div>
