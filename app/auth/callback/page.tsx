@@ -3,6 +3,7 @@
 import { Suspense, useEffect, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
+import { authRedirectUrl } from '@/lib/auth-redirect';
 import { useSession } from '@descope/nextjs-sdk/client';
 
 const Descope = dynamic(
@@ -42,6 +43,7 @@ function AuthCallbackInner() {
         <div className="hidden">
           <Descope
             flowId="sign-up-or-in"
+            redirectUrl={authRedirectUrl()}
             onSuccess={() => {
               redirected.current = true;
               router.replace('/');
