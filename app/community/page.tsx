@@ -3,6 +3,7 @@ import Community from "@/components/Community";
 import Navbar from "@/components/Navbar";
 import FooterNew from "@/components/FooterNew";
 import { ogImage } from "@/lib/seo";
+import { faqPage, jsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: 'TechThrusters Community | Join 1,900+ Developers',
@@ -29,8 +30,11 @@ export const metadata: Metadata = {
 export default function CommunityPage() {
   return (
     <div className="min-h-screen bg-paper">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqPage('https://techthrusters.org/community')) }} />
       <Navbar />
-      <Community />
+      <main>
+        <Community />
+      </main>
       <FooterNew />
     </div>
   );

@@ -6,7 +6,7 @@ import Sponsors from "@/components/Sponsors";
 import MeetTheTeam from "@/components/MeetTheTeam";
 import FooterNew from "@/components/FooterNew";
 import AuthCallback from "@/components/AuthCallback";
-import { SITE_URL, SOCIAL } from '@/lib/constants';
+import { SITE_URL } from '@/lib/constants';
 import { ogImage } from '@/lib/seo';
 
 export const metadata: Metadata = {
@@ -21,23 +21,10 @@ export const metadata: Metadata = {
   },
 };
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "TechThrusters",
-  url: SITE_URL,
-  logo: `${SITE_URL}/images/logo/whitetrans.png`,
-  description: "TechThrusters is a community-driven platform empowering tech innovation and learning.",
-  sameAs: [SOCIAL.twitter, SOCIAL.linkedin, SOCIAL.instagram, SOCIAL.discord],
-};
 
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
       <AuthCallback />
       <main className="relative overflow-hidden bg-paper">
         <HeroNew />

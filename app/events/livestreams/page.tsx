@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import ExpandableCards from '@/components/ExpandableCards';
 import { ogImage } from '@/lib/seo';
+import { livestreamList, jsonLd } from '@/lib/structured-data';
 
 const TITLE = 'YouTube Livestreams | TechThrusters Events';
 const DESCRIPTION = 'Rewatch TechThrusters recorded talks and community sessions on YouTube.';
@@ -16,5 +17,10 @@ export const metadata: Metadata = {
 };
 
 export default function LivestreamsPage() {
-  return <ExpandableCards />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(livestreamList(URL)) }} />
+      <ExpandableCards />
+    </>
+  );
 }

@@ -6,6 +6,7 @@ import MeetupSponsors from "@/components/MeetupSponsors";
 import Navbar from "@/components/Navbar";
 import FooterNew from "@/components/FooterNew";
 import { ogImage } from "@/lib/seo";
+import { speakerList, jsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: 'TechThrusters Meetups | Speaker Archive & Highlights',
@@ -32,13 +33,14 @@ export const metadata: Metadata = {
 export default function MeetupPage() {
   return (
     <div className="min-h-screen bg-paper">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(speakerList('https://techthrusters.org/meetup')) }} />
       <Navbar />
-      <MeetupStats />
-      <div className="bg-paper">
+      <main>
+        <MeetupStats />
         <Meetup />
         <MeetupTeam />
         <MeetupSponsors />
-      </div>
+      </main>
       <FooterNew />
     </div>
   );

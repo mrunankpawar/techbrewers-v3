@@ -56,12 +56,7 @@ export default function TalksPage() {
         name: 'TechThrusters Talks',
         description:
           'Apply to speak at TechThrusters community talks: lightning sessions, panels, and conversations for developers.',
-        isPartOf: {
-          '@type': 'WebSite',
-          '@id': `${SITE}/#website`,
-          name: 'TechThrusters',
-          url: SITE,
-        },
+        isPartOf: { '@id': `${SITE}/#website` },
       },
       {
         '@type': 'EventSeries',
@@ -70,16 +65,7 @@ export default function TalksPage() {
         description:
           'A series of community-led tech talks, panels, and lightning sessions hosted by TechThrusters.',
         url: CANONICAL,
-        organizer: {
-          '@type': 'Organization',
-          '@id': `${SITE}/#organization`,
-          name: 'TechThrusters',
-          url: SITE,
-          sameAs: [
-            'https://twitter.com/TechThrusters',
-            'https://linkedin.com/company/techthrusters',
-          ],
-        },
+        organizer: { '@id': `${SITE}/#organization` },
       },
     ],
   };

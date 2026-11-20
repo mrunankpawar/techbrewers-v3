@@ -8,6 +8,7 @@ import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { AuthProvider } from '@descope/nextjs-sdk';
 import { ogImage } from "@/lib/seo";
+import { siteGraph, jsonLd } from "@/lib/structured-data";
 
 const sans = Schibsted_Grotesk({
   subsets: ["latin"],
@@ -61,6 +62,7 @@ export default function RootLayout({
   return (
     <html className="bg-[#1a1209]" lang="en" suppressHydrationWarning>
       <body className={`${sans.variable} ${serif.variable} font-sans bg-[#1a1209]`}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(siteGraph()) }} />
       <AuthProvider 
         projectId={process.env.NEXT_PUBLIC_DESCOPE_PROJECT_ID || ""}
         persistTokens={true}

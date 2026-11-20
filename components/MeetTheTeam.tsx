@@ -5,35 +5,13 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { SectionLabel } from './ui/Launch';
+import { TEAM } from '@/data/site';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const teamMembers = [
-  {
-    name: 'Mrunank Pawar',
-    image: '/images/team/mrunanknew.png',
-    linkedin: 'https://www.linkedin.com/in/mrunankpawar/',
-    tile: 'bg-flare',
-  },
-  {
-    name: 'Vaibhav Kadam',
-    image: '/images/team/vaibhavnew.png',
-    linkedin: 'https://www.linkedin.com/in/4lph4v/',
-    tile: 'bg-clay',
-  },
-  {
-    name: 'Abhi Savale',
-    image: '/images/team/abhinew.png',
-    linkedin: 'https://www.linkedin.com/in/abhijeet-savale/',
-    tile: 'bg-espresso',
-  },
-  {
-    name: 'Sana Shaikh',
-    image: '/images/team/sananew.png',
-    linkedin: 'https://www.linkedin.com/in/sanashaikh30/',
-    tile: 'bg-ember',
-  },
-];
+const TILES = ['bg-flare', 'bg-clay', 'bg-espresso', 'bg-ember'];
+const teamMembers = TEAM.map((m, i) => ({ ...m, tile: TILES[i % TILES.length] }));
+
 
 const MeetTheTeam = () => {
   return (
@@ -87,7 +65,7 @@ const MeetTheTeam = () => {
                 <div className="flex items-center justify-between gap-2 px-3 py-3 sm:px-4 sm:py-4 md:px-5">
                   <div className="min-w-0">
                     <h3 className="text-sm font-semibold leading-tight sm:text-base">{m.name}</h3>
-                    <p className="text-xs text-ink/50">Core team</p>
+                    <p className="text-xs text-ink/50">{m.role}</p>
                   </div>
                   <span className="hidden h-8 w-8 shrink-0 sm:inline-flex items-center justify-center rounded-full bg-ink/5 text-ink/60 transition-colors group-hover:bg-ember group-hover:text-paper">
                     <ArrowUpRight className="h-4 w-4" aria-hidden />

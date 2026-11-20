@@ -6,6 +6,7 @@ import { ChevronRight, Plus } from "lucide-react";
 import { ArrowButton } from "./ui/ArrowButton";
 import { PageHeader, SectionLabel } from "./ui/Launch";
 import { DISCORD_URL } from "@/lib/constants";
+import { FAQS, JOURNEY } from "@/data/site";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -19,66 +20,6 @@ function scrollReveal(delay = 0) {
 }
 
 const Community = () => {
-  const journeyTimeline = [
-    {
-      year: 2021,
-      title: "The Beginning",
-      description: "What started as a small group of friends became Hack Club TechBrewers—a student-led community built to share opportunities beyond college walls, from open-source to hackathons and learning in public.",
-      milestones: [
-        "Hack Club TechBrewers founded",
-        "First core team of friends",
-        "Focus on OSS, hackathons & learning in public"
-      ]
-    },
-    {
-      year: 2022,
-      title: "Growing Strong",
-      description: "We hit our first 100 members, rebranded to Club TechBrewers with a new logo, hosted virtual YouTube sessions, ran a logo design competition and closed the year crossing 500+ community members.",
-      milestones: [
-        "100 → 500+ members",
-        "New logo & Club TechBrewers rebrand",
-        "First virtual sessions & logo competition",
-        "First in‑person meetup"
-      ]
-    },
-    {
-      year: 2023,
-      title: "Expanding Horizons",
-      description: "Early 2023 we crossed 1000+ members, celebrated with CelCon to bring the community together, and hosted TechBrewers Meetup 2.0 with incredible speakers sharing their journeys and insights.",
-      milestones: [
-        "1000+ member milestone",
-        "CelCon community celebration",
-        "TechBrewers Meetup 2.0"
-      ]
-    },
-    {
-      year: 2024,
-      title: "Reaching New Heights",
-      description: "We partnered with events, conferences and hackathons, launched monthly newsletters, hosted a GenAI meetup, ran TechBrewers Meetup 3.0 and rebranded from Club TechBrewers to TechThrusters.",
-      milestones: [
-        "Community event partnerships",
-        "Monthly community newsletter",
-        "GenAI meetup",
-        "TechBrewers Meetup 3.0",
-        "Rebrand to TechThrusters"
-      ]
-    },
-    {
-      year: 2025,
-      title: "Building Momentum",
-      description: "We kicked off monthly build challenges so members could ship something new every month, and launched the Open Source Project Incubator Program to help the community build in public together.",
-      milestones: [
-        "Monthly build challenges",
-        "Open Source Project Incubator Program"
-      ]
-    },
-    {
-      year: 2026,
-      title: "The Journey Continues",
-      description: "As we continue our journey, we're committed to empowering more developers, fostering innovation, and building a stronger tech community together.",
-      milestones: ["Ongoing Growth", "Future Initiatives", "Community Expansion"]
-    }
-  ];
 
   return (
     <div className="relative overflow-hidden bg-paper text-ink">
@@ -122,8 +63,8 @@ const Community = () => {
           <ol className="relative">
             {/* flight path */}
             <span aria-hidden className="absolute bottom-3 left-[7px] top-3 w-px bg-gradient-to-b from-ember via-ember/40 to-ember" />
-            {journeyTimeline.map((item, index) => {
-              const isNow = index === journeyTimeline.length - 1;
+            {JOURNEY.map((item, index) => {
+              const isNow = index === JOURNEY.length - 1;
               return (
                 <motion.li
                   key={item.year}
@@ -173,40 +114,6 @@ const Community = () => {
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const faqs = [
-    {
-      question: "How do I join the TechThrusters community?",
-      answer: (
-        <>
-          Getting started is simple, join our {` `}
-          <a
-            href={DISCORD_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-ember underline underline-offset-2 hover:text-ember-bright"
-          >
-            Discord server
-          </a>. Once you&apos;re in, introduce yourself in the welcome channel and start connecting with fellow developers.
-        </>
-      )
-    },
-    {
-      question: "Is TechThrusters free to join?",
-      answer: "Yes, absolutely! TechThrusters is completely free to join. All our events, workshops, meetups, and community resources are available at no cost. We believe in making tech education and networking accessible to everyone."
-    },
-    {
-      question: "What kind of events does TechThrusters organize?",
-      answer: "We organize a variety of events including virtual monthly meetups with industry experts, hands-on workshops on trending technologies, hackathons, coding challenges, and networking sessions. We also host annual in-person meetups and webinars to accommodate members from different locations."
-    },
-    {
-      question: "Do I need to be an experienced developer to join?",
-      answer: "Not at all! TechThrusters welcomes developers of all skill levels - from complete beginners to seasoned professionals. Our community is designed to be inclusive and supportive, with resources and mentorship opportunities for everyone at every stage of their tech journey."
-    },
-    {
-      question: "Can I organize an event or workshop?",
-      answer: "Absolutely! We encourage community members to share their knowledge. If you have a topic you'd like to present or a workshop you'd like to organize, reach out to our team through Discord. We'll help you plan and promote your event to the community."
-    }
-  ];
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -227,7 +134,7 @@ const FAQSection = () => {
         </motion.div>
 
         <div className="border-t border-ink/10">
-          {faqs.map((faq, index) => {
+          {FAQS.map((faq, index) => {
             const open = openIndex === index;
             return (
               <motion.div
@@ -269,7 +176,24 @@ const FAQSection = () => {
                 >
                   <div className="overflow-hidden">
                     <div className="max-w-2xl pb-6 leading-relaxed text-ink-soft">
-                      {typeof faq.answer === 'string' ? <p>{faq.answer}</p> : faq.answer}
+                      <p>
+                        {faq.link ? (
+                          <>
+                            {faq.answer.split(faq.link.text)[0]}
+                            <a
+                              href={faq.link.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-medium text-ember underline underline-offset-2 hover:text-ember-bright"
+                            >
+                              {faq.link.text}
+                            </a>
+                            {faq.answer.split(faq.link.text).slice(1).join(faq.link.text)}
+                          </>
+                        ) : (
+                          faq.answer
+                        )}
+                      </p>
                     </div>
                   </div>
                 </div>
