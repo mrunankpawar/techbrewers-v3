@@ -3,124 +3,118 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion, useReducedMotion } from 'framer-motion';
+import { ChevronRight } from 'lucide-react';
 import Navbar from './Navbar';
-import { motion } from 'framer-motion';
+import { ArrowButton } from './ui/ArrowButton';
 import { DISCORD_URL } from '@/lib/constants';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-function fadeUp(delay: number) {
-  return {
-    initial: { opacity: 0, y: 22 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.65, delay, ease },
-  };
-}
+const stats = [
+  { value: '1,900+', label: 'Members', tile: 'bg-flare text-ink', avatar: '/images/header/1.png' },
+  { value: '50+', label: 'Events & workshops', tile: 'bg-paper text-ink ring-1 ring-inset ring-ink/10', avatar: '/images/header/2.png' },
+  { value: '10', label: 'Countries', tile: 'bg-espresso text-paper', avatar: '/images/header/3.png' },
+  { value: '4 yrs', label: 'And growing', tile: 'bg-ember text-paper', avatar: '/images/header/5.png' },
+];
 
 const HeroNew = () => {
-  return (
-    <div className="relative min-h-screen overflow-hidden sepia-background-hero">
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 sepia-gradient-overlay" />
+  const reduce = useReducedMotion();
+  const fadeUp = (delay: number) =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 20 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.7, delay, ease },
+        };
 
-      {/* Navigation */}
+  return (
+    <section className="relative overflow-hidden bg-paper text-ink">
+      <div aria-hidden className="absolute inset-0 star-field fade-edges" />
+
       <Navbar />
 
-      {/* Hero Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-[80vh] px-6 pt-32 md:pt-40">
-        {/* Announcement */}
-        <motion.div
-          {...fadeUp(0)}
-          className="mb-8 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-0 max-w-lg sm:max-w-none mx-auto bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-md border border-white/20 rounded-2xl sm:rounded-full px-4 py-3 sm:py-2 hover:border-orange-500/40 transition-all duration-300 group shadow-lg hover:shadow-[0_8px_30px_rgba(197,79,14,0.15)]"
-        >
-          <div className="flex justify-center sm:justify-start sm:shrink-0">
-            <span className="inline-flex bg-gradient-to-r from-orange-500/30 to-orange-600/20 border border-orange-400/40 rounded-full px-3 py-1 text-orange-200 text-xs sm:text-sm font-semibold group-hover:from-orange-500/40 group-hover:to-orange-600/30 transition-all duration-300">
-              NEW
+      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 pb-20 pt-36 md:pt-44 lg:grid-cols-[1.15fr_1fr] lg:gap-10 lg:pb-28">
+        {/* Copy */}
+        <div>
+          <motion.div {...fadeUp(0)}>
+            <Link
+              href="/talks"
+              className="group mb-8 inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/70 py-1 pl-1 pr-3 text-sm text-ink/80 shadow-sm backdrop-blur transition-colors hover:border-ember/40 hover:text-ink"
+            >
+              <span className="rounded-full bg-ember px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-paper">
+                New
+              </span>
+              Apply to speak at TechThrusters Talks
+              <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+            </Link>
+          </motion.div>
+
+          <motion.h1
+            {...fadeUp(0.08)}
+            className="display text-[3.4rem] sm:text-7xl lg:text-[6.5rem]"
+          >
+            Learn. Connect.
+            <br />
+            Build{' '}
+            <span className="accent text-ember">
+              together.
             </span>
-          </div>
-          <Link
-            href="/talks"
-            className="text-center sm:text-left sm:ml-3 text-white text-sm sm:text-base font-semibold hover:text-orange-200 transition-colors duration-300"
-            aria-label="Apply to speak at TechThrusters Talks. Opens the TechThrusters Talks page."
+          </motion.h1>
+
+          <motion.p
+            {...fadeUp(0.16)}
+            className="mt-8 max-w-xl text-lg leading-relaxed text-ink-soft md:text-xl"
           >
-            Apply to speak — TechThrusters Talks
-          </Link>
-        </motion.div>
+            TechThrusters is a free, open community of developers, designers and makers.
+            Join workshops, ship projects and meet people shaping what&apos;s next in tech.
+          </motion.p>
 
-        {/* Main Headline */}
-        <motion.h1
-          {...fadeUp(0.15)}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-6 leading-tight"
-        >
-          <span className="text-heading-gradient-brand">TechThrusters</span>
-          <br />
-          <span className="text-heading-gradient">Learn. Connect. Build</span>
-        </motion.h1>
+          <motion.div {...fadeUp(0.24)} className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <ArrowButton href={DISCORD_URL} external>
+              Join the Discord
+            </ArrowButton>
+            <Link
+              href="/events/upcoming"
+              className="group inline-flex items-center gap-1 text-sm font-semibold text-ink/80 transition-colors hover:text-ink"
+            >
+              Explore upcoming events
+              <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+            </Link>
+          </motion.div>
+        </div>
 
-        {/* Header Images */}
-        <motion.div
-          {...fadeUp(0.3)}
-          className="flex items-center justify-center mb-6 select-none pointer-events-none"
-        >
-          <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-white/20 -mr-4 md:-mr-6 z-10">
-            <Image
-              src="/images/header/1.png"
-              alt=""
-              width={80}
-              height={80}
-              className="object-cover w-full h-full select-none pointer-events-none"
-              draggable={false}
-              unoptimized
-            />
-          </div>
-          <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-white/20 -mr-4 md:-mr-6 z-20">
-            <Image
-              src="/images/header/2.png"
-              alt=""
-              width={80}
-              height={80}
-              className="object-cover w-full h-full select-none pointer-events-none"
-              draggable={false}
-              unoptimized
-            />
-          </div>
-          <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-white/20 z-30">
-            <Image
-              src="/images/header/3.png"
-              alt=""
-              width={80}
-              height={80}
-              className="object-cover w-full h-full select-none pointer-events-none"
-              draggable={false}
-              unoptimized
-            />
-          </div>
-        </motion.div>
-
-        {/* Description */}
-        <motion.p
-          {...fadeUp(0.45)}
-          className="text-lg md:text-xl text-white/80 text-center mb-8 max-w-3xl leading-relaxed"
-        >
-          Join a thriving community of innovators, creators, and lifelong learners.
-          Build projects, launch careers, and connect with tech leaders shaping tomorrow.
-        </motion.p>
-
-        {/* CTA Button */}
-        <motion.div {...fadeUp(0.6)} className="flex justify-center mb-12">
-          <a
-            href={DISCORD_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative bg-gradient-to-r from-white/10 to-white/5 hover:from-orange-500/20 hover:to-orange-600/20 text-white px-8 py-3.5 rounded-xl font-semibold transition-all duration-300 backdrop-blur-md border border-white/20 hover:border-orange-500/40 text-center shadow-lg hover:shadow-[0_8px_30px_rgba(197,79,14,0.25)] hover:-translate-y-0.5"
-            style={{ willChange: 'transform' }}
-          >
-            <span className="relative z-10">Join Discord</span>
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/10 group-hover:via-orange-500/5 group-hover:to-orange-500/10 transition-all duration-500 pointer-events-none" />
-          </a>
-        </motion.div>
+        {/* Stat tiles */}
+        <div className="relative">
+        <div className="relative grid grid-cols-2 gap-3 sm:gap-4">
+          {stats.map((s, i) => (
+            <motion.div
+              key={s.label}
+              {...(reduce
+                ? {}
+                : {
+                    initial: { opacity: 0, y: 24, rotate: i % 2 ? 1.5 : -1.5 },
+                    animate: { opacity: 1, y: 0, rotate: 0 },
+                    transition: { duration: 0.7, delay: 0.2 + i * 0.08, ease },
+                  })}
+              className={`relative flex aspect-[5/4] flex-col justify-between overflow-hidden rounded-[1.75rem] p-4 shadow-[0_18px_40px_-24px_rgba(26,18,11,0.5)] sm:p-6 ${s.tile} ${
+                i % 2 ? 'sm:translate-y-6' : ''
+              }`}
+            >
+              <div className="relative h-10 w-10 overflow-hidden rounded-full ring-2 ring-white/70 sm:h-14 sm:w-14">
+                <Image src={s.avatar} alt="" fill sizes="56px" className="scale-110 object-cover" />
+              </div>
+              <div>
+                <div className="display text-3xl sm:text-5xl">{s.value}</div>
+                <div className="mt-1 text-xs font-medium opacity-80 sm:text-sm">{s.label}</div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

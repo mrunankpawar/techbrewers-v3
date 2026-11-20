@@ -1,67 +1,60 @@
 'use client';
 
-import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
+import { SPONSORS, LogoMark } from "./Sponsors";
+import { SectionLabel } from "./ui/Launch";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const meetupSponsors = [
-  { name: "GitHub", logo: "/images/sponsors/github.png", url: "https://github.com/" },
-  { name: "Securityium", logo: "/images/sponsors/securityium.png", url: "https://www.securityium.com/" },
-  { name: "Daftar", logo: "/images/sponsors/daftar.png", url: "https://www.instagram.com/thedaftar/" },
-  { name: "Peerlist", logo: "/images/sponsors/peerlist.png", url: "https://peerlist.io/" },
-  { name: "Geeks For Geeks", logo: "/images/sponsors/gfg.png", url: "https://www.geeksforgeeks.org/" },
-  { name: "Hack 2 Skill", logo: "/images/sponsors/h2s.png", url: "https://hack2skill.com/" },
-  { name: "Aeka Coffee", logo: "/images/sponsors/aeka.png", url: "https://www.instagram.com/aekascoffee/" },
-  { name: "Moneylancer Investments", logo: "/images/sponsors/moneylancer.png", url: "https://mymoneylancer.com/" },
+// Sponsors who backed our meetups (subset of the main sponsor list)
+const MEETUP_SPONSOR_LOGOS = [
+  "/images/sponsors/trimmed/github.png",
+  "/images/sponsors/trimmed/securityium.png",
+  "/images/sponsors/trimmed/daftar.png",
+  "/images/sponsors/trimmed/peerlist.png",
+  "/images/sponsors/trimmed/gfg.png",
+  "/images/sponsors/trimmed/h2s.png",
+  "/images/sponsors/trimmed/aeka.png",
+  "/images/sponsors/trimmed/moneylancer.png",
 ];
+
+const meetupSponsors = MEETUP_SPONSOR_LOGOS.map((logo) => SPONSORS.find((s) => s.logo === logo)!).filter(Boolean);
 
 function Sponsors() {
   return (
-    <div className="mt-0 h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-5 md:py-10">
-      <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center text-center">
-        <motion.h3
-          className="text-4xl md:text-6xl font-bold text-heading-gradient z-10"
-          initial={{ opacity: 0, y: 28 }}
+    <section className="border-t border-ink/10 bg-paper-2">
+      <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
+        <motion.div
+          className="mb-10 text-center"
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.42, ease }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease }}
         >
-          Past Sponsors
-        </motion.h3>
+          <SectionLabel className="mb-4 justify-center">Past sponsors</SectionLabel>
+          <h2 className="display text-4xl text-ink md:text-5xl">
+            Fuelled by{" "}
+            <span className="accent text-ember">great partners.</span>
+          </h2>
+        </motion.div>
 
-        <div className="container mx-auto px-4 mt-10">
-          <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {meetupSponsors.map((sponsor, index) => (
-              <motion.div
-                key={index}
-                className="group relative"
-                initial={{ opacity: 0, scale: 0.92 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 0.5, delay: index * 0.05, ease }}
-                style={{ willChange: 'transform' }}
-              >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative flex items-center justify-center p-4 bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-xl hover:border-orange-500/40 transition-all duration-500 group-hover:shadow-[0_8px_30px_rgba(197,79,14,0.12)]">
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:via-orange-500/0 group-hover:to-orange-500/5 transition-all duration-500 pointer-events-none" />
-                  <Link href={sponsor.url} passHref target="__blank" className="relative z-10">
-                    <Image
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      width={150}
-                      height={150}
-                      className="object-contain w-20 h-20 sm:w-28 sm:h-24 md:w-28 md:h-24 lg:w-28 lg:h-24 grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100"
-                    />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid grid-cols-2 border-l border-t border-ink/10 [--logo-scale:0.8] sm:grid-cols-4 sm:[--logo-scale:0.9] lg:[--logo-scale:1]">
+          {meetupSponsors.map((s) => (
+            <a
+              key={s.name}
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.name}
+              title={s.name}
+              className="group flex h-24 items-center justify-center border-b border-r border-ink/10 bg-paper-2 px-6 transition-colors hover:bg-white md:h-28"
+            >
+              <LogoMark sponsor={s} />
+            </a>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

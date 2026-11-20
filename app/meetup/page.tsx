@@ -30,10 +30,10 @@ export const metadata: Metadata = {
 
 export default function MeetupPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-paper">
       <Navbar />
       <MeetupStats />
-      <div className="gradient-background">
+      <div className="bg-paper">
         <Meetup />
         <MeetupTeam />
         <MeetupSponsors />

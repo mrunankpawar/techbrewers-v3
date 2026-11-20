@@ -4,73 +4,134 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { SOCIAL } from '@/lib/constants';
+import { ArrowUpRight } from 'lucide-react';
+import { SOCIAL, DISCORD_URL } from '@/lib/constants';
+import { ArrowButton } from './ui/ArrowButton';
 
 const ease = [0.22, 1, 0.36, 1] as const;
+
+const columns = [
+  {
+    title: 'Explore',
+    links: [
+      { name: 'Home', href: '/' },
+      { name: 'Community', href: '/community' },
+      { name: 'Meetups', href: '/meetup' },
+      { name: 'TechThrusters Talks', href: '/talks' },
+      { name: 'Sign in', href: '/sign-up' },
+    ],
+  },
+  {
+    title: 'Events',
+    links: [
+      { name: 'Upcoming', href: '/events/upcoming' },
+      { name: 'Partner events', href: '/events/partners' },
+      { name: 'Livestreams', href: '/events/livestreams' },
+    ],
+  },
+  {
+    title: 'Social',
+    links: [
+      { name: 'Discord', href: SOCIAL.discord, external: true },
+      { name: 'LinkedIn', href: SOCIAL.linkedin, external: true },
+      { name: 'Instagram', href: SOCIAL.instagram, external: true },
+      { name: 'Twitter (X)', href: SOCIAL.twitter, external: true },
+    ],
+  },
+];
 
 const FooterNew = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden brown-background">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-
-      <div className="relative max-w-7xl mx-auto px-6 py-16">
-        {/* Main Footer Content */}
+    <footer className="relative overflow-hidden bg-ember-night text-paper">
+      {/* Closing CTA */}
+      <div className="relative border-b border-paper/10">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-0 h-64 w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-ember/40 blur-[110px]"
+        />
         <motion.div
-          className="grid md:grid-cols-3 gap-8 mb-12"
-          initial={{ opacity: 0, y: 28 }}
+          className="relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 py-16 md:flex-row md:items-center md:py-20"
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.45, ease }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease }}
         >
-          {/* Brand Column */}
-          <div>
-            <div className="flex items-center mb-6">
-              <Image
-                src="/images/logo/trans-rect-white.png"
-                alt="TechThrusters Logo"
-                width={180}
-                height={54}
-                className="h-12 w-auto object-contain"
-              />
-            </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Learn. Connect. Build. Together we grow.
-            </p>
-          </div>
-
-          {/* Navigation Column */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-6">Navigation</h3>
-            <ul className="space-y-3">
-              <li><Link href="/" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Home <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></Link></li>
-              <li><Link href="/community" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Community <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></Link></li>
-              <li><Link href="/events/partners" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Events <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></Link></li>
-              <li><Link href="/meetup" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Meetups <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></Link></li>
-            </ul>
-          </div>
-
-          {/* Social Column */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-6">Social</h3>
-            <ul className="space-y-3">
-              <li><a href={SOCIAL.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Twitter (X) <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
-              <li><a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Instagram <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
-              <li><a href={SOCIAL.discord} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">Discord <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
-              <li><a href={SOCIAL.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-300 transition-colors duration-300 group/item inline-block">LinkedIn <span className="inline-block group-hover/item:translate-x-1 transition-transform duration-300">→</span></a></li>
-            </ul>
-          </div>
+          <h2 className="display text-4xl md:text-6xl">
+            Your next big thing
+            <br />
+            <span className="accent text-flare">starts with hello.</span>
+          </h2>
+          <ArrowButton href={DISCORD_URL} external tone="paper">
+            Join the Discord
+          </ArrowButton>
         </motion.div>
+      </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-gray-800 pt-8">
-          <div className="flex items-center justify-center">
-            <div className="text-gray-400/50 text-sm">
-              © {currentYear} TechThrusters
-            </div>
+      {/* Links */}
+      <div className="relative mx-auto grid max-w-7xl grid-cols-2 gap-x-8 gap-y-12 px-6 py-16 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+        <div className="col-span-2 md:col-span-1">
+          <Image
+            src="/images/logo/techthrusters-light.png"
+            alt="TechThrusters"
+            width={1518}
+            height={479}
+            className="h-11 w-auto object-contain"
+          />
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/60">
+            A free, open community where people learn, connect and build in tech. Together we grow.
+          </p>
+        </div>
+
+        {columns.map((col) => (
+          <div key={col.title}>
+            <h3 className="eyebrow mb-5 text-paper/40">{col.title}</h3>
+            <ul className="space-y-3 text-sm">
+              {col.links.map((l) => {
+                const cls =
+                  'group inline-flex items-center gap-1 text-paper/75 transition-colors hover:text-paper';
+                const arrow = (
+                  <ArrowUpRight
+                    className="h-3.5 w-3.5 opacity-0 transition-all group-hover:-translate-y-0.5 group-hover:opacity-100"
+                    aria-hidden
+                  />
+                );
+                return (
+                  <li key={l.name}>
+                    {'external' in l && l.external ? (
+                      <a href={l.href} target="_blank" rel="noopener noreferrer" className={cls}>
+                        {l.name}
+                        {arrow}
+                      </a>
+                    ) : (
+                      <Link href={l.href} className={cls}>
+                        {l.name}
+                        {arrow}
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
+        ))}
+      </div>
+
+      {/* Giant wordmark */}
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div
+          aria-hidden
+          className="select-none text-center text-[15.5vw] font-semibold leading-[0.8] tracking-[-0.06em] text-transparent [-webkit-text-stroke:1px_rgba(245,240,230,0.14)] xl:text-[12.5rem]"
+        >
+          TechThrusters
+        </div>
+      </div>
+
+      <div className="relative border-t border-paper/10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-6 text-xs text-paper/40 sm:flex-row">
+          <span>© {currentYear} TechThrusters</span>
+          <span>Learn. Connect. Build.</span>
         </div>
       </div>
     </footer>

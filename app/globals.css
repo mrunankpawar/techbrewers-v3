@@ -370,3 +370,55 @@ body {
     transform: translateY(-4px) scale(1.02);
   }
 }
+/* ------------------------------------------------------------------
+ * TechThrusters design system
+ * Cream paper + ink, burnt-orange ember accent, serif italic accents,
+ * small uppercase labels and a soft dot grid. Two typefaces only:
+ * Schibsted Grotesk (sans) and Newsreader (serif accents).
+ * ------------------------------------------------------------------ */
+@layer utilities {
+  /* light star field: a soft dot grid on paper */
+  .star-field {
+    background-color: #F5F0E6;
+    background-image: radial-gradient(rgba(26, 18, 11, 0.16) 1px, transparent 1.3px);
+    background-size: 24px 24px;
+  }
+
+  /* dark star field for ember bands */
+  .star-field-dark {
+    background-color: #2B1209;
+    background-image: radial-gradient(rgba(245, 240, 230, 0.12) 1px, transparent 1.3px);
+    background-size: 24px 24px;
+  }
+
+  /* fade a star field out towards the edges */
+  .fade-edges {
+    -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000 40%, transparent 100%);
+            mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000 40%, transparent 100%);
+  }
+
+  /* Big, tightly tracked display headings */
+  .display {
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+  }
+
+  /* Serif italic accent word/phrase inside a sans display heading.
+     Medium weight balances it against the bold grotesk. */
+  .accent {
+    font-family: var(--font-serif), Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    font-optical-sizing: auto;
+  }
+
+  /* Small uppercase label */
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}

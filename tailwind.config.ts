@@ -27,9 +27,29 @@ const config = {
   	},
   	extend: {
   		fontFamily: {
-  			sans: ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
+  			sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+  			serif: ['var(--font-serif)', 'Georgia', 'serif'],
   		},
   		colors: {
+  			// Editorial palette (homepage redesign)
+  			paper: {
+  				DEFAULT: '#F5F0E6',
+  				'2': '#ECE4D5',
+  			},
+  			ink: {
+  				DEFAULT: '#1A120B',
+  				soft: '#5C4F44',
+  			},
+  			ember: {
+  				DEFAULT: '#C54F0E',
+  				bright: '#E2621B',
+  				deep: '#2B1209',
+  				night: '#160C06',
+  			},
+  			// brand-derived tile colours
+  			flare: '#F6B44B',
+  			clay: '#E9875B',
+  			espresso: '#3A1F12',
   			black: {
   				'100': '#000319',
   				'200': 'rgba(17, 25, 40, 0.75)',

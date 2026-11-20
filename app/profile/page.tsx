@@ -5,7 +5,8 @@ import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { useUser, useDescope } from '@descope/nextjs-sdk/client';
 import Navbar from '@/components/Navbar';
-import { FaSpinner } from 'react-icons/fa';
+import { Loader2 } from 'lucide-react';
+import { PageHeader } from '@/components/ui/Launch';
 
 // Dynamically import UserProfile widget with SSR disabled
 const UserProfile = dynamic(
@@ -25,8 +26,8 @@ export default function ProfilePage() {
 
   if (isUserLoading) {
     return (
-      <div className="min-h-screen gradient-background flex items-center justify-center">
-        <FaSpinner className="animate-spin text-orange-400 text-4xl" />
+      <div className="flex min-h-screen items-center justify-center bg-paper">
+        <Loader2 className="h-9 w-9 animate-spin text-ember" aria-label="Loading" />
       </div>
     );
   }
@@ -37,34 +38,21 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="relative min-h-screen gradient-background overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden bg-paper text-ink">
       <Navbar />
-      
-      <div className="relative z-10 pt-24 pb-16 px-6">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
-              <span className="text-heading-gradient">
-                My Profile
-              </span>
-            </h1>
-            <p className="text-gray-300 text-lg">
-              Manage your account settings and profile information
-            </p>
-          </div>
-
-          {/* Descope User Profile Widget */}
-          <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-2xl blur-sm opacity-50" />
-            <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8 hover:border-orange-500/30 transition-all duration-500">
-              <UserProfile
-                widgetId="user-profile-widget"
-                theme="dark"
-                onLogout={handleLogout}
-              />
-            </div>
-          </div>
+      <PageHeader
+        label="Account"
+        title="My"
+        accent="profile."
+        intro="Manage your account settings and profile information."
+      />
+      <div className="mx-auto max-w-4xl px-6 pb-20 md:pb-28">
+        <div className="rounded-[1.75rem] border border-ink/10 bg-white p-5 shadow-[0_30px_60px_-30px_rgba(26,18,11,0.3)] md:p-8">
+          <UserProfile
+            widgetId="user-profile-widget"
+            theme="light"
+            onLogout={handleLogout}
+          />
         </div>
       </div>
     </div>

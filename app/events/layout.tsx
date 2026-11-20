@@ -7,9 +7,9 @@ export default function EventsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="gradient-background min-h-screen">
+    <div className="min-h-screen bg-paper">
       <Navbar />
-      <div className="pt-24 md:pt-28">{children}</div>
+      {children}
       <FooterNew />
     </div>
   );

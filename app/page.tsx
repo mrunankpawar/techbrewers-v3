@@ -38,11 +38,11 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <AuthCallback />
-      <main className="relative overflow-hidden">
+      <main className="relative overflow-hidden bg-paper">
         <HeroNew />
-        <TechThrustersTalks />
-        <CommunityInfo />
         <Sponsors />
+        <CommunityInfo />
+        <TechThrustersTalks />
         <MeetTheTeam />
         {/* <TestimonialsNew /> */}
         <FooterNew />

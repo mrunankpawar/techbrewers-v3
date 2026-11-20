@@ -1,6 +1,11 @@
 "use client";
 import React from "react";
-import { FaCalendarAlt, FaClock, FaUser } from "react-icons/fa";
+import Link from "next/link";
+import { Calendar, Clock, User, Radio } from "lucide-react";
+import { PageHeader } from "./ui/Launch";
+import { ArrowButton } from "./ui/ArrowButton";
+import EventsTabs from "./EventsTabs";
+import { DISCORD_URL } from "@/lib/constants";
 
 const upcomingEvents: {
   title: string;
@@ -13,63 +18,72 @@ const upcomingEvents: {
 
 function Events() {
   return (
-    <div className="mt-0 md:mt-10 h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto md:py-20">
-      <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] w-full flex flex-col items-center justify-center text-center">
-        <div className="relative group">
-          <h1 className="mb-4 text-4xl md:text-6xl font-bold leading-tight text-heading-gradient z-10 pb-2">
-            Upcoming Events
-          </h1>
-        </div>
+    <>
+      <PageHeader
+        label="Events"
+        title="Upcoming"
+        accent="sessions."
+        intro="Talks, workshops and live sessions from the TechThrusters community."
+        photos={[
+          { src: "/images/meetup/genai/session.jpg", alt: "Rahul Ambhore speaking at TechBrewers GenAI Meetup", caption: "Rahul Ambhore, TechBrewers GenAI Meetup" },
+          { src: "/images/meetup/connect/stickers.jpg", alt: "Stickers for audience at TechBrewers Connect", caption: "Stickers at TechBrewers Connect" },
+        ]}
+      >
+        <EventsTabs />
+      </PageHeader>
 
-        <div className="mt-8 mb-12 md:mt-12 md:mb-16 w-full flex flex-col gap-6">
-          {upcomingEvents.length > 0 ? upcomingEvents.map((event, index) => (
-            <div key={index} className="relative group text-left">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-7 hover:border-orange-500/40 transition-all duration-500">
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <span className="px-3 py-1 text-xs font-semibold bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30 flex-shrink-0">
-                    {event.tag}
-                  </span>
-                </div>
-                <h2 className="text-xl md:text-2xl font-bold text-white mb-5 leading-snug group-hover:text-orange-100 transition-colors duration-300">
-                  {event.title}
-                </h2>
-                <div className="flex flex-col sm:flex-row flex-wrap gap-3 text-sm text-gray-400 mb-6">
-                  <span className="flex items-center gap-2">
-                    <FaUser className="text-orange-400 flex-shrink-0" />
-                    {event.speaker}
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <FaCalendarAlt className="text-orange-400 flex-shrink-0" />
-                    {event.date}
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <FaClock className="text-orange-400 flex-shrink-0" />
-                    {event.time}
-                  </span>
+      <section className="mx-auto max-w-7xl px-6 pb-20 md:pb-28">
+        {upcomingEvents.length > 0 ? (
+          <ul className="space-y-5">
+            {upcomingEvents.map((event) => (
+              <li
+                key={event.title}
+                className="overflow-hidden rounded-[1.75rem] border border-ink/10 bg-white/70 p-6 md:p-8"
+              >
+                <span className="eyebrow rounded-full bg-ember/10 px-2.5 py-1 text-ember">{event.tag}</span>
+                <h2 className="display mt-4 text-2xl text-ink md:text-4xl">{event.title}</h2>
+                <div className="mt-5 flex flex-col flex-wrap gap-3 text-sm text-ink-soft sm:flex-row sm:gap-6">
+                  <span className="flex items-center gap-2"><User className="h-4 w-4 text-ember" aria-hidden />{event.speaker}</span>
+                  <span className="flex items-center gap-2"><Calendar className="h-4 w-4 text-ember" aria-hidden />{event.date}</span>
+                  <span className="flex items-center gap-2"><Clock className="h-4 w-4 text-ember" aria-hidden />{event.time}</span>
                 </div>
                 {event.youtubeId && (
-                  <div className="rounded-xl overflow-hidden border border-white/10 aspect-video w-full">
+                  <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-ink/10">
                     <iframe
                       src={`https://www.youtube.com/embed/${event.youtubeId}`}
                       title={event.title}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       allowFullScreen
-                      className="w-full h-full"
+                      className="h-full w-full"
                     />
                   </div>
                 )}
-              </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-dashed border-ink/20 bg-white/50 px-6 py-14 text-center md:py-20">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ember/10 text-ember">
+              <Radio className="h-6 w-6" aria-hidden />
             </div>
-          )) : (
-            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] px-6 py-8 text-center backdrop-blur-md">
-              <p className="text-gray-300">No upcoming sessions right now.</p>
-              <p className="mt-2 text-sm text-gray-500">Check back soon for new events and workshops.</p>
+            <p className="eyebrow mt-6 text-ink/50">Nothing scheduled yet</p>
+            <h2 className="display mt-3 text-3xl text-ink md:text-4xl">No upcoming sessions <span className="accent text-ember">right now.</span></h2>
+            <p className="mx-auto mt-3 max-w-md text-ink-soft">
+              Check back soon for new events and workshops. In the meantime, catch up on{" "}
+              <Link href="/events/livestreams" className="font-medium text-ember underline underline-offset-2 hover:text-ember-bright">
+                past livestreams
+              </Link>
+              .
+            </p>
+            <div className="mt-8 flex justify-center">
+              <ArrowButton href={DISCORD_URL} external tone="ink">
+                Join the Discord
+              </ArrowButton>
             </div>
-          )}
-        </div>
-      </div>
-    </div>
+          </div>
+        )}
+      </section>
+    </>
   );
 }
 

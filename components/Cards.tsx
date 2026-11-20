@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import { Carousel, Card } from "@/components/ui/CardCarousel";
+import { SectionLabel } from "@/components/ui/Launch";
 
 function CardCarousel() {
   const photos = data.map((card, index) => (
@@ -9,10 +10,15 @@ function CardCarousel() {
   ));
 
   return (
-    <div className="w-full h-full pt-20 pb-10">
-      <h3 className="text-4xl md:text-6xl font-bold text-heading-gradient z-10">
-        Glimpses from our past meetups
-      </h3>
+    <div className="w-full">
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionLabel className="mb-4">Photo archive</SectionLabel>
+        <h2 className="display max-w-3xl text-4xl text-ink md:text-6xl">
+          Glimpses from our{" "}
+          <span className="accent text-ember">past meetups.</span>
+        </h2>
+        <p className="mt-4 max-w-xl text-ink-soft">Tap a card to open the full gallery.</p>
+      </div>
       <Carousel items={photos} />
     </div>
   );

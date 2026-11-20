@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function CommunityPage() {
   return (
-    <div className="gradient-background min-h-screen">
+    <div className="min-h-screen bg-paper">
       <Navbar />
       <Community />
       <FooterNew />

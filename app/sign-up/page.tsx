@@ -4,7 +4,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import { Check } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import { SectionLabel } from '@/components/ui/Launch';
 
 const Descope = dynamic(
   () => import('@descope/nextjs-sdk').then((mod) => mod.Descope),
@@ -25,129 +27,79 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden sepia-background-hero flex flex-col">
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 sepia-gradient-overlay" />
-      
+    <div className="relative flex min-h-screen flex-col overflow-hidden bg-paper text-ink">
+      <div aria-hidden className="absolute inset-0 star-field fade-edges" />
+
       <Navbar />
-      <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto px-6 md:px-8 lg:px-12 pt-24 md:pt-28 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center w-full">
-          {/* Left Side - Header Text */}
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-6 pb-16 pt-32 md:pt-36">
+        <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left: pitch */}
           <div className="flex flex-col justify-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-heading-gradient leading-tight pb-2">
-              Join the Community
-            </h1>
-            
-            {/* Header Images */}
-            <div className="flex items-center justify-start mb-4 mt-4 select-none pointer-events-none">
-              <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-white/20 -mr-2 md:-mr-3 z-10">
-                <Image
-                  src="/images/header/1.png"
-                  alt=""
-                  width={48}
-                  height={48}
-                  className="object-cover w-full h-full select-none pointer-events-none"
-                  draggable={false}
-                  unoptimized
-                />
-              </div>
-              <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-white/20 -mr-2 md:-mr-3 z-20">
-                <Image
-                  src="/images/header/2.png"
-                  alt=""
-                  width={48}
-                  height={48}
-                  className="object-cover w-full h-full select-none pointer-events-none"
-                  draggable={false}
-                  unoptimized
-                />
-              </div>
-              <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-white/20 -mr-2 md:-mr-3 z-30">
-                <Image
-                  src="/images/header/3.png"
-                  alt=""
-                  width={48}
-                  height={48}
-                  className="object-cover w-full h-full select-none pointer-events-none"
-                  draggable={false}
-                  unoptimized
-                />
-              </div>
-              <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-white/20 -mr-2 md:-mr-3 z-40">
-                <Image
-                  src="/images/header/4.png"
-                  alt=""
-                  width={48}
-                  height={48}
-                  className="object-cover w-full h-full select-none pointer-events-none"
-                  draggable={false}
-                  unoptimized
-                />
-              </div>
-              <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-white/20 z-50">
-                <Image
-                  src="/images/header/5.png"
-                  alt=""
-                  width={48}
-                  height={48}
-                  className="object-cover w-full h-full select-none pointer-events-none"
-                  draggable={false}
-                  unoptimized
-                />
-              </div>
-              <span className="text-white/60 text-sm md:text-base ml-3">
-                Join 1900+ others
+            <SectionLabel>Sign up</SectionLabel>
+            <h1 className="display mt-5 text-5xl sm:text-6xl lg:text-7xl">
+              Join the{' '}
+              <span className="accent text-ember">
+                community.
               </span>
+            </h1>
+
+            <div className="mt-6 flex select-none items-center">
+              {[1, 2, 3, 4, 5].map((n, i) => (
+                <div
+                  key={n}
+                  className="relative -mr-3 h-11 w-11 overflow-hidden rounded-full ring-2 ring-paper md:h-12 md:w-12"
+                  style={{ zIndex: 10 + i }}
+                >
+                  <Image src={`/images/header/${n}.png`} alt="" fill sizes="48px" className="scale-110 object-cover" draggable={false} />
+                </div>
+              ))}
+              <span className="ml-6 text-sm text-ink-soft md:text-base">Join 1,900+ others</span>
             </div>
-            
-            <p className="text-white/60 text-lg mt-4">
+
+            <p className="mt-6 max-w-md text-lg text-ink-soft">
               Connect with people who love building cool things just as much as you do.
             </p>
 
-            {/* Benefits List */}
-            <div className="mt-8 space-y-4">
+            <ul className="mt-8 space-y-3">
               {[
-                "Access exclusive events and workshops",
-                "Connect with industry leaders and mentors",
-                "Build projects and showcase your skills",
-                "Join monthly challenges and competitions"
-              ].map((benefit, index) => (
-                <div key={index} className="flex items-start gap-3 group/item">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-orange-500/30 to-orange-600/20 border border-orange-400/40 flex items-center justify-center mt-0.5 group-hover/item:from-orange-500/40 group-hover/item:to-orange-600/30 group-hover/item:border-orange-400/60 transition-all duration-300 group-hover/item:scale-110">
-                    <svg className="w-4 h-4 text-orange-300 group-hover/item:text-orange-200 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="text-white/80 text-base group-hover/item:text-white transition-colors duration-300">{benefit}</p>
-                </div>
+                'Access exclusive events and workshops',
+                'Connect with industry leaders and mentors',
+                'Build projects and showcase your skills',
+                'Join monthly challenges and competitions',
+              ].map((benefit) => (
+                <li key={benefit} className="flex items-center gap-3">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ember text-paper">
+                    <Check className="h-3.5 w-3.5" aria-hidden />
+                  </span>
+                  <span className="text-ink/80">{benefit}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
-          {/* Right Side - Descope Component */}
-          <div className="flex items-center justify-center lg:justify-end">
-            <div className="relative group w-full max-w-md">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-2xl blur-sm opacity-50" />
-              <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-                {signedIn ? (
-                  <div className="flex flex-col items-center justify-center gap-3 py-12 text-center">
-                    <div className="flex items-center justify-center w-14 h-14 rounded-full bg-orange-500/20 border border-orange-400/40">
-                      <svg className="w-7 h-7 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <p className="text-white font-semibold text-lg">Signed in successfully!</p>
-                    <p className="text-white/50 text-sm">Redirecting you to the home page…</p>
-                  </div>
-                ) : (
-                  <Descope
-                    flowId="sign-up-or-in"
-                    theme="light"
-                    onSuccess={handleSuccess}
-                    onError={handleError}
-                  />
-                )}
+          {/* Right: Descope flow */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="w-full max-w-md rounded-[1.75rem] border border-ink/10 bg-white p-5 shadow-[0_30px_60px_-30px_rgba(26,18,11,0.35)] sm:p-6">
+              <div className="mb-2 flex items-center justify-between border-b border-dashed border-ink/15 pb-4">
+                <span className="eyebrow text-ink/50">TechThrusters</span>
+                <span className="eyebrow text-ember">Sign up or sign in</span>
               </div>
+              {signedIn ? (
+                <div className="flex flex-col items-center justify-center gap-3 py-12 text-center">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-ember text-paper">
+                    <Check className="h-7 w-7" aria-hidden />
+                  </div>
+                  <p className="text-lg font-semibold">Signed in successfully!</p>
+                  <p className="text-sm text-ink-soft">Redirecting you to the home page…</p>
+                </div>
+              ) : (
+                <Descope
+                  flowId="sign-up-or-in"
+                  theme="light"
+                  onSuccess={handleSuccess}
+                  onError={handleError}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -155,4 +107,3 @@ export default function SignUpPage() {
     </div>
   );
 }
-

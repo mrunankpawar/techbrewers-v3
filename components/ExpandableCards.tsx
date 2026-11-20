@@ -3,7 +3,9 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
-import { FaArrowRight } from "react-icons/fa";
+import { ArrowUpRight, Play } from "lucide-react";
+import { PageHeader } from "./ui/Launch";
+import EventsTabs from "./EventsTabs";
 
 function ExpandableCards() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
@@ -54,7 +56,7 @@ function ExpandableCards() {
                 ease: "easeIn"
               }
             }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-md h-full w-full z-10"
+            className="fixed inset-0 z-10 h-full w-full bg-ink/70 backdrop-blur-md"
           />
         )}
       </AnimatePresence>
@@ -75,7 +77,8 @@ function ExpandableCards() {
                   duration: 0.2,
                 },
               }}
-              className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
+              className="absolute right-3 top-3 z-[110] flex h-9 w-9 items-center justify-center rounded-full bg-paper lg:hidden"
+              aria-label="Close"
               onClick={handleClose}
             >
               <CloseIcon />
@@ -96,34 +99,33 @@ function ExpandableCards() {
                 }
               }}
               layout={!isClosing}
-              className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col sm:rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-black/90 via-black/80 to-black/90 backdrop-blur-xl border border-orange-500/30"
+              className="flex h-full w-full max-w-[560px] flex-col overflow-hidden border border-ink/10 bg-paper text-ink shadow-2xl sm:rounded-[1.75rem] md:h-fit md:max-h-[90%]"
             >
               <motion.div layoutId={`image-${active.title}-${id}`} layout={!isClosing}>
                 <Image
                   priority
-                  width={200}
-                  height={200}
+                  width={1120}
+                  height={630}
                   src={active.src}
                   alt={active.title}
-                  className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
+                  className="aspect-video h-auto w-full object-cover object-top"
                 />
               </motion.div>
 
               <div>
-                <div className="flex justify-between items-start p-4">
+                <div className="flex items-start justify-between gap-4 p-5 md:p-6">
                   <div className="">
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
                       layout={!isClosing}
-                      className="font-bold text-white"
+                      className="display text-2xl"
                     >
                       {active.title}
                     </motion.h3>
                     <motion.p
                       layoutId={`description-${active.description}-${id}`}
                       layout={!isClosing}
-                      className="text-gray-300"
-                      style={{ color: '#d4a574' }}
+                      className="mt-1 text-sm font-medium text-ember"
                     >
                       {active.description}
                     </motion.p>
@@ -134,33 +136,20 @@ function ExpandableCards() {
                     layout={!isClosing}
                     href={active.ctaLink}
                     target="_blank"
-                    className="group flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-xl border transition-all duration-300 bg-gradient-to-r from-orange-500/20 to-orange-600/20 border-orange-500/40 hover:border-orange-500/60 hover:from-orange-500/30 hover:to-orange-600/30 text-orange-200 hover:text-orange-100"
+                    rel="noopener noreferrer"
+                    className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-ember py-2 pl-4 pr-3 text-sm font-semibold text-paper transition-colors hover:bg-ember-bright"
                   >
+                    <Play className="h-3.5 w-3.5 fill-current" aria-hidden />
                     {active.ctaText}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="w-4 h-4 transition-transform group-hover:translate-x-1"
-                    >
-                      <path d="M5 12h14" />
-                      <path d="m12 5 7 7-7 7" />
-                    </svg>
                   </motion.a>
                 </div>
-                <div className="pt-4 relative px-4">
+                <div className="relative px-5 md:px-6">
                   <motion.div
                     layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="text-white text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                    className="flex h-48 flex-col items-start gap-4 overflow-auto pb-10 text-sm leading-relaxed text-ink-soft [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] md:h-fit md:text-base"
                   >
                     {typeof active.content === "function"
                       ? active.content()
@@ -172,89 +161,77 @@ function ExpandableCards() {
           </div>
         ) : null}
       </AnimatePresence>
+      <PageHeader
+        label="Past events"
+        title="YouTube"
+        accent="livestreams."
+        intro="Rewatch recorded talks and community sessions from our YouTube channel."
+        photos={[
+          { src: "/images/meetup/celcon/mrunankspeak.jpg", alt: "Mrunank addressing the audience at TechBrewers CelCon", caption: "Mrunank at TechBrewers CelCon" },
+          { src: "/images/meetup/meetup1/tj.jpg", alt: "Touhid and Jeenika speaking at TechBrewers Community Meetup 1.0", caption: "Meetup 1.0" },
+        ]}
+      >
+        <EventsTabs />
+      </PageHeader>
       <section
         id="past-livestreams"
-        className="relative mx-auto w-full max-w-6xl scroll-mt-28 px-5 pb-20 md:px-8"
-        aria-labelledby="past-livestreams-heading"
+        className="mx-auto w-full max-w-7xl scroll-mt-28 px-6 pb-20 md:pb-28"
+        aria-label="Past livestreams"
       >
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-orange-400/90">
-            Past events
-          </p>
-          <h1
-            id="past-livestreams-heading"
-            className="text-3xl font-bold text-heading-gradient md:text-5xl"
-          >
-            YouTube livestreams
-          </h1>
-          <p className="mt-4 text-base text-gray-400 md:text-lg">
-            Rewatch recorded talks and community sessions from our YouTube
-            channel.
-          </p>
-        </div>
-
-      <ul className="mx-auto mt-12 max-w-2xl w-full list-none space-y-4 px-1">
-        {cards.map((card, index) => (
-          <motion.div
-            layoutId={`card-${card.title}-${id}`}
-            key={`card-${card.title}-${id}`}
-            onClick={() => setActive(card)}
-            className="group relative p-4 flex flex-col md:flex-row justify-between items-center md:items-start rounded-2xl cursor-pointer transition-all duration-500 bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 hover:border-orange-500/40 hover:shadow-[0_8px_30px_rgba(197,79,14,0.12)]"
-            style={{ willChange: 'transform' }}
-          >
-            <div className="flex flex-col items-center md:items-start gap-4 md:flex-row w-full">
-              <motion.div
-                layoutId={`image-${card.title}-${id}`}
-                className="flex justify-center md:justify-start w-full md:w-auto"
+        <ul className="grid list-none gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          {cards.map((card, index) => (
+            <motion.li
+              layoutId={`card-${card.title}-${id}`}
+              key={`card-${card.title}-${id}`}
+              className="group"
+            >
+              <button
+                type="button"
+                onClick={() => setActive(card)}
+                className="block w-full text-left focus-visible:outline-none"
+                aria-label={`${card.title} with ${card.description}: show details`}
               >
-                <Image
-                  width={100}
-                  height={100}
-                  src={card.src}
-                  alt={card.title}
-                  className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
-                />
-              </motion.div>
-              <div className="text-center md:text-left w-full md:w-auto">
+                <motion.div
+                  layoutId={`image-${card.title}-${id}`}
+                  className="relative overflow-hidden rounded-[1.25rem] border border-ink/10 bg-espresso group-focus-visible:ring-2 group-focus-visible:ring-ember"
+                >
+                  <Image
+                    width={640}
+                    height={360}
+                    src={card.src}
+                    alt=""
+                    className="aspect-video w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+                  />
+                  <span className="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-ember text-paper shadow-lg transition-transform duration-300 group-hover:scale-110">
+                    <Play className="ml-0.5 h-4 w-4 fill-current" aria-hidden />
+                  </span>
+                </motion.div>
                 <motion.h3
                   layoutId={`title-${card.title}-${id}`}
-                  className="font-medium text-white"
+                  className="mt-4 text-lg font-semibold leading-snug tracking-tight text-ink transition-colors group-hover:text-ember"
                 >
                   {card.title}
                 </motion.h3>
                 <motion.p
                   layoutId={`description-${card.description}-${id}`}
-                  className="text-orange-700"
-                  style={{ color: '#C54F0E' }}
+                  className="mt-1 text-sm text-ink-soft"
                 >
                   {card.description}
                 </motion.p>
-              </div>
-            </div>
-            <motion.button
-              layoutId={`button-${card.title}-${id}`}
-              className="group flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-xl border transition-all duration-300 mt-4 md:mt-0 bg-gradient-to-r from-orange-500/10 to-orange-600/10 border-orange-500/30 hover:border-orange-500/50 hover:from-orange-500/20 hover:to-orange-600/20 text-orange-300 hover:text-orange-200"
-            >
-              {card.ctaText}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-4 h-4 transition-transform group-hover:translate-x-1"
+              </button>
+              <motion.a
+                layoutId={`button-${card.title}-${id}`}
+                href={card.ctaLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-ink/80 transition-colors hover:text-ember"
               >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </motion.button>
-          </motion.div>
-        ))}
-      </ul>
+                {card.ctaText} on YouTube
+                <ArrowUpRight className="h-4 w-4" aria-hidden />
+              </motion.a>
+            </motion.li>
+          ))}
+        </ul>
       </section>
     </>
   );
@@ -286,7 +263,7 @@ export const CloseIcon = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-4 w-4 text-black"
+      className="h-4 w-4 text-ink"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M18 6l-12 12" />

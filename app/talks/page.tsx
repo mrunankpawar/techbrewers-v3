@@ -96,7 +96,7 @@ export default function TalksPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="gradient-background min-h-screen">
+      <div className="min-h-screen bg-paper">
         <Navbar />
         <TalksContent />
         <FooterNew />

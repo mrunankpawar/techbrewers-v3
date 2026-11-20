@@ -4,560 +4,395 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { ChevronDown } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ArrowRight, ChevronDown, LogOut, Menu, User, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useDescope, useSession, useUser } from '@descope/nextjs-sdk/client';
 import { DISCORD_URL } from '@/lib/constants';
 
-const COMMUNITY_PATHS = ['/community', '/talks'] as const;
-const EVENTS_PATHS = ['/events'] as const;
+const mainLinks = [
+  { name: 'Community', href: '/community' },
+  { name: 'Meetups', href: '/meetup' },
+  { name: 'Talks', href: '/talks' },
+] as const;
 
-const isCommunityPath = (path: string) =>
-  COMMUNITY_PATHS.some((p) => path === p || path.startsWith(`${p}/`));
+const eventLinks = [
+  { name: 'Upcoming', href: '/events/upcoming', description: 'TechThrusters sessions' },
+  { name: 'Partner events', href: '/events/partners', description: 'Meetups with partner communities' },
+  { name: 'Livestreams', href: '/events/livestreams', description: 'Past talks on YouTube' },
+] as const;
 
-const isEventsPath = (path: string) =>
-  EVENTS_PATHS.some((p) => path === p || path.startsWith(`${p}/`));
+const isActive = (pathname: string, href: string) => pathname === href || pathname.startsWith(`${href}/`);
+
+function DiscordIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden>
+      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+    </svg>
+  );
+}
 
 const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mobileCommunityOpen, setMobileCommunityOpen] = useState(false);
-  const [mobileEventsOpen, setMobileEventsOpen] = useState(false);
-  const [showUserMenu, setShowUserMenu] = useState(false);
-  const userMenuRef = useRef<HTMLDivElement>(null);
 
-  // Descope hooks
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [eventsOpen, setEventsOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+
+  const eventsRef = useRef<HTMLLIElement>(null);
+  const userMenuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Descope
   const { isAuthenticated, isSessionLoading } = useSession();
   const { user } = useUser();
   const sdk = useDescope();
+  const firstName = user?.name?.split(' ')[0] || user?.email?.split('@')[0] || 'Account';
 
+  // Hide on scroll down, show on scroll up
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+    let lastY = window.scrollY;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        const y = window.scrollY;
+        setIsScrolled(y > 20);
+        const delta = y - lastY;
+        if (y < 120) setIsHidden(false);
+        else if (delta > 6) setIsHidden(true);
+        else if (delta < -6) setIsHidden(false);
+        lastY = y;
+        ticking = false;
+      });
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close user menu when clicking outside
+  // Never hide while a menu is open
+  const hidden = isHidden && !mobileOpen && !eventsOpen && !userMenuOpen;
+
+  // Close everything on navigation
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
-        setShowUserMenu(false);
-      }
+    setMobileOpen(false);
+    setEventsOpen(false);
+    setUserMenuOpen(false);
+  }, [pathname]);
+
+  // Outside click + Escape for desktop dropdowns
+  useEffect(() => {
+    const onDown = (e: MouseEvent) => {
+      if (eventsRef.current && !eventsRef.current.contains(e.target as Node)) setEventsOpen(false);
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) setUserMenuOpen(false);
     };
-
-    if (showUserMenu) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      setEventsOpen(false);
+      setUserMenuOpen(false);
+      setMobileOpen(false);
+    };
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('keydown', onKey);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('mousedown', onDown);
+      document.removeEventListener('keydown', onKey);
     };
-  }, [showUserMenu]);
+  }, []);
 
+  // Mobile sheet: lock scroll and manage focus
   useEffect(() => {
-    if (!isMobileMenuOpen) {
-      setMobileCommunityOpen(false);
-      setMobileEventsOpen(false);
-    }
-  }, [isMobileMenuOpen]);
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    closeButtonRef.current?.focus();
+    const toggle = menuButtonRef.current;
+    return () => {
+      document.body.style.overflow = prev;
+      toggle?.focus();
+    };
+  }, [mobileOpen]);
 
   const handleLogout = useCallback(() => {
     sdk.logout();
+    setUserMenuOpen(false);
+    setMobileOpen(false);
     router.push('/');
   }, [sdk, router]);
 
-  const navItems = [
-    { name: 'Home', link: '/' },
-    { name: 'Meetups', link: '/meetup' },
-  ];
-
-  const communitySubLinks = [
-    { name: 'Community', link: '/community', description: 'Story, values & FAQ' },
-    { name: 'TechThrusters Talks', link: '/talks', description: 'Apply to speak' },
-  ] as const;
-
-  const eventsSubLinks = [
-    { name: 'Partner events', link: '/events/partners', description: 'Community partner meetups' },
-    { name: 'Upcoming', link: '/events/upcoming', description: 'TechThrusters sessions' },
-    { name: 'Livestreams', link: '/events/livestreams', description: 'Past talks on YouTube' },
-  ] as const;
+  const linkCls = (active: boolean) =>
+    cn(
+      'rounded-full px-3 py-2 text-sm transition-colors',
+      active ? 'font-semibold text-ember' : 'text-ink/75 hover:text-ink'
+    );
 
   return (
-    <nav
-      className={cn(
-        'fixed z-50 transition-all duration-300 ease-in-out',
-        isScrolled
-          ? 'top-4 left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] lg:w-[85%]'
-          : 'top-0 left-0 w-full'
-      )}
-    >
-      <div
+    <>
+      <nav
+        aria-label="Main"
         className={cn(
-          'bg-black/20 backdrop-blur-sm border border-white/20 transition-all duration-300',
-          isScrolled 
-            ? 'mx-auto px-4 py-2 rounded-2xl md:rounded-full max-w-7xl' 
-            : 'w-full px-6 py-4 border-t-0 border-l-0 border-r-0'
+          'fixed left-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 transition-[top,transform] duration-300 ease-out',
+          isScrolled ? 'top-3' : 'top-5',
+          hidden && '-translate-y-[calc(100%+2rem)]'
         )}
       >
-        <div className={cn(
-          'flex items-center justify-between',
-          !isScrolled && 'max-w-7xl mx-auto'
-        )}>
+        <div
+          className={cn(
+            'flex items-center justify-between rounded-full border border-ink/10 bg-paper/85 py-2 pl-5 pr-2 backdrop-blur-md transition-shadow duration-300',
+            isScrolled && 'shadow-[0_10px_30px_-12px_rgba(26,18,11,0.25)]'
+          )}
+        >
           {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0">
+          <Link href="/" className="flex shrink-0 items-center" aria-label="TechThrusters home">
             <Image
-              src="/images/logo/trans-rect-white.png"
-              alt="TechThrusters Logo"
-              width={180}
-              height={54}
-              className={cn(
-                'w-auto object-contain transition-all duration-300',
-                isScrolled ? 'h-10' : 'h-14'
-              )}
+              src="/images/logo/techthrusters-dark.png"
+              alt="TechThrusters"
+              width={461}
+              height={146}
+              className="h-9 w-auto object-contain md:h-10"
               priority
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8 flex-1 justify-center">
-            {navItems[0] && (
-              <Link
-                href={navItems[0].link}
-                className={cn(
-                  'transition-colors text-sm lg:text-base',
-                  pathname === navItems[0].link
-                    ? 'text-orange-400 font-semibold'
-                    : 'text-white hover:text-orange-400'
-                )}
-              >
-                {navItems[0].name}
-              </Link>
-            )}
-
-            {/* Community + Talks (nested under Community) */}
-            <div className="relative group">
+          {/* Desktop links */}
+          <ul className="hidden items-center gap-1 md:flex">
+            {mainLinks.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className={linkCls(isActive(pathname, l.href))} aria-current={isActive(pathname, l.href) ? 'page' : undefined}>
+                  {l.name}
+                </Link>
+              </li>
+            ))}
+            <li
+              ref={eventsRef}
+              className="relative"
+              onMouseEnter={() => setEventsOpen(true)}
+              onMouseLeave={() => setEventsOpen(false)}
+            >
               <button
                 type="button"
-                className={cn(
-                  'flex items-center gap-1 transition-colors text-sm lg:text-base outline-none',
-                  isCommunityPath(pathname)
-                    ? 'text-orange-400 font-semibold'
-                    : 'text-white hover:text-orange-400'
-                )}
-                aria-haspopup="true"
-                aria-label="Community menu"
-              >
-                Community
-                <ChevronDown className="h-4 w-4 opacity-80 transition-transform duration-200 group-hover:rotate-180" aria-hidden />
-              </button>
-              <div
-                className="absolute left-1/2 top-full z-50 min-w-[240px] -translate-x-1/2 pt-2 opacity-0 invisible transition-[opacity,visibility] duration-150 group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible"
-                role="menu"
-                aria-label="Community links"
-              >
-                <div className="rounded-xl border border-white/20 bg-black/95 py-2 shadow-xl backdrop-blur-md">
-                  {communitySubLinks.map((item) => (
-                    <Link
-                      key={item.link}
-                      href={item.link}
-                      role="menuitem"
-                      className={cn(
-                        'block px-4 py-2.5 text-sm transition-colors',
-                        pathname === item.link
-                          ? 'bg-orange-500/15 text-orange-300'
-                          : 'text-white/90 hover:bg-white/10 hover:text-white'
-                      )}
-                    >
-                      <span className="font-medium">{item.name}</span>
-                      <span className="mt-0.5 block text-xs font-normal text-white/50">
-                        {item.description}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Events */}
-            <div className="relative group">
-              <button
-                type="button"
-                className={cn(
-                  'flex items-center gap-1 transition-colors text-sm lg:text-base outline-none',
-                  isEventsPath(pathname)
-                    ? 'text-orange-400 font-semibold'
-                    : 'text-white hover:text-orange-400'
-                )}
-                aria-haspopup="true"
-                aria-label="Events menu"
+                onClick={() => setEventsOpen((o) => !o)}
+                aria-expanded={eventsOpen}
+                aria-controls="events-menu"
+                className={cn(linkCls(isActive(pathname, '/events')), 'inline-flex items-center gap-1')}
               >
                 Events
-                <ChevronDown className="h-4 w-4 opacity-80 transition-transform duration-200 group-hover:rotate-180" aria-hidden />
+                <ChevronDown className={cn('h-4 w-4 opacity-70 transition-transform duration-200', eventsOpen && 'rotate-180')} aria-hidden />
               </button>
-              <div
-                className="absolute left-1/2 top-full z-50 min-w-[240px] -translate-x-1/2 pt-2 opacity-0 invisible transition-[opacity,visibility] duration-150 group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible"
-                role="menu"
-                aria-label="Events links"
-              >
-                <div className="rounded-xl border border-white/20 bg-black/95 py-2 shadow-xl backdrop-blur-md">
-                  {eventsSubLinks.map((item) => (
-                    <Link
-                      key={item.link}
-                      href={item.link}
-                      role="menuitem"
-                      className={cn(
-                        'block px-4 py-2.5 text-sm transition-colors',
-                        pathname === item.link
-                          ? 'bg-orange-500/15 text-orange-300'
-                          : 'text-white/90 hover:bg-white/10 hover:text-white'
-                      )}
-                    >
-                      <span className="font-medium">{item.name}</span>
-                      <span className="mt-0.5 block text-xs font-normal text-white/50">
-                        {item.description}
-                      </span>
-                    </Link>
-                  ))}
+              <AnimatePresence>
+                {eventsOpen && (
+                  <motion.div
+                    id="events-menu"
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute left-1/2 top-full w-[260px] -translate-x-1/2 pt-2"
+                  >
+                    <ul className="rounded-2xl border border-ink/10 bg-paper p-1.5 shadow-[0_20px_40px_-16px_rgba(26,18,11,0.3)]">
+                      {eventLinks.map((l) => (
+                        <li key={l.href}>
+                          <Link
+                            href={l.href}
+                            aria-current={pathname === l.href ? 'page' : undefined}
+                            className={cn(
+                              'block rounded-xl px-4 py-2.5 text-sm transition-colors',
+                              pathname === l.href ? 'bg-ember/10 text-ember' : 'text-ink/80 hover:bg-ink/5 hover:text-ink'
+                            )}
+                          >
+                            <span className="font-medium">{l.name}</span>
+                            <span className="mt-0.5 block text-xs text-ink/50">{l.description}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </li>
+          </ul>
+
+          {/* Right side */}
+          <div className="flex items-center gap-1 sm:gap-2">
+            {/* Account slot: fixed width, so swapping "Sign in" for the account name
+                once the session check confirms a login never shifts the layout */}
+            <div className="hidden w-[104px] justify-end md:flex" ref={userMenuRef}>
+              {!isSessionLoading && isAuthenticated && user ? (
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setUserMenuOpen((o) => !o)}
+                    aria-expanded={userMenuOpen}
+                    aria-haspopup="menu"
+                    className="inline-flex h-10 max-w-[104px] items-center gap-1.5 rounded-full px-3 text-sm text-ink/75 transition-colors hover:text-ink"
+                  >
+                    <User className="h-4 w-4 shrink-0" aria-hidden />
+                    <span className="truncate">{firstName}</span>
+                  </button>
+                  <AnimatePresence>
+                    {userMenuOpen && (
+                      <motion.div
+                        role="menu"
+                        initial={{ opacity: 0, y: -4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -4 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute right-0 top-full mt-2 w-52 overflow-hidden rounded-2xl border border-ink/10 bg-paper p-1.5 shadow-[0_20px_40px_-16px_rgba(26,18,11,0.3)]"
+                      >
+                        <p className="truncate px-3 py-2 text-xs text-ink/50">{user.email || user.name}</p>
+                        <Link href="/profile" role="menuitem" className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm text-ink hover:bg-ink/5">
+                          <User className="h-4 w-4 text-ink/50" aria-hidden /> Profile
+                        </Link>
+                        <button type="button" role="menuitem" onClick={handleLogout} className="flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-left text-sm text-ink hover:bg-ink/5">
+                          <LogOut className="h-4 w-4 text-ink/50" aria-hidden /> Log out
+                        </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-              </div>
+              ) : (
+                <Link href="/sign-up" className="inline-flex h-10 items-center rounded-full px-3 text-sm text-ink/75 transition-colors hover:text-ink">
+                  Sign in
+                </Link>
+              )}
             </div>
 
-            {navItems.slice(1).map((item) => (
-              <Link
-                key={item.link}
-                href={item.link}
-                className={cn(
-                  'transition-colors text-sm lg:text-base',
-                  pathname === item.link
-                    ? 'text-orange-400 font-semibold'
-                    : 'text-white hover:text-orange-400'
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex items-center gap-3">
-            {!isSessionLoading && (
-              <>
-                {isAuthenticated && user ? (
-                  <div className="relative" ref={userMenuRef}>
-                    <button
-                      onClick={() => setShowUserMenu(!showUserMenu)}
-                      className={cn(
-                        'bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all duration-300 flex items-center gap-2 flex-shrink-0 backdrop-blur-sm border border-white/20 px-3',
-                        showUserMenu && 'bg-white/20 border-white/30',
-                        isScrolled ? 'h-8' : 'h-10'
-                      )}
-                      aria-expanded={showUserMenu}
-                      aria-haspopup="true"
-                    >
-                      <svg
-                        className={cn('flex-shrink-0', isScrolled ? 'w-4 h-4' : 'w-5 h-5')}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
-                      <span className={cn('hidden md:block font-medium truncate max-w-[120px]', isScrolled ? 'text-xs' : 'text-sm')}>
-                        {user.name?.split(' ')[0] || user.email?.split('@')[0] || 'Account'}
-                      </span>
-                    </button>
-                    
-                    {showUserMenu && (
-                      <div className="absolute top-full right-0 mt-2 bg-black/95 backdrop-blur-md border border-white/20 rounded-lg overflow-hidden z-50 min-w-[180px] shadow-2xl transform transition-all duration-200 ease-out origin-top-right">
-                        <div className="py-1">
-                          <div className="px-4 py-2 border-b border-white/10">
-                            <p className="text-xs text-white/60 uppercase tracking-wider">Account</p>
-                            <p className="text-sm text-white font-medium mt-1 truncate">
-                              {user.name || user.email || 'User'}
-                            </p>
-                          </div>
-                          <Link
-                            href="/profile"
-                            onClick={() => setShowUserMenu(false)}
-                            className="w-full px-4 py-3 text-left text-white hover:bg-white/10 active:bg-white/15 transition-colors flex items-center gap-3 group"
-                          >
-                            <svg className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                            <span className="font-medium">Profile</span>
-                          </Link>
-                          <button
-                            onClick={handleLogout}
-                            className="w-full px-4 py-3 text-left text-white hover:bg-white/10 active:bg-white/15 transition-colors flex items-center gap-3 group"
-                          >
-                            <svg className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                            </svg>
-                            <span className="font-medium">Logout</span>
-                          </button>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    href="/sign-up"
-                    className={cn(
-                      'bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all duration-300 flex items-center justify-center flex-shrink-0 backdrop-blur-sm border border-white/20',
-                      isScrolled ? 'h-8 px-3 text-xs' : 'h-10 px-4 text-sm'
-                    )}
-                  >
-                    <span>Sign Up</span>
-                  </Link>
-                )}
-              </>
-            )}
+            {/* Primary CTA */}
             <a
               href={DISCORD_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={cn(
-                'bg-orange-700 hover:bg-orange-600 text-white rounded-lg transition-all duration-300 flex items-center justify-center flex-shrink-0',
-                isScrolled ? 'w-8 h-8' : 'w-10 h-10'
-              )}
+              className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-ink px-3 text-paper transition-colors hover:bg-ember sm:px-4"
+              aria-label="Join the TechThrusters Discord"
             >
-              <svg className={cn(
-                'flex-shrink-0',
-                isScrolled ? 'w-4 h-4' : 'w-5 h-5'
-              )} fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
-              </svg>
+              <DiscordIcon className="h-4 w-4" />
+              <span className="hidden text-sm font-semibold sm:inline">Join Discord</span>
             </a>
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile menu toggle */}
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-white p-2 transition-transform duration-300"
-              aria-label="Toggle menu"
+              ref={menuButtonRef}
+              type="button"
+              onClick={() => setMobileOpen(true)}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-ink md:hidden"
+              aria-label="Open menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
             >
-              <svg
-                className={cn(
-                  "w-6 h-6 transition-transform duration-300",
-                  isMobileMenuOpen && "rotate-90"
-                )}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                {isMobileMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
+              <Menu className="h-6 w-6" aria-hidden />
             </button>
           </div>
         </div>
+      </nav>
 
-        {/* Mobile Navigation */}
-        <div
-          className={cn(
-            "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
-            isMobileMenuOpen
-              ? "max-h-[500px] opacity-100 mt-4 pt-4 border-t border-white/20"
-              : "max-h-0 opacity-0 mt-0 pt-0 border-t-0"
-          )}
-        >
-          <div className="flex flex-col space-y-3">
-            <Link
-              href="/"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={cn(
-                'transition-all duration-300 text-base py-2 px-4 rounded-lg',
-                pathname === '/'
-                  ? 'text-orange-400 font-semibold bg-orange-400/10'
-                  : 'text-white hover:text-orange-400 hover:bg-white/5',
-                isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
-              )}
-              style={{ transitionDelay: isMobileMenuOpen ? '0ms' : `${navItems.length * 30}ms` }}
-            >
-              Home
-            </Link>
-
-            <div
-              className={cn(
-                'transition-all duration-300 rounded-lg',
-                isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
-              )}
-              style={{ transitionDelay: isMobileMenuOpen ? '50ms' : `${(navItems.length - 0) * 30}ms` }}
-            >
-              <button
-                type="button"
-                onClick={() => setMobileCommunityOpen((o) => !o)}
-                className={cn(
-                  'flex w-full items-center justify-between text-base py-2 px-4 rounded-lg text-left transition-colors',
-                  isCommunityPath(pathname)
-                    ? 'text-orange-400 font-semibold bg-orange-400/10'
-                    : 'text-white hover:text-orange-400 hover:bg-white/5'
-                )}
-                aria-expanded={mobileCommunityOpen}
-                aria-controls="mobile-community-submenu"
-              >
-                <span>Community</span>
-                <ChevronDown
-                  className={cn(
-                    'h-5 w-5 shrink-0 transition-transform duration-200',
-                    mobileCommunityOpen && 'rotate-180'
-                  )}
-                  aria-hidden
-                />
-              </button>
-              <div
-                id="mobile-community-submenu"
-                className={cn(
-                  'overflow-hidden transition-all duration-300',
-                  mobileCommunityOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
-                )}
-              >
-                <div className="ml-2 mt-1 space-y-1 border-l border-white/20 pl-3">
-                  {communitySubLinks.map((item) => (
-                    <Link
-                      key={item.link}
-                      href={item.link}
-                      onClick={() => {
-                        setIsMobileMenuOpen(false);
-                        setMobileCommunityOpen(false);
-                      }}
-                      className={cn(
-                        'block rounded-lg py-2 pl-2 pr-4 text-sm transition-colors',
-                        pathname === item.link
-                          ? 'text-orange-400 font-semibold'
-                          : 'text-white/90 hover:text-orange-300'
-                      )}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div
-              className={cn(
-                'transition-all duration-300 rounded-lg',
-                isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
-              )}
-              style={{ transitionDelay: isMobileMenuOpen ? '100ms' : `${(navItems.length - 0) * 30}ms` }}
-            >
-              <button
-                type="button"
-                onClick={() => setMobileEventsOpen((o) => !o)}
-                className={cn(
-                  'flex w-full items-center justify-between text-base py-2 px-4 rounded-lg text-left transition-colors',
-                  isEventsPath(pathname)
-                    ? 'text-orange-400 font-semibold bg-orange-400/10'
-                    : 'text-white hover:text-orange-400 hover:bg-white/5'
-                )}
-                aria-expanded={mobileEventsOpen}
-                aria-controls="mobile-events-submenu"
-              >
-                <span>Events</span>
-                <ChevronDown
-                  className={cn(
-                    'h-5 w-5 shrink-0 transition-transform duration-200',
-                    mobileEventsOpen && 'rotate-180'
-                  )}
-                  aria-hidden
-                />
-              </button>
-              <div
-                id="mobile-events-submenu"
-                className={cn(
-                  'overflow-hidden transition-all duration-300',
-                  mobileEventsOpen ? 'max-h-52 opacity-100' : 'max-h-0 opacity-0'
-                )}
-              >
-                <div className="ml-2 mt-1 space-y-1 border-l border-white/20 pl-3">
-                  {eventsSubLinks.map((item) => (
-                    <Link
-                      key={item.link}
-                      href={item.link}
-                      onClick={() => {
-                        setIsMobileMenuOpen(false);
-                        setMobileEventsOpen(false);
-                      }}
-                      className={cn(
-                        'block rounded-lg py-2 pl-2 pr-4 text-sm transition-colors',
-                        pathname === item.link
-                          ? 'text-orange-400 font-semibold'
-                          : 'text-white/90 hover:text-orange-300'
-                      )}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {navItems.slice(1).map((item, index) => (
-              <Link
-                key={item.link}
-                href={item.link}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={cn(
-                  'transition-all duration-300 text-base py-2 px-4 rounded-lg',
-                  pathname === item.link
-                    ? 'text-orange-400 font-semibold bg-orange-400/10'
-                    : 'text-white hover:text-orange-400 hover:bg-white/5',
-                  isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
-                )}
-                style={{
-                  transitionDelay: isMobileMenuOpen
-                    ? `${(index + 3) * 50}ms`
-                    : `${(navItems.length - index - 1) * 30}ms`
-                }}
-              >
-                {item.name}
+      {/* Mobile: full-screen sheet */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[70] flex flex-col bg-paper text-ink md:hidden"
+          >
+            <div className="flex items-center justify-between px-6 pb-2 pt-6">
+              <Link href="/" aria-label="TechThrusters home" onClick={() => setMobileOpen(false)}>
+                <Image src="/images/logo/techthrusters-dark.png" alt="TechThrusters" width={461} height={146} className="h-9 w-auto" />
               </Link>
-            ))}
-            {isAuthenticated && user && (
-              <div
-                className={cn(
-                  "pt-2 border-t border-white/20 transition-all duration-300",
-                  isMobileMenuOpen
-                    ? 'translate-y-0 opacity-100'
-                    : '-translate-y-2 opacity-0'
-                )}
-                style={{
-                  transitionDelay: isMobileMenuOpen ? `${navItems.length * 50}ms` : '0ms'
-                }}
+              <button
+                ref={closeButtonRef}
+                type="button"
+                onClick={() => setMobileOpen(false)}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/15"
+                aria-label="Close menu"
               >
-                <button
-                  onClick={handleLogout}
-                  className="w-full px-4 py-2 text-left text-white hover:bg-white/10 transition-colors flex items-center gap-3 rounded-lg"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                  </svg>
-                  <span>Logout</span>
-                </button>
+                <X className="h-5 w-5" aria-hidden />
+              </button>
+            </div>
+
+            <motion.div
+              className="flex-1 overflow-y-auto px-6 pb-6 pt-6"
+              initial={{ y: 12, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.3, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <ul className="divide-y divide-ink/10 border-y border-ink/10">
+                {[{ name: 'Home', href: '/' }, ...mainLinks].map((l) => {
+                  const active = l.href === '/' ? pathname === '/' : isActive(pathname, l.href);
+                  return (
+                    <li key={l.href}>
+                      <Link
+                        href={l.href}
+                        aria-current={active ? 'page' : undefined}
+                        className={cn('flex items-center justify-between py-4 text-3xl font-semibold tracking-tight', active ? 'text-ember' : 'text-ink')}
+                      >
+                        {l.name}
+                        <ArrowRight className="h-5 w-5 text-ink/30" aria-hidden />
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <p className="eyebrow mt-8 text-ink/50">Events</p>
+              <ul className="mt-3 space-y-1">
+                {eventLinks.map((l) => (
+                  <li key={l.href}>
+                    <Link
+                      href={l.href}
+                      aria-current={pathname === l.href ? 'page' : undefined}
+                      className={cn('block py-2 text-xl font-medium', pathname === l.href ? 'text-ember' : 'text-ink/80')}
+                    >
+                      {l.name}
+                      <span className="block text-sm font-normal text-ink/50">{l.description}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 border-t border-ink/10 pt-6 text-base">
+                {isAuthenticated && user ? (
+                  <div className="flex items-center justify-between gap-4">
+                    <Link href="/profile" className="inline-flex items-center gap-2 text-ink/80">
+                      <User className="h-4 w-4" aria-hidden /> {firstName}
+                    </Link>
+                    <button type="button" onClick={handleLogout} className="inline-flex items-center gap-2 text-ink/60">
+                      <LogOut className="h-4 w-4" aria-hidden /> Log out
+                    </button>
+                  </div>
+                ) : (
+                  <Link href="/sign-up" className="text-ink/70 underline underline-offset-4">
+                    Sign in to your account
+                  </Link>
+                )}
               </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </nav>
+            </motion.div>
+
+            {/* Pinned CTA, within thumb reach */}
+            <div className="border-t border-ink/10 bg-paper px-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-4">
+              <a
+                href={DISCORD_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-14 w-full items-center justify-center gap-3 rounded-full bg-ember text-base font-semibold text-paper transition-colors active:bg-ember-bright"
+              >
+                <DiscordIcon className="h-5 w-5" />
+                Join the Discord
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

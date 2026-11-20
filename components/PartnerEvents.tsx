@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { partnerEvents } from "@/data/partnerEvents";
 import PartnerEventCard from "@/components/PartnerEventCard";
+import { PageHeader } from './ui/Launch';
+import EventsTabs from './EventsTabs';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -10,61 +12,48 @@ function PartnerEvents() {
   const hasEvents = partnerEvents.length > 0;
 
   return (
-    <section
-      id="community-partners"
-      className="relative mx-auto w-full max-w-6xl scroll-mt-28 px-5 pb-16 md:px-8 md:pb-24"
-      aria-labelledby="community-partners-heading"
-    >
-      <motion.div
-        className="mx-auto max-w-3xl text-center"
-        initial={{ opacity: 0, y: 28 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.42, ease }}
+    <>
+      <PageHeader
+        label="Community partners"
+        title="Partner events"
+        accent="& meetups."
+        intro="Events and meetups we are supporting alongside other developer communities."
+        photos={[
+          { src: "/images/meetup/genai/group3.jpg", alt: "Event attendees at TechBrewers GenAI Meetup", caption: "Attendees, TechBrewers GenAI Meetup" },
+          { src: "/images/meetup/meetup1/group1.jpg", alt: "Group photo at TechBrewers Community Meetup 1.0", caption: "Meetup 1.0" },
+        ]}
       >
-        <p className="mb-3 text-sm font-medium uppercase tracking-widest text-orange-400/90">
-          Community partners
-        </p>
-        <h1
-          id="community-partners-heading"
-          className="text-3xl font-bold text-heading-gradient md:text-5xl"
-        >
-          Partner events & meetups
-        </h1>
-        <p className="mt-4 text-base text-gray-400 md:text-lg">
-          Events and meetups we are supporting alongside other developer
-          communities.
-        </p>
-      </motion.div>
+        <EventsTabs />
+      </PageHeader>
 
-      {hasEvents ? (
-        <ul className="mx-auto mt-12 max-w-2xl w-full list-none space-y-4 px-1">
-          {partnerEvents.map((event, index) => (
-            <motion.li
-              key={event.id}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 + index * 0.08, ease }}
-            >
-              <PartnerEventCard event={event} />
-            </motion.li>
-          ))}
-        </ul>
-      ) : (
-        <motion.div
-          className="mx-auto mt-10 max-w-xl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15, ease }}
-        >
-          <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] px-6 py-8 text-center backdrop-blur-md">
-            <p className="text-gray-300">Partner events will be listed here soon.</p>
-            <p className="mt-2 text-sm text-gray-500">
+      <section
+        id="community-partners"
+        className="mx-auto w-full max-w-7xl scroll-mt-28 px-6 pb-20 md:pb-28"
+        aria-label="Partner events"
+      >
+        {hasEvents ? (
+          <ul className="border-t border-ink/10">
+            {partnerEvents.map((event, index) => (
+              <motion.li
+                key={event.id}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 + index * 0.06, ease }}
+              >
+                <PartnerEventCard event={event} />
+              </motion.li>
+            ))}
+          </ul>
+        ) : (
+          <div className="rounded-[1.75rem] border border-dashed border-ink/20 bg-white/50 px-6 py-14 text-center">
+            <p className="display text-2xl text-ink md:text-3xl">Partner events will be listed here <span className="accent text-ember">soon.</span></p>
+            <p className="mt-3 text-ink-soft">
               Check back for meetups we are co-hosting with other communities.
             </p>
           </div>
-        </motion.div>
-      )}
-    </section>
+        )}
+      </section>
+    </>
   );
 }
 

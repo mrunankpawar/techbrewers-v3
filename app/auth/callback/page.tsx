@@ -33,10 +33,10 @@ function AuthCallbackInner() {
   const showFlow = !isSessionLoading && !isAuthenticated && hasContinuationParams;
 
   return (
-    <div className="min-h-screen gradient-background flex items-center justify-center">
+    <div className="flex min-h-screen items-center justify-center bg-paper">
       <div className="flex flex-col items-center gap-4 text-center">
-        <div className="w-10 h-10 rounded-full border-2 border-orange-400/40 border-t-orange-400 animate-spin" />
-        <p className="text-white/60 text-sm">Completing sign in…</p>
+        <div className="h-10 w-10 animate-spin rounded-full border-2 border-ember/30 border-t-ember" />
+        <p className="eyebrow text-ink/60">Completing sign in…</p>
       </div>
       {showFlow && (
         <div className="hidden">

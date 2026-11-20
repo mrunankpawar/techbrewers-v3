@@ -3,122 +3,102 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+import { SectionLabel } from './ui/Launch';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const teamMembers = [
   {
-    id: 1,
-    name: "Mrunank Pawar",
-    image: "/images/team/mrunanknew.png",
-    linkedin: "https://www.linkedin.com/in/mrunankpawar/",
+    name: 'Mrunank Pawar',
+    image: '/images/team/mrunanknew.png',
+    linkedin: 'https://www.linkedin.com/in/mrunankpawar/',
+    tile: 'bg-flare',
   },
   {
-    id: 2,
-    name: "Vaibhav Kadam",
-    image: "/images/team/vaibhavnew.png",
-    linkedin: "https://www.linkedin.com/in/4lph4v/",
+    name: 'Vaibhav Kadam',
+    image: '/images/team/vaibhavnew.png',
+    linkedin: 'https://www.linkedin.com/in/4lph4v/',
+    tile: 'bg-clay',
   },
   {
-    id: 3,
-    name: "Abhi Savale",
-    image: "/images/team/abhinew.png",
-    linkedin: "https://www.linkedin.com/in/abhijeet-savale/",
+    name: 'Abhi Savale',
+    image: '/images/team/abhinew.png',
+    linkedin: 'https://www.linkedin.com/in/abhijeet-savale/',
+    tile: 'bg-espresso',
   },
   {
-    id: 4,
-    name: "Sana Shaikh",
-    image: "/images/team/sananew.png",
-    linkedin: "https://www.linkedin.com/in/sanashaikh30/",
+    name: 'Sana Shaikh',
+    image: '/images/team/sananew.png',
+    linkedin: 'https://www.linkedin.com/in/sanashaikh30/',
+    tile: 'bg-ember',
   },
 ];
 
 const MeetTheTeam = () => {
   return (
-    <div className="relative py-20 px-6 gradient-background overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-radial from-orange-500/15 via-orange-500/5 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-1/3 bg-gradient-to-t from-orange-500/10 via-transparent to-transparent pointer-events-none" />
-
-      <div className="relative max-w-7xl mx-auto">
-        {/* Top Section */}
+    <section className="relative bg-paper text-ink">
+      <div aria-hidden className="absolute inset-0 star-field fade-edges" />
+      <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
         <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 32 }}
+          className="mx-auto mb-14 max-w-3xl text-center"
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.45, ease }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease }}
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-4">
-            <span className="text-white">Meet the Team Making</span>
+          <SectionLabel className="mb-4 justify-center">The team</SectionLabel>
+          <h2 className="display text-4xl md:text-6xl">
+            The people who make it
             <br />
-            <span className="text-heading-gradient">Things Happen Every Day</span>
+            <span className="accent text-ember">happen, every day.</span>
           </h2>
-          <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
-            We&apos;re more than just a team—we&apos;re a close-knit family of passionate individuals.
+          <p className="mx-auto mt-6 max-w-xl text-lg text-ink-soft">
+            We&apos;re more than just a team: we&apos;re a close-knit family of passionate individuals.
           </p>
         </motion.div>
 
-        {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={member.id}
-              className="group relative"
-              initial={{ opacity: 0, y: 32 }}
+        <div className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
+          {teamMembers.map((m, i) => (
+            <motion.a
+              key={m.name}
+              href={m.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${m.name} on LinkedIn`}
+              className={`group block ${i % 2 ? 'lg:mt-10' : ''}`}
+              initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.42, delay: index * 0.08, ease }}
-              style={{ willChange: 'transform' }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.5, delay: i * 0.07, ease }}
             >
-              {/* Gradient Border Effect */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              {/* Card */}
-              <div className="relative bg-gradient-to-br from-black/40 via-black/30 to-black/40 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:border-orange-500/40 transition-all duration-500 group-hover:shadow-[0_8px_30px_rgba(197,79,14,0.12)] flex items-center">
-                {/* Glow Effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:via-orange-500/0 group-hover:to-orange-500/5 transition-all duration-500 pointer-events-none" />
-
-                {/* Profile Picture */}
-                <div className="flex-shrink-0 mr-4 relative z-10">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-white/20 group-hover:border-orange-500/60 transition-all duration-500">
-                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-orange-600/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-[0_1px_0_rgba(26,18,11,0.06)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_18px_40px_-18px_rgba(26,18,11,0.35)]">
+                <div className={`relative flex aspect-square items-end justify-center overflow-hidden ${m.tile}`}>
+                  <div className="relative h-[86%] w-[86%] translate-y-[8%] transition-transform duration-500 group-hover:translate-y-[4%] group-hover:scale-[1.03]">
                     <Image
-                      src={member.image}
-                      alt={member.name}
+                      src={m.image}
+                      alt={m.name}
                       fill
-                      className="object-cover relative z-10"
+                      sizes="(min-width: 1024px) 25vw, 50vw"
+                      className="object-contain"
                     />
                   </div>
                 </div>
-
-                {/* Info Section */}
-                <div className="flex-1 min-w-0 relative z-10">
-                  <h3 className="text-white font-bold text-lg truncate group-hover:text-orange-200 transition-colors duration-300">
-                    {member.name}
-                  </h3>
-                </div>
-
-                {/* LinkedIn Button */}
-                <div className="flex-shrink-0 ml-4 relative z-10">
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-10 h-10 bg-orange-700 hover:bg-orange-600 text-white rounded-lg transition-all duration-300"
-                    aria-label={`${member.name}'s LinkedIn`}
-                  >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                  </a>
+                <div className="flex items-center justify-between gap-2 px-3 py-3 sm:px-4 sm:py-4 md:px-5">
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-semibold leading-tight sm:text-base">{m.name}</h3>
+                    <p className="text-xs text-ink/50">Core team</p>
+                  </div>
+                  <span className="hidden h-8 w-8 shrink-0 sm:inline-flex items-center justify-center rounded-full bg-ink/5 text-ink/60 transition-colors group-hover:bg-ember group-hover:text-paper">
+                    <ArrowUpRight className="h-4 w-4" aria-hidden />
+                  </span>
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

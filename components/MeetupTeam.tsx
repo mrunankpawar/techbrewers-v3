@@ -1,7 +1,10 @@
 'use client';
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import { SectionLabel } from "./ui/Launch";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -24,58 +27,75 @@ const people = [
 
 function Team() {
   return (
-    <div className="mt-0 h-auto w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-5 md:py-10">
-      <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center text-center">
-        <motion.h3
-          className="text-4xl md:text-6xl font-bold text-heading-gradient z-10"
-          initial={{ opacity: 0, y: 28 }}
+    <section className="bg-paper">
+      <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <motion.div
+          className="mb-12 max-w-3xl"
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.42, ease }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease }}
         >
-          Speaker Archive
-        </motion.h3>
+          <SectionLabel className="mb-4">Speaker archive</SectionLabel>
+          <h2 className="display text-4xl text-ink md:text-6xl">
+            The voices who{" "}
+            <span className="accent text-ember">took the stage.</span>
+          </h2>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
+            {people.length} speakers have shared their journeys and insights at our meetups so far.
+          </p>
+        </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-6 mt-10">
+        <div className="grid grid-cols-2 border-l border-t border-ink/10 sm:grid-cols-3 lg:grid-cols-5">
           {people.map((person, index) => (
-            <motion.div
+            <motion.a
               key={person.id}
-              className="group relative flex flex-col items-center w-1/3 sm:w-1/3 lg:w-1/4"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.38, delay: (index % 4) * 0.07, ease }}
-              style={{ willChange: 'transform' }}
+              href={person.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex flex-col items-center border-b border-r border-ink/10 px-3 py-7 text-center transition-colors hover:bg-white sm:px-5 md:py-9"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.4, delay: (index % 5) * 0.05 }}
             >
-              <div className="relative mb-3">
-                <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/30 via-orange-400/20 to-orange-500/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative w-24 h-24 md:w-32 md:h-32 overflow-hidden rounded-full border-2 border-white/20 group-hover:border-orange-500/60 transition-all duration-500">
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-orange-600/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <Image
-                    src={person.image}
-                    alt={person.name}
-                    className="object-cover relative z-10"
-                    width={200}
-                    height={200}
-                  />
-                </div>
+              <ArrowUpRight
+                className="absolute right-3 top-3 h-4 w-4 text-ink/30 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ember"
+                aria-hidden
+              />
+              <div className="relative h-24 w-24 transition-transform duration-500 group-hover:-translate-y-1 md:h-32 md:w-32">
+                <Image
+                  src={person.image}
+                  alt={person.name}
+                  fill
+                  sizes="128px"
+                  className="object-contain"
+                />
               </div>
-              <a
-                href={person.url}
-                className="mt-2 text-sm md:text-base font-semibold text-white hover:text-orange-300 transition-colors duration-300 text-center"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {person.name}
-              </a>
-              <div className="text-xs md:text-sm text-white/70 group-hover:text-white/90 transition-colors duration-300 text-center mt-1">
-                {person.designation}
-              </div>
-            </motion.div>
+              <h3 className="mt-4 text-sm font-semibold leading-tight text-ink md:text-base">{person.name}</h3>
+              <p className="mt-1 text-xs leading-snug text-ink-soft md:text-sm">{person.designation}</p>
+            </motion.a>
           ))}
+
+          {/* Call to action: become the next speaker */}
+          <Link
+            href="/talks"
+            className="group flex flex-col justify-between gap-6 border-b border-r border-ink/10 bg-ink p-5 text-paper transition-colors hover:bg-ember md:p-6"
+          >
+            <span className="eyebrow text-flare group-hover:text-paper">Your turn</span>
+            <span>
+              <span className="block text-2xl font-semibold leading-tight tracking-tight md:text-3xl">
+                Want to <span className="accent text-flare group-hover:text-paper">speak?</span>
+              </span>
+              <span className="mt-2 inline-flex items-center gap-1 text-xs text-paper/70 group-hover:text-paper">
+                Apply for TechThrusters Talks
+                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+              </span>
+            </span>
+          </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

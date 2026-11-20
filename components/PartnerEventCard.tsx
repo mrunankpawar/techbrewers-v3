@@ -1,56 +1,43 @@
-import Link from "next/link";
+import { ArrowUpRight, Calendar, MapPin } from "lucide-react";
 import type { PartnerEvent } from "@/data/partnerEvents";
 
 type PartnerEventCardProps = {
   event: PartnerEvent;
 };
 
-function ArrowIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
-      aria-hidden
-    >
-      <path d="M5 12h14" />
-      <path d="m12 5 7 7-7 7" />
-    </svg>
-  );
-}
-
+/** One row in the partner events list: the whole row links to the event page. */
 function PartnerEventCard({ event }: PartnerEventCardProps) {
   const eventPageUrl = event.eventPageUrl ?? event.registerUrl;
 
   return (
-    <article className="group relative flex flex-col items-center justify-between rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-4 transition-colors duration-300 hover:border-orange-500/30 md:flex-row md:items-start">
-      <div className="flex w-full flex-col items-center gap-1 text-center md:items-start md:text-left">
-        <h3 className="font-medium text-white">{event.title}</h3>
-        <time dateTime={event.date} className="text-sm text-orange-700">
-          {event.date}
-        </time>
-        {event.location ? (
-          <p className="text-sm text-gray-400">{event.location}</p>
-        ) : null}
+    <a
+      href={eventPageUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group grid grid-cols-[1fr_auto] items-center gap-4 border-b border-ink/10 py-6 transition-colors hover:bg-white/60 sm:gap-8 sm:px-4 md:py-8"
+    >
+      <div className="min-w-0">
+        <h3 className="display text-2xl text-ink transition-colors group-hover:text-ember md:text-4xl">
+          {event.title}
+        </h3>
+        <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-sm text-ink-soft">
+          <time dateTime={event.date} className="inline-flex items-center gap-1.5">
+            <Calendar className="h-3.5 w-3.5 text-ember" aria-hidden />
+            {event.date}
+          </time>
+          {event.location ? (
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin className="h-3.5 w-3.5 text-ember" aria-hidden />
+              {event.location}
+            </span>
+          ) : null}
+        </div>
       </div>
-
-      <Link
-        href={eventPageUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group mt-4 inline-flex items-center gap-2 rounded-xl border border-orange-500/30 bg-gradient-to-r from-orange-500/10 to-orange-600/10 px-4 py-2 text-sm font-medium text-orange-300 transition-colors duration-200 hover:border-orange-500/50 hover:text-orange-200 md:mt-0 md:shrink-0"
-      >
-        Event page
-        <ArrowIcon />
-      </Link>
-    </article>
+      <span className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 text-ink transition-all group-hover:border-ember group-hover:bg-ember group-hover:text-paper">
+        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
+        <span className="sr-only">Event page (opens in a new tab)</span>
+      </span>
+    </a>
   );
 }
 

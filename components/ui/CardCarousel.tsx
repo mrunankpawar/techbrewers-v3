@@ -72,8 +72,8 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
   const handleCardClose = (index: number) => {
     if (carouselRef.current) {
-      const cardWidth = isMobile() ? 230 : 384; // (md:w-96)
-      const gap = isMobile() ? 4 : 8;
+      const cardWidth = isMobile() ? 256 : 384; // w-64 / md:w-96
+      const gap = 16; // gap-4
       const scrollPosition = (cardWidth + gap) * (index + 1);
       carouselRef.current.scrollTo({
         left: scrollPosition,
@@ -93,7 +93,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     >
       <div className="relative w-full">
         <div
-          className="flex w-full overflow-x-scroll overscroll-x-auto py-10 md:py-20 scroll-smooth [scrollbar-width:none]"
+          className="flex w-full snap-x snap-mandatory overflow-x-scroll overscroll-x-auto py-10 md:py-14 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           ref={carouselRef}
           onScroll={checkScrollability}
         >
@@ -105,8 +105,8 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
           <div
             className={cn(
-              "flex flex-row justify-start gap-4 pl-4",
-              "max-w-7xl mx-auto" // remove max-w-4xl if you want the carousel to span the full width of its container
+              "flex flex-row justify-start gap-4 pl-6",
+              "max-w-7xl mx-auto"
             )}
           >
             {items.map((item, index) => (
@@ -126,27 +126,29 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                   },
                 }}
                 key={"card" + index}
-                className="last:pr-[5%] md:last:pr-[33%]  rounded-3xl"
+                className="snap-start last:pr-6 md:last:pr-[33%] rounded-[1.75rem]"
               >
                 {item}
               </motion.div>
             ))}
           </div>
         </div>
-        <div className="flex justify-end gap-2 mr-10">
+        <div className="mx-auto flex max-w-7xl justify-end gap-2 px-6">
           <button
-            className="relative z-40 h-10 w-10 rounded-full bg-orange-600 hover:bg-orange-500 flex items-center justify-center disabled:opacity-50 transition-colors"
+            className="relative z-40 flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper disabled:pointer-events-none disabled:opacity-30"
             onClick={scrollLeft}
             disabled={!canScrollLeft}
+            aria-label="Previous meetups"
           >
-            <IconArrowNarrowLeft className="h-6 w-6 text-white" />
+            <IconArrowNarrowLeft className="h-5 w-5" />
           </button>
           <button
-            className="relative z-40 h-10 w-10 rounded-full bg-orange-600 hover:bg-orange-500 flex items-center justify-center disabled:opacity-50 transition-colors"
+            className="relative z-40 flex h-11 w-11 items-center justify-center rounded-full bg-ember text-paper transition-colors hover:bg-ember-bright disabled:pointer-events-none disabled:opacity-30"
             onClick={scrollRight}
             disabled={!canScrollRight}
+            aria-label="More meetups"
           >
-            <IconArrowNarrowRight className="h-6 w-6 text-white" />
+            <IconArrowNarrowRight className="h-5 w-5" />
           </button>
         </div>
       </div>
@@ -204,7 +206,7 @@ export const Card = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="bg-black/80 backdrop-blur-lg h-full w-full fixed inset-0"
+              className="bg-ink/70 backdrop-blur-md h-full w-full fixed inset-0"
             />
             <motion.div
               initial={{ opacity: 0 }}
@@ -212,23 +214,24 @@ export const Card = ({
               exit={{ opacity: 0 }}
               ref={containerRef}
               layoutId={layout ? `card-${card.title}` : undefined}
-              className="max-w-5xl mx-auto border border-violet-300/[0.3] bg-neutral-900 dark:bg-black-100 h-fit z-[60] my-10 p-4 md:p-10 rounded-3xl font-sans relative"
+              className="relative z-[60] mx-3 my-6 h-fit max-w-5xl rounded-[1.75rem] border border-ink/10 bg-paper p-5 font-sans text-ink md:mx-auto md:my-10 md:p-10"
             >
               <button
-                className="sticky top-4 h-8 w-8 right-0 ml-auto bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
+                className="sticky top-4 right-0 ml-auto flex h-10 w-10 items-center justify-center rounded-full bg-ink text-paper transition-colors hover:bg-ember"
                 onClick={handleClose}
+                aria-label="Close gallery"
               >
-                <IconX className="h-6 w-6 text-neutral-900" />
+                <IconX className="h-5 w-5" />
               </button>
               <motion.p
                 layoutId={layout ? `category-${card.title}` : undefined}
-                className="text-base font-medium text-white"
+                className="eyebrow text-ember"
               >
                 {card.category}
               </motion.p>
               <motion.p
                 layoutId={layout ? `title-${card.title}` : undefined}
-                className="text-2xl md:text-5xl font-semibold text-white mt-4"
+                className="display mt-3 text-3xl md:text-5xl"
               >
                 {card.title}
               </motion.p>
@@ -240,19 +243,19 @@ export const Card = ({
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="rounded-3xl bg-neutral-900 h-80 w-56 md:h-[40rem] md:w-96 overflow-hidden flex flex-col items-start justify-start relative z-10"
+        className="group relative z-10 flex h-96 w-64 flex-col items-start justify-end overflow-hidden rounded-[1.75rem] bg-espresso md:h-[34rem] md:w-96"
       >
-        <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
-        <div className="relative z-40 p-8">
+        <div className="pointer-events-none absolute inset-0 z-30 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent" />
+        <div className="relative z-40 p-6 md:p-8">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-white text-sm md:text-base font-medium font-sans text-left"
+            className="eyebrow text-left text-flare"
           >
             {card.category}
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-2"
+            className="mt-2 max-w-xs text-left font-sans text-2xl font-semibold tracking-tight text-paper [text-wrap:balance] md:text-3xl"
           >
             {card.title}
           </motion.p>
@@ -261,7 +264,7 @@ export const Card = ({
           src={card.src}
           alt={card.title}
           fill
-          className="object-cover absolute z-10 inset-0"
+          className="absolute inset-0 z-10 object-cover transition-transform duration-700 group-hover:scale-105"
         />
       </motion.button>
     </>
