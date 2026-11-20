@@ -7,16 +7,17 @@ import MeetTheTeam from "@/components/MeetTheTeam";
 import FooterNew from "@/components/FooterNew";
 import AuthCallback from "@/components/AuthCallback";
 import { SITE_URL, SOCIAL } from '@/lib/constants';
+import { ogImage } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: "TechThrusters | Tech Community, Events & Meetups",
   description: "Join TechThrusters to learn, connect, and build in tech. Discover events, meetups, community programs, and opportunities to grow with 1900+ members.",
   openGraph: {
     url: SITE_URL,
-    images: [{ url: `${SITE_URL}/images/ogimagehome.png`, width: 1200, height: 630 }],
+    images: [ogImage('home', 'TechThrusters: Learn. Connect. Build together.')],
   },
   twitter: {
-    images: [`${SITE_URL}/images/ogimagehome.png`],
+    images: [ogImage('home', 'TechThrusters: Learn. Connect. Build together.')],
   },
 };
 

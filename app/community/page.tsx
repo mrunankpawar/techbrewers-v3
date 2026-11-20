@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Community from "@/components/Community";
 import Navbar from "@/components/Navbar";
 import FooterNew from "@/components/FooterNew";
+import { ogImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: 'TechThrusters Community | Join 1,900+ Developers',
@@ -14,13 +15,13 @@ export const metadata: Metadata = {
     title: 'TechThrusters Community | Join 1,900+ Developers',
     description: 'Explore the TechThrusters community journey, values, FAQs, and programs. Join 1,900+ developers to learn, connect, and build together.',
     url: 'https://techthrusters.org/community',
-    images: [{ url: 'https://techthrusters.org/images/ogimagecommunity.jpg', alt: 'TechThrusters Community' }],
+    images: [ogImage('community', 'TechThrusters: a community that grows with you')],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'TechThrusters Community | Join 1,900+ Developers',
     description: 'Explore the TechThrusters community journey, values, FAQs, and programs. Join 1,900+ developers to learn, connect, and build together.',
-    images: ['https://techthrusters.org/images/ogimagecommunity.jpg'],
+    images: [ogImage('community', 'TechThrusters: a community that grows with you')],
   },
   robots: { index: true, follow: true },
 };

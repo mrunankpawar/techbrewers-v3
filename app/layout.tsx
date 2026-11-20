@@ -7,6 +7,7 @@ import KeyboardShortcuts from "@/components/ui/KeyboardShortcuts";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { AuthProvider } from '@descope/nextjs-sdk';
+import { ogImage } from "@/lib/seo";
 
 const sans = Schibsted_Grotesk({
   subsets: ["latin"],
@@ -34,20 +35,13 @@ export const metadata: Metadata = {
     description: "Join the TechThrusters community to learn, connect and build in tech.",
     url: "https://techthrusters.org/",
     siteName: "TechThrusters",
-    images: [
-      {
-        url: "https://techthrusters.org/images/webogimage.png",
-        width: 1200,
-        height: 630,
-        alt: "TechThrusters - Empowering Tech Innovation & Community",
-      },
-    ],
+    images: [ogImage("home", "TechThrusters: Learn. Connect. Build together.")],
   },
   twitter: {
     card: "summary_large_image",
     title: "TechThrusters",
     description: "Join the TechThrusters community to learn, connect and build in tech.",
-    images: ["https://techthrusters.org/images/webogimage.png"],
+    images: [ogImage("home", "TechThrusters: Learn. Connect. Build together.")],
     creator: "@TechThrusters",
   },
   robots: {

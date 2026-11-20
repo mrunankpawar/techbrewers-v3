@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import FooterNew from '@/components/FooterNew';
 import TalksContent from '@/components/TalksContent';
+import { ogImage } from '@/lib/seo';
 
 const SITE = 'https://techthrusters.org';
 const CANONICAL = `${SITE}/talks`;
-const OG_IMAGE = `${SITE}/images/ogimagehome.png`;
+const OG_IMAGE = ogImage('talks', 'TechThrusters Talks: apply to speak');
 
 export const metadata: Metadata = {
   title: 'TechThrusters Talks | Apply to Speak',
@@ -29,14 +30,7 @@ export const metadata: Metadata = {
     title: 'TechThrusters Talks | Apply to Speak',
     description:
       'Propose a lightning talk, panel, or session for the TechThrusters community. Open speaker form—experienced and first-time speakers welcome.',
-    images: [
-      {
-        url: OG_IMAGE,
-        width: 1200,
-        height: 630,
-        alt: 'TechThrusters Talks — apply to speak',
-      },
-    ],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',

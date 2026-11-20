@@ -8,20 +8,12 @@ export default authMiddleware({
   // The URL to redirect to if the user is not authenticated
   redirectUrl: '/sign-up',
 
-  // Public routes that do not require authentication
-  publicRoutes: [
-    '/',
-    '/community',
-    '/events',
-    '/events/*',
-    '/meetup',
-    '/talks',
-    '/sign-up',
-    '/auth/callback',
-  ]
+  // Only these routes require a signed-in user; everything else is public.
+  // (Listing protected routes rather than public ones means unknown URLs show
+  // the 404 page instead of redirecting logged-out visitors to sign-up.)
+  privateRoutes: ['/profile', '/profile/*'],
 })
 
 export const config = {
   matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)']
 }
-
