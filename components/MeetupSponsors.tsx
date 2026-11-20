@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { SPONSORS, LogoMark } from "./Sponsors";
+import { LogoMark } from "./Sponsors";
+import { SPONSORS } from "@/data/sponsors";
 import { SectionLabel } from "./ui/Launch";
 
 const ease = [0.22, 1, 0.36, 1] as const;

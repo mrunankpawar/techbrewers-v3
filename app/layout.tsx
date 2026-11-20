@@ -7,6 +7,8 @@ import KeyboardShortcuts from "@/components/ui/KeyboardShortcuts";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { AuthProvider } from '@descope/nextjs-sdk';
+import { ogImage } from "@/lib/seo";
+import { siteGraph, jsonLd } from "@/lib/structured-data";
 
 const sans = Schibsted_Grotesk({
   subsets: ["latin"],
@@ -20,6 +22,9 @@ const serif = Newsreader({
   axes: ["opsz"],
   variable: "--font-serif",
   display: "swap",
+  // Next.js has no fallback metrics for Newsreader; skip the adjustment
+  // instead of logging "Failed to find font override values" on every build.
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
@@ -34,20 +39,13 @@ export const metadata: Metadata = {
     description: "Join the TechThrusters community to learn, connect and build in tech.",
     url: "https://techthrusters.org/",
     siteName: "TechThrusters",
-    images: [
-      {
-        url: "https://techthrusters.org/images/webogimage.png",
-        width: 1200,
-        height: 630,
-        alt: "TechThrusters - Empowering Tech Innovation & Community",
-      },
-    ],
+    images: [ogImage("home", "TechThrusters: Learn. Connect. Build together.")],
   },
   twitter: {
     card: "summary_large_image",
     title: "TechThrusters",
     description: "Join the TechThrusters community to learn, connect and build in tech.",
-    images: ["https://techthrusters.org/images/webogimage.png"],
+    images: [ogImage("home", "TechThrusters: Learn. Connect. Build together.")],
     creator: "@TechThrusters",
   },
   robots: {
@@ -64,6 +62,7 @@ export default function RootLayout({
   return (
     <html className="bg-[#1a1209]" lang="en" suppressHydrationWarning>
       <body className={`${sans.variable} ${serif.variable} font-sans bg-[#1a1209]`}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(siteGraph()) }} />
       <AuthProvider 
         projectId={process.env.NEXT_PUBLIC_DESCOPE_PROJECT_ID || ""}
         persistTokens={true}

@@ -6,14 +6,13 @@ import { motion } from 'framer-motion';
 import { PageHeader } from './ui/Launch';
 import { ArrowButton } from './ui/ArrowButton';
 import { DISCORD_URL } from '@/lib/constants';
+import { MEETUP_STATS } from '@/data/site';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const stats = [
-  { value: '7+', label: 'Meetups organized', image: '/images/thiings/organize.png' },
-  { value: '14+', label: 'Expert speakers', image: '/images/thiings/speaker.png' },
-  { value: '500+', label: 'Total attendees', image: '/images/thiings/attendees.png' },
-];
+const STAT_IMAGES = ['/images/thiings/organize.png', '/images/thiings/speaker.png', '/images/thiings/attendees.png'];
+const stats = MEETUP_STATS.map((s, i) => ({ ...s, image: STAT_IMAGES[i] }));
+
 
 const MeetupStats = () => {
   return (

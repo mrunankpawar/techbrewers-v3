@@ -8,15 +8,18 @@ import { ChevronRight } from 'lucide-react';
 import Navbar from './Navbar';
 import { ArrowButton } from './ui/ArrowButton';
 import { DISCORD_URL } from '@/lib/constants';
+import { COMMUNITY_STATS } from '@/data/site';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const stats = [
-  { value: '1,900+', label: 'Members', tile: 'bg-flare text-ink', avatar: '/images/header/1.png' },
-  { value: '50+', label: 'Events & workshops', tile: 'bg-paper text-ink ring-1 ring-inset ring-ink/10', avatar: '/images/header/2.png' },
-  { value: '10', label: 'Countries', tile: 'bg-espresso text-paper', avatar: '/images/header/3.png' },
-  { value: '4 yrs', label: 'And growing', tile: 'bg-ember text-paper', avatar: '/images/header/5.png' },
+const TILE_STYLE = [
+  { tile: 'bg-flare text-ink', avatar: '/images/header/1.png' },
+  { tile: 'bg-paper text-ink ring-1 ring-inset ring-ink/10', avatar: '/images/header/2.png' },
+  { tile: 'bg-espresso text-paper', avatar: '/images/header/3.png' },
+  { tile: 'bg-ember text-paper', avatar: '/images/header/5.png' },
 ];
+const stats = COMMUNITY_STATS.map((s, i) => ({ ...s, ...TILE_STYLE[i] }));
+
 
 const HeroNew = () => {
   const reduce = useReducedMotion();

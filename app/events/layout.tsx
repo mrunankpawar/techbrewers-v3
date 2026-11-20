@@ -9,7 +9,7 @@ export default function EventsLayout({
   return (
     <div className="min-h-screen bg-paper">
       <Navbar />
-      {children}
+      <main>{children}</main>
       <FooterNew />
     </div>
   );
