@@ -21,6 +21,9 @@ const serif = Newsreader({
   axes: ["opsz"],
   variable: "--font-serif",
   display: "swap",
+  // Next.js has no fallback metrics for Newsreader; skip the adjustment
+  // instead of logging "Failed to find font override values" on every build.
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
