@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
+import { authRedirectUrl } from '@/lib/auth-redirect';
 import Image from 'next/image';
 import { Check } from 'lucide-react';
 import Navbar from '@/components/Navbar';
@@ -95,6 +96,7 @@ export default function SignUpPage() {
               ) : (
                 <Descope
                   flowId="sign-up-or-in"
+                  redirectUrl={authRedirectUrl()}
                   theme="light"
                   onSuccess={handleSuccess}
                   onError={handleError}
